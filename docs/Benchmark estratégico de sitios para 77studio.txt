@@ -1,0 +1,440 @@
+Benchmark estratégico de sitios para 77studio
+Resumen ejecutivo
+Tu sitio actual ya tiene una base de posicionamiento muy útil: plantea a 77 Studio como una agencia que
+integra pauta, contenido y automatización, con un “Marketing 360” configurable, orientado a empresas
+medianas y PYMEs de Colombia y Estados Unidos, y con CTAs primarios a diagnóstico y WhatsApp. Esa base
+es sólida porque ya apunta a un dolor real del mercado: no vender “piezas sueltas”, sino un sistema. 1
+Después de revisar un benchmark amplio de agencias comparables y de startups/SaaS de referencia, la
+conclusión principal es que los sitios con mejor desempeño percibido hoy no se venden como “proveedores
+de tareas”, sino como sistemas operativos de crecimiento, creatividad o ejecución. En agencias, eso
+aparece en fórmulas como “creative team’s creative team”, “composable web agency” o “growth squad”; en
+startups, aparece en proposiciones como “product development system”, “agentic web platform” o “AI
+workflows, apps & agents”. El denominador común es el mismo: menos lista de servicios, más motor
+integrado con una promesa de resultado. 2
+También encontré una diferencia clara entre dos familias de sitios. Las agencias premium esconden precio
+y venden cercanía consultiva, expertise y casos; las agencias productizadas revelan precio, SLA y alcance
+para reducir fricción comercial. Designjoy es el ejemplo más extremo del segundo modelo, mientras Clay,
+Webstacks y Superside representan distintas versiones del primero. 3
+En startups, la mejor práctica dominante es aún más consistente: una sola idea fuerte en la hero,
+producto real visible arriba del fold, CTA inmediato y prueba social temprana. Los análisis recientes de
+sitios de referencia resaltan precisamente eso: headline único y preciso, demostración de producto antes
+que explicación, y velocidad/performance como parte del diseño, no como detalle técnico. 4
+Mi recomendación general para 77studio es no elegir entre “agencia de marketing”, “software shop” o
+“partner de automatización”. El ángulo más prometedor es combinar los tres, pero expresarlo como una
+sola categoría propia: un sistema de crecimiento digital que conecta adquisición, contenido,
+automatización comercial y experiencia web. Esa es la lógica que mejor conecta con tu sitio actual y con
+los patrones ganadores del benchmark. 5
+
+Metodología y alcance
+Priorizé páginas oficiales de homepage, pricing y, cuando aportaban señal clara, páginas de servicios o
+navegación principal. Para patrones macro de diseño y mensajería usé además referencias secundarias de
+benchmarking reciente, útiles para validar tendencias más amplias en sitios de agencias y startups. 6
+Construí un benchmark con 80 sitios en total:
+• 40 agencias comparables
+
+1
+
+• 40 startups/compañías de referencia
+Para cada sitio registré los campos que pediste en un anexo descargable: URL, nombre, país, año de
+fundación, descripción breve, audiencia objetivo, propuesta de valor, pricing visible, patrones UX/UI, hero
+copy, CTA principal, señales públicas de stack y motivo de inspiración. Además dejé preparada una captura
+por homepage en el anexo HTML. Cuando un sitio no hacía visible un dato en sus fuentes oficiales, lo dejé
+como no visible, custom o inferencial según el caso.
+Los anexos descargables son estos:
+Anexo HTML con las 80 fichas y capturas
+CSV maestro del benchmark
+Una salvedad metodológica importante: el campo de stack es un indicador público, no una auditoría
+técnica completa. Por ejemplo, en varios sitios aparecen señales explícitas de Webflow a través de
+cdn.prod.website-files.com ; Clay y Webstacks muestran señales públicas de Sanity; Vercel hace
+visible Next.js en su propia navegación; y Linear exhibe React en partes de su experiencia pública. Eso sirve
+como señal útil, pero no como inventario exhaustivo de arquitectura. 7
+
+Inventario y anexos del benchmark
+Para no romper la lectura del informe con una tabla gigantesca de 80 filas y 14 columnas, dejé la tabla
+maestra completa en los anexos HTML y CSV enlazados arriba. Ese anexo es el entregable utilitario: allí
+puedes filtrar por país, pricing, stack, vertical, estilo visual o modelo de oferta, y ver además la mini-captura
+asociada a cada homepage.
+La selección de agencias incluye, entre otras, a Clay, Superside, Designjoy, Webstacks, Refokus, Ramotion,
+NoGood, Single Grain, Siege Media, Growmodo, Tonik, Fantasy, Instrument, Metalab, Work & Co, AKQA,
+Huge, Red Antler, Finsweet, Flowout, Halo Lab, Utility, Netguru, thoughtbot, BairesDev, WebFX, SmartSites,
+CodeDesign, Tuff, Duck.design y Animalz. La selección de startups incluye a Linear, Notion, Framer, Webflow,
+Airtable, Vercel, Retool, Zapier, Replit, Cursor, Lovable, Figma, Loom, Typeform, Canva, Stripe, Calendly,
+Coda, Miro, Pitch, beehiiv, Kit, Tally, Gumroad, Descript, Mercury, Ramp, Brex, Deel, Rippling, Attio, Clay,
+Perplexity, Superhuman, Vanta, Gusto y monday.com.
+En términos de utilidad práctica, te sugiero usar el anexo de dos maneras. Primero, como biblioteca visual:
+mira las capturas seguidas y detecta patrones de hero, densidad visual, tono de copy, estructura de CTA y
+manejo del proof. Segundo, como matriz de posicionamiento: filtra por pricing, tipo de audiencia y nivel
+de especialización para decidir si 77studio quiere parecerse más a una agencia productizada, a una firma
+premium consultiva, a un growth partner técnico o a una mezcla nueva de esas categorías.
+
+Patrones que dominan en los sitios de agencias
+La primera gran tendencia es la conversión de la agencia en sistema. Tu propio sitio ya va por ahí cuando
+dice “No vendemos piezas sueltas. Construimos un sistema completo” y cuando presenta Marketing 360
+como una solución configurada según el negocio. Clay hace algo parecido desde una lógica de branding +
+
+2
+
+UX + tecnología; Superside se presenta como el equipo creativo del equipo creativo; Webstacks se define
+como “Composable Web Agency”; y NoGood vende “growth squads” AI-native, no simplemente servicios
+separados. 8
+La segunda tendencia es la productización selectiva. El mercado está separando claramente dos formatos.
+Por un lado, las agencias premium/enterprise privilegian “Contact”, “Book a demo”, “Talk to an expert” y
+cotización personalizada. Clay y Webstacks son buenos ejemplos. Por otro, las agencias productizadas
+hacen visible el precio, la mecánica y el SLA para disminuir incertidumbre. Designjoy lo hace de forma
+ejemplar con una propuesta de suscripción, precio mensual visible, entrega promedio en 48 horas y la
+promesa de pausar o cancelar cuando sea necesario. Superside se sitúa en un punto intermedio: sigue
+siendo consultiva, pero estructura su discurso alrededor de un sistema de suscripción flexible y equipos
+dedicados. 9
+La tercera tendencia es que el proof aparece antes que en los sitios de agencia de hace pocos años.
+NoGood pone logos, resultados, retención y FAQs de pricing en homepage; Webstacks muestra logos y
+testimonios de equipos de growth; 77studio ya introduce testimonios, resultados y el lenguaje “Resultados
+reales. No promesas…”. Eso es importante porque reduce la distancia entre promesa y evidencia. 10
+La cuarta tendencia es visual: en 2026 predominan la tipografía como protagonista, el motion sobrio
+pero constante, la dirección de arte editorial y la segmentación por bloques. Los análisis recientes de
+benchmarking señalan precisamente tipografía hero, interacción cuidada y diseño guiado por la
+demostración, no por adornos gratuitos. Refoques como Clay o Refokus llevan esto a un nivel muy alto;
+pero incluso sitios más comerciales como Superside o Webstacks adoptan esa lógica de bloques, jerarquía
+amplia y transiciones limadas. 11
+La quinta tendencia es más estratégica que visual: AI ya no se vende como “bonus” sino como capa
+operativa. Clay habla de trabajar con AI para construir mejores productos; Superside de workflows AI-first;
+NoGood de AI-native growth operations; 77studio de automatización con IA integrada al sistema de
+crecimiento. El patrón común es que la IA no aparece como gimmick, sino como multiplicador de velocidad,
+calidad y continuidad operacional. 12
+
+Patrones que dominan en los sitios de startups
+En startups de referencia, el patrón dominante es el producto visible y legible en la hero. Linear no abre
+con un manifiesto largo; abre con una definición precisa del sistema y una interfaz real en movimiento.
+Webflow hace algo parecido con “Make your website a growth engine” y CTA dual entre start free y sales.
+Airtable y Retool también ponen el sistema en la pantalla inicial y explican rápidamente qué trabajo
+reemplazan o aceleran. 13
+La segunda gran tendencia es el lenguaje AI-native / agentic sobre procesos concretos. Linear habla de
+producto para equipos y agentes, diseñado para la era AI. Webflow se posiciona como “agentic web
+platform”. Airtable vende workflows, apps y agents. Vercel se define incluso como “Agentic Infrastructure”.
+Retool promete apps productivas con seguridad y gobernanza integradas. Esto sugiere que, para
+audiencias sofisticadas, la promesa fuerte ya no es “usamos IA”, sino “orquestamos trabajo con humanos +
+agentes + software”. 14
+
+3
+
+La tercera tendencia es la convivencia de dos funnels en la misma portada: PLG y enterprise. Webflow
+combina “Start for free” con “Talk to sales”; Linear combina sign up con pricing y contacto; Framer, Notion y
+Vercel muestran tiers gratuitos o de entrada junto a escalones enterprise. No es un detalle menor: indica
+que los mejores sitios no obligan a elegir entre auto-servicio y venta consultiva, sino que habilitan ambas
+rutas desde arriba. 15
+La cuarta tendencia es la segmentación temprana por equipo, tamaño o caso de uso. Notion la hace
+desde la navegación misma con equipos, company size y use cases. Webflow introduce enterprise en hero.
+Airtable ordena su plataforma por productos y capacidades. Este patrón es importante para 77studio
+porque tu mezcla de marketing, desarrollo y automatización puede resultar muy valiosa, pero también muy
+amplia si no se segmenta bien para cada buyer. 16
+La quinta tendencia es la disciplina del pricing. Notion publica Free, Plus, Business y Enterprise con precios
+por asiento; Linear publica Free, Basic y Enterprise; Framer arranca en Free y Basic; Webflow mantiene
+Starter gratis; Vercel estructura Hobby, Pro y Enterprise. El pricing aquí no solo monetiza: también organiza
+mentalmente el producto y acelera la comparación. 17
+
+Ideas concretas para combinar con tu concepto secreto
+Las siguientes ideas no dependen de saber tu concepto secreto; están diseñadas para ser agnósticas al
+concepto y combinables con él.
+1. Reformular la categoría de 77studio como sistema, no agencia. En vez de encabezar con canales
+o servicios, prueba algo como “El sistema de crecimiento digital que conecta adquisición, contenido
+y automatización comercial”. Eso está más cerca del lenguaje que hoy gana entre agencias y
+software. 18
+2. Usar una hero de doble entrada. Un CTA para “Agenda diagnóstico” y otro para “Ver cómo funciona
+el sistema” o “Ver demo del flujo”. El benchmark muestra que la combinación de ruta consultiva y
+ruta orientada a producto reduce fricción y amplía cobertura de buyer intent. 19
+3. Convertir Marketing 360 en una arquitectura de paquetes visibles. No hace falta publicar una
+lista cerrada de precios, pero sí conviene tener una escalera muy clara: “Growth Core”, “Growth +
+Automation”, “Growth OS” o equivalente. Designjoy, Superside y los SaaS con pricing bien
+organizado muestran el valor de hacer legible la oferta. 20
+4. Mostrar una franja visual del sistema operacional. No solo decir “hacemos automatización”, sino
+enseñar literalmente el flujo: anuncio → landing → CRM → scoring → agenda → seguimiento email/
+SMS/WhatsApp → cierre. Esa tangibilidad es lo que vuelve increíblemente convincentes a Linear,
+Airtable, Retool y Webflow. 21
+5. Construir una navegación por audiencias. Por ejemplo: “Para constructoras”, “Para hotelería”,
+“Para retail físico”, “Para educación”, o “Para equipos de marketing”, “Para founders”, “Para ventas”.
+Notion y muchos SaaS top convierten amplitud en claridad gracias a esa segmentación. 22
+
+4
+
+6. Crear una banda de indicadores económicos, no solo de actividad. No limitar el proof a leads o
+community growth: incluir tiempo ahorrado, CAC mejorado, velocidad de respuesta, % de leads
+calificados automáticamente, o días ahorrados por campaña. Los mejores sitios empresariales
+cuantifican beneficios de negocio, no solo outputs. 23
+7. Diseñar una capa “AI operativa” con lenguaje sobrio. En vez de “automatización con IA” genérica,
+usar frases más concretas como “calificación automática de leads”, “seguimiento inteligente”,
+“respuesta inmediata”, “handoff a ventas”. Así se parece más a una capability real que a una moda.
+24
+
+8. Introducir una sección de “cómo trabajamos” muy visual. Designjoy vende muy bien porque el
+proceso es clarísimo: suscríbete, pide, recibe. 77studio podría tener una versión propia: diagnosticar,
+diseñar sistema, lanzar, automatizar, optimizar. 25
+9. Elevar la dirección de arte sin perder claridad comercial. El mejor punto de equilibrio para
+77studio no está en copiar el maximalismo experimental, sino en mezclar la claridad operativa de
+Webstacks o Linear con el polish premium de Clay o Framer. 26
+10. Volver el contenido un producto de confianza, no un apéndice. Tu sitio ya tiene blog, YouTube,
+recursos y workshops. El siguiente paso es organizar eso como un “lab” o “playbook center” que
+demuestre que 77studio no solo ejecuta, sino que entiende y enseña el sistema. Ese movimiento es
+especialmente potente en agencias que quieren parecer más serias y menos tácticas. 27
+
+Hero con categoría propia
+
+Prueba social inmediata
+
+Dolores del cliente
+
+El sistema 77studio
+
+Adquisición
+
+Contenido
+
+Casos y métricas
+
+Paquetes o rutas de
+engagement
+
+Recursos y playbooks
+
+CTA final a diagnóstico o
+demo
+
+5
+
+Automatización
+
+Shortlist recomendada como referencias primarias
+Si tuviera que reducir todo el benchmark a ocho referencias madre para rediseñar o reposicionar
+77studio, usaría estas cuatro agencias y estas cuatro startups.
+
+Agencias
+Sitio
+
+Qué tomaría
+
+Por qué merece estar en el core set
+
+Clay
+
+La combinación de branding premium,
+UX y tecnología; además, el tono
+maduro y la jerarquía visual.
+
+Porque demuestra que se puede vender
+sofisticación sin perder comprensión
+inmediata de la oferta. 28
+
+Webstacks
+
+La forma de unir marketing con
+credenciales técnicas y arquitectura
+composable.
+
+Porque está muy cerca de la necesidad de
+77studio de conectar marketing, sitios y
+operación digital. 29
+
+Superside
+
+La construcción de una oferta de
+servicio como sistema escalable con
+lenguaje de capacidad.
+
+Porque convierte una agencia en una
+plataforma-relación y no en un proveedor de
+tareas. 30
+
+Designjoy
+
+La productización brutal de la oferta y
+la claridad del proceso y pricing.
+
+Porque obliga a pensar qué parte de 77studio
+debería dejar de venderse “por propuesta” y
+empezar a venderse “como producto”. 31
+
+Startups
+Sitio
+
+Qué tomaría
+
+Por qué merece estar en el core set
+
+Linear
+
+La hero precisa, la interfaz real arriba
+del fold y el feeling de velocidad.
+
+Porque es el benchmark más fuerte de claridad,
+craft y foco producto en software moderno. 32
+
+Framer
+
+El polish visual y la capacidad de
+hacer que el producto sea la
+demostración del propio sitio.
+
+Porque ofrece una referencia de diseño-led SaaS
+que se siente premium sin ser confuso. 33
+
+Webflow
+
+La mezcla de PLG + enterprise y la
+relectura del sitio web como growth
+engine.
+
+Porque 77studio puede apropiarse de esa visión:
+la web no como brochure, sino como activo de
+crecimiento y operación. 34
+
+Airtable
+
+La narrativa de workflows, apps y
+agentes conectados alrededor del
+dato.
+
+Porque es una referencia excelente para vender
+automatización y “sistema” de forma tangible y
+empresarial. 35
+
+Mi lectura final es esta: 77studio no debería emular un solo sitio, sino una combinación precisa. La
+mejor mezcla para ti sería:
+• Clay para tono de marca y percepción premium.
+• Webstacks para arquitectura de oferta y legitimidad técnica.
+
+6
+
+• Designjoy para claridad de empaquetado.
+• Superside para escala percibida y narrativa de capacidad.
+• Linear para hero y product visualization.
+• Framer para refinamiento visual.
+• Webflow para framing de la web como motor de negocio.
+• Airtable para expresar automatización como sistema operativo.
+Eso te deja una dirección muy concreta: un sitio más premium que una agencia de performance
+tradicional, más tangible que una consultora creativa pura y más entendible que una software house
+genérica. Y esa, en mi opinión, es la posición exacta donde 77studio puede verse distinta y más valiosa.
+36
+
+77 Studio | Agencia de Marketing Digital y Publicidad – Agencia de marketing
+digital especializada en redes sociales, publicidad en Meta, Google y TikTok, automatización y estrategias
+para generar leads y ventas en Colombia y Estados Unidos.
+1
+
+5
+
+8
+
+18
+
+19
+
+23
+
+27
+
+36
+
+https://77studio.co/
+2
+
+30
+
+Superside: Your creative team’s creative team™
+
+https://www.superside.com/
+3
+
+9
+
+12
+
+28
+
+Clay | UX Design & Branding Agency
+
+https://clay.global/
+4
+
+6
+
+30 Best Startup Websites in 2026 (With Breakdowns)
+
+https://www.metabrand.digital/learn/best-startup-website-examples-2026?utm_source=chatgpt.com
+7
+
+20
+
+25
+
+31
+
+Designjoy - Design as a Subscription
+
+https://www.designjoy.co/
+10
+
+NoGood™: Growth Marketing Agency
+
+https://nogood.io/
+11
+
+50 Sitios web mejor diseñados 2026 — Social Animal
+
+https://socialanimal.dev/es/blog/best-designed-websites-2026-examples/?utm_source=chatgpt.com
+13
+
+14
+
+21
+
+32
+
+Linear – The system for product development
+
+https://linear.app/
+15
+
+34
+
+Webflow: The agentic web platform for modern businesses
+
+https://webflow.com/
+16
+
+22
+
+The AI workspace that works for you. | Notion
+
+https://www.notion.so/
+17
+
+Pricing – Linear
+
+https://linear.app/pricing
+24
+
+SERVICIOS – 77 Studio | Agencia de Marketing Digital y Publicidad
+
+https://77studio.co/servicios
+26
+
+29
+
+Webstacks: The Composable Web Agency
+
+https://www.webstacks.com/
+
+7
+
+33
+
+Framer: AI website builder for professional sites
+
+https://www.framer.com/
+35
+
+Airtable: Build Enterprise-ready AI Workflows, Apps & Agents | Airtable
+
+https://www.airtable.com/
+
+8
+
+

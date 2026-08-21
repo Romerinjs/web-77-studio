@@ -1,0 +1,15 @@
+# Exclusión explícita por requerimiento del proyecto
+template/
+
+# Build outputs & node_modules
+node_modules/
+dist/
+.astro/
+.vercel/
+
+# Archivos del sistema e IDE
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+.gemini/
