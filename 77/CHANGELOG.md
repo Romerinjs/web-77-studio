@@ -9,6 +9,8 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1
 ## [Unreleased] - 2026-08-21
 
 ### Added
+- Definición de la **Estrategia de Ramas de 3 Niveles (`feature/*` -> `develop` Staging -> `main` Producción)** con protocolo Human-in-the-loop y soporte para el comando `/goal`.
+- Creación del comando `npm run 77 feature <nombre>` en la CLI para aislamiento automático de ramas y advertencia de protección en `main` y `develop`.
 - Creación de la Skill dedicada `.agents/skills/77-commit-and-docs/SKILL.md` para automatizar commits y documentación técnica de propiedades.
 - Creación de la CLI para Agentes `scripts/77-cli.mjs` accesible con `npm run 77 <comando>` (inspect, knowledge, generate, commit).
 - Creación del Módulo 08: Integraciones de Marketing (`77/08-integraciones-marketing/index.mdx`) con soporte para Meta Pixel + CAPI serverless, Google Ads, GTM, GA4 y UTM Tracking.

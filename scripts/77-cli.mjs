@@ -31,6 +31,9 @@ switch (command.toLowerCase()) {
   case 'inspect':
     inspectProject();
     break;
+  case 'feature':
+    createFeatureBranch(args[1]);
+    break;
   case 'generate':
     generateTemplate(args[1], args[2]);
     break;
@@ -40,6 +43,7 @@ switch (command.toLowerCase()) {
   default:
     console.log(`
 Comandos disponibles:
+  npm run 77 feature <nombre-meta>    -> Crea y cambia a una rama aislada (feature/<nombre-meta>)
   npm run 77 knowledge               -> Construye public/knowledge.json para el Agente de IA
   npm run 77 inspect                 -> Muestra el resumen del estado del proyecto
   npm run 77 generate <tipo> <nombre> -> Genera componente o especificación de módulo
@@ -168,9 +172,36 @@ const { title = '${name}', className = '' } = Astro.props;
 }
 
 /**
+ * Crea una rama de objetivo / feature aislada
+ */
+function createFeatureBranch(name) {
+  if (!name) {
+    console.log('\x1b[31m%s\x1b[0m', '❌ Especifica un nombre para la feature. Ejemplo: npm run 77 feature home-hero');
+    return;
+  }
+  const branchName = name.startsWith('feature/') ? name : `feature/${name}`;
+  console.log('\x1b[36m%s\x1b[0m', `🌿 Creando rama aislada: "${branchName}"...`);
+  try {
+    execSync(`git checkout -b ${branchName}`, { stdio: 'inherit' });
+    console.log('\x1b[32m%s\x1b[0m', `✅ Switched to branch ${branchName}`);
+  } catch (e) {
+    console.error('\x1b[31m%s\x1b[0m', '❌ Error creando la rama.');
+  }
+}
+
+/**
  * Manejador de Commits Estandarizados
  */
 function handleCommit(commitArgs) {
+  // Verificar rama activa para protección
+  try {
+    const currentBranch = execSync('git branch --show-current', { encoding: 'utf-8' }).trim();
+    if (currentBranch === 'main' || currentBranch === 'develop') {
+      console.log('\x1b[33m%s\x1b[0m', `⚠️ ADVERTENCIA: Estás en la rama protegida "${currentBranch}".`);
+      console.log('\x1b[33m%s\x1b[0m', '   Se recomienda trabajar en una rama aislada con: npm run 77 feature <nombre>');
+    }
+  } catch (e) {}
+
   const type = commitArgs[0] || 'feat';
   const msg = commitArgs.slice(1).join(' ') || 'update project components and documentation';
 
