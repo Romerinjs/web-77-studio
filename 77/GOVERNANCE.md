@@ -130,9 +130,18 @@ El proyecto **77 Studio Web** sigue el esquema de versión **`MAJOR.MINOR.PATCH`
 
 ---
 
-## 7. Protocolo de Verificación e Higiene del Repositorio
+## 8. Uso Obligatorio de la CLI de Agentes (`npm run 77`) & Skill `77-commit-and-docs`
 
-Antes de fusionar cualquier PR a `main`:
-1. **Linter & Type Check:** Run `npm run check` o `astro check`.
-2. **Build Success:** Validar que `npm run build` genera la carpeta `dist/` sin errores en Vercel.
-3. **CRO Verification:** Asegurar que los links prellenados de WhatsApp y botones CTA funcionen adecuadamente en la vista previa.
+Todo desarrollador o agente de IA que realice adiciones de propiedades, nuevos componentes o modificaciones en el core debe utilizar la skill `.agents/skills/77-commit-and-docs/SKILL.md` y la CLI oficial del proyecto:
+
+```bash
+# Reconstruir la base de conocimiento JSON para el Agente de IA Chat (RAG)
+npm run 77 knowledge
+
+# Ejecutar commit estandarizado y actualizar CHANGELOG.md automáticamente
+npm run 77 commit
+
+# Inspeccionar el estado de la arquitectura y módulos documentados
+npm run 77 inspect
+```
+

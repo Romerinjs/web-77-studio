@@ -41,8 +41,12 @@ La carpeta `77/` organiza la documentación y especificaciones modulares por sub
 │   └── index.mdx                   # Especificación modular y layout MDX de Productos Digitales
 ├── 06-nosotros/
 │   └── index.mdx                   # Especificación modular y layout MDX de Acerca de Nosotros
-└── 07-contacto/
-    └── index.mdx                   # Especificación modular y layout MDX de Contacto
+├── 07-contacto/
+│   └── index.mdx                   # Especificación modular y layout MDX de Contacto
+├── 08-integraciones-marketing/
+│   └── index.mdx                   # Meta CAPI, Google Ads, GTM, GA4 y UTM Tracking
+└── 09-ia-agent-chat/
+    └── index.mdx                   # Widget AIChatWidget, /api/chat.ts y RAG con public/knowledge.json
 ```
 
 ---
@@ -59,6 +63,8 @@ La carpeta `77/` organiza la documentación y especificaciones modulares por sub
 | **05 | Prod. Digitales** | `77/05-productos-digitales/` | `/productos-digitales` | Posicionar capacidad de crear SaaS, MVP, portales y dashboards. | `"Hola 77 Studio 👋 Tengo una idea para una herramienta o producto digital..."` |
 | **06 | Nosotros** | `77/06-nosotros/` | `/nosotros` | Generar confianza, mostrar equipo real y operación CO ↔ USA. | `"Hola 77 Studio 👋 Vi su historia y equipo y quisiera conversar sobre un proyecto."` |
 | **07 | Contacto** | `77/07-contacto/` | `/contacto` | Capturar conversaciones de alta intención por WhatsApp o Formulario. | `"Hola 77 Studio 👋 Quiero conversar con ustedes sobre un proyecto para mi empresa."` |
+| **08 | Marketing Infra** | `77/08-integraciones-marketing/` | `/api/events/*` | Tracking Meta CAPI, Google Ads, GTM, GA4 y UTM Tracking en la conversión dual. | N/A |
+| **09 | IA Agent & Chat** | `77/09-ia-agent-chat/` | `/api/chat` | Asistente inteligente RAG consultor de servicios con `public/knowledge.json`. | N/A |
 
 ---
 

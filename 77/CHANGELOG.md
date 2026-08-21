@@ -9,6 +9,10 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1
 ## [Unreleased] - 2026-08-21
 
 ### Added
+- Creación de la Skill dedicada `.agents/skills/77-commit-and-docs/SKILL.md` para automatizar commits y documentación técnica de propiedades.
+- Creación de la CLI para Agentes `scripts/77-cli.mjs` accesible con `npm run 77 <comando>` (inspect, knowledge, generate, commit).
+- Creación del Módulo 08: Integraciones de Marketing (`77/08-integraciones-marketing/index.mdx`) con soporte para Meta Pixel + CAPI serverless, Google Ads, GTM, GA4 y UTM Tracking.
+- Creación del Módulo 09: Agente de IA Chat (`77/09-ia-agent-chat/index.mdx`) con especificación de `<AIChatWidget />`, endpoint serverless agnóstico `/api/chat.ts` y RAG mediante `public/knowledge.json`.
 - Creación del Módulo 00 de Setup (`77/00-setup/index.mdx`) con requisitos de entorno, comandos de Astro 5, matriz de dependencias npm y matriz de 5 habilidades clave del desarrollador.
 - Creación de la estructura modular de documentación en la carpeta `77/`.
 - Definición de especificaciones MDX para las 7 vistas principales (`01-home` a `07-contacto`).
