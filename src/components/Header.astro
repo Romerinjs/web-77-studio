@@ -1,0 +1,64 @@
+---
+// src/components/Header.astro
+// Floating Header Navbar basada en el Design System de 77 Studio
+interface Props {
+  currentPath?: string;
+  lang?: 'ES' | 'EN';
+}
+
+const { currentPath = '/', lang = 'ES' } = Astro.props;
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/marketing', label: 'Marketing' },
+  { href: '/web', label: 'Web' },
+  { href: '/ia-automatizacion', label: 'IA & Auto' },
+  { href: '/productos-digitales', label: 'Productos' },
+  { href: '/nosotros', label: 'Nosotros' },
+];
+
+const defaultWhatsappMsg = encodeURIComponent("Hola 77 Studio 👋 Vi su página web y quisiera conversar sobre un proyecto para mi empresa.");
+const whatsappUrl = `https://wa.me/573000000000?text=${defaultWhatsappMsg}`;
+---
+
+<header class="fixed top-5 left-1/2 z-50 mx-auto flex w-[92%] max-w-[1290px] -translate-x-1/2 items-center justify-between rounded-2xl bg-white/90 px-4 py-2.5 backdrop-blur-[25px] border border-black/10 shadow-sm transition-all duration-300">
+  <!-- Brand Logo -->
+  <a href="/" class="flex items-center gap-2 font-sora text-xl font-bold tracking-tight text-[#0A0A0A] hover:opacity-80 transition-opacity">
+    <span class="flex h-8 w-8 items-center justify-center rounded-lg bg-opai-purple text-white font-mono text-sm font-bold shadow-sm">77</span>
+    <span>Studio</span>
+  </a>
+
+  <!-- Desktop Navigation Menu -->
+  <nav class="hidden md:flex items-center gap-1 font-inter-tight text-sm font-medium">
+    {navItems.map(item => (
+      <a 
+        href={item.href} 
+        class={`px-3 py-1.5 rounded-lg transition-colors ${currentPath === item.href ? 'bg-black/5 text-[#0A0A0A] font-semibold' : 'text-[#0A0A0A]/70 hover:text-[#0A0A0A] hover:bg-black/5'}`}
+      >
+        {item.label}
+      </a>
+    ))}
+  </nav>
+
+  <!-- Right Actions: ES/EN Selector & CTA -->
+  <div class="flex items-center gap-3">
+    <!-- Language Selector -->
+    <div class="flex items-center rounded-lg border border-black/10 bg-slate-50 p-0.5 font-ibm-plex-mono text-xs font-medium">
+      <button type="button" class={`px-2 py-1 rounded-md transition-colors ${lang === 'ES' ? 'bg-white shadow-xs text-[#0A0A0A] font-bold' : 'text-[#0A0A0A]/50 hover:text-[#0A0A0A]'}`}>ES</button>
+      <button type="button" class={`px-2 py-1 rounded-md transition-colors ${lang === 'EN' ? 'bg-white shadow-xs text-[#0A0A0A] font-bold' : 'text-[#0A0A0A]/50 hover:text-[#0A0A0A]'}`}>EN</button>
+    </div>
+
+    <!-- CTA Hablemos -->
+    <a 
+      href={whatsappUrl} 
+      target="_blank" 
+      rel="noopener noreferrer" 
+      class="hidden sm:flex items-center justify-center gap-1.5 rounded-xl bg-opai-purple px-4 py-2 font-ibm-plex-mono text-xs font-semibold text-white shadow-sm hover:opacity-90 transition-all duration-200"
+    >
+      <span>Hablemos</span>
+      <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+      </svg>
+    </a>
+  </div>
+</header>

@@ -1,0 +1,54 @@
+---
+// src/components/Footer.astro
+const year = new Date().getFullYear();
+---
+
+<footer class="w-full bg-white border-t border-black/10 mt-20 pt-12 pb-24 sm:pb-12">
+  <div class="mx-auto w-[92%] max-w-[1290px]">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12">
+      <!-- Brand & Mission -->
+      <div class="md:col-span-2 space-y-4">
+        <div class="flex items-center gap-2 font-sora text-2xl font-bold text-[#0A0A0A]">
+          <span class="flex h-9 w-9 items-center justify-center rounded-lg bg-opai-purple text-white font-mono text-base font-bold shadow-sm">77</span>
+          <span>Studio</span>
+        </div>
+        <p class="font-inter-tight text-sm text-[#0A0A0A]/60 max-w-md leading-relaxed">
+          Digital Studio + Creative Partner + Technology & AI Company.
+          Un solo equipo para hacer que tu empresa se vea mejor, venda mejor y funcione mejor.
+        </p>
+        <div class="flex items-center gap-2 font-ibm-plex-mono text-xs text-[#0A0A0A]/50 pt-2">
+          <span>📍 Colombia</span>
+          <span>↔</span>
+          <span>📍 Estados Unidos</span>
+        </div>
+      </div>
+
+      <!-- Navigation Links -->
+      <div class="space-y-3 font-inter-tight text-sm">
+        <h4 class="font-sora font-semibold text-[#0A0A0A] text-base">Ecosistema</h4>
+        <ul class="space-y-2 text-[#0A0A0A]/60">
+          <li><a href="/marketing" class="hover:text-opai-purple transition-colors">Marketing Digital</a></li>
+          <li><a href="/web" class="hover:text-opai-purple transition-colors">Desarrollo Web & Landings</a></li>
+          <li><a href="/ia-automatizacion" class="hover:text-opai-purple transition-colors">IA & Automatizaciones</a></li>
+          <li><a href="/productos-digitales" class="hover:text-opai-purple transition-colors">Productos Digitales & SaaS</a></li>
+        </ul>
+      </div>
+
+      <!-- Company & Contact -->
+      <div class="space-y-3 font-inter-tight text-sm">
+        <h4 class="font-sora font-semibold text-[#0A0A0A] text-base">Compañía</h4>
+        <ul class="space-y-2 text-[#0A0A0A]/60">
+          <li><a href="/nosotros" class="hover:text-opai-purple transition-colors">Nosotros</a></li>
+          <li><a href="/contacto" class="hover:text-opai-purple transition-colors">Contacto</a></li>
+          <li><a href="https://wa.me/573000000000" target="_blank" class="hover:text-opai-purple transition-colors">WhatsApp Directo</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Bottom Bar & Copyright -->
+    <div class="border-t border-black/5 pt-6 flex flex-col sm:flex-row items-center justify-between gap-4 font-ibm-plex-mono text-xs text-[#0A0A0A]/50">
+      <p>© {year} 77 Studio. Todos los derechos reservados.</p>
+      <p class="text-right">Construido con Astro 5.x + Tailwind CSS</p>
+    </div>
+  </div>
+</footer>

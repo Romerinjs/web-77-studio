@@ -1,0 +1,69 @@
+@import "tailwindcss";
+
+/* 77 STUDIO DESIGN SYSTEM - GOOGLE FONTS IMPORT */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter+Tight:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700&display=swap');
+
+@layer base {
+  :root {
+    --font-sora: 'Sora', sans-serif;
+    --font-inter-tight: 'Inter Tight', sans-serif;
+    --font-ibm-plex-mono: 'IBM Plex Mono', monospace;
+
+    --color-bg-main: #F9FAFB;
+    --color-purple-primary: #7C3AED;
+    --color-text-main: #0A0A0A;
+    --color-text-muted: rgba(10, 10, 10, 0.6);
+    --color-border-stroke: rgba(0, 0, 0, 0.08);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-inter-tight);
+    background-color: var(--color-bg-main);
+    color: var(--color-text-main);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sora);
+    letter-spacing: -0.02em;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-ibm-plex-mono);
+  }
+}
+
+/* UTILITY CLASSES FOR 77 STUDIO DESIGN TOKENS */
+.font-sora {
+  font-family: var(--font-sora);
+}
+
+.font-inter-tight {
+  font-family: var(--font-inter-tight);
+}
+
+.font-ibm-plex-mono {
+  font-family: var(--font-ibm-plex-mono);
+}
+
+.bg-opai-purple {
+  background-color: var(--color-purple-primary);
+}
+
+.text-opai-purple {
+  color: var(--color-purple-primary);
+}
+
+.card-77 {
+  background-color: #FFFFFF;
+  border-radius: 20px;
+  border: 1px solid var(--color-border-stroke);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.05);
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-77:hover {
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 10px -6px rgba(0, 0, 0, 0.04);
+  border-color: rgba(124, 58, 237, 0.3);
+}

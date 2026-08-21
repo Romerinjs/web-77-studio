@@ -1,0 +1,108 @@
+---
+// src/pages/index.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+
+const whatsappMessage = "Hola 77 Studio 👋 Vi su página web y quisiera conversar sobre un proyecto para mi empresa.";
+const whatsappUrl = `https://wa.me/573000000000?text=${encodeURIComponent(whatsappMessage)}`;
+
+const capabilities = [
+  {
+    tag: '01. MARKETING',
+    title: 'Marketing Digital de Alta Conversión',
+    desc: 'Estrategia, Meta Ads, Google Ads, creación de contenido con IA y branding para acelerar tus ventas.',
+    href: '/marketing'
+  },
+  {
+    tag: '02. WEB & LANDINGS',
+    title: 'Desarrollo Web en Astro MDX',
+    desc: 'Sitios y landing pages ultra-rápidos, seguros y diseñados como máquinas de ventas e impacto visual.',
+    href: '/web'
+  },
+  {
+    tag: '03. IA & AUTO',
+    title: 'IA + Automatización de Procesos',
+    desc: 'Integración de agentes inteligentes, CRM, n8n y flujos de trabajo autónomos para reducir costos operativos.',
+    href: '/ia-automatizacion'
+  },
+  {
+    tag: '04. PRODUCTOS DIGITALES',
+    title: 'Desarrollo de SaaS & MVPs',
+    desc: 'Construcción de productos digitales, plataformas web, dashboards y portales de clientes de alto rendimiento.',
+    href: '/productos-digitales'
+  }
+];
+---
+
+<BaseLayout title="77 Studio | Digital Studio + Creative Partner + Technology & AI Company" currentPath="/">
+  <!-- HERO SECTION -->
+  <section class="mx-auto w-[92%] max-w-[1290px] pt-8 pb-16">
+    <!-- Top Pill Badge -->
+    <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3.5 py-1.5 font-ibm-plex-mono text-xs font-medium text-[#0A0A0A] shadow-xs mb-6">
+      <span class="h-2 w-2 rounded-full bg-opai-purple animate-pulse"></span>
+      <span>COLOMBIA ↔ ESTADOS UNIDOS</span>
+    </div>
+
+    <!-- Main Headline -->
+    <h1 class="font-sora text-4xl sm:text-6xl font-bold tracking-tight text-[#0A0A0A] max-w-4xl leading-[1.1]">
+      Un solo equipo para hacer que tu empresa se vea mejor, <span class="text-opai-purple">venda mejor</span> y funcione mejor.
+    </h1>
+
+    <!-- Subheadline -->
+    <p class="mt-6 font-inter-tight text-lg sm:text-xl text-[#0A0A0A]/70 max-w-2xl leading-relaxed">
+      Somos Digital Studio, Creative Partner y Technology & AI Company. Integramos estrategia comercial, código de alto rendimiento y automatización inteligente.
+    </p>
+
+    <!-- Dual Commercial CTA Block -->
+    <div class="mt-8 flex flex-col sm:flex-row items-center gap-4">
+      <a 
+        href={whatsappUrl} 
+        target="_blank" 
+        rel="noopener noreferrer" 
+        class="w-full sm:w-auto font-ibm-plex-mono bg-opai-purple text-white px-7 py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 hover:opacity-90 transition-all duration-200 shadow-md active:scale-[0.99]"
+      >
+        <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c0-5.445 4.43-9.875 9.877-9.875 2.637 0 5.116 1.028 6.98 2.893a9.8 9.8 0 012.887 6.98c-.001 5.446-4.432 9.876-9.875 9.876"></path>
+        </svg>
+        <span>Hablar por WhatsApp</span>
+      </a>
+
+      <a 
+        href="#contacto" 
+        class="w-full sm:w-auto font-ibm-plex-mono bg-[#0A0A0A] text-white px-7 py-3.5 rounded-xl font-semibold flex items-center justify-center gap-2 hover:bg-black transition-all duration-200 active:scale-[0.99]"
+      >
+        <svg class="w-5 h-5 stroke-current" fill="none" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 002-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path>
+        </svg>
+        <span>Enviar mensaje por Email</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- CAPABILITIES GRID -->
+  <section class="mx-auto w-[92%] max-w-[1290px] py-12 border-t border-black/10">
+    <div class="mb-10">
+      <span class="font-ibm-plex-mono text-xs font-semibold text-opai-purple tracking-wider uppercase">NUESTRAS CAPACIDADES</span>
+      <h2 class="font-sora text-3xl sm:text-4xl font-bold text-[#0A0A0A] mt-2">Todo lo que tu empresa necesita en un solo lugar.</h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {capabilities.map(cap => (
+        <a href={cap.href} class="card-77 p-8 group block text-left decoration-none">
+          <span class="font-ibm-plex-mono text-xs font-bold text-opai-purple tracking-wide">{cap.tag}</span>
+          <h3 class="font-sora text-2xl font-bold text-[#0A0A0A] mt-3 group-hover:text-opai-purple transition-colors">
+            {cap.title}
+          </h3>
+          <p class="font-inter-tight text-[#0A0A0A]/70 mt-3 leading-relaxed">
+            {cap.desc}
+          </p>
+          <div class="mt-6 flex items-center gap-2 font-ibm-plex-mono text-xs font-semibold text-[#0A0A0A] group-hover:text-opai-purple transition-colors">
+            <span>Explorar módulo</span>
+            <svg class="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+            </svg>
+          </div>
+        </a>
+      ))}
+    </div>
+  </section>
+</BaseLayout>

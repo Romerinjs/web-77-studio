@@ -1,0 +1,56 @@
+---
+// src/layouts/BaseLayout.astro
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import MobileStickyBar from '@/components/MobileStickyBar.astro';
+import '@/styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  currentPath?: string;
+  lang?: 'ES' | 'EN';
+  whatsappMessage?: string;
+}
+
+const {
+  title = '77 Studio | Digital Studio + Creative Partner + Technology & AI Company',
+  description = 'Un solo equipo para hacer que una empresa se vea mejor, venda mejor y funcione mejor. Marketing, desarrollo web en Astro, automatización con IA y productos digitales.',
+  currentPath = '/',
+  lang = 'ES',
+  whatsappMessage
+} = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang={lang.toLowerCase()}>
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <title>{title}</title>
+  <meta name="description" content={description} />
+  <meta name="generator" content={Astro.generator} />
+
+  <!-- OpenGraph Meta Tags -->
+  <meta property="og:title" content={title} />
+  <meta property="og:description" content={description} />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="77 Studio" />
+</head>
+<body class="min-h-screen bg-[#F9FAFB] text-[#0A0A0A] selection:bg-opai-purple selection:text-white">
+  <!-- Floating Header -->
+  <Header currentPath={currentPath} lang={lang} />
+
+  <!-- Main Slot Content -->
+  <main class="pt-28 pb-12">
+    <slot />
+  </main>
+
+  <!-- Sticky Mobile CTA Bar -->
+  <MobileStickyBar whatsappMessage={whatsappMessage} />
+
+  <!-- Footer -->
+  <Footer />
+</body>
+</html>
