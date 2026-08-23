@@ -1,0 +1,72 @@
+---
+// src/components/nosotros/PhilosophySection.astro
+const principles = [
+  {
+    title: "Cero Humo Tecnológico",
+    description: "No recomendamos inteligencia artificial, software a medida o campañas complejas solo porque estén de moda. Proponemos únicamente lo que genera retorno comprobado.",
+    tag: "Honestidad Técnica"
+  },
+  {
+    title: "Creatividad + Código en la Misma Mesa",
+    description: "Eliminamos la desconexión típica entre el equipo de diseño y el equipo de desarrollo. La estética y la funcionalidad se construyen juntas desde el día uno.",
+    tag: "Sinergia Real"
+  },
+  {
+    title: "Obsesión por la Ejecución Ágil",
+    description: "Reemplazamos reuniones eternas y documentos burocráticos por entregables funcionales, sprints cortos y mejoras continuas sobre datos reales de uso.",
+    tag: "Velocidad de Entrega"
+  },
+  {
+    title: "Propiedad Total para el Cliente",
+    description: "Tus cuentas de Meta, Google, accesos de hosting, código fuente y bases de datos son 100% de tu empresa. Creemos en relaciones por valor, no por retención forzada.",
+    tag: "Control Absoluto"
+  }
+];
+---
+
+<section class="py-20 sm:py-28 bg-slate-50 border-t border-black/5 relative">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3.5 py-1 font-ibm-plex-mono text-xs text-opai-purple mb-4">
+        <span>NUESTRA FILOSOFÍA</span>
+      </div>
+      <h2 class="font-sora text-3xl sm:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-5">
+        La tecnología cambia. Nuestro enfoque sigue siendo resolver problemas.
+      </h2>
+      <p class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed">
+        El objetivo no es acumular herramientas ni inflar métricas vanidosas. Es hacer que tu empresa se vea mejor, venda mejor y funcione mejor.
+      </p>
+    </div>
+
+    <!-- 4 Principles Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      {principles.map((pr) => (
+        <div class="rounded-[24px] border border-black/10 bg-white p-8 shadow-xs card-hover flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-ibm-plex-mono text-xs font-semibold text-opai-purple bg-opai-purple/10 px-3 py-1 rounded-lg">
+                {pr.tag}
+              </span>
+            </div>
+
+            <h3 class="font-sora text-xl font-bold text-background-13 mb-3">
+              {pr.title}
+            </h3>
+
+            <p class="font-inter-tight text-sm sm:text-base text-background-13/75 leading-relaxed">
+              {pr.description}
+            </p>
+          </div>
+
+          <div class="pt-5 border-t border-black/5 mt-5 flex items-center gap-2 font-ibm-plex-mono text-xs text-emerald-700 font-medium">
+            <span>Principio 77 Studio</span>
+            <span>✓</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

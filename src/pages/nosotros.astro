@@ -1,0 +1,38 @@
+---
+// src/pages/nosotros.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroNosotros from '@/components/nosotros/HeroNosotros.astro';
+import EvolutionTimeline from '@/components/nosotros/EvolutionTimeline.astro';
+import PhilosophySection from '@/components/nosotros/PhilosophySection.astro';
+import TeamCapabilitiesGrid from '@/components/nosotros/TeamCapabilitiesGrid.astro';
+import GlobalPresenceSection from '@/components/nosotros/GlobalPresenceSection.astro';
+import NosotrosContactSection from '@/components/nosotros/NosotrosContactSection.astro';
+
+const pageTitle = "Acerca de Nosotros | 77 Studio Digital & AI Partner";
+const pageDescription = "Conoce al equipo detrás de 77 Studio. Operación en Colombia y Estados Unidos para proyectos de marketing, web, automatización e IA (Colombia ↔ USA).";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical="https://77.studio/nosotros"
+  whatsappContext="nosotros"
+>
+  <!-- 01. Hero Section con propuesta de valor institucional y modelo operativo -->
+  <HeroNosotros />
+
+  <!-- 02. Línea de Evolución y Madurez Técnica -->
+  <EvolutionTimeline />
+
+  <!-- 03. Filosofía de Trabajo y Principios Fundamentales -->
+  <PhilosophySection />
+
+  <!-- 04. Disciplinas y Capacidades Integradas del Equipo -->
+  <TeamCapabilitiesGrid />
+
+  <!-- 05. Presencia Internacional y Sedes Colombia ↔ USA -->
+  <GlobalPresenceSection />
+
+  <!-- 06. Bloque de Cierre Comercial con WhatsApp Nosotros y Formulario -->
+  <NosotrosContactSection />
+</BaseLayout>

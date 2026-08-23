@@ -1,0 +1,90 @@
+---
+// src/components/nosotros/TeamCapabilitiesGrid.astro
+const disciplines = [
+  {
+    title: "Estrategia & Dirección Comercial",
+    description: "Definición de posicionamiento de mercado, arquitectura de embudos y diagnóstico de cuellos de botella para empresas.",
+    tag: "Negocio & CRO",
+    color: "border-purple-200 bg-purple-50/30 text-opai-purple"
+  },
+  {
+    title: "Paid Media & Adquisición",
+    description: "Gestión de campañas de alta conversión en Meta Ads y Google Ads con pixelado CAPI serverless y analítica avanzada.",
+    tag: "Performance",
+    color: "border-blue-200 bg-blue-50/30 text-blue-600"
+  },
+  {
+    title: "Contenido, Video & Creativos",
+    description: "Producción audiovisual dinámica, hooks de alta retención, carruseles educativos y creativos visuales con IA.",
+    tag: "Audiovisual",
+    color: "border-pink-200 bg-pink-50/30 text-pink-600"
+  },
+  {
+    title: "Ingeniería Web & Frontend",
+    description: "Desarrollo de sitios web y landing pages ultra-rápidas en Astro 5, Tailwind CSS y componentes interactivos.",
+    tag: "Web & UI",
+    color: "border-emerald-200 bg-emerald-50/30 text-emerald-600"
+  },
+  {
+    title: "Automatización & Flujos CRM",
+    description: "Conexión de sistemas en n8n, Make, WhatsApp Business API y bases de datos para eliminar tareas manuales repetitivas.",
+    tag: "Operaciones",
+    color: "border-amber-200 bg-amber-50/30 text-amber-600"
+  },
+  {
+    title: "Inteligencia Artificial Aplicada",
+    description: "Desarrollo de agentes inteligentes con RAG (Retrieval-Augmented Generation), clasificación de leads y asistentes 24/7.",
+    tag: "IA & Data",
+    color: "border-indigo-200 bg-indigo-50/30 text-indigo-600"
+  }
+];
+---
+
+<section class="py-20 sm:py-28 bg-white border-t border-black/5 relative">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-slate-50 px-3.5 py-1 font-ibm-plex-mono text-xs text-opai-purple mb-4">
+          <span>DISCIPLINAS INTEGRADAS</span>
+        </div>
+        <h2 class="font-sora text-3xl sm:text-5xl font-bold tracking-tight text-background-13 leading-tight">
+          Un solo equipo, todas las capacidades necesarias.
+        </h2>
+      </div>
+      <p class="font-inter-tight text-sm sm:text-base text-background-13/70 max-w-sm">
+        Reunimos especialistas de cada área trabajando en sintonía para que tu proyecto no sufra fricciones entre proveedores.
+      </p>
+    </div>
+
+    <!-- 6 Disciplines Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {disciplines.map((item) => (
+        <div class="rounded-[24px] border border-black/10 bg-slate-50 p-8 shadow-xs card-hover flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class={`font-ibm-plex-mono text-xs font-bold px-3 py-1 rounded-lg border ${item.color}`}>
+                {item.tag}
+              </span>
+            </div>
+
+            <h3 class="font-sora text-xl font-bold text-background-13 mb-3">
+              {item.title}
+            </h3>
+
+            <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
+              {item.description}
+            </p>
+          </div>
+
+          <div class="pt-5 border-t border-black/5 mt-5 flex items-center gap-1.5 font-ibm-plex-mono text-xs text-opai-purple font-semibold">
+            <span>Especialidad activa</span>
+            <span>✓</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

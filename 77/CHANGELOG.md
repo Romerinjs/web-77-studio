@@ -9,6 +9,14 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1
 ## [Unreleased] - 2026-08-22
 
 ### Added
+- **Módulo 06 (Acerca de Nosotros `/nosotros`)**: Implementación integral de la página modular de Presentación Institucional y Equipo según especificación `77/06-nosotros`:
+  - `<HeroNosotros />`: Propuesta de valor institucional (*"Un equipo creativo y tecnológico construido para resolver retos digitales"*), modelo operativo en 3 hubs integrados y CTAs duales con mensaje prellenado de WhatsApp para Nosotros.
+  - `<EvolutionTimeline />`: Trayectoria y madurez técnica en 4 etapas (Raíz Creativa → Paid Media & Performance → Ingeniería Web Astro → Automatización, IA & Product Studio).
+  - `<PhilosophySection />`: Los 4 principios fundamentales de trabajo (*Cero Humo Tecnológico*, *Creatividad + Código en la misma mesa*, *Obsesión por la Ejecución Ágil*, *Propiedad Total para el Cliente*).
+  - `<TeamCapabilitiesGrid />`: Catálogo de las 6 disciplinas integradas del equipo (Estrategia, Paid Media, Audiovisual, Web Frontend, Automatización CRM, IA & RAG).
+  - `<GlobalPresenceSection />`: Cobertura internacional y sedes activas Colombia (Medellín/Bogotá) ↔ Estados Unidos (Miami/Global).
+  - `<NosotrosContactSection />`: Bloque de cierre comercial con WhatsApp directo a founders y formulario con `originPage="nosotros"`.
+  - Página `src/pages/nosotros.astro` con metadatos SEO completos y enrutamiento estático en Astro 5.
 - **Módulo 05 (Productos Digitales, SaaS & Dashboards `/productos-digitales`)**: Implementación integral de la página modular de Product Studio & Software a la Medida según especificación `77/05-productos-digitales`:
   - `<HeroProductos />`: Propuesta de valor de Product Studio, showcase interactivo de arquitectura SaaS multi-tenant con métricas en vivo y CTAs duales con mensaje prellenado de WhatsApp para productos digitales.
   - `<ProductSolutionsGrid />`: Catálogo de las 5 soluciones a la medida (SaaS & MVP, Portales & Plataformas de autogestión, Dashboards Analíticos, Herramientas Internas seguras, Aplicaciones Web Personalizadas).
