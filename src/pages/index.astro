@@ -1,0 +1,24 @@
+---
+// src/pages/index.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import DualCTA from '@/components/DualCTA.astro';
+---
+
+<BaseLayout title="77 Studio | Digital Studio + Creative Partner + AI Company">
+  <section class="pt-36 pb-20 px-4 max-w-[1290px] mx-auto text-center">
+    <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-4 py-1.5 font-ibm-plex-mono text-xs text-background-13/70 shadow-xs mb-6">
+      <span class="h-2 w-2 rounded-full bg-opai-purple animate-pulse"></span>
+      DIGITAL STUDIO · COLOMBIA + USA
+    </div>
+    
+    <h1 class="font-sora text-4xl sm:text-6xl font-bold tracking-tight text-background-13 max-w-4xl mx-auto leading-[1.1] mb-6">
+      Un solo equipo para hacer que tu empresa se vea mejor, venda mejor y funcione mejor.
+    </h1>
+
+    <p class="font-inter-tight text-lg sm:text-xl text-background-13/70 max-w-2xl mx-auto mb-10 leading-relaxed">
+      Marketing, tecnología e IA para hacer crecer tu empresa. Integramos estrategia, contenido, web, automatización e inteligencia artificial.
+    </p>
+
+    <DualCTA whatsappContext="home" />
+  </section>
+</BaseLayout>

@@ -1,0 +1,109 @@
+---
+// src/components/Footer.astro
+const currentYear = new Date().getFullYear();
+
+const serviceLinks = [
+  { label: 'Marketing Digital & Ads', href: '/marketing' },
+  { label: 'Desarrollo Web Astro', href: '/web' },
+  { label: 'IA + Automatización', href: '/ia-automatizacion' },
+  { label: 'Productos Digitales (SaaS)', href: '/productos-digitales' },
+];
+
+const companyLinks = [
+  { label: 'Acerca de Nosotros', href: '/nosotros' },
+  { label: 'Casos de Negocio', href: '/#casos' },
+  { label: 'Metodología en 4 Pasos', href: '/#proceso' },
+  { label: 'Contacto & Diagnóstico', href: '/contacto' },
+];
+---
+
+<footer class="border-t border-black/10 bg-white pt-16 pb-24 sm:pb-12 text-background-13">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10 pb-12 border-b border-black/10">
+      
+      <!-- Brand column (2 cols wide on LG) -->
+      <div class="lg:col-span-2 space-y-4">
+        <a href="/" class="flex items-center gap-2.5">
+          <div class="h-8 w-8 rounded-lg bg-background-13 flex items-center justify-center text-white font-sora font-bold text-sm tracking-tighter">
+            77
+          </div>
+          <span class="font-sora font-semibold text-lg tracking-tight text-background-13">
+            77 STUDIO
+          </span>
+        </a>
+        
+        <p class="font-inter-tight text-background-13/70 text-sm max-w-sm leading-relaxed">
+          Digital Studio + Creative Partner + Technology & AI Company. Un solo equipo para hacer que tu empresa se vea mejor, venda mejor y funcione mejor.
+        </p>
+
+        <div class="pt-2 flex items-center gap-2 font-ibm-plex-mono text-xs text-background-13/60">
+          <span class="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-pulse"></span>
+          <span>Operando de forma remota · Colombia ↔ USA</span>
+        </div>
+      </div>
+
+      <!-- Servicios -->
+      <div>
+        <h4 class="font-sora font-semibold text-sm text-background-13 tracking-tight mb-4">
+          Servicios
+        </h4>
+        <ul class="space-y-2.5 text-sm text-background-13/70">
+          {serviceLinks.map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-background-13 hover:translate-x-1 inline-block transition-transform">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Empresa -->
+      <div>
+        <h4 class="font-sora font-semibold text-sm text-background-13 tracking-tight mb-4">
+          Empresa
+        </h4>
+        <ul class="space-y-2.5 text-sm text-background-13/70">
+          {companyLinks.map((link) => (
+            <li>
+              <a href={link.href} class="hover:text-background-13 hover:translate-x-1 inline-block transition-transform">
+                {link.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+
+      <!-- Presencia Internacional -->
+      <div>
+        <h4 class="font-sora font-semibold text-sm text-background-13 tracking-tight mb-4">
+          Sedes & Cobertura
+        </h4>
+        <div class="space-y-3 text-sm text-background-13/70">
+          <div class="rounded-xl border border-black/5 bg-slate-50 p-3">
+            <span class="font-semibold block text-background-13 text-xs font-ibm-plex-mono">COLOMBIA</span>
+            <span class="text-xs text-background-13/60">Medellín / Bogotá · LatAm Hub</span>
+          </div>
+          <div class="rounded-xl border border-black/5 bg-slate-50 p-3">
+            <span class="font-semibold block text-background-13 text-xs font-ibm-plex-mono">ESTADOS UNIDOS</span>
+            <span class="text-xs text-background-13/60">North America & Global Clients</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Bottom copyright row -->
+    <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-inter-tight text-background-13/50">
+      <p>© {currentYear} 77 Studio. Todos los derechos reservados.</p>
+      
+      <div class="flex items-center gap-6 font-ibm-plex-mono">
+        <span>Astro 5 + Islands</span>
+        <span>•</span>
+        <span>Tailwind CSS</span>
+        <span>•</span>
+        <span>CRO High Conversion</span>
+      </div>
+    </div>
+  </div>
+</footer>

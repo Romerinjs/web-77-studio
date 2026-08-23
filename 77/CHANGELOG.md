@@ -9,6 +9,9 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1
 ## [Unreleased] - 2026-08-21
 
 ### Added
+- **Módulo 00 (Setup Core & Design Tokens)**: Configuración e inicialización de Astro 5.4+, Tailwind CSS v4 con Vite, TypeScript estricto, `@astrojs/mdx` y `@astrojs/vercel`.
+- Creación de componentes estructurales base: `<Header />` con navbar flotante blanca y menú responsive, `<Footer />`, `<DualCTA />` con enlaces contextuales de WhatsApp, `<MobileStickyBar />` y `<BaseLayout />`.
+- Definición de utilidades de diseño y conversión en `src/utils/whatsapp.ts`, `src/utils/seo.ts` y `src/utils/cn.ts`.
 - Definición de la **Estrategia de Ramas de 3 Niveles (`feature/*` -> `develop` Staging -> `main` Producción)** con protocolo Human-in-the-loop y soporte para el comando `/goal`.
 - Creación del comando `npm run 77 feature <nombre>` en la CLI para aislamiento automático de ramas y advertencia de protección en `main` y `develop`.
 - Creación de la Skill dedicada `.agents/skills/77-commit-and-docs/SKILL.md` para automatizar commits y documentación técnica de propiedades.
