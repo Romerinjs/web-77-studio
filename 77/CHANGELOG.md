@@ -9,6 +9,10 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1
 ## [Unreleased] - 2026-08-22
 
 ### Added
+- **Módulo 07 (Contacto Directo `/contacto`)**: Implementación integral de la página modular de Contacto y Diagnóstico Comercial según especificación `77/07-contacto`:
+  - `<HeroContacto />`: Layout de 2 columnas de alta conversión sin distracciones (Card destacada de WhatsApp Business + Formulario comercial guiado con tracking de origen y tiempo medio de respuesta < 2 horas).
+  - `<FAQContacto />`: Bloque de 4 preguntas frecuentes estratégicas para tráfico de alta intención (proceso inicial, clientes internacionales, firma de NDA mutuo y tiempos de entrega).
+  - Página `src/pages/contacto.astro` con metadatos SEO completos y enrutamiento estático en Astro 5.
 - **Módulo 06 (Acerca de Nosotros `/nosotros`)**: Implementación integral de la página modular de Presentación Institucional y Equipo según especificación `77/06-nosotros`:
   - `<HeroNosotros />`: Propuesta de valor institucional (*"Un equipo creativo y tecnológico construido para resolver retos digitales"*), modelo operativo en 3 hubs integrados y CTAs duales con mensaje prellenado de WhatsApp para Nosotros.
   - `<EvolutionTimeline />`: Trayectoria y madurez técnica en 4 etapas (Raíz Creativa → Paid Media & Performance → Ingeniería Web Astro → Automatización, IA & Product Studio).

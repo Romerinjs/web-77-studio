@@ -1,0 +1,49 @@
+---
+// src/components/contacto/FAQContacto.astro
+const faqs = [
+  {
+    q: "¿Qué sucede después de enviar el formulario o escribir por WhatsApp?",
+    a: "Uno de nuestros líderes técnicos o estratégicos revisará la información de tu empresa, evaluará la viabilidad y te responderá en menos de 2 horas hábiles con una orientación clara sobre los pasos recomendados."
+  },
+  {
+    q: "¿Trabajan con empresas fuera de Colombia o Estados Unidos?",
+    a: "Sí. Nuestra operación es 100% remota y asíncrona, lo que nos permite colaborar fluidamente con compañías en México, España, Chile, Perú, Centroamérica y mercados globales."
+  },
+  {
+    q: "¿Pueden firmar un acuerdo de confidencialidad (NDA) antes de ver mi proyecto?",
+    a: "Totalmente. Si tu proyecto involucra un nuevo SaaS, un proceso operativo sensible o propiedad intelectual protegida, firmamos un acuerdo de confidencialidad (NDA) mutuo previo a cualquier revisión técnica."
+  },
+  {
+    q: "¿Cuáles son los tiempos promedio de inicio y entrega?",
+    a: "Podemos iniciar en un plazo de 48 a 72 horas hábiles tras la validación de la propuesta. Para landing pages y automatizaciones los tiempos van de 1 a 2 semanas; para proyectos web completos o SaaS de 3 a 6 semanas."
+  }
+];
+---
+
+<section class="py-16 sm:py-24 bg-white border-t border-black/5">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <div class="max-w-3xl mx-auto text-center mb-14">
+      <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-slate-50 px-3.5 py-1 font-ibm-plex-mono text-xs text-opai-purple mb-4">
+        <span>PREGUNTAS FRECUENTES</span>
+      </div>
+      <h2 class="font-sora text-2xl sm:text-4xl font-bold tracking-tight text-background-13">
+        Respuestas directas antes de iniciar.
+      </h2>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+      {faqs.map((faq) => (
+        <div class="rounded-[20px] border border-black/10 bg-slate-50 p-6 sm:p-7 shadow-xs">
+          <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 mb-2.5">
+            {faq.q}
+          </h3>
+          <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
+            {faq.a}
+          </p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,22 @@
+---
+// src/pages/contacto.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroContacto from '@/components/contacto/HeroContacto.astro';
+import FAQContacto from '@/components/contacto/FAQContacto.astro';
+
+const pageTitle = "Contacto Directo | Hablemos de tu Proyecto | 77 Studio";
+const pageDescription = "Ponte en contacto con 77 Studio para proyectos de marketing, desarrollo web, automatización e IA. Atención en Colombia, USA e internacional.";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical="https://77.studio/contacto"
+  whatsappContext="contacto"
+>
+  <!-- 01. Hero Section con Layout de 2 Columnas de Alta Conversión (WhatsApp + Formulario) -->
+  <HeroContacto />
+
+  <!-- 02. Preguntas Frecuentes antes de Iniciar -->
+  <FAQContacto />
+</BaseLayout>
