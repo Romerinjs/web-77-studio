@@ -1,0 +1,115 @@
+---
+// src/components/productos/ProductSolutionsGrid.astro
+import { Layers, Users, BarChart3, Wrench, Globe, ArrowRight } from 'lucide-astro';
+
+const solutions = [
+  {
+    id: "saas-mvp",
+    title: "SaaS & MVP",
+    subtitle: "Validación Rápida & Escala Comercial",
+    description: "Construimos la primera versión funcional de tu idea o software en semanas. Arquitectura multi-tenant, pasarelas de pago, autenticación segura y base escalable para captar clientes e inversión.",
+    features: ["Validación ágil de hipótesis de mercado", "Suscripciones & Cobros (Stripe / Wompi)", "Paneles de administración y roles de acceso"],
+    tag: "01",
+    color: "border-purple-200 bg-purple-50/30 text-opai-purple"
+  },
+  {
+    id: "portales",
+    title: "Portales & Plataformas",
+    subtitle: "Autogestión para Clientes & Aliados",
+    description: "Espacios privados donde tus clientes, proveedores o distribuidores pueden consultar estados de cuenta, realizar pedidos, descargar facturas o gestionar solicitudes sin intermediación humana manual.",
+    features: ["Área privada segura con inicio de sesión", "Carga y descarga masiva de documentos", "Flujos de aprobación y tickets de soporte"],
+    tag: "02",
+    color: "border-blue-200 bg-blue-50/30 text-blue-600"
+  },
+  {
+    id: "dashboards",
+    title: "Dashboards Analíticos",
+    subtitle: "Visión Global del Negocio en Tiempo Real",
+    description: "Centralizamos métricas de ventas, marketing, finanzas y operaciones en paneles ejecutivos limpios y reactivos. Elimina horas perdidas consolidando reportes en hojas de cálculo.",
+    features: ["Conexión directa a bases de datos y APIs", "Gráficos interactivos y filtros dinámicos", "Alertas automáticas por umbrales de KPI"],
+    tag: "03",
+    color: "border-emerald-200 bg-emerald-50/30 text-emerald-600"
+  },
+  {
+    id: "herramientas-internas",
+    title: "Herramientas Internas",
+    subtitle: "Adiós a Hojas de Cálculo Frágiles",
+    description: "Digitalizamos procesos operativos críticos de tu equipo en aplicaciones web estructuradas con permisos, auditoría de cambios y validaciones que evitan errores humanos costosos.",
+    features: ["Formularios guiados con lógica condicional", "Historial de modificaciones por usuario", "Sincronización instantánea con tu CRM y ERP"],
+    tag: "04",
+    color: "border-amber-200 bg-amber-50/30 text-amber-600"
+  },
+  {
+    id: "web-apps",
+    title: "Aplicaciones Web Personalizadas",
+    subtitle: "Software a la Medida sin Instalaciones",
+    description: "Soluciones de software complejas construidas exactamente para tus reglas de negocio, accesibles de forma responsiva y segura desde cualquier navegador web en escritorio o móvil.",
+    features: ["Rendimiento extremo con código moderno", "APIs RESTful y GraphQL escalables", "Infraestructura cloud en Vercel o Dokploy"],
+    tag: "05",
+    color: "border-slate-200 bg-slate-50/50 text-background-13"
+  }
+];
+---
+
+<section class="py-20 sm:py-28 bg-white border-t border-black/5 relative">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-slate-50 px-3.5 py-1 font-ibm-plex-mono text-xs text-opai-purple mb-4">
+          <span>CATÁLOGO DE DESARROLLO</span>
+        </div>
+        <h2 class="font-sora text-3xl sm:text-5xl font-bold tracking-tight text-background-13 leading-tight">
+          Soluciones digitales construidas alrededor de tu negocio.
+        </h2>
+      </div>
+      <p class="font-inter-tight text-sm sm:text-base text-background-13/70 max-w-sm">
+        No adaptamos tu empresa a un paquete rígido. Diseñamos el producto digital exacto que tu operación o modelo comercial necesita.
+      </p>
+    </div>
+
+    <!-- 5 Solutions Grid (Custom Layout) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {solutions.map((sol, index) => (
+        <div class={`rounded-[24px] border border-black/10 bg-slate-50 p-8 shadow-xs card-hover flex flex-col justify-between ${index === 0 ? 'lg:col-span-2' : ''}`}>
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class={`font-ibm-plex-mono text-xs font-bold px-3 py-1 rounded-lg border ${sol.color}`}>
+                SOLUCIÓN {sol.tag}
+              </span>
+              <span class="font-ibm-plex-mono text-xs text-background-13/50">
+                {sol.subtitle}
+              </span>
+            </div>
+
+            <h3 class="font-sora text-2xl font-bold text-background-13 mb-3">
+              {sol.title}
+            </h3>
+
+            <p class="font-inter-tight text-sm sm:text-base text-background-13/75 leading-relaxed mb-6">
+              {sol.description}
+            </p>
+
+            <div class="space-y-2.5 mb-6">
+              {sol.features.map((feat) => (
+                <div class="flex items-center gap-2.5 text-xs sm:text-sm font-inter-tight text-background-13/80">
+                  <span class="flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-white border border-black/10 text-opai-purple font-bold text-[10px]">
+                    ✓
+                  </span>
+                  <span>{feat}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <div class="pt-5 border-t border-black/5 mt-4 flex items-center justify-between font-ibm-plex-mono text-xs text-opai-purple font-semibold">
+            <span>Arquitectura propietaria</span>
+            <span class="text-base">→</span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,87 @@
+---
+// src/components/productos/ProductProcessSection.astro
+const steps = [
+  {
+    step: "01",
+    name: "Entendemos",
+    title: "Problema & Requisitos",
+    description: "Mapeamos el flujo de trabajo actual, identificamos los cuellos de botella y definimos con precisión qué debe resolver la herramienta antes de tirar una sola línea de código."
+  },
+  {
+    step: "02",
+    name: "Diseñamos",
+    title: "Prototipos & Flujo UX/UI",
+    description: "Creamos wireframes interactivos y el diseño visual de cada pantalla para que puedas ver y validar la experiencia de usuario y la lógica operativa antes del desarrollo."
+  },
+  {
+    step: "03",
+    name: "Construimos",
+    title: "Desarrollo Ágil & Robusto",
+    description: "Programamos la plataforma utilizando tecnologías modernas, seguras y escalables (Astro, TypeScript, Node.js, PostgreSQL y APIs REST/GraphQL)."
+  },
+  {
+    step: "04",
+    name: "Lanzamos",
+    title: "Despliegue & Validación",
+    description: "Configuramos los servidores cloud en Vercel o Dokploy, realizamos pruebas de seguridad y lanzamos la versión funcional para tu equipo o primeros usuarios."
+  },
+  {
+    step: "05",
+    name: "Evolucionamos",
+    title: "Iteración & Nuevos Módulos",
+    description: "Analizamos el uso real de la herramienta e incorporamos mejoras continuas, nuevas automatizaciones y módulos adicionales a medida que tu empresa crece."
+  }
+];
+---
+
+<section class="py-20 sm:py-28 bg-white border-t border-black/5 relative">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-slate-50 px-3.5 py-1 font-ibm-plex-mono text-xs text-opai-purple mb-4">
+        <span>METODOLOGÍA DE PRODUCTO</span>
+      </div>
+      <h2 class="font-sora text-3xl sm:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-5">
+        De la necesidad a un producto funcional en 5 pasos.
+      </h2>
+      <p class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed">
+        Un proceso estructurado para construir herramientas digitales ágiles sin proyectos interminables ni desviaciones presupuestarias.
+      </p>
+    </div>
+
+    <!-- 5 Steps Process Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6">
+      {steps.map((st) => (
+        <div class="rounded-[20px] border border-black/10 bg-slate-50 p-6 shadow-xs card-hover flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-ibm-plex-mono text-xl font-bold text-amber-600">
+                {st.step}
+              </span>
+              <span class="font-ibm-plex-mono text-[11px] font-semibold text-background-13/60 bg-white border border-black/5 px-2.5 py-1 rounded-md">
+                {st.name}
+              </span>
+            </div>
+
+            <h3 class="font-sora text-base font-bold text-background-13 mb-2">
+              {st.title}
+            </h3>
+
+            <p class="font-inter-tight text-xs sm:text-sm text-background-13/70 leading-relaxed">
+              {st.description}
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-black/5 mt-4">
+            <span class="font-ibm-plex-mono text-[10px] text-opai-purple font-semibold flex items-center gap-1">
+              <span>Hito entregable</span>
+              <span>✓</span>
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

@@ -1,0 +1,198 @@
+---
+// src/components/productos/HeroProductos.astro
+import DualCTA from '@/components/DualCTA.astro';
+import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, Database, BarChart3, CheckCircle2, ArrowRight } from 'lucide-astro';
+---
+
+<section class="relative pt-36 pb-16 sm:pt-44 sm:pb-24 overflow-hidden">
+  <!-- Ambient Gradient Glow -->
+  <div class="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center opacity-60">
+    <div class="h-[520px] w-[520px] rounded-full bg-gradient-to-tr from-amber-500/15 via-opai-purple/15 to-transparent blur-[130px]"></div>
+    <div class="h-[420px] w-[420px] rounded-full bg-gradient-to-bl from-blue-500/10 to-transparent blur-[110px] -translate-y-20"></div>
+  </div>
+
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    <div class="text-center max-w-4xl mx-auto">
+      
+      <!-- Top Pill Badge -->
+      <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/90 px-4 py-1.5 backdrop-blur-md shadow-xs mb-6">
+        <span class="h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
+        <span class="font-ibm-plex-mono text-xs font-medium tracking-wide text-background-13/80 uppercase">
+          Módulo 05 · Product Studio & SaaS a la Medida
+        </span>
+      </div>
+
+      <!-- Main Headline -->
+      <h1 class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
+        Si tu empresa necesita una herramienta que todavía no existe, <span class="bg-gradient-to-r from-background-13 via-opai-purple to-amber-600 bg-clip-text text-transparent">podemos construirla</span>.
+      </h1>
+
+      <!-- Subheadline -->
+      <p class="font-inter-tight text-lg sm:text-xl text-background-13/75 max-w-3xl mx-auto mb-9 leading-relaxed">
+        PRODUCTOS DIGITALES PARA EMPRESAS: Convertimos necesidades operativas e ideas de negocio en productos digitales, portales de clientes, plataformas SaaS y dashboards a medida adaptados a tu modelo.
+      </p>
+
+      <!-- Dual Commercial CTA (WhatsApp productos context + Contact form) -->
+      <div class="mb-12">
+        <DualCTA
+          whatsappContext="productos"
+          whatsappText="Hablar de mi idea de producto"
+          emailText="Contarnos el proyecto por email"
+          emailHref="#contacto"
+          centered={true}
+        />
+      </div>
+
+      <!-- Trust Pillars -->
+      <div class="pt-4 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs font-ibm-plex-mono text-background-13/60 border-t border-black/5">
+        <div class="flex items-center gap-2">
+          <span class="text-amber-600 font-bold">✓</span>
+          <span>Product Studio, no Fábrica Tradicional</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-emerald-500 font-bold">✓</span>
+          <span>Código 100% Propietario del Cliente</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-opai-purple font-bold">✓</span>
+          <span>Arquitectura en la Nube Escalable</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Product Studio Showcase (Modern Interactive SaaS App / Dashboard Mockup) -->
+    <div class="mt-14 relative mx-auto max-w-5xl">
+      <div class="relative rounded-[28px] border border-black/10 bg-white p-3 sm:p-5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.08)] backdrop-blur-xl">
+        
+        <!-- App Window Header -->
+        <div class="flex items-center justify-between border-b border-black/5 pb-3 px-3">
+          <div class="flex items-center gap-2">
+            <div class="h-3 w-3 rounded-full bg-red-400/80"></div>
+            <div class="h-3 w-3 rounded-full bg-amber-400/80"></div>
+            <div class="h-3 w-3 rounded-full bg-emerald-400/80"></div>
+            <span class="ml-2 font-ibm-plex-mono text-xs text-background-13/50">app.77studio-saas-core.internal</span>
+          </div>
+          <div class="flex items-center gap-2 font-ibm-plex-mono text-xs">
+            <span class="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-ping"></span>
+            <span class="text-background-13/80 font-semibold">Producción v2.4 (Active)</span>
+          </div>
+        </div>
+
+        <!-- SaaS Core Dashboard Interface -->
+        <div class="pt-4 grid grid-cols-1 lg:grid-cols-12 gap-4">
+          
+          <!-- Left Mini Sidebar / Navigation -->
+          <div class="hidden lg:flex lg:col-span-3 flex-col justify-between rounded-2xl border border-black/5 bg-slate-50 p-4">
+            <div class="space-y-4">
+              <div class="flex items-center gap-2.5 pb-3 border-b border-black/5">
+                <div class="h-7 w-7 rounded-lg bg-background-13 text-white flex items-center justify-center font-sora font-bold text-xs">
+                  77
+                </div>
+                <div class="text-left">
+                  <span class="font-sora text-xs font-bold text-background-13 block">Portal B2B</span>
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50">Multi-Tenant Platform</span>
+                </div>
+              </div>
+
+              <div class="space-y-1 text-xs font-inter-tight">
+                <div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-black/5 text-background-13 font-semibold shadow-xs">
+                  <LayoutDashboard class="w-4 h-4 text-opai-purple" />
+                  <span>Dashboard Central</span>
+                </div>
+                <div class="flex items-center gap-2 px-3 py-2 rounded-xl text-background-13/60 hover:bg-black/5 transition-colors">
+                  <Layers class="w-4 h-4 text-background-13/40" />
+                  <span>Módulos de Clientes</span>
+                </div>
+                <div class="flex items-center gap-2 px-3 py-2 rounded-xl text-background-13/60 hover:bg-black/5 transition-colors">
+                  <Database class="w-4 h-4 text-background-13/40" />
+                  <span>Bases de Datos & APIs</span>
+                </div>
+                <div class="flex items-center gap-2 px-3 py-2 rounded-xl text-background-13/60 hover:bg-black/5 transition-colors">
+                  <BarChart3 class="w-4 h-4 text-background-13/40" />
+                  <span>Reportes en Vivo</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="pt-3 border-t border-black/5">
+              <div class="rounded-xl bg-amber-50 border border-amber-200/60 p-2.5 text-[11px] font-inter-tight text-amber-900">
+                <span class="font-semibold block font-ibm-plex-mono text-[10px] text-amber-700">ARQUITECTURA MODERNA</span>
+                <span>TypeScript · Astro · Node · PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Main Dashboard Interactive Content -->
+          <div class="lg:col-span-9 space-y-4">
+            
+            <!-- Metric Stats Ribbon -->
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+              <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Usuarios Activos (SaaS)</span>
+                <span class="font-sora text-xl sm:text-2xl font-bold text-background-13 mt-0.5 block">14,820</span>
+                <span class="font-ibm-plex-mono text-[11px] text-emerald-600 font-semibold">↑ +28.4% mensual</span>
+              </div>
+
+              <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Tiempo Ahorrado Equipo</span>
+                <span class="font-sora text-xl sm:text-2xl font-bold text-opai-purple mt-0.5 block">32h / sem</span>
+                <span class="font-ibm-plex-mono text-[11px] text-background-13/60 font-medium">Digitalización de procesos</span>
+              </div>
+
+              <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Latencia de Plataforma</span>
+                <span class="font-sora text-xl sm:text-2xl font-bold text-emerald-600 mt-0.5 block">&lt; 120ms</span>
+                <span class="font-ibm-plex-mono text-[11px] text-emerald-700 font-semibold">99.98% Uptime SLA</span>
+              </div>
+            </div>
+
+            <!-- Central Data Visualisation Box -->
+            <div class="rounded-2xl border border-black/5 bg-slate-50 p-5 text-left">
+              <div class="flex items-center justify-between mb-4">
+                <div>
+                  <h4 class="font-sora text-sm font-bold text-background-13">Flujo Operativo en Tiempo Real</h4>
+                  <p class="font-inter-tight text-xs text-background-13/60">Monitoreo de transacciones, altas y sincronización de datos</p>
+                </div>
+                <span class="font-ibm-plex-mono text-[11px] bg-white border border-black/5 px-2.5 py-1 rounded-lg text-background-13 font-medium">
+                  Live Feed
+                </span>
+              </div>
+
+              <!-- Flow Timeline Items -->
+              <div class="space-y-2 font-ibm-plex-mono text-xs">
+                <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
+                  <div class="flex items-center gap-2.5">
+                    <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                    <span class="font-medium text-background-13">Nuevo Tenant Corporativo Registrado</span>
+                  </div>
+                  <span class="text-background-13/40 text-[11px]">Hace 2 min · Autogestión</span>
+                </div>
+
+                <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
+                  <div class="flex items-center gap-2.5">
+                    <span class="h-2 w-2 rounded-full bg-opai-purple"></span>
+                    <span class="font-medium text-background-13">Exportación Automática de Reporte Financiero</span>
+                  </div>
+                  <span class="text-background-13/40 text-[11px]">Hace 8 min · Cron Job</span>
+                </div>
+
+                <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
+                  <div class="flex items-center gap-2.5">
+                    <span class="h-2 w-2 rounded-full bg-blue-500"></span>
+                    <span class="font-medium text-background-13">Sincronización Webhook API con CRM</span>
+                  </div>
+                  <span class="text-background-13/40 text-[11px]">Hace 14 min · 200 OK</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>

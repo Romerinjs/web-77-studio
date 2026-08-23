@@ -9,6 +9,15 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1
 ## [Unreleased] - 2026-08-22
 
 ### Added
+- **Módulo 05 (Productos Digitales, SaaS & Dashboards `/productos-digitales`)**: Implementación integral de la página modular de Product Studio & Software a la Medida según especificación `77/05-productos-digitales`:
+  - `<HeroProductos />`: Propuesta de valor de Product Studio, showcase interactivo de arquitectura SaaS multi-tenant con métricas en vivo y CTAs duales con mensaje prellenado de WhatsApp para productos digitales.
+  - `<ProductSolutionsGrid />`: Catálogo de las 5 soluciones a la medida (SaaS & MVP, Portales & Plataformas de autogestión, Dashboards Analíticos, Herramientas Internas seguras, Aplicaciones Web Personalizadas).
+  - `<ProductPainPointsSection />`: Comparativa "Cuando el Software Comercial Tradicional queda corto" vs "Solución a la Medida 77 Studio" (código propietario, sin cobro por asientos, adaptado al negocio).
+  - `<ProductProcessSection />`: Metodología de producto en 5 pasos (Entendemos → Diseñamos → Construimos → Lanzamos → Evolucionamos).
+  - `<ProductCasesSection />`: Casos de producto reales (SaaS B2B industrial, Portal de clientes mayorista, Dashboard financiero en tiempo real, Web App de logística).
+  - `<ProductWhyUsSection />`: Visión de negocio integral (UX/UI de nivel mundial, funnels de adquisición, automatización e IA integrada).
+  - `<ProductContactSection />`: Bloque de cierre comercial con consultoría técnica por WhatsApp y formulario con `originPage="productos-digitales"`.
+  - Página `src/pages/productos-digitales.astro` con metadatos SEO completos y enrutamiento estático en Astro 5.
 - **Módulo 04 (IA + Automatización de Procesos `/ia-automatizacion`)**: Implementación integral de la página modular de Inteligencia Artificial y Automatización de Procesos según especificación `77/04-ia-automatizacion` y directrices de diseño sin clichés:
   - `<HeroIA />`: Propuesta de valor de operaciones inteligentes, showcase interactivo de arquitectura de 4 nodos conectados (`Lead Trigger` → `Agente IA & Scoring` → `CRM Hub` → `Acción & Asesor Humano`) y CTAs duales con mensaje prellenado de WhatsApp para IA.
   - `<IACapabilitiesGrid />`: Grid de las 4 capacidades prácticas de tecnología (Automatización Comercial & CRM, Atención & Soporte Contextual 24/7, Procesos & Operaciones Internas, Inteligencia Artificial Aplicada con RAG).
