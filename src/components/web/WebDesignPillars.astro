@@ -1,0 +1,116 @@
+---
+// src/components/web/WebDesignPillars.astro
+import { Eye, ShieldCheck, Zap, Smartphone, ArrowUpRight, Cpu } from 'lucide-astro';
+
+const pillars = [
+  {
+    icon: Eye,
+    title: "01. Claridad Inmediata",
+    badge: "Estructura AIDA",
+    description: "Jerarquía visual limpia y copywriting conciso. Cualquier tomador de decisiones entiende exactamente qué ofreces y por qué contratarte en menos de 5 segundos.",
+    color: "text-blue-600 bg-blue-50"
+  },
+  {
+    icon: ShieldCheck,
+    title: "02. Confianza & Autoridad",
+    badge: "Credibilidad",
+    description: "Diseño editorial de nivel internacional (Colombia ↔ USA). Casos reales, métricas tangibles y estética premium sin plantillas genéricas.",
+    color: "text-emerald-600 bg-emerald-50"
+  },
+  {
+    icon: Zap,
+    title: "03. Conversión Dual (CRO)",
+    badge: "WhatsApp + Form",
+    description: "Doble llamada a la acción en paralelo. Tu cliente decide si prefiere una conversación rápida por WhatsApp o enviar los requerimientos por formulario formal.",
+    color: "text-opai-purple bg-opai-purple/10"
+  },
+  {
+    icon: Cpu,
+    title: "04. Velocidad Extrema",
+    badge: "Astro 5 Islands",
+    description: "Carga en milisegundos impulsada por Astro y Vercel Edge. Cero JavaScript innecesario para garantizar que el 100% de los clics de pauta se conviertan en visitas reales.",
+    color: "text-amber-600 bg-amber-50"
+  },
+  {
+    icon: Smartphone,
+    title: "05. Mobile-First Riguroso",
+    badge: "Pulgar Amigable",
+    description: "Diseño concebido prioritariamente para pantallas móviles, con barra flotante inferior sticky permanente y elementos táctiles sin fricción.",
+    color: "text-rose-600 bg-rose-50"
+  }
+];
+---
+
+<section class="py-20 bg-slate-50 relative">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-16">
+      <div class="inline-flex items-center gap-2 font-ibm-plex-mono text-xs font-semibold uppercase tracking-wider text-opai-purple mb-3">
+        <span>// Estándares de Ingeniería Web</span>
+      </div>
+      <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        Los 5 pilares con los que construimos cada sitio web.
+      </h2>
+      <p class="font-inter-tight text-lg text-background-13/70 leading-relaxed">
+        No hacemos páginas para que se vean bonitas en un portafolio; diseñamos herramientas de negocio de alto rendimiento probadas para vender más.
+      </p>
+    </div>
+
+    <!-- 5 Pillars Grid (Adaptive layout) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {pillars.map((pillar, idx) => (
+        <div class={`rounded-[24px] border border-stroke-2/60 bg-white p-7 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-black/20 flex flex-col justify-between ${idx === 3 ? 'lg:col-span-1 md:col-span-2 lg:col-auto' : ''}`}>
+          
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <div class={`flex h-12 w-12 items-center justify-center rounded-2xl ${pillar.color}`}>
+                <pillar.icon class="h-6 w-6" />
+              </div>
+              <span class="font-ibm-plex-mono text-xs px-2.5 py-1 rounded-full bg-slate-100 text-background-13/70 font-medium">
+                {pillar.badge}
+              </span>
+            </div>
+
+            <h3 class="font-sora text-xl font-bold text-background-13 mb-3">
+              {pillar.title}
+            </h3>
+
+            <p class="font-inter-tight text-sm sm:text-base text-background-13/70 leading-relaxed mb-6">
+              {pillar.description}
+            </p>
+          </div>
+
+          <div class="pt-4 border-t border-black/5 flex items-center gap-2 font-ibm-plex-mono text-xs text-emerald-600 font-medium">
+            <span>✓ Estándar Obligatorio 77 Studio</span>
+          </div>
+
+        </div>
+      ))}
+
+      <!-- Special Callout Card in Grid -->
+      <div class="rounded-[24px] bg-background-13 text-white p-7 flex flex-col justify-between border border-white/10 shadow-lg md:col-span-2 lg:col-span-1">
+        <div>
+          <div class="inline-flex items-center gap-1.5 font-ibm-plex-mono text-xs text-opai-purple uppercase font-semibold mb-4">
+            <span>// Garantía Técnica</span>
+          </div>
+          <h3 class="font-sora text-2xl font-bold mb-3">
+            Score 95+ en Google PageSpeed
+          </h3>
+          <p class="font-inter-tight text-sm text-white/70 leading-relaxed mb-6">
+            Entregamos tu sitio web con auditoría técnica verificable en Core Web Vitals para asegurar el mejor posicionamiento SEO y máxima rentabilidad publicitaria.
+          </p>
+        </div>
+
+        <a
+          href="#contacto"
+          class="font-ibm-plex-mono text-xs uppercase tracking-wider bg-opai-purple hover:bg-opai-purple/90 text-white px-5 py-3 rounded-xl transition-all font-medium inline-flex items-center justify-between"
+        >
+          <span>Iniciar Desarrollo</span>
+          <ArrowUpRight class="h-4 w-4" />
+        </a>
+      </div>
+    </div>
+
+  </div>
+</section>

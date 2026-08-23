@@ -1,0 +1,106 @@
+---
+// src/components/web/WebProcessSection.astro
+import { Compass, FileText, Layout, Code2, Rocket } from 'lucide-astro';
+
+const steps = [
+  {
+    number: "01",
+    icon: Compass,
+    title: "Entendemos",
+    subtitle: "Diagnóstico & Objetivos",
+    description: "Analizamos tu modelo de negocio, propuesta de valor, buyer personas y definimos los objetivos de conversión clave.",
+    deliverable: "Brief estratégico y mapa de requerimientos"
+  },
+  {
+    number: "02",
+    icon: FileText,
+    title: "Estructuramos",
+    subtitle: "Wireframes & Copywriting",
+    description: "Diseñamos la estructura de navegación y redactamos los textos comerciales con enfoque AIDA antes de diseñar la parte visual.",
+    deliverable: "Estructura de páginas y textos de conversión"
+  },
+  {
+    number: "03",
+    icon: Layout,
+    title: "Diseñamos",
+    subtitle: "UI & Prototipado",
+    description: "Creamos la interfaz visual premium en alta fidelidad, con tipografías Sora/Inter Tight, diseño mobile first y microanimaciones.",
+    deliverable: "Diseño visual completo y aprobado"
+  },
+  {
+    number: "04",
+    icon: Code2,
+    title: "Desarrollamos",
+    subtitle: "Ingeniería Astro 5",
+    description: "Programamos código limpio sin plantillas lentas, conectamos formularios a tu CRM, WhatsApp y configuramos Meta CAPI + GA4.",
+    deliverable: "Sitio web interactivo y conectado"
+  },
+  {
+    number: "05",
+    icon: Rocket,
+    title: "Lanzamos",
+    subtitle: "QA & Despliegue Global",
+    description: "Realizamos pruebas exhaustivas de velocidad (Score 95+), validamos enlaces de conversión y publicamos en CDN global de Vercel Edge.",
+    deliverable: "Sitio en vivo, optimizado y listo para vender"
+  }
+];
+---
+
+<section class="py-24 bg-white relative overflow-hidden">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 font-ibm-plex-mono text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">
+        <span>// Metodología de Desarrollo</span>
+      </div>
+      <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        Un proceso claro y predecible de 5 pasos.
+      </h2>
+      <p class="font-inter-tight text-lg text-background-13/70 leading-relaxed">
+        Sin retrasos infinitos ni sorpresas de último momento. Te acompañamos desde la idea hasta el lanzamiento con entregables definidos en cada etapa.
+      </p>
+    </div>
+
+    <!-- 5 Steps Process Grid (Responsive horizontal on desktop) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
+      {steps.map((step) => (
+        <div class="rounded-[20px] border border-stroke-2/60 bg-slate-50/80 p-6 flex flex-col justify-between transition-all hover:bg-white hover:shadow-md hover:border-black/20">
+          
+          <div>
+            <!-- Step Number & Icon -->
+            <div class="flex items-center justify-between mb-4">
+              <span class="font-ibm-plex-mono text-xl font-bold text-blue-600">
+                {step.number}
+              </span>
+              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
+                <step.icon class="h-5 w-5" />
+              </div>
+            </div>
+
+            <!-- Title & Subtitle -->
+            <h3 class="font-sora text-lg font-bold text-background-13 mb-1">
+              {step.title}
+            </h3>
+            <span class="font-ibm-plex-mono text-xs text-background-13/50 block mb-3 uppercase tracking-wider">
+              {step.subtitle}
+            </span>
+
+            <!-- Description -->
+            <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed mb-6">
+              {step.description}
+            </p>
+          </div>
+
+          <!-- Bottom Deliverable Tag -->
+          <div class="pt-3.5 border-t border-black/5 font-inter-tight text-[11px] text-background-13/70">
+            <span class="font-semibold text-background-13 block mb-0.5">Entregable:</span>
+            <span>{step.deliverable}</span>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

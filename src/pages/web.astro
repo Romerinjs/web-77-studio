@@ -1,0 +1,38 @@
+---
+// src/pages/web.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroWeb from '@/components/web/HeroWeb.astro';
+import WebSolutionsGrid from '@/components/web/WebSolutionsGrid.astro';
+import WebPainPointsSection from '@/components/web/WebPainPointsSection.astro';
+import WebDesignPillars from '@/components/web/WebDesignPillars.astro';
+import WebProcessSection from '@/components/web/WebProcessSection.astro';
+import WebContactSection from '@/components/web/WebContactSection.astro';
+
+const pageTitle = "Desarrollo Web & Landing Pages de Alta Conversión | 77 Studio";
+const pageDescription = "Diseñamos experiencias digitales rápidas, claras y optimizadas para CRO, SEO, integración con CRM y experiencia mobile first (Colombia ↔ USA).";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical="https://77.studio/web"
+  whatsappContext="web"
+>
+  <!-- 01. Hero Section con métricas de rendimiento y mockup interactivo -->
+  <HeroWeb />
+
+  <!-- 02. Grid con las 6 Soluciones Web Especializadas -->
+  <WebSolutionsGrid />
+
+  <!-- 03. Diagnóstico: El Problema de la Web Tradicional vs Solución 77 -->
+  <WebPainPointsSection />
+
+  <!-- 04. Los 5 Pilares de Diseño para Conversión y Rendimiento -->
+  <WebDesignPillars />
+
+  <!-- 05. Metodología de Desarrollo en 5 Pasos -->
+  <WebProcessSection />
+
+  <!-- 06. Bloque de Conversión Comercial con WhatsApp Web y Formulario -->
+  <WebContactSection />
+</BaseLayout>

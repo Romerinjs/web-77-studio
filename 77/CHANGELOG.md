@@ -9,6 +9,14 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1
 ## [Unreleased] - 2026-08-22
 
 ### Added
+- **Módulo 03 (Desarrollo Web & Landing Pages `/web`)**: Implementación integral de la página modular de Desarrollo Web de Alta Conversión según especificación `77/03-web`:
+  - `<HeroWeb />`: Propuesta de valor de ingeniería web, métricas Lighthouse (100/100, &lt;0.6s TTI), showcase interactivo de navegador desktop + marco mobile y CTAs duales con mensaje prellenado de WhatsApp para desarrollo web.
+  - `<WebSolutionsGrid />`: Grid de las 6 soluciones especializadas (Web Corporativa, Landing Pages, Rediseño & Modernización, Funnels de Venta, Integraciones Tech & CRM, Analítica Avanzada & CRO).
+  - `<WebPainPointsSection />`: Diagnóstico visual "El Problema de la Web Tradicional" (Oferta confusa, lentitud de carga, fricción móvil, formularios eternos, desconexión comercial) vs. Solución 77 Studio.
+  - `<WebDesignPillars />`: Los 5 pilares de ingeniería web (Claridad Inmediata, Confianza & Autoridad, Conversión Dual CRO, Velocidad Extrema en Astro 5, Mobile-First Riguroso) con tarjeta de Garantía Técnica Core Web Vitals 95+.
+  - `<WebProcessSection />`: Metodología en 5 pasos (Entendemos → Estructuramos → Diseñamos → Desarrollamos → Lanzamos).
+  - `<WebContactSection />`: Bloque de cierre comercial con asesoría técnica directa por WhatsApp y formulario con `originPage="web"`.
+  - Página `src/pages/web.astro` con metadatos SEO completos y enrutamiento estático en Astro 5.
 - **Módulo 02 (Marketing `/marketing`)**: Implementación integral de la página modular de Marketing Digital, Meta Ads & Google Ads según especificación `77/02-marketing`:
   - `<HeroMarketing />`: Propuesta de valor de Paid Media, dashboard interactivo con métricas en vivo (ROAS 4.62x, CTR 3.85%, CPL -34%) y CTAs duales con mensaje prellenado de WhatsApp para Marketing.
   - `<CapabilitiesGrid />`: Grid 2x5 con las 10 capacidades integradas (Estrategia, Meta Ads, Google Ads, Branding, Contenido, Video/Hooks, Contenido con IA, Automatización de Publicaciones, Email Marketing, SMS Marketing).
