@@ -1,0 +1,146 @@
+---
+// src/components/marketing/CapabilitiesGrid.astro
+import {
+  Compass,
+  Share2,
+  Search,
+  Palette,
+  LayoutGrid,
+  Video,
+  Sparkles,
+  CalendarCheck,
+  Mail,
+  MessageSquare
+} from 'lucide-astro';
+
+const capabilities = [
+  {
+    icon: Compass,
+    number: "01",
+    title: "Estrategia & Posicionamiento",
+    description: "Definición de objetivos comerciales, audiencias ICP, propuesta de valor diferenciada y mapa de canales de adquisición.",
+    badge: "Fundacional",
+    color: "text-opai-purple bg-opai-purple/10"
+  },
+  {
+    icon: Share2,
+    number: "02",
+    title: "Meta Ads (Instagram & FB)",
+    description: "Campañas de generación de demanda, Advantage+, audiencias de alto valor y retargeting dinámico omnicanal.",
+    badge: "Demanda Activa",
+    color: "text-blue-600 bg-blue-50"
+  },
+  {
+    icon: Search,
+    number: "03",
+    title: "Google Ads & High-Intent Search",
+    description: "Captura de intención de búsqueda lista para comprar mediante Search, Performance Max y optimización de palabras clave.",
+    badge: "Intención de Compra",
+    color: "text-emerald-600 bg-emerald-50"
+  },
+  {
+    icon: Palette,
+    number: "04",
+    title: "Branding & Comunicación",
+    description: "Identidad visual, directrices de diseño y narrativa de marca para generar autoridad y confianza inmediata.",
+    badge: "Autoridad de Marca",
+    color: "text-amber-600 bg-amber-50"
+  },
+  {
+    icon: LayoutGrid,
+    number: "05",
+    title: "Generación de Contenido",
+    description: "Piezas gráficas de alto contraste, carruseles de valor y copys persuasivos diseñados para retener y educar.",
+    badge: "Conversión Orgánica",
+    color: "text-purple-600 bg-purple-50"
+  },
+  {
+    icon: Video,
+    number: "06",
+    title: "Edición de Video & Hooks",
+    description: "Reels, Shorts y anuncios de video con hooks estructurados en los primeros 3 segundos para maximizar el CTR.",
+    badge: "Alto Impacto Visual",
+    color: "text-rose-600 bg-rose-50"
+  },
+  {
+    icon: Sparkles,
+    number: "07",
+    title: "Contenido con Asistencia de IA",
+    description: "Generación rápida de variaciones visuales, copys alternativos y prototipado conceptual para pruebas A/B constantes.",
+    badge: "Velocidad & Escala",
+    color: "text-indigo-600 bg-indigo-50"
+  },
+  {
+    icon: CalendarCheck,
+    number: "08",
+    title: "Automatización de Publicaciones",
+    description: "Sistemas de distribución y calendarización de contenido sin fricción manual ni cuellos de botella operativos.",
+    badge: "Eficiencia Operativa",
+    color: "text-cyan-600 bg-cyan-50"
+  },
+  {
+    icon: Mail,
+    number: "09",
+    title: "Email Marketing & Nutrición",
+    description: "Secuencias automáticas de bienvenida, maduración de leads y reactivación comercial de bases de datos existentes.",
+    badge: "Retención & LTV",
+    color: "text-teal-600 bg-teal-50"
+  },
+  {
+    icon: MessageSquare,
+    number: "10",
+    title: "SMS Marketing Directo",
+    description: "Mensajería directa para alertas estratégicas, ofertas exclusivas y recordatorios de alta tasa de apertura (+90%).",
+    badge: "Apertura Inmediata",
+    color: "text-violet-600 bg-violet-50"
+  }
+];
+---
+
+<section class="py-20 bg-slate-50 relative">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-16">
+      <div class="inline-flex items-center gap-2 font-ibm-plex-mono text-xs font-semibold uppercase tracking-wider text-opai-purple mb-3">
+        <span>// Capacidad Integral 360°</span>
+      </div>
+      <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        10 capacidades integradas en un solo equipo de marketing.
+      </h2>
+      <p class="font-inter-tight text-lg text-background-13/70 leading-relaxed">
+        No necesitas contratar 5 agencias ni lidiar con freelancers desconectados. Unificamos todas las disciplinas para que tu mensaje, tus anuncios y tu embudo funcionen en sincronía.
+      </p>
+    </div>
+
+    <!-- 10 Capabilities Grid (2 columns on tablet/desktop, 1 on mobile) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-5">
+      {capabilities.map((item) => (
+        <div class="group relative rounded-[20px] border border-stroke-2/60 bg-white p-6 sm:p-7 transition-all duration-300 hover:shadow-lg hover:border-black/20">
+          <div class="flex items-start justify-between gap-4 mb-4">
+            <div class="flex items-center gap-3.5">
+              <div class={`flex h-12 w-12 items-center justify-center rounded-xl ${item.color} transition-transform group-hover:scale-105`}>
+                <item.icon class="h-6 w-6" />
+              </div>
+              <div>
+                <span class="font-ibm-plex-mono text-xs text-background-13/40">{item.number}</span>
+                <h3 class="font-sora text-lg sm:text-xl font-semibold text-background-13 leading-snug">
+                  {item.title}
+                </h3>
+              </div>
+            </div>
+
+            <span class="font-ibm-plex-mono text-[11px] px-2.5 py-1 rounded-full bg-slate-100 text-background-13/70 whitespace-nowrap">
+              {item.badge}
+            </span>
+          </div>
+
+          <p class="font-inter-tight text-sm sm:text-base text-background-13/70 leading-relaxed pl-0 sm:pl-[62px]">
+            {item.description}
+          </p>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

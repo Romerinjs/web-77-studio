@@ -1,0 +1,115 @@
+---
+// src/components/marketing/CreativeShowcase.astro
+import { Play, Sparkles, Flame, Eye, MousePointerClick, Layers } from 'lucide-astro';
+
+const creativeTypes = [
+  {
+    tag: "Video Ad // Hook de 3 Segundos",
+    title: "Reels & TikTok Ads de Alta Retención",
+    description: "Estructura publicitaria: Hook visual en el segundo 0-3 → Identificación del dolor → Demostración de solución → Llamada a la acción precisa.",
+    metrics: "68% Retención 3s · CTR 4.1%",
+    gradient: "from-purple-900/90 via-slate-900 to-black",
+    accent: "bg-opai-purple text-white",
+    type: "video"
+  },
+  {
+    tag: "Estático // Contraste Editorial",
+    title: "Single Image Ads de Alta Claridad",
+    description: "Diseño visual minimalista con tipografías Sora y microcopy persuasivo. La propuesta de valor se entiende en menos de 1 segundo de scroll.",
+    metrics: "CPL -42% · +92% Score de Calidad",
+    gradient: "from-slate-900 via-zinc-900 to-black",
+    accent: "bg-blue-600 text-white",
+    type: "image"
+  },
+  {
+    tag: "Educativo // Formato Deslizable",
+    title: "Carruseles de Demolición de Objeciones",
+    description: "Secuencia de 5 a 7 tarjetas que educan al prospecto, comparan el antes vs después y resuelven dudas antes de hacer clic al WhatsApp.",
+    metrics: "+180% Guardados · Alto Engagement",
+    gradient: "from-zinc-900 via-stone-900 to-black",
+    accent: "bg-emerald-600 text-white",
+    type: "carousel"
+  },
+  {
+    tag: "Multi-Variante // Asistencia IA",
+    title: "Iteraciones Creativas para A/B Testing",
+    description: "Generación acelerada de variantes de fondos, titulares y ángulos de dolor asistidos por IA para evitar el desgaste de fatiga publicitaria.",
+    metrics: "12 Variantes / Campaña · Escala Continua",
+    gradient: "from-indigo-950 via-slate-900 to-black",
+    accent: "bg-amber-500 text-white",
+    type: "ai"
+  }
+];
+---
+
+<section class="py-24 bg-white relative overflow-hidden">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header -->
+    <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-16 gap-6">
+      <div class="max-w-2xl">
+        <div class="inline-flex items-center gap-2 font-ibm-plex-mono text-xs font-semibold uppercase tracking-wider text-opai-purple mb-3">
+          <span>// Creatividad que Respalda la Pauta</span>
+        </div>
+        <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight">
+          El algoritmo premia al mejor contenido publicitario.
+        </h2>
+      </div>
+
+      <p class="font-inter-tight text-base sm:text-lg text-background-13/70 max-w-md leading-relaxed">
+        El 70% del éxito de un anuncio depende de la pieza creativa. Diseñamos formatos estructurados científicamente para detener el scroll y generar clics intencionales.
+      </p>
+    </div>
+
+    <!-- Creative Mosaic Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {creativeTypes.map((item) => (
+        <div class="group relative rounded-[24px] border border-black/10 overflow-hidden bg-background-13 text-white transition-all duration-300 hover:shadow-xl">
+          
+          <!-- Card Content Container with Subtle Texture -->
+          <div class={`p-7 sm:p-9 flex flex-col justify-between min-h-[320px] bg-gradient-to-br ${item.gradient} relative z-10`}>
+            
+            <div>
+              <!-- Top Badge & Metrics -->
+              <div class="flex flex-wrap items-center justify-between gap-3 mb-6">
+                <span class={`font-ibm-plex-mono text-xs px-3 py-1 rounded-full font-medium ${item.accent}`}>
+                  {item.tag}
+                </span>
+
+                <div class="flex items-center gap-1.5 font-ibm-plex-mono text-xs text-white/80 bg-white/10 px-3 py-1 rounded-full backdrop-blur-md">
+                  <Flame class="h-3.5 w-3.5 text-amber-400" />
+                  <span>{item.metrics}</span>
+                </div>
+              </div>
+
+              <!-- Title -->
+              <h3 class="font-sora text-2xl font-bold text-white mb-3 group-hover:text-opai-purple transition-colors">
+                {item.title}
+              </h3>
+
+              <!-- Description -->
+              <p class="font-inter-tight text-sm sm:text-base text-white/75 leading-relaxed max-w-xl">
+                {item.description}
+              </p>
+            </div>
+
+            <!-- Bottom Interactive Visual Indicator -->
+            <div class="pt-6 mt-6 border-t border-white/10 flex items-center justify-between font-ibm-plex-mono text-xs text-white/60">
+              <div class="flex items-center gap-2">
+                <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                <span>Formato Optimizado para Conversión</span>
+              </div>
+              <span class="text-white/40 group-hover:text-white transition-colors">77 Studio Creative Lab →</span>
+            </div>
+
+          </div>
+
+          <!-- Subtle Background Hover Glow Effect -->
+          <div class="absolute inset-0 bg-gradient-to-t from-opai-purple/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

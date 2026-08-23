@@ -6,9 +6,18 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1
 
 ---
 
-## [Unreleased] - 2026-08-21
+## [Unreleased] - 2026-08-22
 
 ### Added
+- **Módulo 02 (Marketing `/marketing`)**: Implementación integral de la página modular de Marketing Digital, Meta Ads & Google Ads según especificación `77/02-marketing`:
+  - `<HeroMarketing />`: Propuesta de valor de Paid Media, dashboard interactivo con métricas en vivo (ROAS 4.62x, CTR 3.85%, CPL -34%) y CTAs duales con mensaje prellenado de WhatsApp para Marketing.
+  - `<CapabilitiesGrid />`: Grid 2x5 con las 10 capacidades integradas (Estrategia, Meta Ads, Google Ads, Branding, Contenido, Video/Hooks, Contenido con IA, Automatización de Publicaciones, Email Marketing, SMS Marketing).
+  - `<PPCComparisonSection />`: Comparativa visual "Pautar no es solo activar anuncios" (Campañas tradicionales desconectadas vs. Sistema Conectado 77 Studio con CAPI y alta velocidad).
+  - `<ChannelsComparison />`: Sinergia de canales complementarios: Meta Ads (Generación de Demanda) + Google Ads (Captura de Intención de Búsqueda).
+  - `<CreativeShowcase />`: Mosaico visual de formatos y hooks de alta retención (Videos de 3s, Estáticos de contraste, Carruseles educativos, Variantes con IA para A/B testing).
+  - `<MarketingProcess />`: Metodología en 4 pasos (Entendemos → Diseñamos → Lanzamos → Optimizamos).
+  - `<MarketingContactSection />`: Bloque de cierre comercial enfocado en auditoría y estrategia de pauta con WhatsApp contextual y formulario con `originPage="marketing"`.
+  - Página `src/pages/marketing.astro` con metadatos SEO completos y enrutamiento estático en Astro 5.
 - **Módulo 01 (Home `/`)**: Implementación integral de la página principal según especificación `77/01-home`:
   - `<HeroHome />`: Propuesta de valor, métricas operativas en vivo y CTAs duales de conversión.
   - `<InternationalPresence />`: Banner de cobertura global Colombia (Medellín/Bogotá) ↔ Estados Unidos (Miami/Global).

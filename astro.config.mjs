@@ -11,6 +11,6 @@ export default defineConfig({
   output: 'static',
   adapter: vercel(),
   vite: {
-    plugins: [tailwindcss()]
+    plugins: [/** @type {any} */ (tailwindcss())]
   }
 });
