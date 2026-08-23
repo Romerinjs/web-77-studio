@@ -1,0 +1,38 @@
+---
+// src/pages/ia-automatizacion.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroIA from '@/components/ia/HeroIA.astro';
+import IACapabilitiesGrid from '@/components/ia/IACapabilitiesGrid.astro';
+import WorkflowDiagramSection from '@/components/ia/WorkflowDiagramSection.astro';
+import AutomationVsAISection from '@/components/ia/AutomationVsAISection.astro';
+import IAProcessSection from '@/components/ia/IAProcessSection.astro';
+import IAContactSection from '@/components/ia/IAContactSection.astro';
+
+const pageTitle = "IA + Automatización de Procesos Comerciales | 77 Studio";
+const pageDescription = "Diseñamos flujos automatizados e inteligencia artificial para optimizar seguimiento de leads, atención a clientes y eficiencia operativa (Colombia ↔ USA).";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical="https://77.studio/ia-automatizacion"
+  whatsappContext="ia"
+>
+  <!-- 01. Hero Section con arquitectura de nodos interactiva y CTAs duales -->
+  <HeroIA />
+
+  <!-- 02. Grid con las 4 Capacidades Prácticas de Tecnología -->
+  <IACapabilitiesGrid />
+
+  <!-- 03. Anatomía de un Workflow Real en Acción (Lead a Venta) -->
+  <WorkflowDiagramSection />
+
+  <!-- 04. Diferenciación: Automatización Determinista vs Inteligencia Artificial -->
+  <AutomationVsAISection />
+
+  <!-- 05. Metodología de Implementación en 6 Pasos -->
+  <IAProcessSection />
+
+  <!-- 06. Bloque de Cierre Comercial con WhatsApp IA y Formulario -->
+  <IAContactSection />
+</BaseLayout>

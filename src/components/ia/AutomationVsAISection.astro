@@ -1,0 +1,124 @@
+---
+// src/components/ia/AutomationVsAISection.astro
+import { GitBranch, BrainCircuit, ArrowRight, Layers, CheckCircle2 } from 'lucide-astro';
+---
+
+<section class="py-20 bg-slate-50 relative">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header -->
+    <div class="max-w-3xl mb-16">
+      <div class="inline-flex items-center gap-2 font-ibm-plex-mono text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">
+        <span>// Claridad Tecnológica</span>
+      </div>
+      <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        Automatización vs. Inteligencia Artificial: ¿Cuál necesita tu empresa?
+      </h2>
+      <p class="font-inter-tight text-lg text-background-13/75 leading-relaxed">
+        Muchas agencias venden "IA" para cosas que solo requieren una buena automatización lógica. Te explicamos la diferencia para que inviertas exactamente en lo que genera retorno.
+      </p>
+    </div>
+
+    <!-- Comparative Columns Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      
+      <!-- Column 1: Deterministic Automation -->
+      <div class="rounded-[24px] border border-stroke-2/60 bg-white p-7 sm:p-9 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-5 mb-6 border-b border-black/5">
+            <div class="flex items-center gap-3.5">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-blue-50 text-blue-600">
+                <GitBranch class="h-6 w-6" />
+              </div>
+              <div>
+                <span class="font-ibm-plex-mono text-xs font-semibold text-blue-600 uppercase">Lógica Determinista</span>
+                <h3 class="font-sora text-2xl font-bold text-background-13">Automatización</h3>
+              </div>
+            </div>
+            <span class="font-ibm-plex-mono text-xs px-3 py-1 rounded-full bg-blue-50 text-blue-700 font-medium">
+              100% Predecible
+            </span>
+          </div>
+
+          <div class="font-sora text-base font-bold text-background-13 mb-3">
+            Principio: "Si ocurre A, ejecuta B de forma exacta y sin error."
+          </div>
+
+          <p class="font-inter-tight text-sm text-background-13/75 mb-6 leading-relaxed">
+            Conecta sistemas mediante reglas fijas. No necesita pensar ni interpretar; ejecuta acciones mecánicas a la velocidad de la luz con cero margen de desviación.
+          </p>
+
+          <div class="space-y-3 font-inter-tight text-sm text-background-13/80">
+            <div class="p-3 rounded-xl bg-slate-50 border border-black/5 flex items-center gap-2.5">
+              <CheckCircle2 class="h-4 w-4 text-blue-600 shrink-0" />
+              <span>Sincronización de pagos y facturas con tu software contable</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 border border-black/5 flex items-center gap-2.5">
+              <CheckCircle2 class="h-4 w-4 text-blue-600 shrink-0" />
+              <span>Envío automático de confirmaciones por WhatsApp y email</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 border border-black/5 flex items-center gap-2.5">
+              <CheckCircle2 class="h-4 w-4 text-blue-600 shrink-0" />
+              <span>Creación y asignación de tareas en CRM / Trello / ClickUp</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-5 border-t border-black/5 font-ibm-plex-mono text-xs text-blue-700 font-medium flex items-center justify-between">
+          <span>Herramientas Principales:</span>
+          <span>Make · n8n · Zapier · Webhooks APIs</span>
+        </div>
+      </div>
+
+      <!-- Column 2: Applied AI & Language Models -->
+      <div class="rounded-[24px] border border-stroke-2/60 bg-white p-7 sm:p-9 shadow-sm flex flex-col justify-between">
+        <div>
+          <div class="flex items-center justify-between pb-5 mb-6 border-b border-black/5">
+            <div class="flex items-center gap-3.5">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-opai-purple/10 text-opai-purple">
+                <BrainCircuit class="h-6 w-6" />
+              </div>
+              <div>
+                <span class="font-ibm-plex-mono text-xs font-semibold text-opai-purple uppercase">Cognición Contextual</span>
+                <h3 class="font-sora text-2xl font-bold text-background-13">Inteligencia Artificial</h3>
+              </div>
+            </div>
+            <span class="font-ibm-plex-mono text-xs px-3 py-1 rounded-full bg-opai-purple/10 text-opai-purple font-medium">
+              Comprensión Natural
+            </span>
+          </div>
+
+          <div class="font-sora text-base font-bold text-background-13 mb-3">
+            Principio: "Analiza información desordenada y extrae sentido."
+          </div>
+
+          <p class="font-inter-tight text-sm text-background-13/75 mb-6 leading-relaxed">
+            Interpreta lenguaje humano, clasifica intención y razona sobre datos no estructurados antes de decidir qué respuesta o acción ejecutar.
+          </p>
+
+          <div class="space-y-3 font-inter-tight text-sm text-background-13/80">
+            <div class="p-3 rounded-xl bg-slate-50 border border-black/5 flex items-center gap-2.5">
+              <CheckCircle2 class="h-4 w-4 text-opai-purple shrink-0" />
+              <span>Comprensión de mensajes de voz y textos complejos de clientes</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 border border-black/5 flex items-center gap-2.5">
+              <CheckCircle2 class="h-4 w-4 text-opai-purple shrink-0" />
+              <span>Búsqueda semántica en bases de conocimiento y catálogos (RAG)</span>
+            </div>
+            <div class="p-3 rounded-xl bg-slate-50 border border-black/5 flex items-center gap-2.5">
+              <CheckCircle2 class="h-4 w-4 text-opai-purple shrink-0" />
+              <span>Extracción automática de requerimientos desde correos extensos</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-5 border-t border-black/5 font-ibm-plex-mono text-xs text-opai-purple font-semibold flex items-center justify-between">
+          <span>Herramientas Principales:</span>
+          <span>OpenAI · Claude · Embeddings · LangChain</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

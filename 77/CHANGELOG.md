@@ -9,6 +9,14 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1
 ## [Unreleased] - 2026-08-22
 
 ### Added
+- **Módulo 04 (IA + Automatización de Procesos `/ia-automatizacion`)**: Implementación integral de la página modular de Inteligencia Artificial y Automatización de Procesos según especificación `77/04-ia-automatizacion` y directrices de diseño sin clichés:
+  - `<HeroIA />`: Propuesta de valor de operaciones inteligentes, showcase interactivo de arquitectura de 4 nodos conectados (`Lead Trigger` → `Agente IA & Scoring` → `CRM Hub` → `Acción & Asesor Humano`) y CTAs duales con mensaje prellenado de WhatsApp para IA.
+  - `<IACapabilitiesGrid />`: Grid de las 4 capacidades prácticas de tecnología (Automatización Comercial & CRM, Atención & Soporte Contextual 24/7, Procesos & Operaciones Internas, Inteligencia Artificial Aplicada con RAG).
+  - `<WorkflowDiagramSection />`: Anatomía de un workflow real de lead a reunión en &lt; 30 segundos y bloque de sinergia entre equipo humano y automatizaciones.
+  - `<AutomationVsAISection />`: Comparativa visual y técnica: Lógica Determinista (Make/n8n) vs. Inteligencia Artificial Cognitiva (LLMs/RAG).
+  - `<IAProcessSection />`: Metodología en 6 pasos (Entendemos → Detectamos → Diseñamos → Implementamos → Probamos → Mejoramos).
+  - `<IAContactSection />`: Bloque de cierre comercial con consultoría técnica ágil por WhatsApp y formulario con `originPage="ia-automatizacion"`.
+  - Página `src/pages/ia-automatizacion.astro` con metadatos SEO completos y enrutamiento estático en Astro 5.
 - **Módulo 03 (Desarrollo Web & Landing Pages `/web`)**: Implementación integral de la página modular de Desarrollo Web de Alta Conversión según especificación `77/03-web`:
   - `<HeroWeb />`: Propuesta de valor de ingeniería web, métricas Lighthouse (100/100, &lt;0.6s TTI), showcase interactivo de navegador desktop + marco mobile y CTAs duales con mensaje prellenado de WhatsApp para desarrollo web.
   - `<WebSolutionsGrid />`: Grid de las 6 soluciones especializadas (Web Corporativa, Landing Pages, Rediseño & Modernización, Funnels de Venta, Integraciones Tech & CRM, Analítica Avanzada & CRO).

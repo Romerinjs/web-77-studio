@@ -1,0 +1,117 @@
+---
+// src/components/ia/IAProcessSection.astro
+import {
+  Compass,
+  AlertTriangle,
+  LayoutGrid,
+  Code2,
+  CheckCircle2,
+  TrendingUp
+} from 'lucide-astro';
+
+const steps = [
+  {
+    number: "01",
+    icon: Compass,
+    title: "Entendemos",
+    subtitle: "Mapeo de Procesos",
+    description: "Analizamos cómo opera tu empresa hoy: qué herramientas usan, cómo viaja la información y dónde se frena el flujo.",
+    deliverable: "Diagrama del estado actual"
+  },
+  {
+    number: "02",
+    icon: AlertTriangle,
+    title: "Detectamos",
+    subtitle: "Cuellos de Botella",
+    description: "Identificamos las tareas manuales repetitivas que consumen tiempo valioso y los puntos ciegos donde se pierden clientes.",
+    deliverable: "Matriz de oportunidades de automatización"
+  },
+  {
+    number: "03",
+    icon: LayoutGrid,
+    title: "Diseñamos",
+    subtitle: "Arquitectura de Nodos",
+    description: "Diseñamos el flujo ideal paso a paso, seleccionando si cada nodo requiere lógica determinista o un agente de IA.",
+    deliverable: "Blueprint técnico y stack de herramientas"
+  },
+  {
+    number: "04",
+    icon: Code2,
+    title: "Implementamos",
+    subtitle: "Construcción & APIs",
+    description: "Conectamos Make, n8n, tu CRM, WhatsApp y modelos de lenguaje mediante webhooks seguros y manejo de errores.",
+    deliverable: "Automatizaciones activas en staging"
+  },
+  {
+    number: "05",
+    icon: CheckCircle2,
+    title: "Probamos",
+    subtitle: "Validación sin Errores",
+    description: "Simulamos cientos de escenarios reales, mensajes atípicos y caídas de servicio para garantizar estabilidad total.",
+    deliverable: "Checklist de pruebas de calidad 100% aprobado"
+  },
+  {
+    number: "06",
+    icon: TrendingUp,
+    title: "Mejoramos",
+    subtitle: "Monitoreo & Escalado",
+    description: "Monitoreamos la ejecución diaria, ajustamos prompts y agregamos nuevas integraciones a medida que tu negocio crece.",
+    deliverable: "Dashboard de métricas operativas y soporte"
+  }
+];
+---
+
+<section class="py-24 bg-white relative overflow-hidden">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 font-ibm-plex-mono text-xs font-semibold uppercase tracking-wider text-opai-purple mb-3">
+        <span>// Metodología de Ingeniería</span>
+      </div>
+      <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        Implementación profesional en 6 pasos estructurados.
+      </h2>
+      <p class="font-inter-tight text-lg text-background-13/70 leading-relaxed">
+        Una metodología rigurosa para garantizar que cada flujo funcione con precisión matemática desde el primer día de lanzamiento.
+      </p>
+    </div>
+
+    <!-- 6 Steps Process Grid (2x3 on tablet/desktop) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {steps.map((step) => (
+        <div class="rounded-[20px] border border-stroke-2/60 bg-slate-50/70 p-7 flex flex-col justify-between transition-all hover:bg-white hover:shadow-md hover:border-black/20">
+          
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="font-ibm-plex-mono text-xl font-bold text-opai-purple">
+                {step.number}
+              </span>
+              <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-opai-purple/10 text-opai-purple">
+                <step.icon class="h-5 w-5" />
+              </div>
+            </div>
+
+            <h3 class="font-sora text-xl font-bold text-background-13 mb-1">
+              {step.title}
+            </h3>
+            <span class="font-ibm-plex-mono text-xs text-background-13/50 block mb-3 uppercase tracking-wider">
+              {step.subtitle}
+            </span>
+
+            <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed mb-6">
+              {step.description}
+            </p>
+          </div>
+
+          <div class="pt-3.5 border-t border-black/5 font-inter-tight text-xs text-background-13/70">
+            <span class="font-semibold text-background-13 block mb-0.5">Entregable:</span>
+            <span>{step.deliverable}</span>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
