@@ -1,0 +1,81 @@
+---
+// src/components/home/ProcessSection.astro
+const steps = [
+  {
+    step: "01",
+    name: "Entendemos",
+    title: "Diagnóstico & Objetivo",
+    description: "Analizamos tu modelo de negocio, cuellos de botella actuales, audiencia y objetivos prioritarios antes de proponer cualquier solución técnica o creativa."
+  },
+  {
+    step: "02",
+    name: "Proponemos",
+    title: "Estrategia & Alcance",
+    description: "Diseñamos un plan de acción claro y transparente: entregables concretos, tiempos realistas y la arquitectura de marketing o tecnología requerida."
+  },
+  {
+    step: "03",
+    name: "Creamos",
+    title: "Ejecución Ágil",
+    description: "Desarrollamos tus campañas, plataforma web, flujos de automatización o software con los más altos estándares de calidad estética y funcional."
+  },
+  {
+    step: "04",
+    name: "Optimizamos",
+    title: "Medición & Escala",
+    description: "Monitoreamos el rendimiento con métricas reales de negocio y ajustamos continuamente para maximizar el retorno de inversión y la eficiencia operativa."
+  }
+];
+---
+
+<section id="proceso" class="py-20 sm:py-28 bg-slate-50 relative">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Header -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3.5 py-1 font-ibm-plex-mono text-xs text-opai-purple mb-4">
+        <span>CÓMO TRABAJAMOS</span>
+      </div>
+      <h2 class="font-sora text-3xl sm:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-5">
+        Un proceso estructurado en 4 pasos para garantizar resultados.
+      </h2>
+      <p class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed">
+        Sin fricción ni burocracia innecesaria. Comunicación directa, entregas iterativas y enfoque permanente en mover la aguja comercial.
+      </p>
+    </div>
+
+    <!-- 4 Steps Process Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {steps.map((st) => (
+        <div class="rounded-[20px] border border-black/10 bg-white p-7 shadow-xs card-hover flex flex-col justify-between">
+          <div>
+            <div class="flex items-center justify-between mb-5">
+              <span class="font-ibm-plex-mono text-2xl font-bold text-opai-purple">
+                {st.step}
+              </span>
+              <span class="font-ibm-plex-mono text-[11px] font-semibold text-background-13/60 bg-slate-100 px-2.5 py-1 rounded-md">
+                {st.name}
+              </span>
+            </div>
+
+            <h3 class="font-sora text-lg font-bold text-background-13 mb-2.5">
+              {st.title}
+            </h3>
+
+            <p class="font-inter-tight text-sm text-background-13/70 leading-relaxed">
+              {st.description}
+            </p>
+          </div>
+
+          <div class="pt-5 border-t border-black/5 mt-5">
+            <span class="font-ibm-plex-mono text-[11px] text-opai-purple font-medium flex items-center gap-1.5">
+              <span>Paso validado</span>
+              <span>✓</span>
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

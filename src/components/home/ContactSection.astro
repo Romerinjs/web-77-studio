@@ -1,0 +1,86 @@
+---
+// src/components/home/ContactSection.astro
+import ContactForm from '@/components/ContactForm.astro';
+import { getWhatsAppUrl } from '@/utils/whatsapp';
+
+const whatsappUrl = getWhatsAppUrl('home');
+---
+
+<section id="contacto" class="py-20 sm:py-28 bg-slate-50 relative overflow-hidden border-t border-black/5">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+      
+      <!-- Left Column: Direct WhatsApp & Info -->
+      <div class="lg:col-span-5 space-y-8">
+        
+        <div>
+          <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3.5 py-1 font-ibm-plex-mono text-xs text-opai-purple mb-4">
+            <span>CONVERSACIÓN DIRECTA</span>
+          </div>
+          <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+            Hablemos de tu proyecto hoy.
+          </h2>
+          <p class="font-inter-tight text-base text-background-13/75 leading-relaxed">
+            Ya sea que necesites escalar tu marketing, rediseñar tu web, automatizar flujos con IA o construir un producto digital, el primer paso es una conversación clara y honesta.
+          </p>
+        </div>
+
+        <!-- Direct WhatsApp Card -->
+        <div class="rounded-[24px] border border-opai-purple/30 bg-white p-7 shadow-[0_10px_30px_rgba(124,58,237,0.08)]">
+          <div class="flex items-center gap-3 mb-4">
+            <div class="h-10 w-10 rounded-xl bg-opai-purple text-white flex items-center justify-center shadow-xs">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+              </svg>
+            </div>
+            <div>
+              <span class="font-sora font-bold text-base text-background-13 block leading-tight">
+                Respuesta Inmediata
+              </span>
+              <span class="font-ibm-plex-mono text-xs text-opai-purple font-medium">
+                Vía WhatsApp Business
+              </span>
+            </div>
+          </div>
+
+          <p class="font-inter-tight text-xs sm:text-sm text-background-13/70 mb-5 leading-relaxed">
+            ¿Prefieres escribirnos directamente por chat? Te responderemos a la brevedad para entender tu caso y orientarte.
+          </p>
+
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="w-full flex items-center justify-center gap-2 bg-opai-purple hover:bg-opai-purple-hover text-white py-3 px-5 rounded-xl font-ibm-plex-mono text-sm font-semibold transition-all shadow-md active:scale-98"
+          >
+            <span>Abrir chat de WhatsApp</span>
+            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
+              <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
+            </svg>
+          </a>
+        </div>
+
+        <!-- Location details -->
+        <div class="space-y-3 font-ibm-plex-mono text-xs text-background-13/60">
+          <div class="flex items-center gap-2">
+            <span>📍</span>
+            <span>Atención Comercial: Colombia (GMT-5) · USA (EST)</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span>⚡</span>
+            <span>Tiempo promedio de contacto: &lt; 2 horas</span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column: Lead Form -->
+      <div class="lg:col-span-7">
+        <ContactForm originPage="home" />
+      </div>
+
+    </div>
+
+  </div>
+</section>

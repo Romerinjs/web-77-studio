@@ -9,6 +9,15 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1
 ## [Unreleased] - 2026-08-21
 
 ### Added
+- **Módulo 01 (Home `/`)**: Implementación integral de la página principal según especificación `77/01-home`:
+  - `<HeroHome />`: Propuesta de valor, métricas operativas en vivo y CTAs duales de conversión.
+  - `<InternationalPresence />`: Banner de cobertura global Colombia (Medellín/Bogotá) ↔ Estados Unidos (Miami/Global).
+  - `<PainPointsSection />`: Los 5 puntos de dolor del cliente en tarjetas editoriales blancas `rounded-[20px]`.
+  - `<EcosystemSection />`: Diagrama de nodos interactivo unificando los 4 pilares bajo el núcleo de 77 Studio.
+  - `<SolutionsGrid />`: Grid de las 4 capacidades principales con enrutamiento directo.
+  - `<CasesSection />`: Casos de negocio y métricas validadas de impacto comercial.
+  - `<ProcessSection />`: Metodología en 4 pasos (Entendemos → Proponemos → Creamos → Optimizamos).
+  - `<ContactSection />` & `<ContactForm />`: Bloque de conversión con WhatsApp Business y formulario comercial.
 - **Módulo 00 (Setup Core & Design Tokens)**: Configuración e inicialización de Astro 5.4+, Tailwind CSS v4 con Vite, TypeScript estricto, `@astrojs/mdx` y `@astrojs/vercel`.
 - Creación de componentes estructurales base: `<Header />` con navbar flotante blanca y menú responsive, `<Footer />`, `<DualCTA />` con enlaces contextuales de WhatsApp, `<MobileStickyBar />` y `<BaseLayout />`.
 - Definición de utilidades de diseño y conversión en `src/utils/whatsapp.ts`, `src/utils/seo.ts` y `src/utils/cn.ts`.
