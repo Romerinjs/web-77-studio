@@ -114,3 +114,76 @@
 .animate-pulse-glow {
   animation: pulseGlow 4s infinite ease-in-out;
 }
+
+/* ==========================================================================
+   77 STUDIO DESIGN SYSTEM - ANIMATION ATTR RULES ([data-opai-animate], etc)
+   ========================================================================== */
+
+/* 1. Scroll-triggered Entry Animation */
+[data-opai-animate] {
+  opacity: 0;
+  transform: translateY(35px);
+  filter: blur(10px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+[data-opai-animate][data-direction="left"] {
+  transform: translateX(-40px);
+}
+
+[data-opai-animate][data-direction="right"] {
+  transform: translateX(40px);
+}
+
+[data-opai-animate][data-direction="down"] {
+  transform: translateY(-35px);
+}
+
+[data-opai-animate].is-in-view {
+  opacity: 1;
+  transform: translate(0, 0);
+  filter: blur(0);
+}
+
+/* 2. Text Reveal Animation */
+[data-text-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+[data-text-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3. Interactive Pill Button (.button) */
+.button {
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.button .button-icon {
+  transition: transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.button:hover .button-icon {
+  transform: translateX(4px);
+}
+
+.button .button-text {
+  transition: color 0.3s ease;
+}
+
+/* Header scrolled state */
+#main-header.scrolled > div {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}
