@@ -106,18 +106,16 @@ const steps = [
       </button>
 
       <!-- Bottom Center Elevated Active Step Card (Cleanly Centered between Nodes 02 & 03 with Ample Clearance) -->
-      <div class="relative z-10 w-full max-w-md mx-auto bg-white/95 backdrop-blur-md rounded-2xl p-6 lg:p-7 border border-black/10 shadow-xl text-center space-y-3 mb-2 transform transition-all duration-300">
-        <div class="inline-flex items-center gap-2 bg-opai-purple/10 text-opai-purple px-3.5 py-1 rounded-full text-xs font-ibm-plex-mono font-bold uppercase tracking-wider">
-          <span class="process-step-badge">{steps[0].name}</span>
-          <span class="text-opai-purple/40">•</span>
-          <span class="process-step-num text-opai-purple/90">Paso {steps[0].step}</span>
-        </div>
-
-        <h3 class="process-step-title font-sora text-xl lg:text-2xl font-bold text-background-13 tracking-tight">
-          {steps[0].title}
+      <div class="relative z-10 w-full max-w-md mx-auto bg-white/95 backdrop-blur-md rounded-2xl p-6 lg:p-7 border border-black/10 shadow-xl text-center space-y-2.5 mb-2 transform transition-all duration-300">
+        <h3 class="process-step-title font-sora text-2xl lg:text-3xl font-bold text-background-13 tracking-tight">
+          {steps[0].name}
         </h3>
 
-        <p class="process-step-description font-inter-tight text-sm lg:text-base text-background-13/80 leading-relaxed max-w-sm mx-auto">
+        <p class="process-step-subtitle font-sora text-xs sm:text-sm font-semibold text-background-13/50 tracking-wide uppercase">
+          {steps[0].title}
+        </p>
+
+        <p class="process-step-description font-inter-tight text-sm lg:text-base text-background-13/80 leading-relaxed max-w-sm mx-auto pt-1">
           {steps[0].description}
         </p>
 
@@ -145,20 +143,15 @@ const steps = [
       <!-- Mobile 4 Cards -->
       <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
         {steps.map((st) => (
-          <div class="rounded-2xl border border-black/10 bg-white p-6 shadow-xs flex flex-col justify-between space-y-4">
+          <div class="rounded-2xl border border-black/10 bg-white p-6 shadow-xs flex flex-col justify-between space-y-2">
             <div>
-              <div class="flex items-center justify-between mb-4">
-                <span class="size-10 rounded-full bg-background-13 text-white font-ibm-plex-mono font-bold text-sm flex items-center justify-center shadow-xs">
-                  {st.step}
-                </span>
-                <span class="font-ibm-plex-mono text-xs font-bold text-opai-purple uppercase bg-opai-purple/10 px-3 py-1 rounded-full">
-                  {st.name}
-                </span>
-              </div>
-
-              <h3 class="font-sora text-base font-bold text-background-13 mb-2">
-                {st.title}
+              <h3 class="font-sora text-xl font-bold text-background-13 mb-1">
+                {st.name}
               </h3>
+
+              <p class="font-sora text-xs font-semibold text-background-13/50 tracking-wide uppercase mb-3">
+                {st.title}
+              </p>
 
               <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
                 {st.description}
@@ -174,9 +167,8 @@ const steps = [
 
 <style>
   /* Smooth transitions for active step content */
-  .process-step-badge,
-  .process-step-num,
   .process-step-title,
+  .process-step-subtitle,
   .process-step-description {
     transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
   }
@@ -201,13 +193,12 @@ const steps = [
 
     const steps = JSON.parse(dataAttr);
     const nodes = container.querySelectorAll('.process-node');
-    const badgeEl = container.querySelector('.process-step-badge') as HTMLElement;
-    const numEl = container.querySelector('.process-step-num') as HTMLElement;
     const titleEl = container.querySelector('.process-step-title') as HTMLElement;
+    const subtitleEl = container.querySelector('.process-step-subtitle') as HTMLElement;
     const descEl = container.querySelector('.process-step-description') as HTMLElement;
     const dots = container.querySelectorAll('.process-dot');
 
-    if (!badgeEl || !titleEl || !descEl) return;
+    if (!titleEl || !descEl) return;
 
     let currentIndex = 0;
     let timerId: any = null;
@@ -232,7 +223,7 @@ const steps = [
       });
 
       // 3. Fade out active card text
-      const textEls = [badgeEl, numEl, titleEl, descEl];
+      const textEls = [titleEl, subtitleEl, descEl];
       textEls.forEach(el => {
         if (el) {
           el.style.opacity = '0';
@@ -243,9 +234,8 @@ const steps = [
       // 4. Update content and fade back in
       setTimeout(() => {
         const stepData = steps[index];
-        if (badgeEl) badgeEl.textContent = stepData.name;
-        if (numEl) numEl.textContent = `Paso ${stepData.step}`;
-        if (titleEl) titleEl.textContent = stepData.title;
+        if (titleEl) titleEl.textContent = stepData.name;
+        if (subtitleEl) subtitleEl.textContent = stepData.title;
         if (descEl) descEl.textContent = stepData.description;
 
         textEls.forEach(el => {

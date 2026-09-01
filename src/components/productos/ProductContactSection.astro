@@ -7,8 +7,15 @@ import { Layers, Sparkles, CheckCircle2 } from 'lucide-astro';
 const whatsappUrl = getWhatsAppUrl('productos');
 ---
 
-<section id="contacto" class="py-20 sm:py-28 bg-slate-50 relative overflow-hidden border-t border-black/5">
-  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+<section 
+  id="contacto" 
+  class="py-20 sm:py-28 relative overflow-hidden border-t border-black/10 bg-cover bg-center bg-no-repeat"
+  style="background-image: url('/img/backgorund-contacto.jpg');"
+>
+  <!-- Dark Fade & Blur Overlay -->
+  <div class="absolute inset-0 bg-black/75 backdrop-blur-[2px]"></div>
+
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6 relative z-10">
     
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
       
@@ -16,29 +23,25 @@ const whatsappUrl = getWhatsAppUrl('productos');
       <div class="lg:col-span-5 space-y-8">
         
         <div>
-          <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3.5 py-1 font-ibm-plex-mono text-xs text-amber-700 mb-4">
-            <span>CONSTRUCCIÓN DE PRODUCTO</span>
-          </div>
-          <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+          <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
             Cuéntanos qué herramienta necesitas crear.
           </h2>
-          <p class="font-inter-tight text-base text-background-13/75 leading-relaxed">
+          <p class="font-inter-tight text-base sm:text-lg text-white/80 leading-relaxed">
             Puede ser una aplicación web interna para tu equipo, un portal de autogestión para tus clientes o una plataforma SaaS desde cero. Comencemos con una conversación de evaluación.
           </p>
         </div>
 
         <!-- Direct WhatsApp Card -->
-        <div class="rounded-[24px] border border-amber-500/30 bg-white p-7 shadow-[0_10px_30px_rgba(245,158,11,0.08)]">
+        <div class="rounded-[24px] border border-amber-500/30 bg-white/95 backdrop-blur-md p-7 shadow-[0_10px_30px_rgba(245,158,11,0.08)]">
           <div class="flex items-center gap-3 mb-4">
-            <div class="h-10 w-10 rounded-xl bg-amber-500 text-white flex items-center justify-center shadow-xs font-bold text-lg">
-              ⚡
+            <div class="h-10 w-10 rounded-xl bg-opai-purple text-white flex items-center justify-center shadow-xs">
+              <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
+                <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
+              </svg>
             </div>
             <div>
-              <span class="font-sora font-bold text-base text-background-13 block leading-tight">
-                Asesoría Técnica Directa
-              </span>
-              <span class="font-ibm-plex-mono text-xs text-amber-700 font-medium">
-                Vía WhatsApp con Nuestro Equipo
+              <span class="font-sora font-bold text-lg text-background-13 block leading-tight">
+                Respuesta Inmediata
               </span>
             </div>
           </div>
@@ -51,27 +54,24 @@ const whatsappUrl = getWhatsAppUrl('productos');
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full flex items-center justify-center gap-2 bg-opai-purple hover:bg-opai-purple-hover text-white py-3 px-5 rounded-xl font-ibm-plex-mono text-sm font-semibold transition-all shadow-md active:scale-98"
+            class="w-full flex items-center justify-center gap-2 bg-opai-purple hover:bg-opai-purple-hover text-white py-3.5 px-5 rounded-xl font-ibm-plex-mono text-sm font-semibold transition-all shadow-md active:scale-98"
           >
-            <span>Conversar sobre mi producto</span>
-            <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
-              <path d="M14 5l7 7m0 0l-7 7m7-7H3" />
-            </svg>
+            <span>Chatea con nosotros</span>
           </a>
         </div>
 
         <!-- Product Guarantee Highlights -->
-        <div class="space-y-3 font-ibm-plex-mono text-xs text-background-13/60">
+        <div class="space-y-2.5 font-ibm-plex-mono text-xs text-background-13/70">
           <div class="flex items-center gap-2">
-            <span class="text-emerald-500 font-bold">✓</span>
+            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
             <span>Acuerdo de Confidencialidad (NDA) antes de iniciar</span>
           </div>
           <div class="flex items-center gap-2">
-            <span class="text-emerald-500 font-bold">✓</span>
+            <span class="h-1.5 w-1.5 rounded-full bg-opai-purple"></span>
             <span>Estimación de MVP en menos de 48 horas</span>
           </div>
           <div class="flex items-center gap-2">
-            <span class="text-emerald-500 font-bold">✓</span>
+            <span class="h-1.5 w-1.5 rounded-full bg-blue-500"></span>
             <span>Atención: Colombia (GMT-5) · USA (EST)</span>
           </div>
         </div>
