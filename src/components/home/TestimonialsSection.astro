@@ -1,0 +1,734 @@
+---
+// src/components/home/TestimonialsSection.astro
+---
+
+<section class="vertical-testimonials-section bg-slate-50 border-t border-b border-black/5 py-20 sm:py-28 relative overflow-hidden" id="casos-de-exito">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header (Centered on Light Background) -->
+    <div class="section-header-center">
+      <h2 class="section-title-large">
+        Lo que Dicen Nuestros <span>Clientes &amp; Aliados</span>
+      </h2>
+      <p class="section-subtitle-text">
+        Empresas e instituciones líderes que han transformado su canal digital y acelerado sus ventas con 77 Studio.
+      </p>
+    </div>
+
+    <!-- Testimonials Scroll Marquee Grid -->
+    <div class="testimonials-marquee-container">
+      
+      <!-- COLUMNA 1: DESPLAZAMIENTO HACIA ARRIBA (EJE Y) -->
+      <div class="marquee-column">
+        
+        <!-- Card 1: Yamaha del Café -->
+        <div class="testimonial-card-v" style="background-image: url('https://cronicadelquindio.com/wp-content/uploads/2025/06/Estafa-Yamaha-del-cafe-scaled.webp');">
+          <a href="https://cronicadelquindio.com/armenia/cuidado-perfiles-falsos-siguen-estafando-a-nombre-de-yamaha-del-cafe/" target="_blank" rel="noopener" class="testimonial-external-link" title="Ver publicación">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221511600.png" alt="Yamaha del Café" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “En <strong>3 meses duplicamos los leads</strong> de la sala de ventas. Antes pautábamos sin saber si funcionaba. Ahora tenemos datos y un equipo que los entiende.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Carlos Rivera</span>
+              <span class="author-company">Yamaha del Café</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: Biohabitat Hotel -->
+        <div class="testimonial-card-v" style="background-image: url('https://caobahotels.nyc3.cdn.digitaloceanspaces.com/uploads/Bio_Habitat_The_Most_Unique_Exclusive_Hotel_Armenia_Salento_Quindio_Couples_Holistic_Spa_Colombia_A_da2eb50637.jpg');">
+          <a href="https://www.eltiempo.com/vida/viajar/biohabitat-el-hotel-de-moda-en-el-eje-cafetero-447270" target="_blank" rel="noopener" class="testimonial-external-link" title="Ver artículo en El Tiempo">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221736227.png" alt="Biohabitat Hotel" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “Pasamos de depender del <strong>voz a voz a tener reservas recurrentes</strong> desde redes. El posicionamiento que logramos no lo habíamos conseguido solos.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Juan David Jaramillo</span>
+              <span class="author-company">Hotel Biohabitat</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: Universidad del Quindío -->
+        <div class="testimonial-card-v" style="background-image: url('https://www.uniquindio.edu.co/info/uniquindio/media/galeria11587.jpg');">
+          <a href="https://cronicadelquindio.com/quindio/medicina-uniquindio-40-anos-de-historia/" target="_blank" rel="noopener" class="testimonial-external-link" title="Ver noticia institucional">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221444744.png" alt="Universidad del Quindío" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “Optimizamos la <strong>captación de estudiantes</strong> para programas de posgrado con segmentación avanzada de Meta &amp; Google Ads.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Dr. Hernán Jaramillo</span>
+              <span class="author-company">Universidad del Quindío</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicados para loop continuo -->
+        <div class="testimonial-card-v" style="background-image: url('https://cronicadelquindio.com/wp-content/uploads/2025/06/Estafa-Yamaha-del-cafe-scaled.webp');">
+          <a href="https://cronicadelquindio.com/armenia/cuidado-perfiles-falsos-siguen-estafando-a-nombre-de-yamaha-del-cafe/" target="_blank" rel="noopener" class="testimonial-external-link">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221511600.png" alt="Yamaha del Café" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “En <strong>3 meses duplicamos los leads</strong> de la sala de ventas. Antes pautábamos sin saber si funcionaba. Ahora tenemos datos y un equipo que los entiende.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Carlos Rivera</span>
+              <span class="author-company">Yamaha del Café</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card-v" style="background-image: url('https://caobahotels.nyc3.cdn.digitaloceanspaces.com/uploads/Bio_Habitat_The_Most_Unique_Exclusive_Hotel_Armenia_Salento_Quindio_Couples_Holistic_Spa_Colombia_A_da2eb50637.jpg');">
+          <a href="https://www.eltiempo.com/vida/viajar/biohabitat-el-hotel-de-moda-en-el-eje-cafetero-447270" target="_blank" rel="noopener" class="testimonial-external-link">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221736227.png" alt="Biohabitat Hotel" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “Pasamos de depender del <strong>voz a voz a tener reservas recurrentes</strong> desde redes. El posicionamiento que logramos no lo habíamos conseguido solos.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Juan David Jaramillo</span>
+              <span class="author-company">Hotel Biohabitat</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card-v" style="background-image: url('https://www.uniquindio.edu.co/info/uniquindio/media/galeria11587.jpg');">
+          <a href="https://cronicadelquindio.com/quindio/medicina-uniquindio-40-anos-de-historia/" target="_blank" rel="noopener" class="testimonial-external-link">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221444744.png" alt="Universidad del Quindío" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “Optimizamos la <strong>captación de estudiantes</strong> para programas de posgrado con segmentación avanzada de Meta &amp; Google Ads.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Dr. Hernán Jaramillo</span>
+              <span class="author-company">Universidad del Quindío</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- COLUMNA 2: DESPLAZAMIENTO HACIA ABAJO (EJE Y REVERSO) - DUPLICADA PARA EVITAR VACÍOS -->
+      <div class="marquee-column">
+        
+        <!-- Card 4: Aguardiente Antioqueño -->
+        <div class="testimonial-card-v" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSqeSWkueThkNEvOcoYPU9SvNCl3t0FdlWTmWwCgbPx6S0Dn_eOpzmXRcV&s=10');">
+          <a href="https://es.linkedin.com/posts/flaenlinea_el-aguardiente-antioque%C3%B1o-est%C3%A1-listo-para-activity-7292928490046193665-9ohP" target="_blank" rel="noopener" class="testimonial-external-link" title="Ver en LinkedIn">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221654413.png" alt="Aguardiente Antioqueño" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “El Aguardiente Antioqueño es un <strong>aguardiente seco producido por la Fábrica de Licores de Antioquia</strong> con tres variantes estratégicas: tapa azul, tapa roja y tapa verde.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Miguel Cervantes</span>
+              <span class="author-company">Aguardiente Antioqueño</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: Constructora EPIC -->
+        <div class="testimonial-card-v" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu_cHz7GBu5e7ywf0QOMOQXRkMB2mVbjvdjxeYQg1xK6NVmPGmxfyvUGM&s=10');">
+          <a href="https://www.facebook.com/p/Constructora-EPIC-100063991517680/" target="_blank" rel="noopener" class="testimonial-external-link" title="Ver página oficial">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221839330.png" alt="Constructora EPIC" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “77 Studio nos ayudó a construir un <strong>embudo que educa al prospecto y nos avisa cuando está listo</strong>. Cerramos más rápido con menos esfuerzo comercial.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Maria Jose Giraldo</span>
+              <span class="author-company">Constructora EPIC</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Copia 2 (Para completar altura mayor a 660px del viewport) -->
+        <div class="testimonial-card-v" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSqeSWkueThkNEvOcoYPU9SvNCl3t0FdlWTmWwCgbPx6S0Dn_eOpzmXRcV&s=10');">
+          <a href="https://es.linkedin.com/posts/flaenlinea_el-aguardiente-antioque%C3%B1o-est%C3%A1-listo-para-activity-7292928490046193665-9ohP" target="_blank" rel="noopener" class="testimonial-external-link">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221654413.png" alt="Aguardiente Antioqueño" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “El Aguardiente Antioqueño es un <strong>aguardiente seco producido por la Fábrica de Licores de Antioquia</strong> con tres variantes estratégicas: tapa azul, tapa roja y tapa verde.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Miguel Cervantes</span>
+              <span class="author-company">Aguardiente Antioqueño</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card-v" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu_cHz7GBu5e7ywf0QOMOQXRkMB2mVbjvdjxeYQg1xK6NVmPGmxfyvUGM&s=10');">
+          <a href="https://www.facebook.com/p/Constructora-EPIC-100063991517680/" target="_blank" rel="noopener" class="testimonial-external-link">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221839330.png" alt="Constructora EPIC" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “77 Studio nos ayudó a construir un <strong>embudo que educa al prospecto y nos avisa cuando está listo</strong>. Cerramos más rápido con menos esfuerzo comercial.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Maria Jose Giraldo</span>
+              <span class="author-company">Constructora EPIC</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicados para loop continuo -->
+        <div class="testimonial-card-v" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSqeSWkueThkNEvOcoYPU9SvNCl3t0FdlWTmWwCgbPx6S0Dn_eOpzmXRcV&s=10');">
+          <a href="https://es.linkedin.com/posts/flaenlinea_el-aguardiente-antioque%C3%B1o-est%C3%A1-listo-para-activity-7292928490046193665-9ohP" target="_blank" rel="noopener" class="testimonial-external-link">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221654413.png" alt="Aguardiente Antioqueño" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “El Aguardiente Antioqueño es un <strong>aguardiente seco producido por la Fábrica de Licores de Antioquia</strong> con tres variantes estratégicas: tapa azul, tapa roja y tapa verde.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Miguel Cervantes</span>
+              <span class="author-company">Aguardiente Antioqueño</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card-v" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu_cHz7GBu5e7ywf0QOMOQXRkMB2mVbjvdjxeYQg1xK6NVmPGmxfyvUGM&s=10');">
+          <a href="https://www.facebook.com/p/Constructora-EPIC-100063991517680/" target="_blank" rel="noopener" class="testimonial-external-link">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221839330.png" alt="Constructora EPIC" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “77 Studio nos ayudó a construir un <strong>embudo que educa al prospecto y nos avisa cuando está listo</strong>. Cerramos más rápido con menos esfuerzo comercial.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Maria Jose Giraldo</span>
+              <span class="author-company">Constructora EPIC</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card-v" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQSqeSWkueThkNEvOcoYPU9SvNCl3t0FdlWTmWwCgbPx6S0Dn_eOpzmXRcV&s=10');">
+          <a href="https://es.linkedin.com/posts/flaenlinea_el-aguardiente-antioque%C3%B1o-est%C3%A1-listo-para-activity-7292928490046193665-9ohP" target="_blank" rel="noopener" class="testimonial-external-link">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221654413.png" alt="Aguardiente Antioqueño" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “El Aguardiente Antioqueño es un <strong>aguardiente seco producido por la Fábrica de Licores de Antioquia</strong> con tres variantes estratégicas: tapa azul, tapa roja y tapa verde.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Miguel Cervantes</span>
+              <span class="author-company">Aguardiente Antioqueño</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card-v" style="background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQu_cHz7GBu5e7ywf0QOMOQXRkMB2mVbjvdjxeYQg1xK6NVmPGmxfyvUGM&s=10');">
+          <a href="https://www.facebook.com/p/Constructora-EPIC-100063991517680/" target="_blank" rel="noopener" class="testimonial-external-link">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221839330.png" alt="Constructora EPIC" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “77 Studio nos ayudó a construir un <strong>embudo que educa al prospecto y nos avisa cuando está listo</strong>. Cerramos más rápido con menos esfuerzo comercial.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Maria Jose Giraldo</span>
+              <span class="author-company">Constructora EPIC</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- COLUMNA 3: DESPLAZAMIENTO HACIA ARRIBA (EJE Y) -->
+      <div class="marquee-column">
+        
+        <!-- Card 7: SENA -->
+        <div class="testimonial-card-v" style="background-image: url('https://cloudfront-us-east-1.images.arcpublishing.com/prisaradioco/5PKBVYL7NRPZDCRJ77CDBZAXJY.jpg');">
+          <a href="https://caracol.com.co/emisora/2016/08/03/armenia/1470183874_943280.html" target="_blank" rel="noopener" class="testimonial-external-link" title="Ver noticia Caracol">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221118111.png" alt="SENA" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “Modelamos automatizaciones clave para el <strong>seguimiento de convocatorias de innovación y tecnología</strong> con respuesta inteligente de IA en segundos.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Ing. Ricardo Morales</span>
+              <span class="author-company">SENA Regional Quindío</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 8: Universidad del Valle -->
+        <div class="testimonial-card-v" style="background-image: url('https://laravel.universidadesyprofesiones.com/images/universidades/campus/universidad-del-valle-banner.jpg');">
+          <a href="https://laravel.universidadesyprofesiones.com/universidades/universidad-del-valle/sociologia" target="_blank" rel="noopener" class="testimonial-external-link" title="Ver programas">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221420078.png" alt="Universidad del Valle" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “Implementamos embudos de <strong>respuesta ultra-rápida que redujeron el costo de adquisición</strong> de prospectos cualificados para nuestros programas.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Dra. Camila Restrepo</span>
+              <span class="author-company">Universidad del Valle</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 9: Sievert -->
+        <div class="testimonial-card-v" style="background-image: url('https://www.sievert.com.co/wp-content/uploads/2024/04/LOGO-PERU.png');">
+          <a href="https://www.sievert.com.co/" target="_blank" rel="noopener" class="testimonial-external-link" title="Ver sitio web de Sievert">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221350535.png" alt="Sievert" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “Estructuramos un <strong>motor digital B2B de generación de demanda constante</strong> para nuestros servicios industriales de alta ingeniería.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Ing. Felipe Valencia</span>
+              <span class="author-company">Sievert Colombia</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 10: Especial Impresores -->
+        <div class="testimonial-card-v" style="background-image: url('https://especial.com.co/wp-content/uploads/2024/04/carrusel-foto-maquila.jpg');">
+          <a href="https://especial.com.co/" target="_blank" rel="noopener" class="testimonial-external-link" title="Ver sitio web Especial">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221931913.png" alt="Especial Impresores" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “Logramos un <strong>retorno de inversión medible en pauta digital</strong> para soluciones gráficas y empaques corporativos a escala nacional.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Alejandro Gómez</span>
+              <span class="author-company">Especial Impresores</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Duplicados para loop continuo -->
+        <div class="testimonial-card-v" style="background-image: url('https://cloudfront-us-east-1.images.arcpublishing.com/prisaradioco/5PKBVYL7NRPZDCRJ77CDBZAXJY.jpg');">
+          <a href="https://caracol.com.co/emisora/2016/08/03/armenia/1470183874_943280.html" target="_blank" rel="noopener" class="testimonial-external-link">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221118111.png" alt="SENA" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “Modelamos automatizaciones clave para el <strong>seguimiento de convocatorias de innovación y tecnología</strong> con respuesta inteligente de IA en segundos.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Ing. Ricardo Morales</span>
+              <span class="author-company">SENA Regional Quindío</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card-v" style="background-image: url('https://laravel.universidadesyprofesiones.com/images/universidades/campus/universidad-del-valle-banner.jpg');">
+          <a href="https://laravel.universidadesyprofesiones.com/universidades/universidad-del-valle/sociologia" target="_blank" rel="noopener" class="testimonial-external-link">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221420078.png" alt="Universidad del Valle" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “Implementamos embudos de <strong>respuesta ultra-rápida que redujeron el costo de adquisición</strong> de prospectos cualificados para nuestros programas.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Dra. Camila Restrepo</span>
+              <span class="author-company">Universidad del Valle</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card-v" style="background-image: url('https://www.sievert.com.co/wp-content/uploads/2024/04/LOGO-PERU.png');">
+          <a href="https://www.sievert.com.co/" target="_blank" rel="noopener" class="testimonial-external-link">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221350535.png" alt="Sievert" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “Estructuramos un <strong>motor digital B2B de generación de demanda constante</strong> para nuestros servicios industriales de alta ingeniería.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Ing. Felipe Valencia</span>
+              <span class="author-company">Sievert Colombia</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="testimonial-card-v" style="background-image: url('https://especial.com.co/wp-content/uploads/2024/04/carrusel-foto-maquila.jpg');">
+          <a href="https://especial.com.co/" target="_blank" rel="noopener" class="testimonial-external-link">↗</a>
+          <div class="testimonial-card-header">
+            <img src="https://77studio.co/wp-content/uploads/2026/04/imagen_2025-11-05_221931913.png" alt="Especial Impresores" class="testimonial-client-logo">
+            <div class="testimonial-stars">★★★★★</div>
+          </div>
+          <p class="testimonial-quote-text">
+            “Logramos un <strong>retorno de inversión medible en pauta digital</strong> para soluciones gráficas y empaques corporativos a escala nacional.”
+          </p>
+          <div class="testimonial-author-block">
+            <div class="testimonial-author-info">
+              <span class="author-name">Alejandro Gómez</span>
+              <span class="author-company">Especial Impresores</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .vertical-testimonials-section {
+    position: relative;
+    z-index: 10;
+  }
+
+  .section-header-center {
+    text-align: center;
+    margin-bottom: 3.5rem;
+  }
+
+  .section-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 6px 16px;
+    border-radius: 50px;
+    background: rgba(124, 58, 237, 0.1);
+    border: 1px solid rgba(124, 58, 237, 0.25);
+    color: #7c3aed; /* opai-purple */
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    margin-bottom: 1.25rem;
+    font-family: 'IBM Plex Mono', monospace;
+  }
+
+  .section-tag .dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: #7c3aed;
+    box-shadow: 0 0 10px #7c3aed;
+  }
+
+  .section-title-large {
+    font-size: clamp(2rem, 4.5vw, 3.2rem);
+    font-family: 'Sora', sans-serif;
+    font-weight: 800;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 1.25rem;
+    color: #0d1017;
+  }
+
+  .section-title-large span {
+    background: linear-gradient(135deg, #7c3aed 0%, #3b82f6 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .section-subtitle-text {
+    color: rgba(13, 16, 23, 0.7);
+    font-size: clamp(1rem, 1.8vw, 1.15rem);
+    max-width: 680px;
+    margin: 0 auto;
+    line-height: 1.6;
+    font-family: 'Inter Tight', sans-serif;
+  }
+
+  .testimonials-marquee-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    height: 660px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 40px;
+    mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+  }
+
+  .marquee-column {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    cursor: grab;
+    user-select: none;
+    touch-action: pan-y;
+    will-change: transform;
+  }
+
+  .marquee-column:active {
+    cursor: grabbing;
+  }
+
+  .testimonial-card-v {
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border: 1px solid rgba(0, 0, 0, 0.08);
+    border-radius: 22px;
+    padding: 26px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    overflow: hidden;
+    transition: border-color 0.35s ease, transform 0.35s ease, box-shadow 0.35s ease;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.04);
+  }
+
+  .testimonial-card-v::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.55) 0%, rgba(255, 255, 255, 0.8) 100%);
+    z-index: 1;
+    transition: background 0.35s ease;
+  }
+
+  .testimonial-card-v:hover {
+    border-color: rgba(124, 58, 237, 0.3);
+    transform: scale(1.02);
+    box-shadow: 0 20px 45px rgba(124, 58, 237, 0.08);
+  }
+
+  .testimonial-card-v:hover::before {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.4) 0%, rgba(255, 255, 255, 0.65) 100%);
+  }
+
+  .testimonial-card-v > * {
+    position: relative;
+    z-index: 2;
+  }
+
+  .testimonial-card-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+  }
+
+  .testimonial-client-logo {
+    height: 44px;
+    max-width: 160px;
+    object-fit: contain;
+    filter: grayscale(1) brightness(0.2) opacity(0.85);
+    transition: filter 0.3s ease;
+  }
+
+  .testimonial-card-v:hover .testimonial-client-logo {
+    filter: none;
+    opacity: 1;
+  }
+
+  .testimonial-stars {
+    color: #f59e0b;
+    font-size: 0.9rem;
+    letter-spacing: 2px;
+  }
+
+  .testimonial-quote-text {
+    font-size: 0.92rem;
+    color: #334155;
+    line-height: 1.6;
+    font-family: 'Inter Tight', sans-serif;
+  }
+
+  .testimonial-quote-text strong {
+    color: #0f172a;
+    font-weight: 700;
+  }
+
+  .testimonial-author-block {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    margin-top: auto;
+  }
+
+  .testimonial-author-info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .author-name {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #0f172a;
+  }
+
+  .author-company {
+    font-size: 0.74rem;
+    color: #64748b;
+    font-weight: 600;
+  }
+
+  .testimonial-external-link {
+    position: absolute;
+    top: 16px;
+    right: 16px;
+    color: rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+    font-size: 0.78rem;
+    z-index: 3;
+    transition: color 0.2s ease;
+  }
+
+  .testimonial-card-v:hover .testimonial-external-link {
+    color: #7c3aed;
+  }
+
+  @media (max-width: 992px) {
+    .testimonials-marquee-container {
+      grid-template-columns: 1fr;
+      height: auto;
+      max-height: 800px;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
+  }
+</style>
+
+<script>
+  function initTestimonialsMarquee() {
+    const marqueeCols = document.querySelectorAll('.marquee-column');
+    if (marqueeCols.length === 3) {
+      const marqueeSpeeds = [-0.65, 0.65, -0.65]; // Col 1: ARRIBA, Col 2: ABAJO, Col 3: ARRIBA
+      const marqueeOffsets = [0, 0, 0];
+      const marqueeHovered = [false, false, false];
+      const marqueeDragging = [false, false, false];
+      const marqueeStartY = [0, 0, 0];
+      const marqueeStartOffset = [0, 0, 0];
+
+      // Inicializar cada columna
+      marqueeCols.forEach((col, idx) => {
+        const htmlCol = col as HTMLElement;
+        
+        // Ajustar el offset inicial para la columna que se desplaza hacia abajo (Col 2)
+        // para que empiece desplazada la mitad y tenga margen de transición fluido hacia 0
+        if (marqueeSpeeds[idx] > 0) {
+          const halfHeight = htmlCol.scrollHeight / 2;
+          if (halfHeight > 0) {
+            marqueeOffsets[idx] = -halfHeight;
+          }
+        }
+
+        htmlCol.addEventListener('mouseenter', () => { marqueeHovered[idx] = true; });
+        htmlCol.addEventListener('mouseleave', () => { marqueeHovered[idx] = false; });
+
+        const startDrag = (e: MouseEvent | TouchEvent) => {
+          marqueeDragging[idx] = true;
+          marqueeStartY[idx] = e instanceof TouchEvent ? e.touches[0].clientY : e.clientY;
+          marqueeStartOffset[idx] = marqueeOffsets[idx];
+          htmlCol.style.cursor = 'grabbing';
+        };
+
+        const onDrag = (e: MouseEvent | TouchEvent) => {
+          if (!marqueeDragging[idx]) return;
+          const currentY = e instanceof TouchEvent ? e.touches[0].clientY : e.clientY;
+          const deltaY = currentY - marqueeStartY[idx];
+          marqueeOffsets[idx] = marqueeStartOffset[idx] + deltaY;
+        };
+
+        const stopDrag = () => {
+          if (!marqueeDragging[idx]) return;
+          marqueeDragging[idx] = false;
+          htmlCol.style.cursor = 'grab';
+        };
+
+        htmlCol.addEventListener('mousedown', startDrag as EventListener);
+        window.addEventListener('mousemove', onDrag as EventListener);
+        window.addEventListener('mouseup', stopDrag);
+
+        htmlCol.addEventListener('touchstart', startDrag as EventListener, { passive: true });
+        window.addEventListener('touchmove', onDrag as EventListener, { passive: true });
+        window.addEventListener('touchend', stopDrag);
+      });
+
+      function animateMarqueeLoop() {
+        marqueeCols.forEach((col, idx) => {
+          const htmlCol = col as HTMLElement;
+          const halfHeight = htmlCol.scrollHeight / 2;
+
+          if (!marqueeHovered[idx] && !marqueeDragging[idx]) {
+            marqueeOffsets[idx] += marqueeSpeeds[idx];
+          }
+
+          if (halfHeight > 0) {
+            if (marqueeOffsets[idx] <= -halfHeight) {
+              marqueeOffsets[idx] += halfHeight;
+            } else if (marqueeOffsets[idx] >= 0) {
+              marqueeOffsets[idx] -= halfHeight;
+            }
+          }
+
+          htmlCol.style.transform = `translate3d(0, ${marqueeOffsets[idx]}px, 0)`;
+        });
+
+        requestAnimationFrame(animateMarqueeLoop);
+      }
+
+      requestAnimationFrame(animateMarqueeLoop);
+    }
+  }
+
+  // Inicializar al estar listo el DOM o al navegar (compatibilidad Astro)
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTestimonialsMarquee);
+  } else {
+    initTestimonialsMarquee();
+  }
+  document.addEventListener('astro:page-load', initTestimonialsMarquee);
+</script>

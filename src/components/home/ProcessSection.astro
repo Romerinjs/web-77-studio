@@ -28,54 +28,271 @@ const steps = [
 ];
 ---
 
-<section id="proceso" class="py-20 sm:py-28 bg-slate-50 relative">
+<section id="proceso" class="py-20 sm:py-28 bg-slate-50/70 relative overflow-hidden">
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     
-    <!-- Header -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3.5 py-1 font-ibm-plex-mono text-xs text-opai-purple mb-4">
-        <span>CÓMO TRABAJAMOS</span>
+    <!-- 1. DESKTOP VIEW: High-End Orbital Curve Timeline (md and up) -->
+    <div 
+      class="process-orbital-container relative w-full max-w-5xl mx-auto min-h-[520px] select-none hidden md:flex flex-col items-center justify-between py-2"
+      data-steps={JSON.stringify(steps)}
+    >
+      <!-- Background Thin Gradient Arc (Encloses Header and Card with Zero Overlap) -->
+      <svg viewBox="0 0 1000 450" class="w-full h-full absolute inset-0 pointer-events-none z-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="orbitalArcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.2" />
+            <stop offset="50%" stop-color="#7c3aed" stop-opacity="0.5" />
+            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2" />
+          </linearGradient>
+        </defs>
+        <path 
+          d="M 60 50 C 180 390, 820 390, 940 50" 
+          stroke="url(#orbitalArcGrad)" 
+          stroke-width="3" 
+          stroke-dasharray="6 6"
+          class="opacity-90"
+        />
+      </svg>
+
+      <!-- Center Header Content (Enclosed inside the Upper Arc) -->
+      <div class="text-center max-w-3xl mx-auto pt-2 pb-4 relative z-10 space-y-3">
+        <h2 class="font-sora text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-background-13 leading-tight">
+          Un proceso estructurado en 4 pasos para garantizar resultados.
+        </h2>
+        <p class="font-inter-tight text-base lg:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
+          Sin fricción ni burocracia innecesaria. Comunicación directa, entregas iterativas y enfoque permanente en mover la aguja comercial.
+        </p>
       </div>
-      <h2 class="font-sora text-3xl sm:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-5">
-        Un proceso estructurado en 4 pasos para garantizar resultados.
-      </h2>
-      <p class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed">
-        Sin fricción ni burocracia innecesaria. Comunicación directa, entregas iterativas y enfoque permanente en mover la aguja comercial.
-      </p>
+
+      <!-- Interactive Step Node Buttons (Positioned Horizontally Outside the Card Area to Prevent Any Overlap) -->
+      <!-- Node 01 (Far Upper Left) -->
+      <button
+        class="process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 6%; top: 16%; transform: translate(-50%, -50%);"
+        data-step="0"
+        aria-label="Ir al paso 01: Entendemos"
+      >
+        01
+      </button>
+
+      <!-- Node 02 (Lower Left - Outside Card Boundary) -->
+      <button
+        class="process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 18%; top: 68%; transform: translate(-50%, -50%);"
+        data-step="1"
+        aria-label="Ir al paso 02: Proponemos"
+      >
+        02
+      </button>
+
+      <!-- Node 03 (Lower Right - Outside Card Boundary) -->
+      <button
+        class="process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 82%; top: 68%; transform: translate(-50%, -50%);"
+        data-step="2"
+        aria-label="Ir al paso 03: Creamos"
+      >
+        03
+      </button>
+
+      <!-- Node 04 (Far Upper Right) -->
+      <button
+        class="process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 94%; top: 16%; transform: translate(-50%, -50%);"
+        data-step="3"
+        aria-label="Ir al paso 04: Optimizamos"
+      >
+        04
+      </button>
+
+      <!-- Bottom Center Elevated Active Step Card (Cleanly Centered between Nodes 02 & 03 with Ample Clearance) -->
+      <div class="relative z-10 w-full max-w-md mx-auto bg-white/95 backdrop-blur-md rounded-2xl p-6 lg:p-7 border border-black/10 shadow-xl text-center space-y-3 mb-2 transform transition-all duration-300">
+        <div class="inline-flex items-center gap-2 bg-opai-purple/10 text-opai-purple px-3.5 py-1 rounded-full text-xs font-ibm-plex-mono font-bold uppercase tracking-wider">
+          <span class="process-step-badge">{steps[0].name}</span>
+          <span class="text-opai-purple/40">•</span>
+          <span class="process-step-num text-opai-purple/90">Paso {steps[0].step}</span>
+        </div>
+
+        <h3 class="process-step-title font-sora text-xl lg:text-2xl font-bold text-background-13 tracking-tight">
+          {steps[0].title}
+        </h3>
+
+        <p class="process-step-description font-inter-tight text-sm lg:text-base text-background-13/80 leading-relaxed max-w-sm mx-auto">
+          {steps[0].description}
+        </p>
+
+        <!-- Progress Dots Indicator -->
+        <div class="flex items-center justify-center gap-2 pt-2">
+          {steps.map((_, idx) => (
+            <span class={`process-dot h-1.5 rounded-full transition-all duration-300 ${idx === 0 ? 'w-6 bg-opai-purple' : 'w-1.5 bg-black/15'}`} />
+          ))}
+        </div>
+      </div>
     </div>
 
-    <!-- 4 Steps Process Grid -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      {steps.map((st) => (
-        <div class="rounded-[20px] border border-black/10 bg-white p-7 shadow-xs card-hover flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-5">
-              <span class="font-ibm-plex-mono text-2xl font-bold text-opai-purple">
-                {st.step}
-              </span>
-              <span class="font-ibm-plex-mono text-[11px] font-semibold text-background-13/60 bg-slate-100 px-2.5 py-1 rounded-md">
-                {st.name}
-              </span>
+    <!-- 2. MOBILE VIEW: 4 Clean, Beautiful Cards Grid (under md) -->
+    <div class="space-y-6 md:hidden">
+      <!-- Mobile Header -->
+      <div class="text-center max-w-xl mx-auto space-y-3 mb-8">
+        <h2 class="font-sora text-2xl sm:text-3xl font-extrabold text-background-13 tracking-tight leading-tight">
+          Un proceso estructurado en 4 pasos para garantizar resultados.
+        </h2>
+        <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
+          Sin fricción ni burocracia innecesaria. Comunicación directa, entregas iterativas y enfoque permanente en mover la aguja comercial.
+        </p>
+      </div>
+
+      <!-- Mobile 4 Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {steps.map((st) => (
+          <div class="rounded-2xl border border-black/10 bg-white p-6 shadow-xs flex flex-col justify-between space-y-4">
+            <div>
+              <div class="flex items-center justify-between mb-4">
+                <span class="size-10 rounded-full bg-background-13 text-white font-ibm-plex-mono font-bold text-sm flex items-center justify-center shadow-xs">
+                  {st.step}
+                </span>
+                <span class="font-ibm-plex-mono text-xs font-bold text-opai-purple uppercase bg-opai-purple/10 px-3 py-1 rounded-full">
+                  {st.name}
+                </span>
+              </div>
+
+              <h3 class="font-sora text-base font-bold text-background-13 mb-2">
+                {st.title}
+              </h3>
+
+              <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
+                {st.description}
+              </p>
             </div>
-
-            <h3 class="font-sora text-lg font-bold text-background-13 mb-2.5">
-              {st.title}
-            </h3>
-
-            <p class="font-inter-tight text-sm text-background-13/70 leading-relaxed">
-              {st.description}
-            </p>
           </div>
-
-          <div class="pt-5 border-t border-black/5 mt-5">
-            <span class="font-ibm-plex-mono text-[11px] text-opai-purple font-medium flex items-center gap-1.5">
-              <span>Paso validado</span>
-              <span>✓</span>
-            </span>
-          </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
 
   </div>
 </section>
+
+<style>
+  /* Smooth transitions for active step content */
+  .process-step-badge,
+  .process-step-num,
+  .process-step-title,
+  .process-step-description {
+    transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Style for Active Node Button on desktop */
+  .process-node.active-node {
+    background-color: var(--color-opai-purple, #7c3aed) !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    transform: translate(-50%, -50%) scale(1.25) !important;
+    box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.2), 0 10px 25px rgba(124, 58, 237, 0.25) !important;
+  }
+</style>
+
+<script>
+  function initProcessOrbital() {
+    const container = document.querySelector('.process-orbital-container');
+    if (!container) return;
+
+    const dataAttr = container.getAttribute('data-steps');
+    if (!dataAttr) return;
+
+    const steps = JSON.parse(dataAttr);
+    const nodes = container.querySelectorAll('.process-node');
+    const badgeEl = container.querySelector('.process-step-badge') as HTMLElement;
+    const numEl = container.querySelector('.process-step-num') as HTMLElement;
+    const titleEl = container.querySelector('.process-step-title') as HTMLElement;
+    const descEl = container.querySelector('.process-step-description') as HTMLElement;
+    const dots = container.querySelectorAll('.process-dot');
+
+    if (!badgeEl || !titleEl || !descEl) return;
+
+    let currentIndex = 0;
+    let timerId: any = null;
+
+    const updateStep = (index: number) => {
+      // 1. Update node buttons active state
+      nodes.forEach((node, idx) => {
+        if (idx === index) {
+          node.classList.add('active-node');
+        } else {
+          node.classList.remove('active-node');
+        }
+      });
+
+      // 2. Update progress dots
+      dots.forEach((dot, idx) => {
+        if (idx === index) {
+          dot.className = 'process-dot h-1.5 rounded-full transition-all duration-300 w-6 bg-opai-purple';
+        } else {
+          dot.className = 'process-dot h-1.5 rounded-full transition-all duration-300 w-1.5 bg-black/15';
+        }
+      });
+
+      // 3. Fade out active card text
+      const textEls = [badgeEl, numEl, titleEl, descEl];
+      textEls.forEach(el => {
+        if (el) {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(6px)';
+        }
+      });
+
+      // 4. Update content and fade back in
+      setTimeout(() => {
+        const stepData = steps[index];
+        if (badgeEl) badgeEl.textContent = stepData.name;
+        if (numEl) numEl.textContent = `Paso ${stepData.step}`;
+        if (titleEl) titleEl.textContent = stepData.title;
+        if (descEl) descEl.textContent = stepData.description;
+
+        textEls.forEach(el => {
+          if (el) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }
+        });
+      }, 200);
+
+      currentIndex = index;
+    };
+
+    const startTimer = () => {
+      timerId = setInterval(() => {
+        const nextIndex = (currentIndex + 1) % steps.length;
+        updateStep(nextIndex);
+      }, 5000);
+    };
+
+    const resetTimer = () => {
+      if (timerId) {
+        clearInterval(timerId);
+      }
+      startTimer();
+    };
+
+    // Bind click handlers to nodes
+    nodes.forEach((node) => {
+      node.addEventListener('click', () => {
+        const stepIdx = parseInt(node.getAttribute('data-step') || '0', 10);
+        if (stepIdx === currentIndex) return;
+        updateStep(stepIdx);
+        resetTimer();
+      });
+    });
+
+    // Initialize initial state
+    updateStep(0);
+    startTimer();
+  }
+
+  // Bind to lifecycle
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initProcessOrbital);
+  } else {
+    initProcessOrbital();
+  }
+  document.addEventListener('astro:page-load', initProcessOrbital);
+</script>

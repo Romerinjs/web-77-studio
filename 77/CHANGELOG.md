@@ -6,7 +6,27 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1
 
 ---
 
-## [Unreleased] - 2026-08-22
+## [Unreleased] - 2026-08-31
+
+### Changed
+- **Módulo 01 (Home `/`)**:
+  - Rediseño de la sección **El Reto Digital** (`PainPointsSection.astro`) para adoptar la estructura de cuadrícula y tarjetas del catálogo de soluciones: título centrado, eliminación de numeración y etiquetas secundarias, adición de iconos vectoriales geométricos en contenedores oscuros, síntesis de textos y conversión de tarjetas en enlaces clicables directos a `#contacto`.
+  - Reemplazo de la placa de integración con emoji en el home (`MetricsAndIntegrations.astro` e `index.html`) por un encabezado H2 limpio y normal sin emojis.
+  - Corrección matemática en el bucle del carrusel de integraciones (`MetricsAndIntegrations.astro` e `index.html`) para usar el offset del primer elemento duplicado en lugar de la mitad del scrollWidth, eliminando cortes visuales e inestabilidad en la animación infinita.
+  - Implementación de micro-interacción reactiva en los botones píldora (`.button`): el icono se desliza de izquierda a derecha y el texto se desplaza proporcionalmente a la izquierda al hacer hover, usando cálculos geométricos dinámicos en `src/scripts/animations.ts` y transiciones optimizadas en `src/styles/global.css`.
+  - Fusión de las secciones **Un Solo Partner Digital** (`EcosystemSection.astro`) y **Servicios Integrados** (`SolutionsGrid.astro`) en un solo bloque unificado en la home, eliminando la sección duplicada y el badge superior. Se implementó la imagen de fondo con destello púrpura (`opai-35.jpg`) añadiendo sombras (`drop-shadow`) y grosor medio a los textos principales para una alta legibilidad. Las tarjetas ahora se organizan en 4 columnas verticales que se expanden al pasar el cursor (`hover:scale-[1.035]`), removiendo la etiqueta 'Capacidad XX' y estructurándolas en: Título, descripción breve, listado de características con checks vectoriales y el botón interactivo `.button` en la base.
+  - Reemplazo de las 3 imágenes flotantes secundarias del Hero (`HeroHome.astro`) por las imágenes personalizadas (`marketing1.png`, `desarrollo.png`, `filmmaking.png`) aplicando un escalado de `scale-[1.65]` en CSS para recortar los márgenes blancos que vienen en el lienzo de los archivos y centrar la fotografía en el contenedor.
+  - Ampliación de las tarjetas de capacidad en `EcosystemSection.astro` mediante el aumento del contenedor a `max-w-[1400px]`, incremento del padding a `p-6 sm:p-8 xl:p-9` y reconfiguración de la cuadrícula a `xl:grid-cols-4` para dar mayor holgura y lecturabilidad al texto.
+  - Adición de la sección de **Testimonios Reales & Prueba Social** (`TestimonialsSection.astro`) en el home, ubicada debajo de casos de negocio, adaptada completamente al tema claro y branding de la marca (fondo claro slate-50, tarjetas blancas, textos oscuros de alta legibilidad, logotipos corporativos en gris unificado reactivo al hover). Se redujo la opacidad del fondo blanco sobrepuesto para lucir más las fotos de fondo, se removió la etiqueta superior de cabecera y se corrigió el error en el bucle continuo de la columna central (desplazamiento descendente) duplicando las tarjetas para superar la altura del visor e inicializando su desplazamiento en `-halfHeight` para evitar saltos.
+  - Rediseño e implementación de la sección **Cómo Trabajamos** (`ProcessSection.astro`): corregida la geometría de posición de los nodos 02 y 03 (`left: 18%` y `left: 82%`) y el ancho de la tarjeta activa de cristal (`max-w-md`) eliminando por completo cualquier sobreposición o colisión de texto/nodos. En móviles (`md:hidden`), se mantiene una cuadrícula limpia y fluida de 4 tarjetas independientes.
+  - **Casos de Negocio & Resultados** (`CasesSection.astro`):
+    - Eliminación de emojis en toda la sección (conmutador, tarjetas y badges de métricas).
+    - Eliminación de la etiqueta superior "CASOS DE NEGOCIO & RESULTADOS" en la cabecera.
+    - Eliminación de los botones individuales de solución en cada tarjeta.
+    - Simplificación estética de las tarjetas: eliminación de cuadros/contenedores anidados interiores y subtítulos redundantes ("Nuestra Solución", "El Reto", "Resultado"), dejando una estructura limpia de título, descripción directa y métrica separada por un borde sutil.
+    - Corrección del estado hover en el conmutador de Reto / Solución mediante clases CSS dedicadas (`.is-active`), evitando texto negro sobre fondo negro.
+    - Implementación de animación 3D **Flip Coin** (`rotateY(180deg)` con aceleración elástica `cubic-bezier(0.34, 1.25, 0.64, 1)`): la tarjeta inicia en color negro (`bg-background-13`) para el estado **El Reto** y da la vuelta en 3D revelando la cara blanca (`bg-white`) para **Nuestra Solución**.
+    - Estandarización visual con las fuentes y tokens oficiales del branding (`font-sora`, `font-inter-tight`, `font-ibm-plex-mono`).
 
 ### Added
 - **Módulo 07 (Contacto Directo `/contacto`)**: Implementación integral de la página modular de Contacto y Diagnóstico Comercial según especificación `77/07-contacto`:

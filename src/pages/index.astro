@@ -2,11 +2,12 @@
 // src/pages/index.astro
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import HeroHome from '@/components/home/HeroHome.astro';
+import MetricsAndIntegrations from '@/components/home/MetricsAndIntegrations.astro';
 import InternationalPresence from '@/components/home/InternationalPresence.astro';
 import PainPointsSection from '@/components/home/PainPointsSection.astro';
 import EcosystemSection from '@/components/home/EcosystemSection.astro';
-import SolutionsGrid from '@/components/home/SolutionsGrid.astro';
 import CasesSection from '@/components/home/CasesSection.astro';
+import TestimonialsSection from '@/components/home/TestimonialsSection.astro';
 import ProcessSection from '@/components/home/ProcessSection.astro';
 import ContactSection from '@/components/home/ContactSection.astro';
 
@@ -22,6 +23,9 @@ const pageDescription = "Digital Studio + Creative Partner + Technology & AI Com
   <!-- 01. Hero Section con métricas en vivo y CTAs duales -->
   <HeroHome />
 
+  <!-- Metrics and Integrations Section (Light-Adapted) -->
+  <MetricsAndIntegrations />
+
   <!-- 02. Presencia Internacional Colombia ↔ USA -->
   <InternationalPresence />
 
@@ -31,11 +35,11 @@ const pageDescription = "Digital Studio + Creative Partner + Technology & AI Com
   <!-- 04. Un Solo Partner Digital: Diagrama de Ecosistema Integrado -->
   <EcosystemSection />
 
-  <!-- 05. Las 4 Soluciones y Capacidades del Estudio -->
-  <SolutionsGrid />
-
   <!-- 06. Casos de Negocio & Resultados Validados -->
   <CasesSection />
+
+  <!-- 06b. Prueba Social & Testimonios Reales -->
+  <TestimonialsSection />
 
   <!-- 07. Proceso de Trabajo en 4 Pasos -->
   <ProcessSection />

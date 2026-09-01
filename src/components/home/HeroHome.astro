@@ -1,9 +1,12 @@
 ---
 // src/components/home/HeroHome.astro
 import DualCTA from '@/components/DualCTA.astro';
+import desarrolloImg from '../../../img/hero/desarrollo.png';
+import filmmakingImg from '../../../img/hero/filmmaking.png';
+import marketing1Img from '../../../img/hero/marketing1.png';
 ---
 
-<section class="relative pt-36 pb-16 sm:pt-44 sm:pb-24 overflow-hidden">
+<section class="relative pt-32 pb-16 sm:pt-40 sm:pb-24 overflow-hidden">
   <!-- Subtle Background Grid/Gradients -->
   <div class="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center opacity-60">
     <div class="h-[500px] w-[500px] rounded-full bg-gradient-to-tr from-opai-purple/15 to-transparent blur-[120px]"></div>
@@ -13,22 +16,14 @@ import DualCTA from '@/components/DualCTA.astro';
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     <div class="text-center max-w-4xl mx-auto">
       
-      <!-- Top Pill Tag -->
-      <div data-opai-animate data-instant data-delay="0.1" class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/90 px-4 py-1.5 backdrop-blur-md shadow-xs mb-6">
-        <span class="h-2 w-2 rounded-full bg-opai-purple animate-pulse"></span>
-        <span class="font-ibm-plex-mono text-xs font-medium tracking-wide text-background-13/80 uppercase">
-          Digital Studio · Colombia ↔ USA
-        </span>
-      </div>
-
       <!-- Main Headline -->
       <h1 data-text-reveal data-delay="0.2" class="font-sora text-4xl sm:text-6xl lg:text-[64px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
-        Un solo equipo para hacer que tu empresa se vea mejor, <span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">venda mejor</span> y funcione mejor.
+        Un solo equipo para que tu empresa se vea, <span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">venda y funcione mejor.</span>
       </h1>
 
       <!-- Subheadline -->
       <p data-opai-animate data-delay="0.3" class="font-inter-tight text-lg sm:text-xl text-background-13/75 max-w-3xl mx-auto mb-9 leading-relaxed">
-        Marketing, tecnología e IA para hacer crecer tu empresa. Integramos estrategia, contenido, desarrollo web, automatización de procesos e inteligencia artificial para marcas en Colombia, Estados Unidos y mercados globales.
+        Marketing, tecnología e IA integrados para acelerar tu crecimiento en Colombia, USA y mercados globales.
       </p>
 
       <!-- Dual Commercial CTA -->
@@ -42,115 +37,77 @@ import DualCTA from '@/components/DualCTA.astro';
         />
       </div>
 
-      <!-- Live Trust Badges & Supported Ecosystem -->
-      <div data-opai-animate data-delay="0.5" class="pt-4 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs font-ibm-plex-mono text-background-13/60 border-t border-black/5">
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-500 font-bold">✓</span>
-          <span>Ecosistema 100% Integrado</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-500 font-bold">✓</span>
-          <span>Atención Directa por WhatsApp</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-500 font-bold">✓</span>
-          <span>Tecnología sin Humo</span>
-        </div>
-      </div>
-
     </div>
 
-    <!-- Visual Hero Interactive Composition (Dashboard Showcase) -->
-    <div data-opai-animate data-delay="0.6" data-move-up-on-scroll-element data-move-up-value="12" class="mt-14 relative mx-auto max-w-5xl">
-      <div class="relative rounded-[24px] border border-black/10 bg-white/95 p-3 sm:p-5 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] backdrop-blur-xl">
-        
-        <!-- Showcase Top Bar -->
-        <div class="flex items-center justify-between border-b border-black/5 pb-3 px-3">
-          <div class="flex items-center gap-2">
-            <div class="h-3 w-3 rounded-full bg-red-400/80"></div>
-            <div class="h-3 w-3 rounded-full bg-amber-400/80"></div>
-            <div class="h-3 w-3 rounded-full bg-emerald-400/80"></div>
-            <span class="ml-2 font-ibm-plex-mono text-xs text-background-13/50">77-studio-growth-ecosystem.app</span>
-          </div>
-          <div class="flex items-center gap-2 font-ibm-plex-mono text-xs">
-            <span class="inline-block h-2 w-2 rounded-full bg-emerald-500 animate-ping"></span>
-            <span class="text-background-13/70 font-medium">Sistemas Activos</span>
-          </div>
-        </div>
+    <!-- Visual Hero Interactive Composition -->
+    <div class="mt-14 relative mx-auto max-w-5xl">
+      
+      <!-- Central Brain Image (with Floating Bounce Animation) -->
+      <figure data-opai-animate data-delay="0.4" data-instant class="mx-auto size-[320px] sm:size-[450px] md:size-[709px] animate-float-brain">
+        <img
+          src="/images/opai-img-300.png"
+          alt="Inteligencia Artificial para potenciar negocios"
+          class="size-full object-cover"
+        />
+      </figure>
 
-        <!-- Dashboard Content Grid -->
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-          
-          <!-- Pillar 1: Marketing & Growth -->
-          <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 transition-all hover:bg-white hover:shadow-sm">
-            <div class="flex items-center justify-between mb-3">
-              <span class="font-ibm-plex-mono text-xs font-semibold text-opai-purple">01. ADQUISICIÓN</span>
-              <span class="text-xs px-2 py-0.5 rounded-full bg-opai-purple/10 text-opai-purple font-medium">Meta & Google</span>
-            </div>
-            <h3 class="font-sora text-base font-semibold text-background-13 mb-1">Campañas & Contenido</h3>
-            <p class="font-inter-tight text-xs text-background-13/70 mb-4 leading-relaxed">
-              Estrategia y anuncios optimizados para captación de leads calificados.
-            </p>
-            <div class="space-y-2 font-ibm-plex-mono text-[11px] text-background-13/80">
-              <div class="flex justify-between items-center bg-white p-2 rounded-lg border border-black/5">
-                <span>Leads Calificados</span>
-                <span class="font-semibold text-emerald-600">+142% vs Q1</span>
-              </div>
-              <div class="flex justify-between items-center bg-white p-2 rounded-lg border border-black/5">
-                <span>Costo por Adquisición</span>
-                <span class="font-semibold text-emerald-600">-38% Reducción</span>
-              </div>
-            </div>
-          </div>
+      <!-- Card One: Wade Warren (Floating Left Top - Static Image) -->
+      <figure
+        data-opai-animate
+        data-delay="0.5"
+        data-instant
+        class="absolute top-[25%] left-[2%] hidden xl:block lp:left-[-2%] 2xl:left-[-7%] w-full max-w-[289px] rounded-3xl overflow-hidden shadow-[0_10px_35px_-10px_rgba(0,0,0,0.06)] border border-stroke-2"
+      >
+        <img
+          src={marketing1Img.src}
+          alt="Marketing coordinator"
+          class="size-full object-cover scale-[1.65] origin-center"
+        />
+      </figure>
 
-          <!-- Pillar 2: Web & High Converting UX -->
-          <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 transition-all hover:bg-white hover:shadow-sm">
-            <div class="flex items-center justify-between mb-3">
-              <span class="font-ibm-plex-mono text-xs font-semibold text-blue-600">02. WEB ASTRO</span>
-              <span class="text-xs px-2 py-0.5 rounded-full bg-blue-50 text-blue-700 font-medium">Ultra Fast</span>
-            </div>
-            <h3 class="font-sora text-base font-semibold text-background-13 mb-1">Landings & Plataformas</h3>
-            <p class="font-inter-tight text-xs text-background-13/70 mb-4 leading-relaxed">
-              Arquitectura de islas con carga instantánea y optimización CRO estricta.
-            </p>
-            <div class="space-y-2 font-ibm-plex-mono text-[11px] text-background-13/80">
-              <div class="flex justify-between items-center bg-white p-2 rounded-lg border border-black/5">
-                <span>Velocidad Lighthouse</span>
-                <span class="font-semibold text-emerald-600">99 / 100 Score</span>
-              </div>
-              <div class="flex justify-between items-center bg-white p-2 rounded-lg border border-black/5">
-                <span>Conversión Dual</span>
-                <span class="font-semibold text-blue-600">WhatsApp + Form</span>
-              </div>
-            </div>
-          </div>
+      <!-- Card Two: Dev Team (Floating Right Middle - Static Image) -->
+      <figure
+        data-opai-animate
+        data-delay="0.6"
+        data-instant
+        class="absolute top-[75%] right-[1%] hidden md:inline-block lg:top-[35%] xl:right-[5%] lp:right-[2%] 2xl:right-[-6%] w-full max-w-[323px] rounded-3xl overflow-hidden shadow-[0_10px_35px_-10px_rgba(0,0,0,0.06)] border border-stroke-2"
+      >
+        <img
+          src={desarrolloImg.src}
+          alt="Dev Team"
+          class="size-full object-cover scale-[1.65] origin-center"
+        />
+      </figure>
 
-          <!-- Pillar 3: AI & Automation Nodes -->
-          <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 transition-all hover:bg-white hover:shadow-sm">
-            <div class="flex items-center justify-between mb-3">
-              <span class="font-ibm-plex-mono text-xs font-semibold text-purple-700">03. IA + AUTOMACIÓN</span>
-              <span class="text-xs px-2 py-0.5 rounded-full bg-purple-100 text-purple-800 font-medium">Workflows</span>
-            </div>
-            <h3 class="font-sora text-base font-semibold text-background-13 mb-1">Agentes & CRM</h3>
-            <p class="font-inter-tight text-xs text-background-13/70 mb-4 leading-relaxed">
-              Seguimiento 24/7 sin pérdida de clientes potenciales ni cuellos de botella.
-            </p>
-            <div class="space-y-2 font-ibm-plex-mono text-[11px] text-background-13/80">
-              <div class="flex justify-between items-center bg-white p-2 rounded-lg border border-black/5">
-                <span>Tiempo de Respuesta</span>
-                <span class="font-semibold text-emerald-600">&lt; 30 Segundos</span>
-              </div>
-              <div class="flex justify-between items-center bg-white p-2 rounded-lg border border-black/5">
-                <span>Eficiencia Operativa</span>
-                <span class="font-semibold text-purple-700">24/7 Automatizado</span>
-              </div>
-            </div>
-          </div>
+      <!-- Card Three: Analytics Graph (Floating Left Bottom - Static Image) -->
+      <figure
+        data-opai-animate
+        data-delay="0.7"
+        data-instant
+        class="absolute top-[75%] left-[1%] hidden w-full max-w-[300px] overflow-hidden rounded-3xl md:inline-block lg:top-[55%] xl:max-w-[374px] lp:top-[55%] lp:left-[-2%] 2xl:top-[56%] 2xl:left-[-3%] shadow-[0_10px_35px_-10px_rgba(0,0,0,0.06)] border border-stroke-2"
+      >
+        <img
+          src={filmmakingImg.src}
+          alt="Dashboard metrics chart"
+          class="size-full object-cover scale-[1.65] origin-center"
+        />
+      </figure>
 
-        </div>
-
-      </div>
     </div>
 
   </div>
 </section>
+
+<style>
+  @keyframes floatBrain {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  .animate-float-brain {
+    animation: floatBrain 4s ease-in-out infinite;
+  }
+</style>

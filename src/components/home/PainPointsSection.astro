@@ -4,87 +4,125 @@ import DualCTA from '@/components/DualCTA.astro';
 
 const painPoints = [
   {
-    number: "01",
     title: "Presencia digital débil",
-    description: "Tu marca o sitio web actual no refleja la verdadera calidad, autoridad y nivel de servicio de tu empresa ante clientes potenciales.",
-    tag: "Diseño & Autoridad"
+    description: "Tu sitio web y marca actual no reflejan la verdadera calidad, autoridad y nivel de servicio de tu empresa."
   },
   {
-    number: "02",
     title: "Contenido sin sistema",
-    description: "Sabes que necesitas producir piezas, video y publicaciones de forma constante, pero tu equipo no tiene el tiempo ni el flujo operativo estructurado.",
-    tag: "Marketing & Creación"
+    description: "Producir contenido y videos constantemente es clave, pero tu equipo carece de tiempo y de un flujo operativo estructurado."
   },
   {
-    number: "03",
     title: "Oportunidades que se pierden",
-    description: "Inviertes en anuncios o tráfico, pero los leads tardan horas en recibir respuesta o se quedan sin seguimiento comercial oportuno.",
-    tag: "Ventas & Conversión"
+    description: "Inviertes en anuncios, pero los leads tardan horas en recibir respuesta o se pierden por falta de seguimiento oportuno."
   },
   {
-    number: "04",
     title: "IA sin dirección práctica",
-    description: "Escuchas sobre herramientas de inteligencia artificial a diario, pero nadie te muestra aplicaciones concretas que ahorren costos o aumenten ventas.",
-    tag: "Tecnología Aplicada"
+    description: "Escuchas sobre Inteligencia Artificial a diario, pero no encuentras aplicaciones concretas para reducir costos o vender más."
   },
   {
-    number: "05",
     title: "Demasiados proveedores desconectados",
-    description: "Una agencia para pauta, un freelancer para la web, otro para contenido y nadie asume la responsabilidad del resultado global del negocio.",
-    tag: "Gestión Fragmentada"
+    description: "Una agencia de pauta, un programador web y un creador de contenido trabajando aislados, sin un responsable del resultado global."
   }
 ];
 ---
 
-<section class="py-20 sm:py-28 bg-slate-50 relative">
+<section class="py-20 sm:py-28 bg-slate-50 relative" aria-labelledby="reto-heading">
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     
-    <!-- Section Header -->
-    <div class="max-w-3xl mb-14">
-      <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3.5 py-1 font-ibm-plex-mono text-xs text-opai-purple mb-4">
+    <!-- Section Header (Centered) -->
+    <div class="max-w-3xl mb-14 mx-auto text-center space-y-4">
+      <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3.5 py-1 font-ibm-plex-mono text-xs text-opai-purple">
         <span>EL RETO DIGITAL</span>
       </div>
-      <h2 class="font-sora text-3xl sm:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-5">
+      <h2 id="reto-heading" data-text-reveal class="font-sora text-3xl sm:text-5xl font-bold tracking-tight text-background-13 leading-tight">
         Tu empresa está creciendo. Pero lo digital sigue demasiado fragmentado.
       </h2>
-      <p class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed">
-        Marketing por un lado. La web con otro proveedor. El contenido nunca está listo. Los leads llegan y nadie los sigue. Y mientras tanto, todo el mundo habla de IA sin explicar realmente cómo puede ayudarte.
-      </p>
     </div>
 
-    <!-- 5 Pain Points Editorial Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-14">
+    <!-- 5 Pain Points Editorial Grid (Image 3 inspired layout and cards distribution) -->
+    <div
+      class="grid grid-cols-12 items-center justify-center gap-4 *:col-span-12 md:*:col-span-6 lg:gap-2 lg:*:col-start-auto md:[&>*:last-child]:col-span-12 lg:[&>*:nth-child(5n+1)]:col-span-4 lg:[&>*:nth-child(5n+2)]:col-span-4 lg:[&>*:nth-child(5n+3)]:col-span-4 lg:[&>*:nth-child(5n+4)]:col-span-6 lg:[&>*:nth-child(5n+5)]:col-span-6 mb-14"
+      role="list"
+      aria-label="Fricciones de crecimiento"
+    >
       {painPoints.map((point, index) => (
-        <div class={`rounded-[20px] border border-black/10 bg-white p-7 shadow-xs card-hover flex flex-col justify-between ${index === 4 ? 'md:col-span-2 lg:col-span-1' : ''}`}>
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="font-ibm-plex-mono text-sm font-bold text-opai-purple bg-opai-purple/10 px-2.5 py-1 rounded-lg">
-                {point.number}
+        <div
+          data-opai-animate
+          data-delay={(index + 1) * 0.1}
+          role="listitem"
+        >
+          <a href="#contacto" class="block group">
+            <div
+              class="flex h-[300px] flex-col items-start justify-between rounded-3xl bg-white p-8 lg:h-[370px] xl:p-14 border border-stroke-2/60 hover:shadow-lg transition-all duration-300 card-hover"
+              aria-label={point.title}
+            >
+              <span
+                class="bg-background-3 flex size-17 items-center justify-center rounded-3xl p-4 transition-transform duration-300 group-hover:scale-105"
+                aria-hidden="true"
+              >
+                {index === 0 && (
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                    <circle cx="12" cy="12" r="10" stroke-dasharray="2 2" />
+                    <path d="M12 2v20M2 12h20" />
+                    <ellipse cx="12" cy="12" rx="6" ry="10" />
+                    <ellipse cx="12" cy="12" rx="10" ry="4" />
+                  </svg>
+                )}
+                {index === 1 && (
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                    <path d="M4 12h16M12 4v16" stroke-dasharray="1 3" />
+                    <circle cx="12" cy="4" r="3" />
+                    <circle cx="12" cy="20" r="3" />
+                    <circle cx="4" cy="12" r="3" />
+                    <circle cx="20" cy="12" r="3" />
+                    <path d="M6.5 6.5l11 11M6.5 17.5l11-11" />
+                  </svg>
+                )}
+                {index === 2 && (
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                    <circle cx="12" cy="12" r="9" />
+                    <circle cx="12" cy="12" r="6" />
+                    <circle cx="12" cy="12" r="3" />
+                    <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+                  </svg>
+                )}
+                {index === 3 && (
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                    <path d="M12 16v-8M8 12h8" />
+                    <circle cx="12" cy="4" r="2" />
+                    <circle cx="12" cy="20" r="2" />
+                    <circle cx="4" cy="12" r="2" />
+                    <circle cx="20" cy="12" r="2" />
+                    <path d="M6 6l12 12M6 18l12-12" />
+                  </svg>
+                )}
+                {index === 4 && (
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-white">
+                    <rect x="3" y="3" width="7" height="7" rx="1" />
+                    <rect x="14" y="3" width="7" height="7" rx="1" />
+                    <rect x="3" y="14" width="7" height="7" rx="1" />
+                    <rect x="14" y="14" width="7" height="7" rx="1" stroke-dasharray="2 2" />
+                    <path d="M10 6.5h4M6.5 10v4M14 17.5h-4" stroke-dasharray="2 2" />
+                  </svg>
+                )}
               </span>
-              <span class="font-ibm-plex-mono text-[11px] text-background-13/50 uppercase tracking-wider">
-                {point.tag}
-              </span>
-            </div>
-            
-            <h3 class="font-sora text-xl font-semibold text-background-13 mb-2.5">
-              {point.title}
-            </h3>
-            
-            <p class="font-inter-tight text-sm text-background-13/70 leading-relaxed">
-              {point.description}
-            </p>
-          </div>
 
-          <div class="pt-6 border-t border-black/5 mt-6 flex items-center gap-2 text-xs font-ibm-plex-mono text-opai-purple font-medium">
-            <span>Diagnóstico disponible</span>
-            <span>→</span>
-          </div>
+              <div class="space-y-2.5">
+                <h3 class="font-sora text-xl font-semibold text-background-13 group-hover:text-opai-purple transition-colors">
+                  {point.title}
+                </h3>
+                <p class="font-inter-tight text-sm text-background-13/70 leading-relaxed max-w-[270px]">
+                  {point.description}
+                </p>
+              </div>
+            </div>
+          </a>
         </div>
       ))}
     </div>
 
     <!-- Section CTA Block -->
-    <div class="rounded-2xl border border-black/10 bg-white p-8 text-center max-w-3xl mx-auto shadow-sm">
+    <div data-opai-animate data-delay="0.6" class="rounded-2xl border border-black/10 bg-white p-8 text-center max-w-3xl mx-auto shadow-sm">
       <h3 class="font-sora text-xl sm:text-2xl font-bold text-background-13 mb-3">
         ¿Te identificas con alguno de estos puntos en tu empresa?
       </h3>

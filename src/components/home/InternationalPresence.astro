@@ -2,50 +2,32 @@
 // src/components/home/InternationalPresence.astro
 ---
 
-<section class="py-12 border-y border-black/5 bg-white">
-  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
-    <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+<section class="relative py-20 sm:py-28 overflow-hidden bg-background-6">
+  <!-- Background Image with Dark Overlay -->
+  <div class="absolute inset-0 z-0 select-none pointer-events-none">
+    <img
+      src="/img/banner usa y col.png"
+      alt="Presencia y Cobertura Global Colombia y Estados Unidos"
+      class="w-full h-full object-cover opacity-60"
+    />
+    <div class="absolute inset-0 bg-black/60 backdrop-blur-[1px]"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-[1290px] px-4 sm:px-6">
+    <div class="text-center max-w-4xl mx-auto space-y-6">
       
-      <div class="space-y-2 max-w-xl text-center lg:text-left">
-        <span class="font-ibm-plex-mono text-xs font-semibold text-opai-purple uppercase tracking-wider">
-          Presencia & Cobertura Global
-        </span>
-        <h2 class="font-sora text-2xl sm:text-3xl font-bold tracking-tight text-background-13">
-          Desde Colombia y Estados Unidos, trabajando con empresas sin fronteras.
-        </h2>
-        <p class="font-inter-tight text-sm sm:text-base text-background-13/70 leading-relaxed">
-          Combinamos talento creativo de alto nivel, visión estratégica y ejecución tecnológica para colaborar de forma remota y fluida con compañías en múltiples industrias y husos horarios.
-        </p>
-      </div>
+      <span class="inline-block font-ibm-plex-mono text-xs font-semibold text-white/50 uppercase tracking-widest">
+        Presencia & Cobertura Global
+      </span>
 
-      <!-- Country / Hub connection cards -->
-      <div class="flex flex-wrap items-center justify-center gap-4">
-        
-        <div class="flex items-center gap-3 rounded-2xl border border-black/10 bg-slate-50 px-5 py-3.5 shadow-xs">
-          <div class="h-9 w-9 rounded-xl bg-white border border-black/10 flex items-center justify-center text-base shadow-xs">
-            🇨🇴
-          </div>
-          <div>
-            <span class="font-sora text-sm font-semibold text-background-13 block leading-tight">Colombia Hub</span>
-            <span class="font-ibm-plex-mono text-xs text-background-13/50">Medellín & Bogotá</span>
-          </div>
-        </div>
+      <h2 class="font-sora text-3xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-white leading-[1.2] uppercase">
+        Desde Colombia y Estados Unidos,<br class="hidden sm:inline" />
+        trabajando con empresas sin fronteras.
+      </h2>
 
-        <div class="text-opai-purple font-ibm-plex-mono text-lg font-bold">
-          ⟷
-        </div>
-
-        <div class="flex items-center gap-3 rounded-2xl border border-black/10 bg-slate-50 px-5 py-3.5 shadow-xs">
-          <div class="h-9 w-9 rounded-xl bg-white border border-black/10 flex items-center justify-center text-base shadow-xs">
-            🇺🇸
-          </div>
-          <div>
-            <span class="font-sora text-sm font-semibold text-background-13 block leading-tight">United States</span>
-            <span class="font-ibm-plex-mono text-xs text-background-13/50">Remote Global Ops</span>
-          </div>
-        </div>
-
-      </div>
+      <p class="font-inter-tight text-sm sm:text-base md:text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
+        Combinamos talento de alto nivel, visión estratégica y ejecución tecnológica para colaborar con compañías en múltiples industrias y horarios.
+      </p>
 
     </div>
   </div>

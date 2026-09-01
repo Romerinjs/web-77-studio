@@ -3467,10 +3467,10 @@
         </div>
       </div>
 
-      <div class="partners-header">
-        <div class="partners-title-tag">
-          <span>⚡ ECOSISTEMA DE INTEGRACIONES &amp; TECNOLOGÍA NATIVA</span>
-        </div>
+      <div class="partners-header" style="text-align: center; margin-bottom: 2rem;">
+        <h2 class="section-title-large" style="margin: 0; font-size: 2rem;">
+          Ecosistema de Integraciones &amp; Tecnología Nativa
+        </h2>
       </div>
 
       <div class="partners-strip-wrapper">
@@ -4868,7 +4868,8 @@
 
         // Loop de Animación 60/120fps ultra-fluido
         function animateLogos() {
-          const halfWidth = logoTrack.scrollWidth / 2;
+          // Calculate loop width based on the first duplicate item offset to ensure a pixel-perfect, seamless marquee loop without flickering or gaps
+          const loopWidth = logoTrack.children[logoTrack.children.length / 2]?.offsetLeft || (logoTrack.scrollWidth / 2);
 
           if (isDragging) {
             // Controlado por el usuario
@@ -4882,12 +4883,12 @@
           }
 
           // Matemáticas de bucle continuo sin saltos
-          if (halfWidth > 0) {
-            while (currentX <= -halfWidth) {
-              currentX += halfWidth;
+          if (loopWidth > 0) {
+            while (currentX <= -loopWidth) {
+              currentX += loopWidth;
             }
             while (currentX > 0) {
-              currentX -= halfWidth;
+              currentX -= loopWidth;
             }
           }
 
