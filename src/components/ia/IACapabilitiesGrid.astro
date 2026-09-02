@@ -1,0 +1,109 @@
+---
+// src/components/ia/IACapabilitiesGrid.astro
+import {
+  TrendingUp,
+  MessageCircle,
+  FileSpreadsheet,
+  BrainCircuit
+} from 'lucide-astro';
+
+const capabilities = [
+  {
+    icon: TrendingUp,
+    title: "Automatización Comercial & CRM",
+    description: "Conexión instantánea de leads a tu CRM, asignación inteligente de prospectos según país o presupuesto, y secuencias de seguimiento automatizadas por WhatsApp.",
+    bullets: [
+      "Distribución automática de leads por asesor",
+      "Secuencias de nutrición y follow-up multicanal",
+      "Actualización de pipeline en tiempo real"
+    ]
+  },
+  {
+    icon: MessageCircle,
+    title: "Atención & Soporte Contextual",
+    description: "Asistentes virtuales entrenados con la información real de tu catálogo, servicios y políticas para responder dudas frecuentes y pre-calificar prospectos al instante.",
+    bullets: [
+      "Respuestas precisas en menos de 5 segundos",
+      "Transferencia transparente a ejecutivos humanos",
+      "Integración nativa con WhatsApp Business"
+    ]
+  },
+  {
+    icon: FileSpreadsheet,
+    title: "Procesos & Operaciones Internas",
+    description: "Eliminamos el trabajo manual repetitivo: generación automática de propuestas en PDF, sincronización entre bases de datos y alertas operativas programadas.",
+    bullets: [
+      "Generación de cotizaciones y contratos en 1 clic",
+      "Sincronización Sheets ↔ CRM ↔ Notificaciones",
+      "Alertas automáticas de tareas y cobros"
+    ]
+  },
+  {
+    icon: BrainCircuit,
+    title: "Inteligencia Artificial Aplicada",
+    description: "Implementamos modelos de lenguaje (LLMs) y sistemas RAG para extraer datos de correos, calificar la intención de compra y consultar bases de conocimiento internas.",
+    bullets: [
+      "Extracción y estructuración de datos desordenados",
+      "Scoring predictivo de probabilidad de cierre",
+      "Búsqueda semántica en manuales y políticas"
+    ]
+  }
+];
+---
+
+<section class="py-20 bg-slate-50 relative">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header (Centered) -->
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        4 áreas donde la automatización multiplica tus resultados.
+      </h2>
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed max-w-3xl mx-auto">
+        No implementamos tecnología por moda. Cada flujo o agente resuelve una fricción operativa específica que ahorra horas de trabajo y previene la pérdida de clientes.
+      </p>
+    </div>
+
+    <!-- 4 Capabilities Grid (Clickable cards with black icon container and white icon) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {capabilities.map((item, index) => (
+        <a 
+          href="#contacto"
+          data-opai-animate
+          data-delay={(0.1 * (index + 1)).toFixed(1)}
+          class="group block relative rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-white p-7 sm:p-8 transition-all duration-300 hover:shadow-xl hover:border-black/20 hover:border-b-opai-purple"
+        >
+          <div>
+            <!-- Icon Container: Black fill with White Icon -->
+            <div class="mb-5">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white transition-transform group-hover:scale-105 shadow-xs">
+                <item.icon class="h-6 w-6 text-white" />
+              </div>
+            </div>
+
+            <!-- Title -->
+            <h3 class="font-sora text-2xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors">
+              {item.title}
+            </h3>
+
+            <!-- Description -->
+            <p class="font-inter-tight text-sm sm:text-base text-background-13/70 leading-relaxed mb-6">
+              {item.description}
+            </p>
+
+            <!-- Key Highlights List -->
+            <ul class="space-y-2.5 font-inter-tight text-xs sm:text-sm text-background-13/80">
+              {item.bullets.map((bullet) => (
+                <li class="flex items-center gap-2.5">
+                  <span class="h-1.5 w-1.5 rounded-full bg-opai-purple"></span>
+                  <span>{bullet}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </a>
+      ))}
+    </div>
+
+  </div>
+</section>

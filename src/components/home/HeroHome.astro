@@ -1,0 +1,113 @@
+---
+// src/components/home/HeroHome.astro
+import DualCTA from '@/components/DualCTA.astro';
+import desarrolloImg from '../../../img/hero/desarrollo.png';
+import filmmakingImg from '../../../img/hero/filmmaking.png';
+import marketing1Img from '../../../img/hero/marketing1.png';
+---
+
+<section class="relative pt-32 pb-16 sm:pt-40 sm:pb-24 overflow-hidden">
+  <!-- Subtle Background Grid/Gradients -->
+  <div class="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center opacity-60">
+    <div class="h-[500px] w-[500px] rounded-full bg-gradient-to-tr from-opai-purple/15 to-transparent blur-[120px]"></div>
+    <div class="h-[400px] w-[400px] rounded-full bg-gradient-to-bl from-blue-400/10 to-transparent blur-[100px] -translate-y-20"></div>
+  </div>
+
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    <div class="text-center max-w-4xl mx-auto">
+      
+      <!-- Main Headline -->
+      <h1 data-text-reveal data-delay="0.2" class="font-sora text-4xl sm:text-6xl lg:text-[64px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
+        Un solo equipo para que tu empresa se vea, <span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">venda y funcione mejor.</span>
+      </h1>
+
+      <!-- Subheadline -->
+      <p data-opai-animate data-delay="0.3" class="font-inter-tight text-lg sm:text-xl text-background-13/75 max-w-3xl mx-auto mb-9 leading-relaxed">
+        Marketing, tecnología e IA integrados para acelerar tu crecimiento en Colombia, USA y mercados globales.
+      </p>
+
+      <!-- Dual Commercial CTA -->
+      <div data-opai-animate data-delay="0.4" class="mb-14">
+        <DualCTA
+          whatsappContext="home"
+          whatsappText="Hablemos de tu proyecto"
+          emailText="Quiero que me contacten"
+          emailHref="#contacto"
+          centered={true}
+        />
+      </div>
+
+    </div>
+
+    <!-- Visual Hero Interactive Composition -->
+    <div class="mt-14 relative mx-auto max-w-5xl">
+      
+      <!-- Central Brain Image (with Floating Bounce Animation) -->
+      <figure data-opai-animate data-delay="0.4" data-instant class="mx-auto size-[320px] sm:size-[450px] md:size-[709px] animate-float-brain">
+        <img
+          src="/images/opai-img-300.png"
+          alt="Inteligencia Artificial para potenciar negocios"
+          class="size-full object-cover"
+        />
+      </figure>
+
+      <!-- Card One: Wade Warren (Floating Left Top - Static Image) -->
+      <figure
+        data-opai-animate
+        data-delay="0.5"
+        data-instant
+        class="absolute top-[25%] left-[2%] hidden xl:block lp:left-[-2%] 2xl:left-[-7%] w-full max-w-[289px] rounded-3xl overflow-hidden shadow-[0_10px_35px_-10px_rgba(0,0,0,0.06)] border border-stroke-2"
+      >
+        <img
+          src={marketing1Img.src}
+          alt="Marketing coordinator"
+          class="size-full object-cover scale-[1.65] origin-center"
+        />
+      </figure>
+
+      <!-- Card Two: Dev Team (Floating Right Middle - Static Image) -->
+      <figure
+        data-opai-animate
+        data-delay="0.6"
+        data-instant
+        class="absolute top-[75%] right-[1%] hidden md:inline-block lg:top-[35%] xl:right-[5%] lp:right-[2%] 2xl:right-[-6%] w-full max-w-[323px] rounded-3xl overflow-hidden shadow-[0_10px_35px_-10px_rgba(0,0,0,0.06)] border border-stroke-2"
+      >
+        <img
+          src={desarrolloImg.src}
+          alt="Dev Team"
+          class="size-full object-cover scale-[1.65] origin-center"
+        />
+      </figure>
+
+      <!-- Card Three: Analytics Graph (Floating Left Bottom - Static Image) -->
+      <figure
+        data-opai-animate
+        data-delay="0.7"
+        data-instant
+        class="absolute top-[75%] left-[1%] hidden w-full max-w-[300px] overflow-hidden rounded-3xl md:inline-block lg:top-[55%] xl:max-w-[374px] lp:top-[55%] lp:left-[-2%] 2xl:top-[56%] 2xl:left-[-3%] shadow-[0_10px_35px_-10px_rgba(0,0,0,0.06)] border border-stroke-2"
+      >
+        <img
+          src={filmmakingImg.src}
+          alt="Dashboard metrics chart"
+          class="size-full object-cover scale-[1.65] origin-center"
+        />
+      </figure>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @keyframes floatBrain {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+  .animate-float-brain {
+    animation: floatBrain 4s ease-in-out infinite;
+  }
+</style>

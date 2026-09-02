@@ -1,0 +1,86 @@
+---
+// src/components/web/WebSolutionsGrid.astro
+const solutions = [
+  {
+    title: "Web Corporativa & Institucional",
+    description: "Sitios web de alto impacto visual que transmiten solidez, liderazgo y credibilidad ante clientes internacionales e inversionistas.",
+    image: "/img/section-2-web/web-corporativa.jpg"
+  },
+  {
+    title: "Landing Pages de Alta Conversión",
+    description: "Páginas de aterrizaje diseñadas con arquitectura CRO para campañas de Meta y Google Ads. Carga en < 0.8s y captura de leads sin fugas.",
+    image: "/img/section-2-web/landings.png"
+  },
+  {
+    title: "Rediseño & Modernización Web",
+    description: "Migramos sitios lentos de WordPress/Wix a Astro 5. Multiplicamos la velocidad por 10, renovamos la identidad visual y eliminamos caídas técnicas.",
+    image: "/img/section-2-web/rediseño-web.jpg"
+  },
+  {
+    title: "Funnels & Embudos Comerciales",
+    description: "Recorridos guiados paso a paso con pruebas de calificación de prospectos, agendas de llamadas automáticas y cierre de oportunidades.",
+    image: "/img/section-2-web/funnels.webp"
+  },
+  {
+    title: "Integraciones Tech & Conexión CRM",
+    description: "Formularios y eventos conectados instantáneamente a WhatsApp Business, HubSpot, Zoho, ActiveCampaign, Notion y webhooks seguros.",
+    image: "/img/section-2-web/integraciones.jpg"
+  },
+  {
+    title: "Analítica Avanzada & Eventos CRO",
+    description: "Implementación de Google Analytics 4, Meta Conversions API (CAPI), Google Tag Manager y mapas de calor para optimización continua.",
+    image: "/img/section-2-web/analitica-cro.jpg"
+  }
+];
+---
+
+<section class="py-20 bg-slate-50 relative">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header (Centered without restrictive line-break margin) -->
+    <div class="text-center max-w-5xl mx-auto mb-16">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        Arquitectura digital diseñada para vender, no solo para adornar.
+      </h2>
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed max-w-3xl mx-auto">
+        Cada tipo de empresa necesita una estructura web diferente. Construimos desde páginas corporativas multinacionales hasta landings de aterrizaje para pauta de alto volumen.
+      </p>
+    </div>
+
+    <!-- 6 Solutions Grid with 75% Opacity Image Hover & Purple Bottom Border -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {solutions.map((item, index) => (
+        <div 
+          data-opai-animate
+          data-delay={((index % 3) * 0.15).toFixed(2)}
+          class="group relative overflow-hidden rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-white p-7 sm:p-8 transition-all duration-500 hover:shadow-xl hover:border-black/20 hover:border-b-opai-purple flex flex-col justify-start"
+        >
+          
+          <!-- Background Hover Image with 75% opacity -->
+          <div 
+            class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-0 group-hover:opacity-75 transition-all duration-500 scale-100 group-hover:scale-105 pointer-events-none"
+            style={`background-image: url('${item.image}');`}
+          ></div>
+
+          <!-- Legibility Gradient Overlay on Hover -->
+          <div class="absolute inset-0 z-0 bg-gradient-to-t from-white/95 via-white/80 to-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none backdrop-blur-[0.5px]"></div>
+
+          <!-- Card Content (Always High Contrast & Crisp) -->
+          <div class="relative z-10">
+            <!-- Title -->
+            <h3 class="font-sora text-xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors duration-300">
+              {item.title}
+            </h3>
+
+            <!-- Description -->
+            <p class="font-inter-tight text-sm sm:text-base text-background-13/75 group-hover:text-background-13/95 leading-relaxed transition-colors duration-300">
+              {item.description}
+            </p>
+          </div>
+
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>

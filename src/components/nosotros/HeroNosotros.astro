@@ -1,0 +1,138 @@
+---
+// src/components/nosotros/HeroNosotros.astro
+import DualCTA from '@/components/DualCTA.astro';
+import { Palette, Code2, Cpu } from 'lucide-astro';
+
+const heroImages = [
+  "https://77studio.co/wp-content/uploads/2024/11/77-scaled.jpg",
+  "https://77studio.co/wp-content/uploads/2025/09/IMG_1098-scaled.jpeg",
+  "https://77studio.co/wp-content/uploads/2025/09/IMG_1101-scaled.jpeg"
+];
+---
+
+<section class="relative pt-36 pb-20 sm:pt-44 sm:pb-28 overflow-hidden bg-slate-900" id="hero-nosotros-section">
+  
+  <!-- DYNAMIC BACKGROUND SLIDESHOW (3 Authentic Studio Photos with <img> tags) -->
+  <div class="absolute inset-0 z-0 overflow-hidden pointer-events-none" id="nosotros-bg-slideshow">
+    {heroImages.map((imgUrl, index) => (
+      <img 
+        src={imgUrl}
+        alt={`77 Studio Ambiente ${index + 1}`}
+        class={`nosotros-hero-slide absolute inset-0 w-full h-full object-cover object-center transition-all duration-1000 ease-out transform ${index === 0 ? 'opacity-100 scale-100' : 'opacity-0 scale-105'}`}
+        data-slide-index={index}
+        loading={index === 0 ? "eager" : "lazy"}
+      />
+    ))}
+  </div>
+
+  <!-- Calibrated White Overlay (High Clarity + Clear Photo Visibility) -->
+  <div class="absolute inset-0 z-[1] bg-gradient-to-b from-white/75 via-white/65 to-white/80 pointer-events-none"></div>
+
+  <!-- Ambient Color Glows -->
+  <div class="pointer-events-none absolute inset-0 z-[2] flex items-center justify-center opacity-30">
+    <div class="h-[520px] w-[520px] rounded-full bg-gradient-to-tr from-opai-purple/20 to-transparent blur-[140px]"></div>
+    <div class="h-[420px] w-[420px] rounded-full bg-gradient-to-bl from-blue-500/15 to-transparent blur-[120px] -translate-y-20"></div>
+  </div>
+
+  <!-- Content Layer (Z-10) -->
+  <div class="relative z-10 mx-auto max-w-[1290px] px-4 sm:px-6">
+    <div class="text-center max-w-4xl mx-auto">
+      
+      <!-- Main Headline -->
+      <h1 data-text-reveal class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6 drop-shadow-sm">
+        Un equipo creativo y tecnológico construido para <span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">resolver retos digitales</span>.
+      </h1>
+
+      <!-- Subheadline -->
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-lg sm:text-xl text-background-13/95 max-w-3xl mx-auto mb-10 leading-relaxed font-semibold drop-shadow-xs">
+        Un solo equipo multidisciplinario que reúne estrategia, Paid Media, diseño, ingeniería web, automatización e inteligencia artificial. Sin burocracia de agencia tradicional ni silos desconectados.
+      </p>
+
+      <!-- Dual Commercial CTA -->
+      <div data-opai-animate data-delay="0.3" class="mb-14">
+        <DualCTA
+          whatsappContext="nosotros"
+          whatsappText="Hablar con el equipo fundador"
+          emailText="Escribirnos por email"
+          emailHref="#contacto"
+          centered={true}
+        />
+      </div>
+
+    </div>
+
+    <!-- Decoupled Standalone Cards Grid (3 Core Operational Hubs) -->
+    <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+      
+      <!-- Card 1: Estrategia & Contenido -->
+      <div data-opai-animate data-delay="0.1" class="group rounded-[24px] border border-black/10 border-b-2 border-b-transparent bg-white/95 backdrop-blur-md p-7 sm:p-8 shadow-md hover:shadow-2xl hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 flex flex-col justify-start">
+        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white mb-5 group-hover:scale-105 transition-transform shadow-xs">
+          <Palette class="h-6 w-6 text-white" />
+        </div>
+        <h3 class="font-sora text-xl font-bold text-background-13 mb-2.5 group-hover:text-opai-purple transition-colors">
+          Estrategia & Contenido
+        </h3>
+        <p class="font-inter-tight text-sm text-background-13/80 leading-relaxed">
+          Dirección de arte, producción audiovisual, copywriting persuasivo y campañas publicitarias en Meta y Google.
+        </p>
+      </div>
+
+      <!-- Card 2: Desarrollo Web & SaaS -->
+      <div data-opai-animate data-delay="0.2" class="group rounded-[24px] border border-black/10 border-b-2 border-b-transparent bg-white/95 backdrop-blur-md p-7 sm:p-8 shadow-md hover:shadow-2xl hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 flex flex-col justify-start">
+        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white mb-5 group-hover:scale-105 transition-transform shadow-xs">
+          <Code2 class="h-6 w-6 text-white" />
+        </div>
+        <h3 class="font-sora text-xl font-bold text-background-13 mb-2.5 group-hover:text-opai-purple transition-colors">
+          Desarrollo Web & SaaS
+        </h3>
+        <p class="font-inter-tight text-sm text-background-13/80 leading-relaxed">
+          Arquitecturas modernas ultra veloces en Astro 5, TypeScript, portales de autogestión y dashboards a la medida.
+        </p>
+      </div>
+
+      <!-- Card 3: Automatización & IA -->
+      <div data-opai-animate data-delay="0.3" class="group rounded-[24px] border border-black/10 border-b-2 border-b-transparent bg-white/95 backdrop-blur-md p-7 sm:p-8 shadow-md hover:shadow-2xl hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 flex flex-col justify-start">
+        <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white mb-5 group-hover:scale-105 transition-transform shadow-xs">
+          <Cpu class="h-6 w-6 text-white" />
+        </div>
+        <h3 class="font-sora text-xl font-bold text-background-13 mb-2.5 group-hover:text-opai-purple transition-colors">
+          Automatización & IA
+        </h3>
+        <p class="font-inter-tight text-sm text-background-13/80 leading-relaxed">
+          Integración de CRMs, secuencias de WhatsApp Business, agentes de atención 24/7 y eliminación de tareas manuales.
+        </p>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<script>
+  function initNosotrosHeroSlideshow() {
+    const slides = document.querySelectorAll<HTMLElement>('.nosotros-hero-slide');
+    if (slides.length <= 1) return;
+
+    let currentSlide = 0;
+    
+    // Switch slides every 5 seconds
+    const interval = setInterval(() => {
+      slides[currentSlide].classList.remove('opacity-100', 'scale-100');
+      slides[currentSlide].classList.add('opacity-0', 'scale-105');
+
+      currentSlide = (currentSlide + 1) % slides.length;
+
+      slides[currentSlide].classList.remove('opacity-0', 'scale-105');
+      slides[currentSlide].classList.add('opacity-100', 'scale-100');
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }
+
+  document.addEventListener('astro:page-load', initNosotrosHeroSlideshow);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initNosotrosHeroSlideshow);
+  } else {
+    initNosotrosHeroSlideshow();
+  }
+</script>

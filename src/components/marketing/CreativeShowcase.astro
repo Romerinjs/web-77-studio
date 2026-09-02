@@ -1,0 +1,97 @@
+---
+// src/components/marketing/CreativeShowcase.astro
+import { Sparkles, Flame, Eye, MousePointerClick, Layers } from 'lucide-astro';
+
+const creativeTypes = [
+  {
+    title: "Reels & TikTok Ads de Alta Retención",
+    description: "Estructura publicitaria: Hook visual en el segundo 0-3 → Identificación del dolor → Demostración de solución → Llamada a la acción precisa.",
+    metrics: "68% Retención 3s · CTR 4.1%",
+    gradient: "from-purple-900/90 via-slate-900 to-black"
+  },
+  {
+    title: "Single Image Ads de Alta Claridad",
+    description: "Diseño visual minimalista con tipografías Sora y microcopy persuasivo. La propuesta de valor se entiende en menos de 1 segundo de scroll.",
+    metrics: "CPL -42% · +92% Score de Calidad",
+    gradient: "from-slate-900 via-zinc-900 to-black"
+  },
+  {
+    title: "Carruseles de Demolición de Objeciones",
+    description: "Secuencia de 5 a 7 tarjetas que educan al prospecto, comparan el antes vs después y resuelven dudas antes de hacer clic al WhatsApp.",
+    metrics: "+180% Guardados · Alto Engagement",
+    gradient: "from-zinc-900 via-stone-900 to-black"
+  },
+  {
+    title: "Iteraciones Creativas para A/B Testing",
+    description: "Generación acelerada de variantes de fondos, titulares y ángulos de dolor asistidos por IA para evitar el desgaste de fatiga publicitaria.",
+    metrics: "12 Variantes / Campaña · Escala Continua",
+    gradient: "from-indigo-950 via-slate-900 to-black"
+  }
+];
+---
+
+<section class="py-20 sm:py-28 bg-white relative overflow-hidden border-t border-black/5">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header (Centered) -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        El algoritmo premia al mejor contenido publicitario.
+      </h2>
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 max-w-2xl mx-auto leading-relaxed">
+        El 70% del éxito de un anuncio depende de la pieza creativa. Diseñamos formatos estructurados científicamente para detener el scroll y generar clics intencionales.
+      </p>
+    </div>
+
+    <!-- Creative Mosaic Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      {creativeTypes.map((item, index) => {
+        const delay = (0.1 * (index + 1)).toFixed(1);
+        return (
+          <div 
+            data-opai-animate 
+            data-delay={delay}
+            class="group relative rounded-[28px] border border-black/10 overflow-hidden bg-background-13 text-white transition-all duration-300 hover:shadow-2xl"
+          >
+            <!-- Card Content Container with Subtle Texture -->
+            <div class={`p-7 sm:p-9 flex flex-col justify-between min-h-[300px] bg-gradient-to-br ${item.gradient} relative z-10`}>
+              
+              <div>
+                <!-- Metrics -->
+                <div class="flex items-center justify-between mb-6">
+                  <div class="flex items-center gap-1.5 font-ibm-plex-mono text-xs text-white/90 bg-white/10 px-3.5 py-1.5 rounded-full backdrop-blur-md border border-white/10">
+                    <Flame class="h-3.5 w-3.5 text-amber-400" />
+                    <span>{item.metrics}</span>
+                  </div>
+                </div>
+
+                <!-- Title -->
+                <h3 class="font-sora text-2xl font-bold text-white mb-3 group-hover:text-opai-purple transition-colors">
+                  {item.title}
+                </h3>
+
+                <!-- Description -->
+                <p class="font-inter-tight text-sm sm:text-base text-white/80 leading-relaxed max-w-xl">
+                  {item.description}
+                </p>
+              </div>
+
+              <!-- Bottom Indicator -->
+              <div class="pt-6 mt-6 border-t border-white/10 flex items-center justify-between font-ibm-plex-mono text-xs text-white/60">
+                <div class="flex items-center gap-2">
+                  <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Formato Optimizado para Conversión</span>
+                </div>
+              </div>
+
+            </div>
+
+            <!-- Subtle Background Hover Glow Effect -->
+            <div class="absolute inset-0 bg-gradient-to-t from-opai-purple/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none"></div>
+          </div>
+        );
+      })}
+    </div>
+
+  </div>
+</section>

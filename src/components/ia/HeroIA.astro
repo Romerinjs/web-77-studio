@@ -1,0 +1,124 @@
+---
+// src/components/ia/HeroIA.astro
+import DualCTA from '@/components/DualCTA.astro';
+import { Zap, Bot, Database, MessageSquare } from 'lucide-astro';
+---
+
+<section 
+  class="relative pt-36 pb-16 sm:pt-44 sm:pb-24 overflow-hidden bg-cover bg-center bg-no-repeat"
+  style="background-image: url('/img/ia-automatizacion-hero.webp');"
+>
+  <!-- Higher White Tint / Opacity Overlay for Greater Clarity -->
+  <div class="absolute inset-0 bg-white/80 backdrop-blur-[1px]"></div>
+
+  <!-- Ambient Gradient Glow -->
+  <div class="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center opacity-30">
+    <div class="h-[520px] w-[520px] rounded-full bg-gradient-to-tr from-opai-purple/15 to-transparent blur-[130px]"></div>
+    <div class="h-[420px] w-[420px] rounded-full bg-gradient-to-bl from-indigo-500/10 to-transparent blur-[110px] -translate-y-20"></div>
+  </div>
+
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6 relative z-10">
+    <div class="text-center max-w-4xl mx-auto">
+      
+      <!-- Main Headline -->
+      <h1 data-text-reveal class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
+        Haz que tu empresa funcione de forma <span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">más inteligente</span>.
+      </h1>
+
+      <!-- Subheadline -->
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-lg sm:text-xl text-background-13/85 max-w-3xl mx-auto mb-9 leading-relaxed font-medium">
+        Menos tareas manuales. Más tiempo para hacer crecer tu empresa. Diseñamos automatizaciones de procesos y soluciones de IA aplicada para optimizar el seguimiento de prospectos, la atención a clientes y la eficiencia operativa.
+      </p>
+
+      <!-- Dual Commercial CTA (WhatsApp IA context + Contact form) -->
+      <div data-opai-animate data-delay="0.3">
+        <DualCTA
+          whatsappContext="ia"
+          whatsappText="Explorar Oportunidades de IA"
+          emailText="Solicitar Diagnóstico por Email"
+          emailHref="#contacto"
+          centered={true}
+        />
+      </div>
+
+    </div>
+
+    <!-- 4 Standalone Separated Cards (Clean without top tags, Black Icon, White Card) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12 max-w-5xl mx-auto">
+      
+      <!-- Card 1: Disparador -->
+      <div data-opai-animate data-delay="0.1" class="rounded-2xl border border-black/10 bg-white/95 p-5 sm:p-6 backdrop-blur-md shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+        <div>
+          <!-- Icon: White icon inside black background -->
+          <div class="h-11 w-11 rounded-xl bg-background-13 text-white flex items-center justify-center mb-4 shadow-xs group-hover:scale-105 transition-transform">
+            <Zap class="h-5 w-5 text-white" />
+          </div>
+
+          <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 mb-2">
+            Lead Entrante
+          </h3>
+
+          <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
+            Captura desde Formulario Web, Anuncio de Meta Ads o WhatsApp.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 2: Agente IA -->
+      <div data-opai-animate data-delay="0.2" class="rounded-2xl border border-black/10 bg-white/95 p-5 sm:p-6 backdrop-blur-md shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+        <div>
+          <!-- Icon: White icon inside black background -->
+          <div class="h-11 w-11 rounded-xl bg-background-13 text-white flex items-center justify-center mb-4 shadow-xs group-hover:scale-105 transition-transform">
+            <Bot class="h-5 w-5 text-white" />
+          </div>
+
+          <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 mb-2">
+            Análisis & Scoring
+          </h3>
+
+          <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
+            Evalúa la intención de compra, extrae datos clave y clasifica el lead.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3: CRM Hub -->
+      <div data-opai-animate data-delay="0.3" class="rounded-2xl border border-black/10 bg-white/95 p-5 sm:p-6 backdrop-blur-md shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+        <div>
+          <!-- Icon: White icon inside black background -->
+          <div class="h-11 w-11 rounded-xl bg-background-13 text-white flex items-center justify-center mb-4 shadow-xs group-hover:scale-105 transition-transform">
+            <Database class="h-5 w-5 text-white" />
+          </div>
+
+          <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 mb-2">
+            Registro en CRM
+          </h3>
+
+          <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
+            Crea el contacto en HubSpot/Zoho con etiqueta de servicio y presupuesto.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4: Acción -->
+      <div data-opai-animate data-delay="0.4" class="rounded-2xl border border-black/10 bg-white/95 p-5 sm:p-6 backdrop-blur-md shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+        <div>
+          <!-- Icon: White icon inside black background -->
+          <div class="h-11 w-11 rounded-xl bg-background-13 text-white flex items-center justify-center mb-4 shadow-xs group-hover:scale-105 transition-transform">
+            <MessageSquare class="h-5 w-5 text-white" />
+          </div>
+
+          <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 mb-2">
+            Cierre Humano
+          </h3>
+
+          <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
+            Notificación instantánea a WhatsApp del vendedor con resumen listo.
+          </p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

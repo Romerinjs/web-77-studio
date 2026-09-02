@@ -1,0 +1,155 @@
+---
+// src/components/marketing/ChannelsComparison.astro
+import { Share2, Search, ArrowRight, Repeat } from 'lucide-astro';
+---
+
+<section class="py-20 sm:py-28 bg-white relative border-t border-black/5">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Header (Centered) -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        Meta Ads vs. Google Ads: No compiten, se multiplican.
+      </h2>
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
+        El error común es elegir uno u otro. La estrategia de alto impacto consiste en usarlos como una pinza comercial: Meta despierta la demanda y Google captura la intención.
+      </p>
+    </div>
+
+    <!-- Dual Channel Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+      
+      <!-- Card 1: Meta Ads (Demand Generation) -->
+      <div 
+        data-opai-animate 
+        data-delay="0.1" 
+        class="group rounded-[28px] border border-stroke-2/60 border-b-2 border-b-transparent bg-slate-50/70 p-7 sm:p-9 shadow-xs hover:bg-white hover:shadow-xl hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex items-center justify-between pb-5 mb-6 border-b border-black/5">
+            <div class="flex items-center gap-3.5">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white group-hover:scale-105 transition-transform shadow-xs">
+                <Share2 class="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <h3 class="font-sora text-2xl font-bold text-background-13 group-hover:text-opai-purple transition-colors">
+                  Meta Ads
+                </h3>
+              </div>
+            </div>
+            <span class="font-ibm-plex-mono text-xs px-3 py-1 rounded-full bg-black/5 text-background-13/80 font-medium">
+              Instagram + Facebook
+            </span>
+          </div>
+
+          <div class="font-sora text-lg font-semibold text-background-13 mb-3">
+            Misión: Generar Demanda & Despertar Interés
+          </div>
+
+          <p class="font-inter-tight text-sm sm:text-base text-background-13/75 mb-6 leading-relaxed">
+            Tu cliente no sabe que existes o no está buscando activamente tu servicio en este momento. Meta Ads interrumpe su feed con contenido visual relevante, crea la necesidad y posiciona tu marca en su mente.
+          </p>
+
+          <div class="space-y-3 font-inter-tight text-sm text-background-13/80">
+            <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+              <span><strong>Audiencias:</strong> Lookalikes, Advantage+ e intereses de alto poder adquisitivo</span>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+              <span><strong>Formatos:</strong> Reels con hook, carruseles de producto y video UGC</span>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+              <span><strong>Remarketing:</strong> Recuperación de carritos y visitantes de la web</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-5 border-t border-black/5 font-ibm-plex-mono text-xs text-background-13/70 font-medium flex items-center justify-between">
+          <span>Objetivo Principal:</span>
+          <span class="text-opai-purple font-semibold">Demanda nueva & Recuerdo de marca</span>
+        </div>
+      </div>
+
+      <!-- Card 2: Google Ads (Intent Capture) -->
+      <div 
+        data-opai-animate 
+        data-delay="0.2" 
+        class="group rounded-[28px] border border-stroke-2/60 border-b-2 border-b-transparent bg-slate-50/70 p-7 sm:p-9 shadow-xs hover:bg-white hover:shadow-xl hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex items-center justify-between pb-5 mb-6 border-b border-black/5">
+            <div class="flex items-center gap-3.5">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white group-hover:scale-105 transition-transform shadow-xs">
+                <Search class="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <h3 class="font-sora text-2xl font-bold text-background-13 group-hover:text-opai-purple transition-colors">
+                  Google Ads
+                </h3>
+              </div>
+            </div>
+            <span class="font-ibm-plex-mono text-xs px-3 py-1 rounded-full bg-black/5 text-background-13/80 font-medium">
+              Search + Performance Max
+            </span>
+          </div>
+
+          <div class="font-sora text-lg font-semibold text-background-13 mb-3">
+            Misión: Capturar Intención Activa de Compra
+          </div>
+
+          <p class="font-inter-tight text-sm sm:text-base text-background-13/75 mb-6 leading-relaxed">
+            El cliente ya sabe qué necesita, tiene urgencia y está buscando en Google la mejor opción para contratar o comprar hoy mismo. Google Ads coloca tu empresa en la primera posición exacta en ese instante crítico.
+          </p>
+
+          <div class="space-y-3 font-inter-tight text-sm text-background-13/80">
+            <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+              <span><strong>Búsqueda de Alta Intención:</strong> Términos transaccionales y de solución inmediata</span>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+              <span><strong>Performance Max:</strong> Cobertura en Search, YouTube, Gmail y Maps</span>
+            </div>
+            <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+              <span><strong>Conversión Inmediata:</strong> Clics directos a llamada, WhatsApp y formulario</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="mt-8 pt-5 border-t border-black/5 font-ibm-plex-mono text-xs text-background-13/70 font-medium flex items-center justify-between">
+          <span>Objetivo Principal:</span>
+          <span class="text-emerald-700 font-semibold">Conversión inmediata & Cierre de venta</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Synergy Integration Banner -->
+    <div 
+      data-opai-animate 
+      data-delay="0.3" 
+      class="rounded-[24px] bg-background-13 text-white p-7 sm:p-9 border border-white/10 shadow-xl"
+    >
+      <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
+        <div class="space-y-2">
+          <div class="inline-flex items-center gap-2 font-ibm-plex-mono text-xs text-opai-purple uppercase font-semibold">
+            <Repeat class="h-4 w-4" /> El Bucle de Conversión 77
+          </div>
+          <h4 class="font-sora text-xl sm:text-2xl font-bold">
+            Meta despierta el deseo → Google captura la búsqueda → Tu web convierte.
+          </h4>
+          <p class="font-inter-tight text-sm text-white/70 max-w-2xl">
+            Cuando un prospecto ve tu anuncio en Instagram y luego busca tu servicio en Google, tu presencia coordinada genera una percepción de líder indiscutible en la industria.
+          </p>
+        </div>
+
+        <div class="shrink-0 flex items-center gap-3">
+          <a
+            href="#contacto"
+            class="font-ibm-plex-mono text-xs uppercase tracking-wider bg-opai-purple hover:bg-opai-purple/90 text-white px-6 py-3.5 rounded-xl transition-all font-medium inline-flex items-center gap-2"
+          >
+            Diseñar mi Estrategia <ArrowRight class="h-4 w-4" />
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>

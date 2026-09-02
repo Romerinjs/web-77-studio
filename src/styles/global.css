@@ -1,0 +1,201 @@
+@import "tailwindcss";
+
+@theme {
+  --color-slate-50: #F9FAFB;
+  --color-surface-white: #FFFFFF;
+  --color-background-1: #3d4753;
+  --color-background-3: #252a32;
+  --color-background-4: #191d2a;
+  --color-background-5: #11141d;
+  --color-background-6: #0d1017;
+  --color-background-7: #f8f9fa;
+  --color-background-8: #f1f4f6;
+  --color-background-9: #ebf0f3;
+  --color-background-10: #e4eaee;
+  --color-background-11: #dbe2e6;
+  --color-background-13: #0A0A0A;
+  --color-opai-purple: #7C3AED;
+  --color-opai-purple-hover: #6D28D9;
+  --color-opai-purple-light: #EDE9FE;
+  --color-opai-purple-glow: rgba(124, 58, 237, 0.25);
+  --color-stroke-1: #94aecf;
+  --color-stroke-2: rgba(10, 10, 10, 0.08);
+  --color-stroke-subtle: rgba(10, 10, 10, 0.05);
+  --color-stroke-3: #7c8ea5;
+  --color-gradient-5: linear-gradient(#2bc0e4 0%, #eaecc6 100%);
+
+  --font-sora: 'Sora', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-inter-tight: 'Inter Tight', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-ibm-plex-mono: 'IBM Plex Mono', monospace;
+
+  --radius-card: 20px;
+  --breakpoint-lp: 1390px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #F9FAFB;
+    color: #0A0A0A;
+    font-family: var(--font-inter-tight);
+  }
+
+  body {
+    min-height: 100vh;
+    overflow-x: hidden;
+    background-color: #F9FAFB;
+    color: #0A0A0A;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-sora);
+    letter-spacing: -0.025em;
+  }
+
+  code, pre, .font-mono {
+    font-family: var(--font-ibm-plex-mono);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #F1F5F9;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #CBD5E1;
+    border-radius: 9999px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #94A3B8;
+  }
+
+  /* Selection highlight */
+  ::selection {
+    background-color: #7C3AED;
+    color: #FFFFFF;
+  }
+}
+
+/* Glassmorphism & Micro-animations */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(10, 10, 10, 0.08);
+}
+
+.glass-panel-dark {
+  background: rgba(10, 10, 10, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 30px -10px rgba(0, 0, 0, 0.08);
+}
+
+/* Subtle glow badge */
+.badge-glow {
+  box-shadow: 0 0 15px rgba(124, 58, 237, 0.2);
+}
+
+/* Node pulse effect */
+@keyframes pulseGlow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.05);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 4s infinite ease-in-out;
+}
+
+/* ==========================================================================
+   77 STUDIO DESIGN SYSTEM - ANIMATION ATTR RULES ([data-opai-animate], etc)
+   ========================================================================== */
+
+/* 1. Scroll-triggered Entry Animation */
+[data-opai-animate] {
+  opacity: 0;
+  transform: translateY(35px);
+  filter: blur(10px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.8s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform, filter;
+}
+
+[data-opai-animate][data-direction="left"] {
+  transform: translateX(-40px);
+}
+
+[data-opai-animate][data-direction="right"] {
+  transform: translateX(40px);
+}
+
+[data-opai-animate][data-direction="down"] {
+  transform: translateY(-35px);
+}
+
+[data-opai-animate].is-in-view {
+  opacity: 1;
+  transform: translate(0, 0);
+  filter: blur(0);
+}
+
+/* 2. Text Reveal Animation */
+[data-text-reveal] {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+[data-text-reveal].is-revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 3. Interactive Pill Button (.button) */
+.button {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.button .button-icon,
+.button .button-text {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.button .button-text {
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1), color 0.3s ease;
+}
+
+/* Header scrolled state */
+#main-header.scrolled > div {
+  background-color: rgba(255, 255, 255, 0.95);
+  box-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.1);
+  padding-top: 0.6rem;
+  padding-bottom: 0.6rem;
+}

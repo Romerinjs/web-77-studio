@@ -1,0 +1,115 @@
+---
+// src/layouts/BaseLayout.astro
+import '@/styles/global.css';
+import Header from '@/components/Header.astro';
+import Footer from '@/components/Footer.astro';
+import MobileStickyBar from '@/components/MobileStickyBar.astro';
+import { DEFAULT_SEO } from '@/utils/seo';
+import type { WhatsAppContext } from '@/utils/whatsapp';
+
+interface Props {
+  title?: string;
+  description?: string;
+  canonical?: string;
+  ogImage?: string;
+  whatsappContext?: WhatsAppContext;
+  hideNav?: boolean;
+  hideFooter?: boolean;
+  hideMobileBar?: boolean;
+}
+
+const {
+  title = DEFAULT_SEO.title,
+  description = DEFAULT_SEO.description,
+  canonical = Astro.url.href,
+  ogImage = DEFAULT_SEO.ogImage,
+  whatsappContext = 'home',
+  hideNav = false,
+  hideFooter = false,
+  hideMobileBar = false,
+} = Astro.props;
+
+const currentPath = Astro.url.pathname;
+---
+
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/img/77studio.png" />
+    <link rel="canonical" href={canonical} />
+
+    <!-- Google Fonts: Sora, Inter Tight, IBM Plex Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Inter+Tight:wght@300;400;500;600;700&family=Sora:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- SEO Primary Meta Tags -->
+    <title>{title}</title>
+    <meta name="title" content={title} />
+    <meta name="description" content={description} />
+    <meta name="generator" content={Astro.generator} />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonical} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={ogImage} />
+
+    <!-- JSON-LD Structured Data for Organization -->
+    <script type="application/ld+json" set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "77 Studio",
+      "image": "https://77.studio/img/77studio.png",
+      "url": "https://77.studio",
+      "telephone": "+573000000000",
+      "priceRange": "$$",
+      "address": [
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Medellín",
+          "addressCountry": "CO"
+        },
+        {
+          "@type": "PostalAddress",
+          "addressLocality": "Miami",
+          "addressCountry": "US"
+        }
+      ],
+      "description": "Digital Studio + Creative Partner + Technology & AI Company en Colombia y Estados Unidos.",
+      "sameAs": [
+        "https://www.instagram.com/77studio",
+        "https://www.linkedin.com/company/77studio"
+      ]
+    })} />
+  </head>
+
+  <body class="min-h-screen flex flex-col bg-slate-50 text-background-13 antialiased selection:bg-opai-purple selection:text-white">
+    
+    {!hideNav && <Header currentPath={currentPath} whatsappContext={whatsappContext} />}
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    {!hideFooter && <Footer />}
+
+    {!hideMobileBar && <MobileStickyBar whatsappContext={whatsappContext} />}
+
+    <!-- 77 Studio Client-Side Animation Engine -->
+    <script src="@/scripts/animations.ts"></script>
+  </body>
+</html>

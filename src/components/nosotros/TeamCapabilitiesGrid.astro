@@ -1,0 +1,305 @@
+---
+// src/components/nosotros/TeamCapabilitiesGrid.astro
+import { Target, TrendingUp, Video, Code2, Workflow, Bot, LayoutGrid, Play, Pause, ChevronLeft, ChevronRight } from 'lucide-astro';
+
+const disciplines = [
+  {
+    icon: Target,
+    title: "Estrategia & Dirección Comercial",
+    description: "Definición de posicionamiento de mercado, arquitectura de embudos y diagnóstico de cuellos de botella para empresas."
+  },
+  {
+    icon: TrendingUp,
+    title: "Paid Media & Adquisición",
+    description: "Gestión de campañas de alta conversión en Meta Ads y Google Ads con pixelado CAPI serverless y analítica avanzada."
+  },
+  {
+    icon: Video,
+    title: "Contenido, Video & Creativos",
+    description: "Producción audiovisual dinámica, hooks de alta retención, carruseles educativos y creativos visuales con IA."
+  },
+  {
+    icon: Code2,
+    title: "Ingeniería Web & Frontend",
+    description: "Desarrollo de sitios web y landing pages ultra-rápidas en Astro 5, Tailwind CSS y componentes interactivos."
+  },
+  {
+    icon: Workflow,
+    title: "Automatización & Flujos CRM",
+    description: "Conexión de sistemas en n8n, Make, WhatsApp Business API y bases de datos para eliminar tareas manuales repetitivas."
+  },
+  {
+    icon: Bot,
+    title: "Inteligencia Artificial Aplicada",
+    description: "Desarrollo de agentes inteligentes con RAG (Retrieval-Augmented Generation), clasificación de leads y asistentes 24/7."
+  }
+];
+---
+
+<section class="py-20 sm:py-28 bg-white border-t border-black/5 relative overflow-hidden" id="disciplinas-seccion">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header (Centered) -->
+    <div class="text-center max-w-3xl mx-auto mb-10">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        Un solo equipo, todas las capacidades necesarias.
+      </h2>
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
+        Reunimos especialistas de cada área trabajando en sintonía para que tu proyecto no sufra fricciones entre proveedores.
+      </p>
+    </div>
+
+    <!-- Interactive Switch Controller Bar -->
+    <div data-opai-animate data-delay="0.3" class="flex flex-wrap items-center justify-center gap-4 mb-12">
+      <button
+        id="toggle-carousel-view-btn"
+        type="button"
+        class="inline-flex items-center gap-3 px-5 py-2.5 rounded-full border border-black/15 bg-slate-50 shadow-xs hover:shadow-md hover:bg-white transition-all duration-300 font-ibm-plex-mono text-xs font-semibold text-background-13 cursor-pointer group"
+      >
+        <!-- Toggle Pill Switch Visual -->
+        <span class="flex items-center gap-2">
+          <span class="relative flex h-5 w-9 shrink-0 cursor-pointer rounded-full bg-opai-purple p-0.5 transition-colors duration-200 ease-in-out" id="switch-track">
+            <span class="translate-x-4 inline-block h-4 w-4 transform rounded-full bg-white shadow-xs transition duration-200 ease-in-out" id="switch-thumb"></span>
+          </span>
+        </span>
+
+        <span id="switch-text" class="group-hover:text-opai-purple transition-colors">
+          no scroll
+        </span>
+      </button>
+
+      <!-- Carousel Navigation Buttons (Visible only in Carousel Mode) -->
+      <div id="carousel-manual-controls" class="flex items-center gap-2">
+        <button
+          id="prev-slide-btn"
+          type="button"
+          class="h-9 w-9 rounded-full border border-black/10 bg-slate-50 hover:bg-white hover:border-black/20 flex items-center justify-center text-background-13 transition-all shadow-xs cursor-pointer"
+          aria-label="Desplazar a la izquierda"
+        >
+          <ChevronLeft class="size-4" />
+        </button>
+        <button
+          id="next-slide-btn"
+          type="button"
+          class="h-9 w-9 rounded-full border border-black/10 bg-slate-50 hover:bg-white hover:border-black/20 flex items-center justify-center text-background-13 transition-all shadow-xs cursor-pointer"
+          aria-label="Desplazar a la derecha"
+        >
+          <ChevronRight class="size-4" />
+        </button>
+      </div>
+    </div>
+
+    <!-- VIEW 1: INFINITE AUTO-CAROUSEL TO THE RIGHT (Single Row) -->
+    <div id="carousel-view-container" class="relative w-full overflow-hidden select-none py-2 transition-opacity duration-300">
+      
+      <!-- Gradient Edge Fade Masks -->
+      <div class="pointer-events-none absolute top-0 left-0 bottom-0 w-12 sm:w-24 bg-gradient-to-r from-white to-transparent z-10"></div>
+      <div class="pointer-events-none absolute top-0 right-0 bottom-0 w-12 sm:w-24 bg-gradient-to-l from-white to-transparent z-10"></div>
+
+      <!-- Sliding Track (moving continuously to the right) -->
+      <div id="carousel-track" class="flex items-stretch gap-6 w-max cursor-grab active:cursor-grabbing will-change-transform py-3">
+        {/* We duplicate items to create a seamless infinite loop */}
+        {[...disciplines, ...disciplines].map((item) => {
+          const IconComponent = item.icon;
+          return (
+            <div class="group carousel-card w-[310px] sm:w-[360px] shrink-0 rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-slate-50/80 p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:bg-white hover:shadow-xl hover:border-black/20 hover:border-b-opai-purple">
+              <div>
+                <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white mb-6 group-hover:scale-105 transition-transform shadow-xs">
+                  <IconComponent class="h-6 w-6 text-white" />
+                </div>
+
+                <h3 class="font-sora text-xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors leading-snug">
+                  {item.title}
+                </h3>
+
+                <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
+                  {item.description}
+                </p>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </div>
+
+    <!-- VIEW 2: 3x2 GRID VIEW (Hidden by default, shown when carousel is toggled off) -->
+    <div id="grid-view-container" class="hidden grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 transition-all duration-300">
+      {disciplines.map((item) => {
+        const IconComponent = item.icon;
+        return (
+          <div class="group rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-slate-50/70 p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:bg-white hover:shadow-md hover:border-black/20 hover:border-b-opai-purple">
+            <div>
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white mb-6 group-hover:scale-105 transition-transform shadow-xs">
+                <IconComponent class="h-6 w-6 text-white" />
+              </div>
+
+              <h3 class="font-sora text-xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors">
+                {item.title}
+              </h3>
+
+              <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
+                {item.description}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+  </div>
+</section>
+
+<script>
+  function initTeamCapabilitiesCarousel() {
+    const toggleBtn = document.getElementById('toggle-carousel-view-btn');
+    const switchTrack = document.getElementById('switch-track');
+    const switchThumb = document.getElementById('switch-thumb');
+    const switchText = document.getElementById('switch-text');
+    const manualControls = document.getElementById('carousel-manual-controls');
+    
+    const carouselContainer = document.getElementById('carousel-view-container');
+    const gridContainer = document.getElementById('grid-view-container');
+    const track = document.getElementById('carousel-track');
+    
+    const prevBtn = document.getElementById('prev-slide-btn');
+    const nextBtn = document.getElementById('next-slide-btn');
+
+    if (!toggleBtn || !carouselContainer || !gridContainer || !track) return;
+
+    let isCarouselMode = true;
+    let currentX = 0;
+    let isDragging = false;
+    let startX = 0;
+    let dragStartX = 0;
+    let isHovered = false;
+    let animationFrameId: number | null = null;
+    
+    // Auto-scroll speed towards the RIGHT (positive offset step)
+    const autoSpeed = 0.85;
+
+    // Toggle switch handler (Carrusel <-> Grid 3x2)
+    toggleBtn.addEventListener('click', () => {
+      isCarouselMode = !isCarouselMode;
+      
+      if (isCarouselMode) {
+        // Switch to Carousel Mode
+        gridContainer.classList.add('hidden');
+        gridContainer.classList.remove('grid');
+        carouselContainer.classList.remove('hidden');
+        if (manualControls) manualControls.classList.remove('hidden');
+
+        if (switchTrack) switchTrack.className = 'relative flex h-5 w-9 shrink-0 cursor-pointer rounded-full bg-opai-purple p-0.5 transition-colors duration-200 ease-in-out';
+        if (switchThumb) switchThumb.className = 'translate-x-4 inline-block h-4 w-4 transform rounded-full bg-white shadow-xs transition duration-200 ease-in-out';
+        if (switchText) switchText.textContent = 'no scroll';
+        
+        startAnimation();
+      } else {
+        // Switch to 3x2 Grid Mode
+        carouselContainer.classList.add('hidden');
+        gridContainer.classList.remove('hidden');
+        gridContainer.classList.add('grid');
+        if (manualControls) manualControls.classList.add('hidden');
+
+        if (switchTrack) switchTrack.className = 'relative flex h-5 w-9 shrink-0 cursor-pointer rounded-full bg-slate-300 p-0.5 transition-colors duration-200 ease-in-out';
+        if (switchThumb) switchThumb.className = 'translate-x-0 inline-block h-4 w-4 transform rounded-full bg-white shadow-xs transition duration-200 ease-in-out';
+        if (switchText) switchText.textContent = 'scroll';
+
+        stopAnimation();
+      }
+    });
+
+    // Pause on hover
+    carouselContainer.addEventListener('mouseenter', () => { isHovered = true; });
+    carouselContainer.addEventListener('mouseleave', () => { isHovered = false; isDragging = false; });
+
+    // Drag / Touch handlers
+    const onStart = (clientX: number) => {
+      isDragging = true;
+      startX = clientX;
+      dragStartX = currentX;
+    };
+
+    const onMove = (clientX: number) => {
+      if (!isDragging) return;
+      const deltaX = clientX - startX;
+      currentX = dragStartX + deltaX;
+    };
+
+    const onEnd = () => {
+      isDragging = false;
+    };
+
+    carouselContainer.addEventListener('pointerdown', (e) => {
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      onStart(e.clientX);
+    });
+
+    window.addEventListener('pointermove', (e) => {
+      if (isDragging) onMove(e.clientX);
+    });
+
+    window.addEventListener('pointerup', () => {
+      if (isDragging) onEnd();
+    });
+
+    // Manual navigation buttons
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        currentX += 340;
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        currentX -= 340;
+      });
+    }
+
+    // Animation Loop: Scrolls smoothly to the RIGHT
+    function animate() {
+      if (!isCarouselMode) return;
+
+      const halfWidth = track.scrollWidth / 2;
+
+      if (!isHovered && !isDragging) {
+        // Move towards the RIGHT
+        currentX += autoSpeed;
+      }
+
+      // Loop boundary wrapping
+      if (halfWidth > 0) {
+        if (currentX >= 0) {
+          currentX -= halfWidth;
+        } else if (currentX <= -halfWidth * 2) {
+          currentX += halfWidth;
+        }
+      }
+
+      track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+      animationFrameId = requestAnimationFrame(animate);
+    }
+
+    function startAnimation() {
+      if (!animationFrameId) {
+        animationFrameId = requestAnimationFrame(animate);
+      }
+    }
+
+    function stopAnimation() {
+      if (animationFrameId) {
+        cancelAnimationFrame(animationFrameId);
+        animationFrameId = null;
+      }
+    }
+
+    // Start on mount
+    startAnimation();
+  }
+
+  // Initialize on Astro page load
+  document.addEventListener('astro:page-load', initTeamCapabilitiesCarousel);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTeamCapabilitiesCarousel);
+  } else {
+    initTeamCapabilitiesCarousel();
+  }
+</script>

@@ -1,0 +1,384 @@
+---
+// src/components/home/MetricsAndIntegrations.astro
+---
+
+<section class="py-16 sm:py-24 bg-slate-50 border-t border-black/5">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6 space-y-16">
+    
+    <!-- 4 Metrics Grid -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      
+      <!-- Metric 1 -->
+      <div class="metric-card rounded-3xl bg-white p-8 sm:p-10 border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+        <!-- Background Grainy Gradient Aura -->
+        <div class="card-aura-bg" style="background-image: url('/img/header/Grainy_Gradient_Background_high_resolution_preview_2222917.jpg')"></div>
+        <div class="metric-card-content flex flex-col items-center text-center space-y-2.5">
+          <span class="font-sora text-4xl sm:text-5xl font-extrabold text-background-13 leading-none">+310%</span>
+          <span class="font-sora text-base font-semibold text-background-13/90 leading-tight">Incremento en Leads Calificados</span>
+          <span class="font-inter-tight text-xs text-background-13/60 leading-relaxed">Filtro de IA pre-califica antes de agendar</span>
+        </div>
+      </div>
+
+      <!-- Metric 2 -->
+      <div class="metric-card rounded-3xl bg-white p-8 sm:p-10 border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+        <!-- Background Grainy Gradient Aura -->
+        <div class="card-aura-bg" style="background-image: url('/img/header/1000_F_226549800_JcTsSD70la5lDHAuo1MWRmBpECmJTH8d.jpg')"></div>
+        <div class="metric-card-content flex flex-col items-center text-center space-y-2.5">
+          <span class="font-sora text-4xl sm:text-5xl font-extrabold text-background-13 leading-none">&lt; 45s</span>
+          <span class="font-sora text-base font-semibold text-background-13/90 leading-tight">Tiempo de Respuesta Comercial</span>
+          <span class="font-inter-tight text-xs text-background-13/60 leading-relaxed">Atención 24/7 sin demora en WhatsApp</span>
+        </div>
+      </div>
+
+      <!-- Metric 3 -->
+      <div class="metric-card rounded-3xl bg-white p-8 sm:p-10 border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+        <!-- Background Grainy Gradient Aura -->
+        <div class="card-aura-bg" style="background-image: url('/img/header/abstract-blue-and-yellow-gradient-background-with-grainy-texture-free-photo.jpg')"></div>
+        <div class="metric-card-content flex flex-col items-center text-center space-y-2.5">
+          <span class="font-sora text-4xl sm:text-5xl font-extrabold text-background-13 leading-none">-42%</span>
+          <span class="font-sora text-base font-semibold text-background-13/90 leading-tight">Reducción del CAC Promedio</span>
+          <span class="font-inter-tight text-xs text-background-13/60 leading-relaxed">Optimización continua de pauta & conversión</span>
+        </div>
+      </div>
+
+      <!-- Metric 4 -->
+      <div class="metric-card rounded-3xl bg-white p-8 sm:p-10 border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+        <!-- Background Grainy Gradient Aura -->
+        <div class="card-aura-bg" style="background-image: url('/img/header/Grainy_Gradient_Background_high_resolution_preview_2222926.jpg')"></div>
+        <div class="metric-card-content flex flex-col items-center text-center space-y-2.5">
+          <span class="font-sora text-4xl sm:text-5xl font-extrabold text-background-13 leading-none">100%</span>
+          <span class="font-sora text-base font-semibold text-background-13/90 leading-tight">Atribución de ROI Transparente</span>
+          <span class="font-inter-tight text-xs text-background-13/60 leading-relaxed">Tracking unificado desde clic hasta pago</span>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Integrations Section -->
+    <div class="space-y-4 pt-4">
+      <div class="text-center">
+        <h2 class="font-sora text-2xl sm:text-3xl font-bold tracking-tight text-background-13 leading-tight">
+          Ecosistema de Integraciones & Tecnología Nativa
+        </h2>
+      </div>
+
+      <!-- Infinite Marquee wrapper -->
+      <div class="partners-strip-wrapper">
+        <!-- Shadow Overlays for fade effect -->
+        <div class="absolute inset-y-0 left-0 w-16 sm:w-28 bg-gradient-to-r from-slate-50 to-transparent z-10 pointer-events-none"></div>
+        <div class="absolute inset-y-0 right-0 w-16 sm:w-28 bg-gradient-to-l from-slate-50 to-transparent z-10 pointer-events-none"></div>
+
+        <div class="partners-strip-track">
+          
+          <!-- Original Logos -->
+          <div class="partner-logo-item relative">
+            <img src="/img/logos-platforms/logotipo-empresa-meta_265339-667.avif" alt="Meta" />
+            <span class="partner-tooltip">Meta Business Partner</span>
+          </div>
+          <div class="partner-logo-item relative">
+            <img src="/img/logos-platforms/Google_Favicon_2025.svg.webp" alt="Google" />
+            <span class="partner-tooltip">Google Ads Premier Partner</span>
+          </div>
+          <div class="partner-logo-item relative">
+            <img src="/img/logos-platforms/gmdiaTTz.png" alt="Make" />
+            <span class="partner-tooltip">Make Automation Expert</span>
+          </div>
+          <div class="partner-logo-item relative">
+            <img src="/img/logos-platforms/zapier.png" alt="Zapier" />
+            <span class="partner-tooltip">Zapier Certified Systems</span>
+          </div>
+          <div class="partner-logo-item relative">
+            <img src="/img/logos-platforms/hubspot_logo_orange.webp" alt="Hubspot" />
+            <span class="partner-tooltip">HubSpot CRM Integration</span>
+          </div>
+
+          <!-- Duplicated Logos for Infinite Loop -->
+          <div class="partner-logo-item relative" aria-hidden="true">
+            <img src="/img/logos-platforms/logotipo-empresa-meta_265339-667.avif" alt="Meta" />
+            <span class="partner-tooltip">Meta Business Partner</span>
+          </div>
+          <div class="partner-logo-item relative" aria-hidden="true">
+            <img src="/img/logos-platforms/Google_Favicon_2025.svg.webp" alt="Google" />
+            <span class="partner-tooltip">Google Ads Premier Partner</span>
+          </div>
+          <div class="partner-logo-item relative" aria-hidden="true">
+            <img src="/img/logos-platforms/gmdiaTTz.png" alt="Make" />
+            <span class="partner-tooltip">Make Automation Expert</span>
+          </div>
+          <div class="partner-logo-item relative" aria-hidden="true">
+            <img src="/img/logos-platforms/zapier.png" alt="Zapier" />
+            <span class="partner-tooltip">Zapier Certified Systems</span>
+          </div>
+          <div class="partner-logo-item relative" aria-hidden="true">
+            <img src="/img/logos-platforms/hubspot_logo_orange.webp" alt="Hubspot" />
+            <span class="partner-tooltip">HubSpot CRM Integration</span>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  // Spotlight Aura Mouse Tracker
+  const auraCards = document.querySelectorAll('.metric-card');
+  auraCards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      // @ts-ignore
+      card.style.setProperty('--mouse-x', `${x}px`);
+      // @ts-ignore
+      card.style.setProperty('--mouse-y', `${y}px`);
+    });
+  });
+
+  // Interactive Draggable & Touch-enabled Logo Carousel
+  const logoWrapper = document.querySelector('.partners-strip-wrapper');
+  const logoTrack = document.querySelector('.partners-strip-track');
+
+  if (logoWrapper && logoTrack) {
+    let currentX = 0;
+    let isDragging = false;
+    let startX = 0;
+    let dragStartX = 0;
+    let velocity = 0;
+    let lastX = 0;
+    let lastTime = 0;
+    let isHovered = false;
+    const autoSpeed = 0.85; // Speed for auto infinite scroll
+
+    logoWrapper.addEventListener('mouseenter', () => { isHovered = true; });
+    logoWrapper.addEventListener('mouseleave', () => { isHovered = false; isDragging = false; });
+
+    const onStart = (clientX: number) => {
+      isDragging = true;
+      startX = clientX;
+      dragStartX = currentX;
+      lastX = clientX;
+      lastTime = performance.now();
+      velocity = 0;
+    };
+
+    const onMove = (clientX: number) => {
+      if (!isDragging) return;
+      const now = performance.now();
+      const dt = Math.max(now - lastTime, 1);
+      const deltaX = clientX - startX;
+      currentX = dragStartX + deltaX;
+
+      velocity = (clientX - lastX) / dt;
+      lastX = clientX;
+      lastTime = now;
+    };
+
+    const onEnd = () => {
+      isDragging = false;
+    };
+
+    // Mouse / Pointer Event Listeners
+    logoWrapper.addEventListener('pointerdown', (e: Event) => {
+      const pointerEvent = e as PointerEvent;
+      if (pointerEvent.pointerType === 'mouse' && pointerEvent.button !== 0) return;
+      onStart(pointerEvent.clientX);
+    });
+
+    window.addEventListener('pointermove', (e: Event) => {
+      const pointerEvent = e as PointerEvent;
+      if (isDragging) onMove(pointerEvent.clientX);
+    });
+
+    window.addEventListener('pointerup', () => {
+      if (isDragging) onEnd();
+    });
+
+    // Touch Mobile Event Listeners
+    logoWrapper.addEventListener('touchstart', (e: Event) => {
+      const touchEvent = e as TouchEvent;
+      if (touchEvent.touches.length === 1) onStart(touchEvent.touches[0].clientX);
+    }, { passive: true });
+
+    logoWrapper.addEventListener('touchmove', (e: Event) => {
+      const touchEvent = e as TouchEvent;
+      if (isDragging && touchEvent.touches.length === 1) onMove(touchEvent.touches[0].clientX);
+    }, { passive: true });
+
+    logoWrapper.addEventListener('touchend', () => {
+      if (isDragging) onEnd();
+    });
+
+    // 60/120fps Animation Loop
+    function animateLogos() {
+      // Calculate loop width based on the first duplicate item offset to ensure a pixel-perfect, seamless marquee loop without flickering or gaps
+      // @ts-ignore
+      const loopWidth = logoTrack.children[logoTrack.children.length / 2]?.offsetLeft || (logoTrack.scrollWidth / 2);
+
+      if (isDragging) {
+        // Controlled directly by drag actions
+      } else if (Math.abs(velocity) > 0.05) {
+        // Inertia sliding
+        currentX += velocity * 16;
+        velocity *= 0.92;
+      } else if (!isHovered) {
+        // Continuous auto displacement
+        currentX -= autoSpeed;
+      }
+
+      // Loop math to create seamless wrap
+      if (loopWidth > 0) {
+        while (currentX <= -loopWidth) {
+          currentX += loopWidth;
+        }
+        while (currentX > 0) {
+          currentX -= loopWidth;
+        }
+      }
+
+      // @ts-ignore
+      logoTrack.style.transform = `translate3d(${currentX}px, 0, 0)`;
+      requestAnimationFrame(animateLogos);
+    }
+
+    requestAnimationFrame(animateLogos);
+  }
+</script>
+
+<style>
+  /* Metric Cards SpotLight Aura */
+  .metric-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1), border-color 0.5s ease, box-shadow 0.5s ease;
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+  }
+  
+  .metric-card:hover {
+    transform: translateY(-6px);
+    border-color: rgba(124, 58, 237, 0.35);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.03), 0 0 20px rgba(124, 58, 237, 0.08);
+  }
+  
+  .card-aura-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+    transition: opacity 0.45s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: scale(1.08);
+    mask-image: radial-gradient(circle 130px at var(--mouse-x) var(--mouse-y), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0) 100%);
+    -webkit-mask-image: radial-gradient(circle 130px at var(--mouse-x) var(--mouse-y), rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0) 100%);
+    filter: brightness(110%) contrast(105%);
+  }
+  
+  .metric-card:hover .card-aura-bg {
+    opacity: 0.90; /* Vibrant high-opacity aura spotlight that follows the mouse cursor */
+    transform: scale(1);
+  }
+  
+  .metric-card-content {
+    position: relative;
+    z-index: 2;
+    pointer-events: none;
+  }
+
+  /* Infinite Scrolling Marquee Wrapper with Padding for Tooltips */
+  .partners-strip-wrapper {
+    width: 100%;
+    overflow: hidden;
+    padding: 60px 0 24px 0; /* Spacious top padding prevents clipping of tooltips */
+    position: relative;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: pan-y;
+    mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  }
+
+  .partners-strip-wrapper:active {
+    cursor: grabbing;
+  }
+
+  .partners-strip-track {
+    display: flex;
+    align-items: center;
+    gap: 5.5rem;
+    width: max-content;
+    will-change: transform;
+  }
+
+  /* Partner Logo Items */
+  .partner-logo-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 44px;
+    opacity: 0.65;
+    filter: grayscale(100%) brightness(90%);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    position: relative;
+  }
+  
+  .partner-logo-item:hover {
+    opacity: 1;
+    filter: grayscale(0%) brightness(110%);
+    transform: scale(1.1);
+  }
+  
+  .partner-logo-item img {
+    max-height: 38px;
+    width: auto;
+    object-fit: contain;
+  }
+
+  /* Tooltips styling */
+  .partner-tooltip {
+    position: absolute;
+    bottom: calc(100% + 12px);
+    left: 50%;
+    transform: translateX(-50%) translateY(6px) scale(0.9);
+    background: rgba(18, 18, 24, 0.96);
+    border: 1px solid rgba(124, 58, 237, 0.35);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    font-family: var(--font-ibm-plex-mono), monospace;
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    padding: 6px 14px;
+    border-radius: 8px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.06), 0 0 15px rgba(124, 58, 237, 0.1);
+    z-index: 30;
+  }
+  
+  .partner-tooltip::after {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: rgba(18, 18, 24, 0.96) transparent transparent transparent;
+  }
+  
+  .partner-logo-item:hover .partner-tooltip {
+    opacity: 1;
+    transform: translateX(-50%) translateY(0) scale(1);
+  }
+</style>

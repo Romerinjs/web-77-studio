@@ -1,0 +1,38 @@
+---
+// src/pages/productos-digitales.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroProductos from '@/components/productos/HeroProductos.astro';
+import ProductSolutionsGrid from '@/components/productos/ProductSolutionsGrid.astro';
+import ProductProcessSection from '@/components/productos/ProductProcessSection.astro';
+import ProductCasesSection from '@/components/productos/ProductCasesSection.astro';
+import ProductWhyUsSection from '@/components/productos/ProductWhyUsSection.astro';
+import ProductContactSection from '@/components/productos/ProductContactSection.astro';
+
+const pageTitle = "Desarrollo de Productos Digitales, SaaS & Dashboards | 77 Studio";
+const pageDescription = "Transformamos necesidades operativas e ideas de negocio en productos digitales, portales de clientes, SaaS y dashboards a la medida (Colombia ↔ USA).";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical="https://77.studio/productos-digitales"
+  whatsappContext="productos"
+>
+  <!-- 01. Hero Section con propuesta de valor de Product Studio y Dashboard interactivo -->
+  <HeroProductos />
+
+  <!-- 02. Catálogo de las 5 Soluciones Digitales a la Medida + CTA integrado -->
+  <ProductSolutionsGrid />
+
+  <!-- 03. Metodología de Desarrollo de Producto en 5 Pasos -->
+  <ProductProcessSection />
+
+  <!-- 04. Casos Reales de Productos Digitales con Flip Coin 3D -->
+  <ProductCasesSection />
+
+  <!-- 05. Por qué 77 Studio: Visión de Negocio Integral -->
+  <ProductWhyUsSection />
+
+  <!-- 06. Bloque de Cierre Comercial con WhatsApp Productos y Formulario -->
+  <ProductContactSection />
+</BaseLayout>

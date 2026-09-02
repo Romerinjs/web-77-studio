@@ -1,0 +1,98 @@
+---
+// src/components/productos/ProductSolutionsGrid.astro
+import DualCTA from '@/components/DualCTA.astro';
+import { Rocket, Users, BarChart3, Wrench, Layers } from 'lucide-astro';
+
+const solutions = [
+  {
+    icon: Rocket,
+    title: "SaaS & MVP",
+    description: "Construimos la primera versión funcional de tu idea o software en semanas. Arquitectura multi-tenant, pasarelas de pago, autenticación segura y base escalable para captar clientes e inversión."
+  },
+  {
+    icon: Users,
+    title: "Portales & Plataformas",
+    description: "Espacios privados donde tus clientes, proveedores o distribuidores pueden consultar estados de cuenta, realizar pedidos, descargar facturas o gestionar solicitudes sin intermediación humana manual."
+  },
+  {
+    icon: BarChart3,
+    title: "Dashboards Analíticos",
+    description: "Centralizamos métricas de ventas, marketing, finanzas y operaciones en paneles ejecutivos limpios y reactivos. Elimina horas perdidas consolidando reportes en hojas de cálculo."
+  },
+  {
+    icon: Wrench,
+    title: "Herramientas Internas",
+    description: "Digitalizamos procesos operativos críticos de tu equipo en aplicaciones web estructuradas con permisos, auditoría de cambios y validaciones que evitan errores humanos costosos."
+  },
+  {
+    icon: Layers,
+    title: "Aplicaciones Web Personalizadas",
+    description: "Soluciones de software complejas construidas exactamente para tus reglas de negocio, accesibles de forma responsiva y segura desde cualquier navegador web en escritorio o móvil."
+  }
+];
+---
+
+<section class="py-20 sm:py-28 bg-white border-t border-black/5 relative">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header (Centered) -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        Soluciones digitales construidas alrededor de tu negocio.
+      </h2>
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
+        No adaptamos tu empresa a un paquete rígido. Diseñamos el producto digital exacto que tu operación o modelo comercial necesita.
+      </p>
+    </div>
+
+    <!-- 5 Solutions Grid (Copied distribution attributes: 3 upper cards + 2 lower cards) -->
+    <div
+      class="grid grid-cols-12 items-stretch justify-center gap-4 *:col-span-12 md:*:col-span-6 lg:gap-4 lg:*:col-start-auto md:[&>*:last-child]:col-span-12 lg:[&>*:nth-child(5n+1)]:col-span-4 lg:[&>*:nth-child(5n+2)]:col-span-4 lg:[&>*:nth-child(5n+3)]:col-span-4 lg:[&>*:nth-child(5n+4)]:col-span-6 lg:[&>*:nth-child(5n+5)]:col-span-6 mb-14"
+      role="list"
+      aria-label="Catálogo de soluciones digitales"
+    >
+      {solutions.map((sol, index) => {
+        const IconComponent = sol.icon;
+        const delay = ((index % 3) * 0.15).toFixed(2);
+        return (
+          <div role="listitem" data-opai-animate data-delay={delay}>
+            <div class="group h-full flex flex-col items-start justify-between rounded-3xl bg-slate-50/70 p-7 sm:p-8 lg:p-10 border border-stroke-2/60 border-b-2 border-b-transparent hover:border-b-opai-purple hover:bg-white hover:shadow-lg transition-all duration-300 card-hover">
+              <div class="w-full">
+                <!-- Dark Icon Container with White Icon -->
+                <div class="bg-background-13 flex size-14 items-center justify-center rounded-2xl mb-6 shadow-xs group-hover:scale-105 transition-transform">
+                  <IconComponent class="h-6 w-6 text-white" />
+                </div>
+
+                <h3 class="font-sora text-xl sm:text-2xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors">
+                  {sol.title}
+                </h3>
+
+                <p class="font-inter-tight text-sm sm:text-base text-background-13/75 leading-relaxed">
+                  {sol.description}
+                </p>
+              </div>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+    <!-- Integrated Conversion CTA Banner -->
+    <div data-opai-animate data-delay="0.4" class="mt-16 rounded-[28px] border border-black/10 bg-slate-50 p-8 sm:p-12 text-center max-w-4xl mx-auto shadow-xs">
+      <h3 class="font-sora text-2xl sm:text-3xl font-bold text-background-13 mb-3">
+        ¿Tienes un proceso manual o una idea de software para tu negocio?
+      </h3>
+      <p class="font-inter-tight text-base text-background-13/70 mb-8 max-w-2xl mx-auto leading-relaxed">
+        Evaluamos la viabilidad técnica y comercial de tu proyecto. Te orientamos sobre alcance, tiempos y presupuesto sin compromisos.
+      </p>
+      <DualCTA
+        whatsappContext="productos"
+        whatsappText="Quiero explorar una solución"
+        emailText="Consultar por email"
+        emailHref="#contacto"
+        centered={true}
+      />
+    </div>
+
+  </div>
+</section>

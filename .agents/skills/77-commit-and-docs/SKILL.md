@@ -13,9 +13,16 @@ metadata:
 
 ---
 
-## 1. Reglas de Auditoría de Cambios
+## 1. Reglas de Ramas y Auditoría de Cambios
 
-Cada vez que se modifique o añada algo en el proyecto de **77 Studio**:
+### 0. Protección de Ramas & Aislamiento (Obligatorio)
+- **NUNCA commitear directamente en `main` ni en `develop`.**
+- Antes de iniciar cualquier tarea o característica (ej. por objetivo `/goal`), verificar o crear la rama de trabajo aislada:
+  ```bash
+  npm run 77 feature <nombre-descriptivo>
+  # O bien: git checkout -b feature/<nombre-descriptivo>
+  ```
+- Al finalizar el trabajo en la rama `feature/*`, realizar el `git push -u origin feature/<nombre>` y notificar al usuario (*Human-in-the-loop*) para la revisión y merge hacia `develop` (Staging) y posteriormente `main` (Producción).
 
 1. **Identificar la categoría del cambio:**
    - **`feat` (Feature):** Nueva propiedad, componente, página, integración o endpoint.

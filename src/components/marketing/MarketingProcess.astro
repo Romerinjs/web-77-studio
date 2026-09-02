@@ -1,0 +1,84 @@
+---
+// src/components/marketing/MarketingProcess.astro
+import { Search, PenTool, Rocket, LineChart } from 'lucide-astro';
+
+const steps = [
+  {
+    number: "01",
+    icon: Search,
+    title: "Entendemos",
+    description: "Analizamos tu modelo de negocio, tu oferta comercial, tu cliente ideal (ICP) y los ángulos que tu competencia no está explotando."
+  },
+  {
+    number: "02",
+    icon: PenTool,
+    title: "Diseñamos",
+    description: "Creamos los videos, anuncios gráficos, copys y la página de aterrizaje donde aterrizará el tráfico para garantizar máxima conversión."
+  },
+  {
+    number: "03",
+    icon: Rocket,
+    title: "Lanzamos",
+    description: "Configuramos Meta Conversions API (CAPI), Google Tag Manager, GA4 y activamos las campañas con presupuestos controlados."
+  },
+  {
+    number: "04",
+    icon: LineChart,
+    title: "Optimizamos",
+    description: "Monitoreamos métricas en tiempo real, apagamos lo que no funciona, duplicamos los creativos ganadores y escalamos el presupuesto."
+  }
+];
+---
+
+<section class="py-20 sm:py-28 bg-slate-50 relative border-t border-black/5">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header (Centered) -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        Cómo llevamos tus campañas de 0 a escala en 4 pasos.
+      </h2>
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
+        Un proceso estructurado, transparente y orientado a métricas de negocio reales, sin sorpresas ni experimentos a ciegas.
+      </p>
+    </div>
+
+    <!-- 4 Steps Process Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      {steps.map((step, index) => {
+        const IconComponent = step.icon;
+        const delay = (0.1 * (index + 1)).toFixed(1);
+        return (
+          <div 
+            data-opai-animate 
+            data-delay={delay}
+            class="group rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-white p-7 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-xl hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 relative"
+          >
+            <div>
+              <!-- Step Number & Icon -->
+              <div class="flex items-center justify-between mb-6">
+                <span class="font-ibm-plex-mono text-2xl sm:text-3xl font-bold text-opai-purple group-hover:scale-105 transition-transform">
+                  {step.number}
+                </span>
+                <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-background-13 text-white shadow-xs group-hover:scale-105 transition-transform">
+                  <IconComponent class="h-5 w-5 text-white" />
+                </div>
+              </div>
+
+              <!-- Title -->
+              <h3 class="font-sora text-xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors">
+                {step.title}
+              </h3>
+
+              <!-- Description -->
+              <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
+                {step.description}
+              </p>
+            </div>
+          </div>
+        );
+      })}
+    </div>
+
+  </div>
+</section>

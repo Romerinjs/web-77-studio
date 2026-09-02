@@ -1,0 +1,141 @@
+---
+// src/components/ia/WorkflowDiagramSection.astro
+import { ChevronRight } from 'lucide-astro';
+
+const pipelineStages = [
+  {
+    title: "Contacto Multi-Canal",
+    description: "Un prospecto calificado envía un mensaje por WhatsApp o llena el formulario web a las 10:45 PM."
+  },
+  {
+    title: "Clasificación & Scoring",
+    description: "El agente IA analiza los requerimientos, consulta el CRM y determina el nivel de prioridad y servicio adecuado."
+  },
+  {
+    title: "Respuesta & Agenda",
+    description: "El cliente recibe la información precisa solicitada y un enlace interactivo para agendar llamada según disponibilidad."
+  },
+  {
+    title: "Llamada de Cierre",
+    description: "Tu asesor comercial llega a la reunión con el historial completo, resumen del caso y objeciones ya resueltas."
+  }
+];
+---
+
+<section class="py-24 bg-white relative overflow-hidden">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header (Centered) -->
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        De visitante a reunión calificada sin intervención manual.
+      </h2>
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-3xl mx-auto">
+        Así funciona un ecosistema de automatización real: tu empresa atiende 24/7 sin que tu equipo tenga que estar conectado a medianoche.
+      </p>
+    </div>
+
+    <!-- Flow Pipeline Cards Container with Animated Moving Dashed Line -->
+    <div class="relative mb-14">
+      
+      <!-- Animated Dashed Flow Line between cards (Desktop lg) -->
+      <div class="hidden lg:block absolute top-1/2 left-0 right-0 -translate-y-1/2 h-[3px] pointer-events-none z-0">
+        <svg class="w-full h-4 overflow-visible" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="flowDashedGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#8d59ff" stop-opacity="0.35" />
+              <stop offset="50%" stop-color="#8d59ff" stop-opacity="0.9" />
+              <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.5" />
+            </linearGradient>
+          </defs>
+          <line 
+            x1="0" y1="8" x2="100%" y2="8" 
+            stroke="url(#flowDashedGrad)" 
+            stroke-width="3" 
+            stroke-dasharray="10 8" 
+            class="flow-moving-line"
+          />
+        </svg>
+      </div>
+
+      <!-- Clean Pipeline Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+        {pipelineStages.map((stage, idx) => (
+          <div 
+            data-opai-animate
+            data-delay={(0.1 * (idx + 1)).toFixed(1)}
+            class="group relative rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-white p-6 sm:p-7 flex flex-col justify-start transition-all duration-300 hover:shadow-lg hover:border-black/20 hover:border-b-opai-purple"
+          >
+            <h3 class="font-sora text-lg font-bold text-background-13 mb-2.5 group-hover:text-opai-purple transition-colors">
+              {stage.title}
+            </h3>
+
+            <p class="font-inter-tight text-xs sm:text-sm text-background-13/70 leading-relaxed">
+              {stage.description}
+            </p>
+
+            <!-- Connector Chevron to the right between cards on Desktop -->
+            {idx < pipelineStages.length - 1 && (
+              <div class="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 items-center justify-center size-7 rounded-full bg-white border border-opai-purple/30 text-opai-purple shadow-xs group-hover:scale-110 group-hover:border-opai-purple transition-all">
+                <ChevronRight class="size-4" />
+              </div>
+            )}
+          </div>
+        ))}
+      </div>
+
+    </div>
+
+    <!-- Key Principle Box with 77 Brand Color Gradient & 77 Studio Logo under Title -->
+    <div data-opai-animate data-delay="0.5" class="relative overflow-hidden rounded-[28px] bg-gradient-to-r from-[#0c0c14] via-[#1a0f2e] to-[#2a0e4a] text-white p-8 sm:p-10 border border-opai-purple/30 shadow-[0_20px_50px_rgba(141,89,255,0.12)]">
+      <!-- Ambient Brand Glow Effects -->
+      <div class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-opai-purple/20 blur-[80px]"></div>
+      <div class="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-blue-600/15 blur-[80px]"></div>
+
+      <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
+        
+        <div class="max-w-3xl space-y-4">
+          <h3 class="font-sora text-2xl sm:text-3xl font-bold leading-snug">
+            La automatización no reemplaza a tu equipo: multiplica su capacidad comercial.
+          </h3>
+
+          <!-- 77 Studio Logo Badge under title -->
+          <div class="flex items-center gap-2.5 pt-1">
+            <div class="h-8 w-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center shadow-xs">
+              <img src="/img/77studio.png" alt="77 Studio Logo" class="h-5 w-5 object-contain" />
+            </div>
+            <span class="font-sora font-semibold text-sm tracking-wider text-white/90">
+              STUDIO
+            </span>
+          </div>
+        </div>
+
+        <div class="shrink-0 flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
+          <a
+            href="#contacto"
+            class="w-full sm:w-auto text-center font-ibm-plex-mono text-xs uppercase tracking-wider bg-opai-purple hover:bg-opai-purple-hover text-white px-7 py-4 rounded-xl transition-all font-semibold shadow-lg hover:shadow-opai-purple/25 hover:scale-[1.02] active:scale-98"
+          >
+            Evaluar Procesos de mi Empresa
+          </a>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<style>
+  @keyframes flowDashForward {
+    from {
+      stroke-dashoffset: 36;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .flow-moving-line {
+    animation: flowDashForward 1s linear infinite;
+  }
+</style>

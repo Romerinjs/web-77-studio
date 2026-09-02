@@ -1,0 +1,42 @@
+---
+// src/pages/marketing.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroMarketing from '@/components/marketing/HeroMarketing.astro';
+import CapabilitiesGrid from '@/components/marketing/CapabilitiesGrid.astro';
+import PPCComparisonSection from '@/components/marketing/PPCComparisonSection.astro';
+import ChannelsComparison from '@/components/marketing/ChannelsComparison.astro';
+import CreativeShowcase from '@/components/marketing/CreativeShowcase.astro';
+import MarketingProcess from '@/components/marketing/MarketingProcess.astro';
+import MarketingContactSection from '@/components/marketing/MarketingContactSection.astro';
+
+const pageTitle = "Marketing Digital, Meta Ads & Google Ads | 77 Studio";
+const pageDescription = "Integramos estrategia, pauta digital, creatividad, contenido y automatización para captar clientes potenciales y generar demanda (Colombia ↔ USA).";
+---
+
+<BaseLayout
+  title={pageTitle}
+  description={pageDescription}
+  canonical="https://77.studio/marketing"
+  whatsappContext="marketing"
+>
+  <!-- 01. Hero Section de Paid Media & CTAs Duales -->
+  <HeroMarketing />
+
+  <!-- 02. Grid 2x5 con las 10 Capacidades Integradas -->
+  <CapabilitiesGrid />
+
+  <!-- 03. El Problema: Pautar no es solo activar anuncios -->
+  <PPCComparisonSection />
+
+  <!-- 04. Meta Ads vs Google Ads: Canales Complementarios -->
+  <ChannelsComparison />
+
+  <!-- 05. Creatividad que Respalda la Pauta (Mosaico de Formatos y Hooks) -->
+  <CreativeShowcase />
+
+  <!-- 06. Metodología de Marketing en 4 Pasos -->
+  <MarketingProcess />
+
+  <!-- 07. Bloque de Cierre Comercial con WhatsApp Marketing & Formulario -->
+  <MarketingContactSection />
+</BaseLayout>

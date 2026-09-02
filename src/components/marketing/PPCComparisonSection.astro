@@ -1,0 +1,129 @@
+---
+// src/components/marketing/PPCComparisonSection.astro
+import { XCircle, CheckCircle2, AlertTriangle, Zap } from 'lucide-astro';
+---
+
+<section class="py-20 sm:py-28 bg-white relative overflow-hidden border-t border-black/5">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header (Centered) -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        Pautar no es solo oprimir un botón y activar anuncios.
+      </h2>
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
+        El 80% del presupuesto de pauta digital se desperdicia cuando los anuncios están desconectados de la web, la creatividad y el seguimiento comercial.
+      </p>
+    </div>
+
+    <!-- Comparative Columns Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+      
+      <!-- Column 1: Traditional Disconnected Approach (Negative) -->
+      <div 
+        data-opai-animate 
+        data-delay="0.1" 
+        class="rounded-[28px] border border-red-200/80 bg-red-50/30 p-7 sm:p-9 flex flex-col justify-between"
+      >
+        <div>
+          <div class="flex items-center justify-between pb-6 mb-6 border-b border-red-200/60">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-100 text-red-600 shadow-xs">
+                <AlertTriangle class="h-6 w-6" />
+              </div>
+              <div>
+                <span class="font-ibm-plex-mono text-xs font-semibold text-red-600 uppercase tracking-wider">El Modelo Tradicional</span>
+                <h3 class="font-sora text-xl font-bold text-background-13">Campañas Desconectadas</h3>
+              </div>
+            </div>
+          </div>
+
+          <p class="font-inter-tight text-sm text-background-13/80 mb-6 leading-relaxed">
+            Sucede cuando contratas a alguien para "hacer anuncios", a otro para "diseñar la web" y a nadie para integrar el flujo comercial:
+          </p>
+
+          <ul class="space-y-4 font-inter-tight text-sm text-background-13/80">
+            <li class="flex items-start gap-3">
+              <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+              <span><strong>Tráfico enviado a páginas lentas:</strong> El usuario hace clic, espera 4 segundos, se aburre y abandona.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+              <span><strong>Pérdida de medición (Sin CAPI):</strong> Sin tracking de eventos del servidor, los algoritmos trabajan a ciegas.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+              <span><strong>Creativos repetitivos sin hook:</strong> Imágenes genéricas de stock que nadie recuerda ni detienen el scroll.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+              <span><strong>Leads fríos que se enfrían:</strong> Respuestas comerciales que tardan horas o días, perdiendo la venta.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-8 pt-5 border-t border-red-200/60 font-ibm-plex-mono text-xs text-red-700 font-medium flex items-center justify-between">
+          <span>Resultado Típico:</span>
+          <span>Presupuesto quemado & CPL elevado</span>
+        </div>
+      </div>
+
+      <!-- Column 2: 77 Studio Connected System (Positive) -->
+      <div 
+        data-opai-animate 
+        data-delay="0.2" 
+        class="rounded-[28px] border border-opai-purple/30 bg-gradient-to-b from-opai-purple/5 to-white p-7 sm:p-9 shadow-md flex flex-col justify-between relative"
+      >
+        <div class="absolute -top-3.5 right-6">
+          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-opai-purple text-white font-ibm-plex-mono text-xs font-medium shadow-xs">
+            <Zap class="h-3.5 w-3.5" /> Metodología 77 Studio
+          </span>
+        </div>
+
+        <div>
+          <div class="flex items-center justify-between pb-6 mb-6 border-b border-black/5">
+            <div class="flex items-center gap-3">
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white shadow-xs">
+                <CheckCircle2 class="h-6 w-6 text-white" />
+              </div>
+              <div>
+                <span class="font-ibm-plex-mono text-xs font-semibold text-opai-purple uppercase tracking-wider">Ecosistema Unificado</span>
+                <h3 class="font-sora text-xl font-bold text-background-13">Sistema de Marketing Conectado</h3>
+              </div>
+            </div>
+          </div>
+
+          <p class="font-inter-tight text-sm text-background-13/80 mb-6 leading-relaxed">
+            Diseñamos cada anuncio como el primer eslabón de una cadena continua de conversión:
+          </p>
+
+          <ul class="space-y-4 font-inter-tight text-sm text-background-13/80">
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+              <span><strong>Creativos con hooks validados:</strong> Videos y piezas con estructura probada para capturar atención real.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+              <span><strong>Landings ultra rápidas con conversión dual:</strong> Carga en &lt;1s con WhatsApp prellenado y formularios directos.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+              <span><strong>Tracking CAPI + GA4 + GTM:</strong> Atribución precisa del 100% de conversiones para algoritmos de pauta.</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+              <span><strong>Atención inmediata y automatización:</strong> Respuestas ágiles que capturan al prospecto al instante.</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="mt-8 pt-5 border-t border-black/5 font-ibm-plex-mono text-xs text-opai-purple font-semibold flex items-center justify-between">
+          <span>Resultado Validado:</span>
+          <span>Mayor ROAS, leads calificados y escala real</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

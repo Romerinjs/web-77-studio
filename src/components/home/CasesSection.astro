@@ -1,0 +1,291 @@
+---
+// src/components/home/CasesSection.astro
+const cases = [
+  {
+    category: "Marketing & Ads",
+    client: "E-Commerce & Retail B2B",
+    title: "Escalamiento de Adquisición B2B",
+    challenge: "Leads costosos y fatiga publicitaria en campañas de captación.",
+    solution: "Segmentación de audiencias y producción ágil de creativos en video de alta conversión.",
+    result: "+185% Leads Calificados · -42% Costo por Adquisición",
+    tag: "Marketing"
+  },
+  {
+    category: "Desarrollo Web Astro",
+    client: "Firma de Consultoría & Finanzas",
+    title: "Rediseño Web Enfocado en Conversión",
+    challenge: "Sitio lento en WordPress con 70% de rebote y baja conversión corporativa.",
+    solution: "Migración a Astro 5 ultra veloz con arquitectura de conversión y CTA directo a WhatsApp.",
+    result: "Velocidad 99/100 · +120% Incremento en Contactos Directos",
+    tag: "Web"
+  },
+  {
+    category: "IA & Automatización",
+    client: "Empresa de Servicios Profesionales",
+    title: "Agente de IA & Seguimiento 24/7",
+    challenge: "Fuga de prospectos fuera de horario por respuesta tardía en WhatsApp.",
+    solution: "Agente de IA 24/7 integrado en WhatsApp para calificación y agendamiento inmediato en CRM.",
+    result: "< 30s Tiempo de Respuesta · 100% Leads Atendidos al Instante",
+    tag: "IA"
+  },
+  {
+    category: "Productos Digitales",
+    client: "Startup de Logística",
+    title: "MVP y Dashboard de Operaciones",
+    challenge: "Operación manual descentralizada mediante hojas de cálculo desconectadas.",
+    solution: "Portal web y dashboard centralizado para métricas y control de despachos en tiempo real.",
+    result: "Lanzamiento en 4 Semanas · Reducción de 15h semanales en reportes",
+    tag: "SaaS"
+  }
+];
+---
+
+<section id="casos" class="py-20 sm:py-28 bg-white border-t border-black/5">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+    
+    <!-- Section Header -->
+    <div class="text-center max-w-3xl mx-auto mb-12">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+        Proyectos reales diseñados para mover métricas comerciales.
+      </h2>
+      <p class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed mb-8 max-w-2xl mx-auto">
+        Sin métricas infladas ni promesas vacías. Así es como resolvemos problemas concretos de crecimiento y eficiencia.
+      </p>
+
+      <!-- Global Interactive Mode Switch (Reto / Solución) -->
+      <div class="inline-flex items-center bg-background-8 p-1.5 rounded-full border border-stroke-2/60 shadow-inner case-global-switch">
+        <button 
+          type="button" 
+          id="global-reto-btn" 
+          class="global-mode-btn is-active px-6 py-2 rounded-full text-xs font-ibm-plex-mono font-semibold cursor-pointer"
+          aria-label="Ver estado El Reto"
+        >
+          El Reto
+        </button>
+        <button 
+          type="button" 
+          id="global-solucion-btn" 
+          class="global-mode-btn px-6 py-2 rounded-full text-xs font-ibm-plex-mono font-semibold cursor-pointer"
+          aria-label="Ver estado Nuestra Solución"
+        >
+          Nuestra Solución
+        </button>
+      </div>
+    </div>
+
+    <!-- Case Studies Grid with 3D Coin Flip -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-6">
+      {cases.map((cs, idx) => (
+        <div 
+          class="case-card case-card-container group cursor-pointer" 
+          data-card-index={idx}
+          data-flipped="false"
+          role="button"
+          tabindex="0"
+          aria-label={`Caso de negocio: ${cs.title}. Haz clic para voltear la tarjeta entre reto y solución.`}
+        >
+          <div class="case-card-flipper">
+            
+            <!-- Front Face (El Reto: Black Card) -->
+            <div class="card-face card-face-front rounded-3xl bg-background-13 text-white p-8 sm:p-9 flex flex-col justify-between border border-white/10 shadow-lg group-hover:border-white/20 transition-all duration-300">
+              <div>
+                <!-- Header Row -->
+                <div class="flex items-center justify-between mb-5">
+                  <span class="font-ibm-plex-mono text-xs font-medium text-white/90 bg-white/10 px-3 py-1 rounded-full border border-white/10 tracking-wide">
+                    {cs.category}
+                  </span>
+                  <span class="font-ibm-plex-mono text-xs text-white/50">
+                    {cs.client}
+                  </span>
+                </div>
+
+                <!-- Card Title -->
+                <h3 class="font-sora text-2xl sm:text-[26px] font-bold text-white mb-4 leading-snug">
+                  {cs.title}
+                </h3>
+
+                <!-- Challenge Description -->
+                <p class="font-inter-tight text-base sm:text-[17px] text-red-400 font-medium leading-relaxed">
+                  {cs.challenge}
+                </p>
+              </div>
+            </div>
+
+            <!-- Back Face (Nuestra Solución: White Card) -->
+            <div class="card-face card-face-back rounded-3xl bg-white text-background-13 p-8 sm:p-9 flex flex-col justify-between border border-stroke-2/60 shadow-lg group-hover:border-black/15 transition-all duration-300">
+              <div>
+                <!-- Header Row -->
+                <div class="flex items-center justify-between mb-5">
+                  <span class="font-ibm-plex-mono text-xs font-medium text-opai-purple bg-opai-purple/10 px-3 py-1 rounded-full border border-opai-purple/20 tracking-wide">
+                    {cs.category}
+                  </span>
+                  <span class="font-ibm-plex-mono text-xs text-background-13/50">
+                    {cs.client}
+                  </span>
+                </div>
+
+                <!-- Card Title -->
+                <h3 class="font-sora text-2xl sm:text-[26px] font-bold text-background-13 mb-4 leading-snug">
+                  {cs.title}
+                </h3>
+
+                <!-- Solution Description -->
+                <p class="font-inter-tight text-base sm:text-[17px] text-emerald-700 font-medium leading-relaxed">
+                  {cs.solution}
+                </p>
+              </div>
+
+              <!-- Footer Metric Line -->
+              <div class="pt-5 mt-6 border-t border-stroke-2/60">
+                <p class="font-ibm-plex-mono text-xs sm:text-sm font-medium text-background-13/90">
+                  {cs.result}
+                </p>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<style>
+  .case-card-container {
+    perspective: 1200px;
+    min-height: 360px;
+  }
+
+  .case-card-flipper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 360px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+    transition: transform 0.75s cubic-bezier(0.34, 1.25, 0.64, 1);
+  }
+
+  .case-card.is-flipped .case-card-flipper {
+    transform: rotateY(180deg);
+  }
+
+  .card-face {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+  }
+
+  .card-face-front {
+    transform: rotateY(0deg);
+  }
+
+  .card-face-back {
+    transform: rotateY(180deg);
+  }
+
+  /* Global Mode Switch Clean Button Styling */
+  .global-mode-btn {
+    transition: all 0.25s ease;
+  }
+
+  .global-mode-btn.is-active {
+    background-color: var(--color-background-13, #0A0A0A);
+    color: #ffffff;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+  }
+
+  .global-mode-btn:not(.is-active) {
+    background-color: transparent;
+    color: rgba(10, 10, 10, 0.6);
+  }
+
+  .global-mode-btn:not(.is-active):hover {
+    color: rgba(10, 10, 10, 0.95);
+  }
+</style>
+
+<script>
+  function initCasesToggle() {
+    const globalRetoBtn = document.getElementById('global-reto-btn');
+    const globalSolucionBtn = document.getElementById('global-solucion-btn');
+    const cards = document.querySelectorAll('.case-card');
+
+    if (!cards.length) return;
+
+    let currentGlobalMode: 'challenge' | 'solution' = 'challenge';
+
+    const setCardFlipped = (card: Element, flipped: boolean) => {
+      if (flipped) {
+        card.classList.add('is-flipped');
+        card.setAttribute('data-flipped', 'true');
+      } else {
+        card.classList.remove('is-flipped');
+        card.setAttribute('data-flipped', 'false');
+      }
+    };
+
+    const updateGlobalUI = (mode: 'challenge' | 'solution') => {
+      currentGlobalMode = mode;
+      if (mode === 'challenge') {
+        globalRetoBtn?.classList.add('is-active');
+        globalSolucionBtn?.classList.remove('is-active');
+      } else {
+        globalSolucionBtn?.classList.add('is-active');
+        globalRetoBtn?.classList.remove('is-active');
+      }
+    };
+
+    globalRetoBtn?.addEventListener('click', () => {
+      updateGlobalUI('challenge');
+      cards.forEach(card => setCardFlipped(card, false));
+    });
+
+    globalSolucionBtn?.addEventListener('click', () => {
+      updateGlobalUI('solution');
+      cards.forEach(card => setCardFlipped(card, true));
+    });
+
+    // Toggle individual card when clicked
+    cards.forEach(card => {
+      card.addEventListener('click', () => {
+        const isFlipped = card.classList.contains('is-flipped');
+        setCardFlipped(card, !isFlipped);
+
+        // Check if all cards have the same state to synchronize global toggle indicator
+        const allFlipped = Array.from(cards).every(c => c.classList.contains('is-flipped'));
+        const noneFlipped = Array.from(cards).every(c => !c.classList.contains('is-flipped'));
+
+        if (allFlipped) {
+          updateGlobalUI('solution');
+        } else if (noneFlipped) {
+          updateGlobalUI('challenge');
+        }
+      });
+
+      card.addEventListener('keydown', (e: Event) => {
+        const keyEvent = e as KeyboardEvent;
+        if (keyEvent.key === 'Enter' || keyEvent.key === ' ') {
+          keyEvent.preventDefault();
+          const isFlipped = card.classList.contains('is-flipped');
+          setCardFlipped(card, !isFlipped);
+        }
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initCasesToggle);
+  } else {
+    initCasesToggle();
+  }
+  document.addEventListener('astro:page-load', initCasesToggle);
+</script>
+
+

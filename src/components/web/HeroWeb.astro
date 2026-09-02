@@ -1,0 +1,102 @@
+---
+// src/components/web/HeroWeb.astro
+import DualCTA from '@/components/DualCTA.astro';
+import { Gauge, Smartphone, Zap, CheckCircle2, Code2 } from 'lucide-astro';
+---
+
+<section 
+  class="relative pt-36 pb-16 sm:pt-44 sm:pb-24 overflow-hidden bg-cover bg-center bg-no-repeat"
+  style="background-image: url('/img/web-hero.jpg');"
+>
+  <!-- Balanced White Tint / Opacity Overlay -->
+  <div class="absolute inset-0 bg-white/65 backdrop-blur-[1px]"></div>
+
+  <!-- Ambient Gradient Glow -->
+  <div class="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center opacity-30">
+    <div class="h-[520px] w-[520px] rounded-full bg-gradient-to-tr from-blue-500/10 to-transparent blur-[130px]"></div>
+    <div class="h-[420px] w-[420px] rounded-full bg-gradient-to-bl from-opai-purple/10 to-transparent blur-[110px] -translate-y-20"></div>
+  </div>
+
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6 relative z-10">
+    <div class="text-center max-w-4xl mx-auto">
+      
+      <!-- Main Headline -->
+      <h1 data-text-reveal class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
+        Una web que represente tu empresa y <span class="bg-gradient-to-r from-background-13 via-blue-600 to-background-13 bg-clip-text text-transparent">convierta visitantes</span> en oportunidades.
+      </h1>
+
+      <!-- Subheadline -->
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-lg sm:text-xl text-background-13/85 max-w-3xl mx-auto mb-9 leading-relaxed font-medium">
+        Diseñamos experiencias digitales claras, ultra rápidas y pensadas para generar confianza inmediata, explicar tu propuesta de valor y facilitar el contacto comercial por WhatsApp o formulario.
+      </p>
+
+      <!-- Dual Commercial CTA (WhatsApp Web context + Contact form) -->
+      <div data-opai-animate data-delay="0.3">
+        <DualCTA
+          whatsappContext="web"
+          whatsappText="Cotizar Proyecto Web"
+          emailText="Solicitar Propuesta por Email"
+          emailHref="#contacto"
+          centered={true}
+        />
+      </div>
+
+    </div>
+
+    <!-- 5 Standalone Separated Small Cards Grid -->
+    <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-3 sm:gap-4 mt-12 max-w-5xl mx-auto">
+      
+      <!-- Card 1: Rendimiento -->
+      <div data-opai-animate data-delay="0.1" class="rounded-2xl border border-black/10 bg-white/95 p-4 backdrop-blur-md shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-1 text-background-13/60">
+          <span class="font-ibm-plex-mono text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold">Rendimiento</span>
+          <Gauge class="w-3.5 h-3.5 text-emerald-600" />
+        </div>
+        <div class="font-sora text-xl sm:text-2xl font-bold text-background-13 my-0.5">100/100</div>
+        <div class="font-inter-tight text-[11px] sm:text-xs text-emerald-600 font-medium">Google Lighthouse Score</div>
+      </div>
+
+      <!-- Card 2: Tiempo de Carga -->
+      <div data-opai-animate data-delay="0.2" class="rounded-2xl border border-black/10 bg-white/95 p-4 backdrop-blur-md shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-1 text-background-13/60">
+          <span class="font-ibm-plex-mono text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold">Tiempo de Carga</span>
+          <Zap class="w-3.5 h-3.5 text-blue-600" />
+        </div>
+        <div class="font-sora text-xl sm:text-2xl font-bold text-background-13 my-0.5">&lt; 0.6s</div>
+        <div class="font-inter-tight text-[11px] sm:text-xs text-blue-600 font-medium">Time to Interactive (TTI)</div>
+      </div>
+
+      <!-- Card 3: Mobile UX -->
+      <div data-opai-animate data-delay="0.3" class="rounded-2xl border border-black/10 bg-white/95 p-4 backdrop-blur-md shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-1 text-background-13/60">
+          <span class="font-ibm-plex-mono text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold">Mobile UX</span>
+          <Smartphone class="w-3.5 h-3.5 text-opai-purple" />
+        </div>
+        <div class="font-sora text-xl sm:text-2xl font-bold text-background-13 my-0.5">100%</div>
+        <div class="font-inter-tight text-[11px] sm:text-xs text-opai-purple font-medium">Diseño Mobile-First</div>
+      </div>
+
+      <!-- Card 4: Conversión CRO -->
+      <div data-opai-animate data-delay="0.4" class="rounded-2xl border border-black/10 bg-white/95 p-4 backdrop-blur-md shadow-xs hover:shadow-md transition-all flex flex-col justify-between">
+        <div class="flex items-center justify-between mb-1 text-background-13/60">
+          <span class="font-ibm-plex-mono text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold">Conversión CRO</span>
+          <CheckCircle2 class="w-3.5 h-3.5 text-amber-500" />
+        </div>
+        <div class="font-sora text-xl sm:text-2xl font-bold text-background-13 my-0.5">+210%</div>
+        <div class="font-inter-tight text-[11px] sm:text-xs text-amber-600 font-medium">Captura Dual de Contacto</div>
+      </div>
+
+      <!-- Card 5: Arquitectura Moderna -->
+      <div data-opai-animate data-delay="0.5" class="rounded-2xl border border-black/10 bg-white/95 p-4 backdrop-blur-md shadow-xs hover:shadow-md transition-all flex flex-col justify-between col-span-2 sm:col-span-1">
+        <div class="flex items-center justify-between mb-1 text-background-13/60">
+          <span class="font-ibm-plex-mono text-[10px] sm:text-[11px] uppercase tracking-wider font-semibold">Arquitectura</span>
+          <Code2 class="w-3.5 h-3.5 text-indigo-600" />
+        </div>
+        <div class="font-sora text-xl sm:text-2xl font-bold text-background-13 my-0.5">Astro 5</div>
+        <div class="font-inter-tight text-[11px] sm:text-xs text-indigo-600 font-medium">Zero-JS por defecto</div>
+      </div>
+
+    </div>
+
+  </div>
+</section>

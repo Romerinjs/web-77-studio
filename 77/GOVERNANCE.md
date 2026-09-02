@@ -4,26 +4,44 @@
 
 ---
 
-## 1. Estrategia de Ramas: Trunk-Based Development
+## 1. Estrategia de Ramas: Delegación en 3 Niveles (Feature -> Develop -> Main)
 
-Adoptamos **Trunk-Based Development** como modelo de control de versiones para maximizar la velocidad de iteración, evitar "merge hells" y garantizar integración continua con Vercel.
+Adoptamos una arquitectura de ramas estricta en 3 niveles para proteger la estabilidad de producción y garantizar la supervisión humana (*Human-in-the-loop*):
 
 ```
-main (Producción - Deploy Automático Vercel)
- │
- ├──► feature/01-home-hero ───────► PR ─(Preview Build Vercel)─► Merge main
- ├──► fix/cta-whatsapp-link ──────► PR ─(Preview Build Vercel)─► Merge main
- └──► chore/update-astro-v5 ──────► PR ─(Preview Build Vercel)─► Merge main
+[Trabajo por /goal en Feature Branch]
+        │
+        ▼
+   feature/xxx  ─────► Push a origin feature/xxx
+        │
+        ▼
+   [Human in the Loop Review]
+        │
+        ▼
+   develop (Staging Environment - Vercel Preview)
+        │
+        ▼
+   [Validación Final y Pruebas QA]
+        │
+        ▼
+   main (Producción)
 ```
 
-### Reglas de Ramas
-- **`main` (Rama Trunk/Producción):** Representa el código en producción. Siempre debe estar en un estado estable y desplegable.
-- **Ramas de Corta Duración (Short-lived Branches):**
-  - `feature/<nombre-descriptivo>`: Implementación de nuevas funcionalidades o módulos (ej. `feature/04-ia-automatizacion`).
-  - `fix/<descripcion-error>`: Corrección de fallos visuales o de lógica (ej. `fix/mobile-navbar-overlap`).
-  - `docs/<area>`: Actualización de documentación en la carpeta `77/` o `docs/` (ej. `docs/update-roadmap`).
-  - `chore/<tarea>`: Actualizaciones de dependencias, configuración de Tailwind/Astro, tooling.
-- **Vida útil de una rama:** Máximo 2 a 3 días antes de integrarse mediante Pull Request.
+### Descripción de Niveles:
+
+1. **Nivel 1 - Ramas de Objetivo / Característica (`feature/<nombre-objetivo>`):**
+   - Cada vez que un agente o desarrollador comience a trabajar en una característica, hito o meta (ej. iniciada con el comando `/goal`), debe crear obligatoriamente una nueva rama aislada: `git checkout -b feature/<nombre>`.
+   - Queda **estrictamente prohibido** commitear directamente sobre `develop` o `main`.
+   - Al finalizar el desarrollo y verificar que la característica está completa, se realiza el push a origin: `git push -u origin feature/<nombre>`.
+
+2. **Nivel 2 - Rama Staging (`develop`) - Human-in-the-loop:**
+   - Representa el entorno de integración y pruebas previas (Staging).
+   - El desarrollador o líder técnico (*Human-in-the-loop*) revisa el Pull Request o cambios de la rama `feature/*` y autoriza el merge a `develop`.
+   - Vercel compila automáticamente un despliegue de Staging a partir de `develop`.
+
+3. **Nivel 3 - Rama Producción (`main`):**
+   - Representa el código en producción oficial.
+   - Solo cuando los cambios en `develop` han sido validados de forma integral, probados y aprobados, se ejecuta el merge final de `develop` hacia `main`.
 
 ---
 
