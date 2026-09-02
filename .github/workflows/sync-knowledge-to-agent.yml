@@ -1,0 +1,55 @@
+name: Sincronizar Conocimiento MDX con eve-77-agent
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '77/**'
+
+jobs:
+  sync-knowledge:
+    name: Sincronizar MDX a eve-77-agent
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 1. Checkout del Repositorio Web
+        uses: actions/checkout@v4
+        with:
+          path: web-repo
+
+      - name: 2. Checkout del Repositorio eve-77-agent
+        uses: actions/checkout@v4
+        with:
+          repository: ${{ github.repository_owner }}/eve-77-agent
+          token: ${{ secrets.AGENT_REPO_TOKEN }}
+          path: agent-repo
+
+      - name: 3. Copiar archivos MDX actualizados
+        run: |
+          echo "Copiando carpeta 77/ desde la raíz hacia eve-77-agent..."
+          mkdir -p agent-repo/77
+          cp -R web-repo/77/* agent-repo/77/
+
+      - name: 4. Instalar dependencias y validar motor de conocimiento
+        working-directory: agent-repo
+        run: |
+          npm ci
+          npm run test:knowledge
+          npm run typecheck
+
+      - name: 5. Commit y Push a eve-77-agent
+        working-directory: agent-repo
+        run: |
+          git config user.name "77-studio-bot"
+          git config user.email "bot@77.studio"
+          git add .
+          
+          # Verificar si hubo cambios reales antes de hacer commit
+          if git diff --staged --quiet; then
+            echo "No hay cambios nuevos en los MDX. Todo al día."
+          else
+            git commit -m "sync: actualizar base de conocimiento MDX desde web-repo [skip ci]"
+            git push origin main
+            echo "✅ Base de conocimiento sincronizada exitosamente con eve-77-agent."
+          fi
