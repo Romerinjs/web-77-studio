@@ -1,106 +1,308 @@
 ---
 // src/components/web/WebProcessSection.astro
-import { Compass, FileText, Layout, Code2, Rocket } from 'lucide-astro';
-
 const steps = [
   {
-    number: "01",
-    icon: Compass,
-    title: "Entendemos",
-    subtitle: "Diagnóstico & Objetivos",
-    description: "Analizamos tu modelo de negocio, propuesta de valor, buyer personas y definimos los objetivos de conversión clave.",
-    deliverable: "Brief estratégico y mapa de requerimientos"
+    step: "01",
+    name: "Entendemos",
+    title: "Diagnóstico & Objetivos",
+    description: "Analizamos tu modelo de negocio, propuesta de valor, buyer personas y definimos los objetivos de conversión clave antes de diseñar."
   },
   {
-    number: "02",
-    icon: FileText,
-    title: "Estructuramos",
-    subtitle: "Wireframes & Copywriting",
-    description: "Diseñamos la estructura de navegación y redactamos los textos comerciales con enfoque AIDA antes de diseñar la parte visual.",
-    deliverable: "Estructura de páginas y textos de conversión"
+    step: "02",
+    name: "Estructuramos",
+    title: "Wireframes & Copywriting",
+    description: "Diseñamos la arquitectura de información y redactamos los textos comerciales con enfoque AIDA antes de entrar a la fase visual."
   },
   {
-    number: "03",
-    icon: Layout,
-    title: "Diseñamos",
-    subtitle: "UI & Prototipado",
-    description: "Creamos la interfaz visual premium en alta fidelidad, con tipografías Sora/Inter Tight, diseño mobile first y microanimaciones.",
-    deliverable: "Diseño visual completo y aprobado"
+    step: "03",
+    name: "Diseñamos",
+    title: "UI & Prototipado",
+    description: "Creamos la interfaz visual premium en alta fidelidad, con tipografías Sora/Inter Tight, diseño mobile first y microanimaciones fluidas."
   },
   {
-    number: "04",
-    icon: Code2,
-    title: "Desarrollamos",
-    subtitle: "Ingeniería Astro 5",
-    description: "Programamos código limpio sin plantillas lentas, conectamos formularios a tu CRM, WhatsApp y configuramos Meta CAPI + GA4.",
-    deliverable: "Sitio web interactivo y conectado"
+    step: "04",
+    name: "Desarrollamos",
+    title: "Ingeniería Astro 5",
+    description: "Programamos código limpio sin plantillas lentas, conectamos formularios a tu CRM, WhatsApp y configuramos Meta CAPI + GA4."
   },
   {
-    number: "05",
-    icon: Rocket,
-    title: "Lanzamos",
-    subtitle: "QA & Despliegue Global",
-    description: "Realizamos pruebas exhaustivas de velocidad (Score 95+), validamos enlaces de conversión y publicamos en CDN global de Vercel Edge.",
-    deliverable: "Sitio en vivo, optimizado y listo para vender"
+    step: "05",
+    name: "Lanzamos",
+    title: "QA & Despliegue Global",
+    description: "Realizamos pruebas exhaustivas de velocidad (Score 95+), validamos enlaces de conversión y publicamos en CDN global de Vercel Edge."
   }
 ];
 ---
 
-<section class="py-24 bg-white relative overflow-hidden">
+<section id="proceso" class="py-20 sm:py-28 bg-slate-50/70 relative overflow-hidden">
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     
-    <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-2 font-ibm-plex-mono text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">
-        <span>// Metodología de Desarrollo</span>
+    <!-- 1. DESKTOP VIEW: High-End Orbital Curve Timeline (md and up) -->
+    <div 
+      class="web-process-orbital-container relative w-full max-w-5xl mx-auto min-h-[580px] select-none hidden md:flex flex-col items-center justify-between py-2"
+      data-steps={JSON.stringify(steps)}
+    >
+      <!-- Background Thin Gradient Arc for 5 Steps -->
+      <svg viewBox="0 0 1000 500" class="w-full h-full absolute inset-0 pointer-events-none z-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="orbitalArcGradWeb" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.2" />
+            <stop offset="50%" stop-color="#7c3aed" stop-opacity="0.5" />
+            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2" />
+          </linearGradient>
+        </defs>
+        <path 
+          d="M 60 70 C 140 300, 320 450, 500 450 C 680 450, 860 300, 940 70" 
+          stroke="url(#orbitalArcGradWeb)" 
+          stroke-width="3" 
+          stroke-dasharray="6 6"
+          class="opacity-90"
+        />
+      </svg>
+
+      <!-- Center Header Content (Enclosed inside the Upper Arc) -->
+      <div class="text-center max-w-3xl mx-auto pt-2 pb-4 relative z-10 space-y-3">
+        <h2 data-text-reveal class="font-sora text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-background-13 leading-tight">
+          Un proceso claro y predecible de 5 pasos.
+        </h2>
+        <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base lg:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
+          Sin retrasos infinitos ni sorpresas de último momento. Te acompañamos desde la idea hasta el lanzamiento con entregables definidos en cada etapa.
+        </p>
       </div>
-      <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        Un proceso claro y predecible de 5 pasos.
-      </h2>
-      <p class="font-inter-tight text-lg text-background-13/70 leading-relaxed">
-        Sin retrasos infinitos ni sorpresas de último momento. Te acompañamos desde la idea hasta el lanzamiento con entregables definidos en cada etapa.
-      </p>
+
+      <!-- Interactive 5 Step Node Buttons -->
+      <!-- Node 01 (Far Upper Left) -->
+      <button
+        class="web-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 6%; top: 14%; transform: translate(-50%, -50%);"
+        data-step="0"
+        aria-label="Ir al paso 01: Entendemos"
+      >
+        01
+      </button>
+
+      <!-- Node 02 (Lower Left) -->
+      <button
+        class="web-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 16%; top: 60%; transform: translate(-50%, -50%);"
+        data-step="1"
+        aria-label="Ir al paso 02: Estructuramos"
+      >
+        02
+      </button>
+
+      <!-- Node 03 (Bottom Center) -->
+      <button
+        class="web-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 50%; top: 90%; transform: translate(-50%, -50%);"
+        data-step="2"
+        aria-label="Ir al paso 03: Diseñamos"
+      >
+        03
+      </button>
+
+      <!-- Node 04 (Lower Right) -->
+      <button
+        class="web-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 84%; top: 60%; transform: translate(-50%, -50%);"
+        data-step="3"
+        aria-label="Ir al paso 04: Desarrollamos"
+      >
+        04
+      </button>
+
+      <!-- Node 05 (Far Upper Right) -->
+      <button
+        class="web-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 94%; top: 14%; transform: translate(-50%, -50%);"
+        data-step="4"
+        aria-label="Ir al paso 05: Lanzamos"
+      >
+        05
+      </button>
+
+      <!-- Center Elevated Active Step Card -->
+      <div class="relative z-10 w-full max-w-md mx-auto bg-white/95 backdrop-blur-md rounded-2xl p-6 lg:p-7 border border-black/10 shadow-xl text-center space-y-2.5 my-auto transform transition-all duration-300">
+        <h3 class="web-process-step-title font-sora text-2xl lg:text-3xl font-bold text-background-13 tracking-tight">
+          {steps[0].name}
+        </h3>
+
+        <p class="web-process-step-subtitle font-sora text-xs sm:text-sm font-semibold text-background-13/50 tracking-wide uppercase">
+          {steps[0].title}
+        </p>
+
+        <p class="web-process-step-description font-inter-tight text-sm lg:text-base text-background-13/80 leading-relaxed max-w-sm mx-auto pt-1">
+          {steps[0].description}
+        </p>
+
+        <!-- Progress Dots Indicator -->
+        <div class="flex items-center justify-center gap-2 pt-2">
+          {steps.map((_, idx) => (
+            <span class={`web-process-dot h-1.5 rounded-full transition-all duration-300 ${idx === 0 ? 'w-6 bg-opai-purple' : 'w-1.5 bg-black/15'}`} />
+          ))}
+        </div>
+      </div>
     </div>
 
-    <!-- 5 Steps Process Grid (Responsive horizontal on desktop) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-5">
-      {steps.map((step) => (
-        <div class="rounded-[20px] border border-stroke-2/60 bg-slate-50/80 p-6 flex flex-col justify-between transition-all hover:bg-white hover:shadow-md hover:border-black/20">
-          
-          <div>
-            <!-- Step Number & Icon -->
-            <div class="flex items-center justify-between mb-4">
-              <span class="font-ibm-plex-mono text-xl font-bold text-blue-600">
-                {step.number}
-              </span>
-              <div class="flex h-10 w-10 items-center justify-center rounded-xl bg-blue-50 text-blue-600">
-                <step.icon class="h-5 w-5" />
+    <!-- 2. MOBILE VIEW: 5 Clean, Beautiful Cards Grid (under md) -->
+    <div class="space-y-6 md:hidden">
+      <!-- Mobile Header -->
+      <div class="text-center max-w-xl mx-auto space-y-3 mb-8">
+        <h2 class="font-sora text-2xl sm:text-3xl font-extrabold text-background-13 tracking-tight leading-tight">
+          Un proceso claro y predecible de 5 pasos.
+        </h2>
+        <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
+          Sin retrasos infinitos ni sorpresas de último momento. Te acompañamos desde la idea hasta el lanzamiento con entregables definidos en cada etapa.
+        </p>
+      </div>
+
+      <!-- Mobile 5 Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {steps.map((st) => (
+          <div class="rounded-2xl border border-black/10 bg-white p-6 shadow-xs flex flex-col justify-between space-y-2">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-ibm-plex-mono text-xs font-bold text-background-13/70 bg-black/5 px-2 py-0.5 rounded-md">
+                  {st.step}
+                </span>
+                <span class="font-sora text-xs font-semibold text-background-13/50 tracking-wide uppercase">
+                  {st.title}
+                </span>
               </div>
+
+              <h3 class="font-sora text-xl font-bold text-background-13 mb-1">
+                {st.name}
+              </h3>
+
+              <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
+                {st.description}
+              </p>
             </div>
-
-            <!-- Title & Subtitle -->
-            <h3 class="font-sora text-lg font-bold text-background-13 mb-1">
-              {step.title}
-            </h3>
-            <span class="font-ibm-plex-mono text-xs text-background-13/50 block mb-3 uppercase tracking-wider">
-              {step.subtitle}
-            </span>
-
-            <!-- Description -->
-            <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed mb-6">
-              {step.description}
-            </p>
           </div>
-
-          <!-- Bottom Deliverable Tag -->
-          <div class="pt-3.5 border-t border-black/5 font-inter-tight text-[11px] text-background-13/70">
-            <span class="font-semibold text-background-13 block mb-0.5">Entregable:</span>
-            <span>{step.deliverable}</span>
-          </div>
-
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
 
   </div>
 </section>
+
+<style>
+  /* Smooth transitions for active step content */
+  .web-process-step-title,
+  .web-process-step-subtitle,
+  .web-process-step-description {
+    transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Style for Active Node Button on desktop */
+  .web-process-node.active-node {
+    background-color: var(--color-opai-purple, #7c3aed) !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    transform: translate(-50%, -50%) scale(1.25) !important;
+    box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.2), 0 10px 25px rgba(124, 58, 237, 0.25) !important;
+  }
+</style>
+
+<script>
+  function initWebProcessOrbital() {
+    const container = document.querySelector('.web-process-orbital-container');
+    if (!container) return;
+
+    const dataAttr = container.getAttribute('data-steps');
+    if (!dataAttr) return;
+
+    const steps = JSON.parse(dataAttr);
+    const nodes = container.querySelectorAll('.web-process-node');
+    const titleEl = container.querySelector('.web-process-step-title') as HTMLElement;
+    const subtitleEl = container.querySelector('.web-process-step-subtitle') as HTMLElement;
+    const descEl = container.querySelector('.web-process-step-description') as HTMLElement;
+    const dots = container.querySelectorAll('.web-process-dot');
+
+    if (!titleEl || !descEl) return;
+
+    let currentIndex = 0;
+    let timerId: any = null;
+
+    const updateStep = (index: number) => {
+      // 1. Update node buttons active state
+      nodes.forEach((node, idx) => {
+        if (idx === index) {
+          node.classList.add('active-node');
+        } else {
+          node.classList.remove('active-node');
+        }
+      });
+
+      // 2. Update progress dots
+      dots.forEach((dot, idx) => {
+        if (idx === index) {
+          dot.className = 'web-process-dot h-1.5 rounded-full transition-all duration-300 w-6 bg-opai-purple';
+        } else {
+          dot.className = 'web-process-dot h-1.5 rounded-full transition-all duration-300 w-1.5 bg-black/15';
+        }
+      });
+
+      // 3. Fade out active card text
+      const textEls = [titleEl, subtitleEl, descEl];
+      textEls.forEach(el => {
+        if (el) {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(6px)';
+        }
+      });
+
+      // 4. Update content and fade back in
+      setTimeout(() => {
+        const stepData = steps[index];
+        if (titleEl) titleEl.textContent = stepData.name;
+        if (subtitleEl) subtitleEl.textContent = stepData.title;
+        if (descEl) descEl.textContent = stepData.description;
+
+        textEls.forEach(el => {
+          if (el) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }
+        });
+      }, 200);
+
+      currentIndex = index;
+    };
+
+    const startTimer = () => {
+      timerId = setInterval(() => {
+        const nextIndex = (currentIndex + 1) % steps.length;
+        updateStep(nextIndex);
+      }, 5000);
+    };
+
+    const resetTimer = () => {
+      if (timerId) {
+        clearInterval(timerId);
+      }
+      startTimer();
+    };
+
+    // Bind click handlers to nodes
+    nodes.forEach((node) => {
+      node.addEventListener('click', () => {
+        const stepIdx = parseInt(node.getAttribute('data-step') || '0', 10);
+        if (stepIdx === currentIndex) return;
+        updateStep(stepIdx);
+        resetTimer();
+      });
+    });
+
+    // Initialize initial state
+    updateStep(0);
+    startTimer();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initWebProcessOrbital);
+  } else {
+    initWebProcessOrbital();
+  }
+  document.addEventListener('astro:page-load', initWebProcessOrbital);
+</script>

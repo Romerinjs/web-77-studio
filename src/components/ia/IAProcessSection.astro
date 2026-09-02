@@ -1,117 +1,324 @@
 ---
 // src/components/ia/IAProcessSection.astro
-import {
-  Compass,
-  AlertTriangle,
-  LayoutGrid,
-  Code2,
-  CheckCircle2,
-  TrendingUp
-} from 'lucide-astro';
-
 const steps = [
   {
-    number: "01",
-    icon: Compass,
-    title: "Entendemos",
-    subtitle: "Mapeo de Procesos",
-    description: "Analizamos cómo opera tu empresa hoy: qué herramientas usan, cómo viaja la información y dónde se frena el flujo.",
-    deliverable: "Diagrama del estado actual"
+    step: "01",
+    name: "Entendemos",
+    title: "Mapeo de Procesos",
+    description: "Analizamos cómo opera tu empresa hoy: qué herramientas usan, cómo viaja la información y dónde se frena el flujo operativo."
   },
   {
-    number: "02",
-    icon: AlertTriangle,
-    title: "Detectamos",
-    subtitle: "Cuellos de Botella",
-    description: "Identificamos las tareas manuales repetitivas que consumen tiempo valioso y los puntos ciegos donde se pierden clientes.",
-    deliverable: "Matriz de oportunidades de automatización"
+    step: "02",
+    name: "Detectamos",
+    title: "Cuellos de Botella",
+    description: "Identificamos las tareas manuales repetitivas que consumen tiempo valioso y los puntos ciegos donde se pierden prospectos calificados."
   },
   {
-    number: "03",
-    icon: LayoutGrid,
-    title: "Diseñamos",
-    subtitle: "Arquitectura de Nodos",
-    description: "Diseñamos el flujo ideal paso a paso, seleccionando si cada nodo requiere lógica determinista o un agente de IA.",
-    deliverable: "Blueprint técnico y stack de herramientas"
+    step: "03",
+    name: "Diseñamos",
+    title: "Arquitectura de Nodos",
+    description: "Diseñamos el flujo ideal paso a paso, seleccionando con precisión si cada nodo requiere lógica determinista o un agente de IA generativa."
   },
   {
-    number: "04",
-    icon: Code2,
-    title: "Implementamos",
-    subtitle: "Construcción & APIs",
-    description: "Conectamos Make, n8n, tu CRM, WhatsApp y modelos de lenguaje mediante webhooks seguros y manejo de errores.",
-    deliverable: "Automatizaciones activas en staging"
+    step: "04",
+    name: "Implementamos",
+    title: "Construcción & APIs",
+    description: "Conectamos Make, n8n, tu CRM, WhatsApp y modelos LLM mediante webhooks cifrados y arquitectura tolerante a fallos."
   },
   {
-    number: "05",
-    icon: CheckCircle2,
-    title: "Probamos",
-    subtitle: "Validación sin Errores",
-    description: "Simulamos cientos de escenarios reales, mensajes atípicos y caídas de servicio para garantizar estabilidad total.",
-    deliverable: "Checklist de pruebas de calidad 100% aprobado"
+    step: "05",
+    name: "Probamos",
+    title: "Validación sin Errores",
+    description: "Simulamos cientos de escenarios reales, mensajes atípicos y caídas de servicio para garantizar estabilidad y confiabilidad total."
   },
   {
-    number: "06",
-    icon: TrendingUp,
-    title: "Mejoramos",
-    subtitle: "Monitoreo & Escalado",
-    description: "Monitoreamos la ejecución diaria, ajustamos prompts y agregamos nuevas integraciones a medida que tu negocio crece.",
-    deliverable: "Dashboard de métricas operativas y soporte"
+    step: "06",
+    name: "Mejoramos",
+    title: "Monitoreo & Escalado",
+    description: "Monitoreamos la ejecución diaria, optimizamos prompts y agregamos nuevas integraciones a medida que tu negocio escala."
   }
 ];
 ---
 
-<section class="py-24 bg-white relative overflow-hidden">
+<section id="proceso" class="py-20 sm:py-28 bg-white relative overflow-hidden">
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     
-    <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-2 font-ibm-plex-mono text-xs font-semibold uppercase tracking-wider text-opai-purple mb-3">
-        <span>// Metodología de Ingeniería</span>
+    <!-- 1. DESKTOP VIEW: High-End Orbital Curve Timeline for 6 Steps (md and up) -->
+    <div 
+      class="ia-process-orbital-container relative w-full max-w-5xl mx-auto min-h-[580px] select-none hidden md:flex flex-col items-center justify-between py-2"
+      data-steps={JSON.stringify(steps)}
+    >
+      <!-- Background Thin Gradient Arc for 6 Steps -->
+      <svg viewBox="0 0 1000 500" class="w-full h-full absolute inset-0 pointer-events-none z-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="orbitalArcGradIA" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.2" />
+            <stop offset="50%" stop-color="#8d59ff" stop-opacity="0.5" />
+            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2" />
+          </linearGradient>
+        </defs>
+        <path 
+          d="M 60 70 C 140 300, 320 450, 500 450 C 680 450, 860 300, 940 70" 
+          stroke="url(#orbitalArcGradIA)" 
+          stroke-width="3" 
+          stroke-dasharray="6 6"
+          class="opacity-90"
+        />
+      </svg>
+
+      <!-- Center Header Content (Enclosed inside the Upper Arc) -->
+      <div class="text-center max-w-3xl mx-auto pt-2 pb-4 relative z-10 space-y-3">
+        <h2 data-text-reveal class="font-sora text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-background-13 leading-tight">
+          Implementación profesional en 6 pasos estructurados.
+        </h2>
+        <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base lg:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
+          Una metodología rigurosa para garantizar que cada flujo funcione con precisión matemática desde el primer día de lanzamiento.
+        </p>
       </div>
-      <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        Implementación profesional en 6 pasos estructurados.
-      </h2>
-      <p class="font-inter-tight text-lg text-background-13/70 leading-relaxed">
-        Una metodología rigurosa para garantizar que cada flujo funcione con precisión matemática desde el primer día de lanzamiento.
-      </p>
+
+      <!-- Interactive 6 Step Node Buttons -->
+      <!-- Node 01 (Far Upper Left) -->
+      <button
+        class="ia-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 6%; top: 14%; transform: translate(-50%, -50%);"
+        data-step="0"
+        aria-label="Ir al paso 01: Entendemos"
+      >
+        01
+      </button>
+
+      <!-- Node 02 (Mid Lower Left) -->
+      <button
+        class="ia-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 14%; top: 56%; transform: translate(-50%, -50%);"
+        data-step="1"
+        aria-label="Ir al paso 02: Detectamos"
+      >
+        02
+      </button>
+
+      <!-- Node 03 (Bottom Left Center) -->
+      <button
+        class="ia-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 33%; top: 88%; transform: translate(-50%, -50%);"
+        data-step="2"
+        aria-label="Ir al paso 03: Diseñamos"
+      >
+        03
+      </button>
+
+      <!-- Node 04 (Bottom Right Center) -->
+      <button
+        class="ia-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 67%; top: 88%; transform: translate(-50%, -50%);"
+        data-step="3"
+        aria-label="Ir al paso 04: Implementamos"
+      >
+        04
+      </button>
+
+      <!-- Node 05 (Mid Lower Right) -->
+      <button
+        class="ia-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 86%; top: 56%; transform: translate(-50%, -50%);"
+        data-step="4"
+        aria-label="Ir al paso 05: Probamos"
+      >
+        05
+      </button>
+
+      <!-- Node 06 (Far Upper Right) -->
+      <button
+        class="ia-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 94%; top: 14%; transform: translate(-50%, -50%);"
+        data-step="5"
+        aria-label="Ir al paso 06: Mejoramos"
+      >
+        06
+      </button>
+
+      <!-- Center Elevated Active Step Card -->
+      <div class="relative z-10 w-full max-w-md mx-auto bg-white/95 backdrop-blur-md rounded-2xl p-6 lg:p-7 border border-black/10 shadow-xl text-center space-y-2.5 my-auto transform transition-all duration-300">
+        <h3 class="ia-process-step-title font-sora text-2xl lg:text-3xl font-bold text-background-13 tracking-tight">
+          {steps[0].name}
+        </h3>
+
+        <p class="ia-process-step-subtitle font-sora text-xs sm:text-sm font-semibold text-background-13/50 tracking-wide uppercase">
+          {steps[0].title}
+        </p>
+
+        <p class="ia-process-step-description font-inter-tight text-sm lg:text-base text-background-13/80 leading-relaxed max-w-sm mx-auto pt-1">
+          {steps[0].description}
+        </p>
+
+        <!-- Progress Dots Indicator for 6 Steps -->
+        <div class="flex items-center justify-center gap-2 pt-2">
+          {steps.map((_, idx) => (
+            <span class={`ia-process-dot h-1.5 rounded-full transition-all duration-300 ${idx === 0 ? 'w-6 bg-opai-purple' : 'w-1.5 bg-black/15'}`} />
+          ))}
+        </div>
+      </div>
     </div>
 
-    <!-- 6 Steps Process Grid (2x3 on tablet/desktop) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {steps.map((step) => (
-        <div class="rounded-[20px] border border-stroke-2/60 bg-slate-50/70 p-7 flex flex-col justify-between transition-all hover:bg-white hover:shadow-md hover:border-black/20">
-          
-          <div>
-            <div class="flex items-center justify-between mb-5">
-              <span class="font-ibm-plex-mono text-xl font-bold text-opai-purple">
-                {step.number}
-              </span>
-              <div class="flex h-11 w-11 items-center justify-center rounded-xl bg-opai-purple/10 text-opai-purple">
-                <step.icon class="h-5 w-5" />
+    <!-- 2. MOBILE VIEW: 6 Clean Cards Grid (under md) -->
+    <div class="space-y-6 md:hidden">
+      <!-- Mobile Header -->
+      <div class="text-center max-w-xl mx-auto space-y-3 mb-8">
+        <h2 class="font-sora text-2xl sm:text-3xl font-extrabold text-background-13 tracking-tight leading-tight">
+          Implementación profesional en 6 pasos estructurados.
+        </h2>
+        <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
+          Una metodología rigurosa para garantizar que cada flujo funcione con precisión matemática desde el primer día de lanzamiento.
+        </p>
+      </div>
+
+      <!-- Mobile 6 Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {steps.map((st) => (
+          <div class="rounded-2xl border border-black/10 bg-slate-50/70 p-6 shadow-xs flex flex-col justify-between space-y-2">
+            <div>
+              <div class="flex items-center justify-between mb-2">
+                <span class="font-ibm-plex-mono text-xs font-bold text-opai-purple bg-opai-purple/10 px-2.5 py-0.5 rounded-md">
+                  {st.step}
+                </span>
+                <span class="font-sora text-xs font-semibold text-background-13/50 tracking-wide uppercase">
+                  {st.title}
+                </span>
               </div>
+
+              <h3 class="font-sora text-xl font-bold text-background-13 mb-1">
+                {st.name}
+              </h3>
+
+              <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
+                {st.description}
+              </p>
             </div>
-
-            <h3 class="font-sora text-xl font-bold text-background-13 mb-1">
-              {step.title}
-            </h3>
-            <span class="font-ibm-plex-mono text-xs text-background-13/50 block mb-3 uppercase tracking-wider">
-              {step.subtitle}
-            </span>
-
-            <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed mb-6">
-              {step.description}
-            </p>
           </div>
-
-          <div class="pt-3.5 border-t border-black/5 font-inter-tight text-xs text-background-13/70">
-            <span class="font-semibold text-background-13 block mb-0.5">Entregable:</span>
-            <span>{step.deliverable}</span>
-          </div>
-
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
 
   </div>
 </section>
+
+<style>
+  /* Smooth transitions for active step content */
+  .ia-process-step-title,
+  .ia-process-step-subtitle,
+  .ia-process-step-description {
+    transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Style for Active Node Button on desktop */
+  .ia-process-node.active-node {
+    background-color: var(--color-opai-purple, #8d59ff) !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    transform: translate(-50%, -50%) scale(1.25) !important;
+    box-shadow: 0 0 0 6px rgba(141, 89, 255, 0.2), 0 10px 25px rgba(141, 89, 255, 0.25) !important;
+  }
+</style>
+
+<script>
+  function initIAProcessOrbital() {
+    const container = document.querySelector('.ia-process-orbital-container');
+    if (!container) return;
+
+    const dataAttr = container.getAttribute('data-steps');
+    if (!dataAttr) return;
+
+    const steps = JSON.parse(dataAttr);
+    const nodes = container.querySelectorAll('.ia-process-node');
+    const titleEl = container.querySelector('.ia-process-step-title') as HTMLElement;
+    const subtitleEl = container.querySelector('.ia-process-step-subtitle') as HTMLElement;
+    const descEl = container.querySelector('.ia-process-step-description') as HTMLElement;
+    const dots = container.querySelectorAll('.ia-process-dot');
+
+    if (!titleEl || !descEl) return;
+
+    let currentIndex = 0;
+    let timerId: any = null;
+
+    const updateStep = (index: number) => {
+      // 1. Update node buttons active state
+      nodes.forEach((node, idx) => {
+        if (idx === index) {
+          node.classList.add('active-node');
+        } else {
+          node.classList.remove('active-node');
+        }
+      });
+
+      // 2. Update progress dots
+      dots.forEach((dot, idx) => {
+        if (idx === index) {
+          dot.className = 'ia-process-dot h-1.5 rounded-full transition-all duration-300 w-6 bg-opai-purple';
+        } else {
+          dot.className = 'ia-process-dot h-1.5 rounded-full transition-all duration-300 w-1.5 bg-black/15';
+        }
+      });
+
+      // 3. Fade out active card text
+      const textEls = [titleEl, subtitleEl, descEl];
+      textEls.forEach(el => {
+        if (el) {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(6px)';
+        }
+      });
+
+      // 4. Update content and fade back in
+      setTimeout(() => {
+        const stepData = steps[index];
+        if (titleEl) titleEl.textContent = stepData.name;
+        if (subtitleEl) subtitleEl.textContent = stepData.title;
+        if (descEl) descEl.textContent = stepData.description;
+
+        textEls.forEach(el => {
+          if (el) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }
+        });
+      }, 200);
+
+      currentIndex = index;
+    };
+
+    const startTimer = () => {
+      timerId = setInterval(() => {
+        const nextIndex = (currentIndex + 1) % steps.length;
+        updateStep(nextIndex);
+      }, 5000);
+    };
+
+    const resetTimer = () => {
+      if (timerId) {
+        clearInterval(timerId);
+      }
+      startTimer();
+    };
+
+    // Bind click handlers to nodes
+    nodes.forEach((node) => {
+      node.addEventListener('click', () => {
+        const stepIdx = parseInt(node.getAttribute('data-step') || '0', 10);
+        if (stepIdx === currentIndex) return;
+        updateStep(stepIdx);
+        resetTimer();
+      });
+    });
+
+    // Initialize initial state
+    updateStep(0);
+    startTimer();
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initIAProcessOrbital);
+  } else {
+    initIAProcessOrbital();
+  }
+  document.addEventListener('astro:page-load', initIAProcessOrbital);
+</script>

@@ -4,25 +4,21 @@ const stages = [
   {
     number: "01",
     title: "Raíz Creativa & Dirección de Marca",
-    subtitle: "El Origen",
     description: "Nacimos con un estándar visual innegociable: diseño de identidad, dirección de arte y piezas audiovisuales con criterio estético de primer nivel."
   },
   {
     number: "02",
     title: "Paid Media & Performance Marketing",
-    subtitle: "Generación de Demanda",
     description: "Conectamos la creatividad con la adquisición en Meta Ads y Google Ads para que el buen diseño se tradujera en clientes reales y ventas para las empresas."
   },
   {
     number: "03",
     title: "Ingeniería Web de Alta Conversión",
-    subtitle: "Infraestructura & CRO",
     description: "Dejamos atrás plataformas lentas para desarrollar en Astro y Tailwind: páginas ultra-rápidas estructuradas como cartas de venta digitales y doble CTA."
   },
   {
     number: "04",
     title: "Automatización, IA & Product Studio",
-    subtitle: "El Ecosistema Completo",
     description: "Hoy integramos flujos de CRM automáticos, agentes de IA sin clichés y software a la medida (SaaS, portales y dashboards) dentro de un solo partner digital."
   }
 ];
@@ -31,48 +27,37 @@ const stages = [
 <section class="py-20 sm:py-28 bg-white border-t border-black/5 relative">
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     
-    <!-- Section Header -->
-    <div class="max-w-3xl mb-16">
-      <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-slate-50 px-3.5 py-1 font-ibm-plex-mono text-xs text-opai-purple mb-4">
-        <span>NUESTRA TRAYECTORIA</span>
-      </div>
-      <h2 class="font-sora text-3xl sm:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-5">
+    <!-- Section Header (Centered) -->
+    <div class="text-center max-w-3xl mx-auto mb-16">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
         Más que una agencia. Una evolución continua.
       </h2>
-      <p class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed">
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
         Evolucionamos junto con las necesidades reales de nuestros clientes. Crecimos desde el diseño creativo hacia capacidades tecnológicas y de automatización integrales.
       </p>
     </div>
 
     <!-- 4 Stages Timeline Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {stages.map((st) => (
-        <div class="rounded-[20px] border border-black/10 bg-slate-50 p-7 shadow-xs card-hover flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="font-ibm-plex-mono text-xl font-bold text-opai-purple">
-                {st.number}
-              </span>
-              <span class="font-ibm-plex-mono text-[10px] font-semibold text-background-13/50 uppercase tracking-wider">
-                {st.subtitle}
-              </span>
-            </div>
-
-            <h3 class="font-sora text-lg font-bold text-background-13 mb-3">
-              {st.title}
-            </h3>
-
-            <p class="font-inter-tight text-xs sm:text-sm text-background-13/70 leading-relaxed">
-              {st.description}
-            </p>
-          </div>
-
-          <div class="pt-4 border-t border-black/5 mt-5">
-            <span class="font-ibm-plex-mono text-[11px] text-emerald-700 font-medium flex items-center gap-1.5">
-              <span>Capacidad consolidada</span>
-              <span>✓</span>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {stages.map((st, index) => (
+        <div 
+          data-opai-animate
+          data-delay={(0.1 * (index + 1)).toFixed(1)}
+          class="group rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-slate-50/70 p-7 sm:p-8 flex flex-col justify-start transition-all duration-300 hover:bg-white hover:shadow-md hover:border-black/20 hover:border-b-opai-purple"
+        >
+          <div class="flex items-center justify-between mb-5">
+            <span class="font-ibm-plex-mono text-2xl sm:text-3xl font-bold text-opai-purple group-hover:scale-105 transition-transform">
+              {st.number}
             </span>
           </div>
+
+          <h3 class="font-sora text-lg sm:text-xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors leading-snug">
+            {st.title}
+          </h3>
+
+          <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
+            {st.description}
+          </p>
         </div>
       ))}
     </div>

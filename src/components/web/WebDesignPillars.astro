@@ -1,116 +1,271 @@
 ---
 // src/components/web/WebDesignPillars.astro
-import { Eye, ShieldCheck, Zap, Smartphone, ArrowUpRight, Cpu } from 'lucide-astro';
+import { ChevronLeft, ChevronRight } from 'lucide-astro';
 
 const pillars = [
   {
-    icon: Eye,
-    title: "01. Claridad Inmediata",
+    number: "01",
+    title: "Claridad Inmediata",
     badge: "Estructura AIDA",
-    description: "Jerarquía visual limpia y copywriting conciso. Cualquier tomador de decisiones entiende exactamente qué ofreces y por qué contratarte en menos de 5 segundos.",
-    color: "text-blue-600 bg-blue-50"
+    description: "Jerarquía visual limpia y copywriting conciso. Cualquier tomador de decisiones entiende exactamente qué ofreces y por qué contratarte en menos de 5 segundos."
   },
   {
-    icon: ShieldCheck,
-    title: "02. Confianza & Autoridad",
+    number: "02",
+    title: "Confianza & Autoridad",
     badge: "Credibilidad",
-    description: "Diseño editorial de nivel internacional (Colombia ↔ USA). Casos reales, métricas tangibles y estética premium sin plantillas genéricas.",
-    color: "text-emerald-600 bg-emerald-50"
+    description: "Diseño editorial de nivel internacional (Colombia ↔ USA). Casos reales, métricas tangibles y estética premium sin plantillas genéricas."
   },
   {
-    icon: Zap,
-    title: "03. Conversión Dual (CRO)",
+    number: "03",
+    title: "Conversión Dual (CRO)",
     badge: "WhatsApp + Form",
-    description: "Doble llamada a la acción en paralelo. Tu cliente decide si prefiere una conversación rápida por WhatsApp o enviar los requerimientos por formulario formal.",
-    color: "text-opai-purple bg-opai-purple/10"
+    description: "Doble llamada a la acción en paralelo. Tu cliente decide si prefiere una conversación rápida por WhatsApp o enviar los requerimientos por formulario formal."
   },
   {
-    icon: Cpu,
-    title: "04. Velocidad Extrema",
+    number: "04",
+    title: "Velocidad Extrema",
     badge: "Astro 5 Islands",
-    description: "Carga en milisegundos impulsada por Astro y Vercel Edge. Cero JavaScript innecesario para garantizar que el 100% de los clics de pauta se conviertan en visitas reales.",
-    color: "text-amber-600 bg-amber-50"
+    description: "Carga en milisegundos impulsada por Astro y Vercel Edge. Cero JavaScript innecesario para garantizar que el 100% de los clics de pauta se conviertan en visitas reales."
   },
   {
-    icon: Smartphone,
-    title: "05. Mobile-First Riguroso",
+    number: "05",
+    title: "Mobile-First Riguroso",
     badge: "Pulgar Amigable",
-    description: "Diseño concebido prioritariamente para pantallas móviles, con barra flotante inferior sticky permanente y elementos táctiles sin fricción.",
-    color: "text-rose-600 bg-rose-50"
+    description: "Diseño concebido prioritariamente para pantallas móviles, con barra flotante inferior sticky permanente y elementos táctiles sin fricción."
   }
 ];
+
+// Duplicate list to achieve a 100% seamless, infinite continuous loop
+const repeatedPillars = [...pillars, ...pillars];
 ---
 
-<section class="py-20 bg-slate-50 relative">
+<section class="py-24 bg-slate-50 relative overflow-hidden">
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     
-    <!-- Section Header -->
-    <div class="max-w-3xl mb-16">
-      <div class="inline-flex items-center gap-2 font-ibm-plex-mono text-xs font-semibold uppercase tracking-wider text-opai-purple mb-3">
-        <span>// Estándares de Ingeniería Web</span>
-      </div>
-      <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+    <!-- Section Header (Centered) -->
+    <div class="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
         Los 5 pilares con los que construimos cada sitio web.
       </h2>
-      <p class="font-inter-tight text-lg text-background-13/70 leading-relaxed">
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed max-w-3xl mx-auto">
         No hacemos páginas para que se vean bonitas en un portafolio; diseñamos herramientas de negocio de alto rendimiento probadas para vender más.
       </p>
     </div>
 
-    <!-- 5 Pillars Grid (Adaptive layout) -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {pillars.map((pillar, idx) => (
-        <div class={`rounded-[24px] border border-stroke-2/60 bg-white p-7 shadow-sm transition-all duration-300 hover:shadow-lg hover:border-black/20 flex flex-col justify-between ${idx === 3 ? 'lg:col-span-1 md:col-span-2 lg:col-auto' : ''}`}>
-          
-          <div>
-            <div class="flex items-center justify-between mb-5">
-              <div class={`flex h-12 w-12 items-center justify-center rounded-2xl ${pillar.color}`}>
-                <pillar.icon class="h-6 w-6" />
+    <!-- Infinite Smooth Carousel Wrapper -->
+    <div data-opai-animate data-delay="0.3" class="relative w-full overflow-hidden" id="pillars-carousel-wrapper">
+      
+      <!-- Gradient Edge Fade Overlays for High-End Visual Blend -->
+      <div class="pointer-events-none absolute left-0 top-0 bottom-0 w-8 sm:w-16 z-20 bg-gradient-to-r from-slate-50 to-transparent"></div>
+      <div class="pointer-events-none absolute right-0 top-0 bottom-0 w-8 sm:w-16 z-20 bg-gradient-to-l from-slate-50 to-transparent"></div>
+
+      <!-- Infinite Track of Cards with 60fps Smooth Animation & Hover Pause -->
+      <div 
+        id="pillars-carousel-track"
+        class="flex gap-6 py-4 cursor-grab active:cursor-grabbing select-none will-change-transform"
+        style="transform: translate3d(0, 0, 0);"
+      >
+        {repeatedPillars.map((pillar, idx) => (
+          <div 
+            class="shrink-0 w-[300px] sm:w-[380px] lg:w-[400px] rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-white p-7 sm:p-8 shadow-xs hover:shadow-lg hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 flex flex-col justify-between min-h-[260px] group select-none"
+            data-pillar-card
+          >
+            <div>
+              <!-- Card Header without icons or emojis -->
+              <div class="flex items-center justify-between mb-5">
+                <span class="font-ibm-plex-mono text-xs font-bold text-background-13/70 bg-black/5 px-2.5 py-1 rounded-lg">
+                  {pillar.number}
+                </span>
+                <span class="font-ibm-plex-mono text-xs px-3 py-1 rounded-full bg-slate-100 text-background-13/70 font-medium">
+                  {pillar.badge}
+                </span>
               </div>
-              <span class="font-ibm-plex-mono text-xs px-2.5 py-1 rounded-full bg-slate-100 text-background-13/70 font-medium">
-                {pillar.badge}
-              </span>
+
+              <!-- Title -->
+              <h3 class="font-sora text-xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors">
+                {pillar.title}
+              </h3>
+
+              <!-- Description -->
+              <p class="font-inter-tight text-sm sm:text-base text-background-13/70 leading-relaxed">
+                {pillar.description}
+              </p>
             </div>
-
-            <h3 class="font-sora text-xl font-bold text-background-13 mb-3">
-              {pillar.title}
-            </h3>
-
-            <p class="font-inter-tight text-sm sm:text-base text-background-13/70 leading-relaxed mb-6">
-              {pillar.description}
-            </p>
           </div>
-
-          <div class="pt-4 border-t border-black/5 flex items-center gap-2 font-ibm-plex-mono text-xs text-emerald-600 font-medium">
-            <span>✓ Estándar Obligatorio 77 Studio</span>
-          </div>
-
-        </div>
-      ))}
-
-      <!-- Special Callout Card in Grid -->
-      <div class="rounded-[24px] bg-background-13 text-white p-7 flex flex-col justify-between border border-white/10 shadow-lg md:col-span-2 lg:col-span-1">
-        <div>
-          <div class="inline-flex items-center gap-1.5 font-ibm-plex-mono text-xs text-opai-purple uppercase font-semibold mb-4">
-            <span>// Garantía Técnica</span>
-          </div>
-          <h3 class="font-sora text-2xl font-bold mb-3">
-            Score 95+ en Google PageSpeed
-          </h3>
-          <p class="font-inter-tight text-sm text-white/70 leading-relaxed mb-6">
-            Entregamos tu sitio web con auditoría técnica verificable en Core Web Vitals para asegurar el mejor posicionamiento SEO y máxima rentabilidad publicitaria.
-          </p>
-        </div>
-
-        <a
-          href="#contacto"
-          class="font-ibm-plex-mono text-xs uppercase tracking-wider bg-opai-purple hover:bg-opai-purple/90 text-white px-5 py-3 rounded-xl transition-all font-medium inline-flex items-center justify-between"
-        >
-          <span>Iniciar Desarrollo</span>
-          <ArrowUpRight class="h-4 w-4" />
-        </a>
+        ))}
       </div>
+
+      <!-- Navigation Bar: Prev/Next Controls -->
+      <div class="flex items-center justify-center gap-4 mt-8 max-w-xs mx-auto relative z-30">
+        <button
+          id="pillars-prev-btn"
+          aria-label="Pilar anterior"
+          class="flex size-11 items-center justify-center rounded-full bg-white border border-black/10 text-background-13 shadow-xs hover:bg-slate-100 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+        >
+          <ChevronLeft class="size-5" />
+        </button>
+
+        <span class="font-ibm-plex-mono text-xs text-background-13/50 uppercase tracking-wider px-2">
+          Arrastra o desliza
+        </span>
+
+        <button
+          id="pillars-next-btn"
+          aria-label="Siguiente pilar"
+          class="flex size-11 items-center justify-center rounded-full bg-white border border-black/10 text-background-13 shadow-xs hover:bg-slate-100 hover:scale-105 active:scale-95 transition-all cursor-pointer"
+        >
+          <ChevronRight class="size-5" />
+        </button>
+      </div>
+
     </div>
 
   </div>
 </section>
+
+<script>
+  function initInfinitePillarsLoop() {
+    const wrapper = document.getElementById('pillars-carousel-wrapper');
+    const track = document.getElementById('pillars-carousel-track');
+    const prevBtn = document.getElementById('pillars-prev-btn');
+    const nextBtn = document.getElementById('pillars-next-btn');
+
+    if (!wrapper || !track) return;
+
+    let currentX = 0;
+    let targetX = 0;
+    let isDragging = false;
+    let startX = 0;
+    let dragStartX = 0;
+    let velocity = 0;
+    let lastX = 0;
+    let lastTime = 0;
+    let isHovered = false;
+    let animationFrameId: number | null = null;
+    const autoSpeed = 0.75; // Ultra smooth continuous speed (pixels per frame)
+
+    wrapper.addEventListener('mouseenter', () => { isHovered = true; });
+    wrapper.addEventListener('mouseleave', () => { 
+      isHovered = false; 
+      isDragging = false; 
+    });
+
+    const onStart = (clientX: number) => {
+      isDragging = true;
+      startX = clientX;
+      dragStartX = currentX;
+      lastX = clientX;
+      lastTime = performance.now();
+      velocity = 0;
+    };
+
+    const onMove = (clientX: number) => {
+      if (!isDragging) return;
+      const now = performance.now();
+      const dt = Math.max(now - lastTime, 1);
+      const deltaX = clientX - startX;
+      currentX = dragStartX + deltaX;
+
+      velocity = (clientX - lastX) / dt;
+      lastX = clientX;
+      lastTime = now;
+    };
+
+    const onEnd = () => {
+      isDragging = false;
+    };
+
+    // Pointer Events (Mouse & Stylus)
+    wrapper.addEventListener('pointerdown', (e: PointerEvent) => {
+      if (e.button !== 0) return;
+      onStart(e.clientX);
+    });
+
+    window.addEventListener('pointermove', (e: PointerEvent) => {
+      if (isDragging) onMove(e.clientX);
+    });
+
+    window.addEventListener('pointerup', () => {
+      if (isDragging) onEnd();
+    });
+
+    // Touch Events for Mobile
+    wrapper.addEventListener('touchstart', (e: TouchEvent) => {
+      if (e.touches.length === 1) onStart(e.touches[0].clientX);
+    }, { passive: true });
+
+    wrapper.addEventListener('touchmove', (e: TouchEvent) => {
+      if (isDragging && e.touches.length === 1) onMove(e.touches[0].clientX);
+    }, { passive: true });
+
+    wrapper.addEventListener('touchend', () => {
+      if (isDragging) onEnd();
+    });
+
+    // Button Next & Prev manual step navigation
+    const getCardStep = () => {
+      const firstCard = track.querySelector('[data-pillar-card]') as HTMLElement;
+      return firstCard ? firstCard.offsetWidth + 24 : 400; // width + gap
+    };
+
+    if (prevBtn) {
+      prevBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentX += getCardStep();
+        velocity = 0.5;
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        currentX -= getCardStep();
+        velocity = -0.5;
+      });
+    }
+
+    // 60/120fps Animation Loop
+    function animate() {
+      // Loop width is exact offset of the second half
+      const children = track.children;
+      const halfCount = Math.floor(children.length / 2);
+      const loopWidth = (children[halfCount] as HTMLElement)?.offsetLeft || (track.scrollWidth / 2);
+
+      if (isDragging) {
+        // Dragged directly by cursor/finger
+      } else if (Math.abs(velocity) > 0.05) {
+        // Smooth inertia momentum
+        currentX += velocity * 16;
+        velocity *= 0.92;
+      } else if (!isHovered) {
+        // Continuous auto displacement for seamless loop
+        currentX -= autoSpeed;
+      }
+
+      // Seamless infinite wrapping without any jumps
+      if (loopWidth > 0) {
+        while (currentX <= -loopWidth) {
+          currentX += loopWidth;
+        }
+        while (currentX > 0) {
+          currentX -= loopWidth;
+        }
+      }
+
+      track.style.transform = `translate3d(${currentX}px, 0, 0)`;
+      animationFrameId = requestAnimationFrame(animate);
+    }
+
+    if (animationFrameId) {
+      cancelAnimationFrame(animationFrameId);
+    }
+    animationFrameId = requestAnimationFrame(animate);
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initInfinitePillarsLoop);
+  } else {
+    initInfinitePillarsLoop();
+  }
+  document.addEventListener('astro:page-load', initInfinitePillarsLoop);
+</script>

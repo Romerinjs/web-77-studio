@@ -1,28 +1,27 @@
 ---
 // src/components/productos/ProductWhyUsSection.astro
-import DualCTA from '@/components/DualCTA.astro';
-import { Palette, TrendingUp, Cpu, Network, ShieldCheck } from 'lucide-astro';
+import { Palette, TrendingUp, Cpu, ShieldCheck } from 'lucide-astro';
 
 const advantages = [
   {
+    icon: Palette,
     title: "UX/UI de Nivel Mundial",
-    description: "Interfaces intuitivas y estéticas que no parecen software empresarial anticuado. La usabilidad es clave para que tus colaboradores y clientes lo amen.",
-    tag: "Diseño & Experiencia"
+    description: "Interfaces intuitivas y estéticas que no parecen software empresarial anticuado. La usabilidad es clave para que tus colaboradores y clientes lo amen."
   },
   {
+    icon: TrendingUp,
     title: "Enfoque de Negocio & Crecimiento",
-    description: "Si estás creando un SaaS o MVP, diseñamos no solo la app sino también la landing page de conversión y el embudo de captación comercial.",
-    tag: "Adquisición & Funnels"
+    description: "Si estás creando un SaaS o MVP, diseñamos no solo la app sino también la landing page de conversión y el embudo de captación comercial."
   },
   {
+    icon: Cpu,
     title: "Integración con Automatización e IA",
-    description: "Conectamos tu producto con flujos de CRM, alertas automáticas por WhatsApp y módulos de inteligencia artificial según lo demande tu operación.",
-    tag: "Ecosistema Tecnológico"
+    description: "Conectamos tu producto con flujos de CRM, alertas automáticas por WhatsApp y módulos de inteligencia artificial según lo demande tu operación."
   },
   {
+    icon: ShieldCheck,
     title: "Propiedad Total & Cero Dependencias",
-    description: "El código fuente, bases de datos y arquitectura en la nube pertenecen 100% a tu empresa sin contratos de permanencia forzados.",
-    tag: "Seguridad & Control"
+    description: "El código fuente, bases de datos y arquitectura en la nube pertenecen 100% a tu empresa sin contratos de permanencia forzados."
   }
 ];
 ---
@@ -30,45 +29,42 @@ const advantages = [
 <section class="py-20 sm:py-28 bg-white border-t border-black/5 relative">
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     
-    <!-- Header -->
+    <!-- Section Header (Centered) -->
     <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-slate-50 px-3.5 py-1 font-ibm-plex-mono text-xs text-opai-purple mb-4">
-        <span>EL VALOR DE 77 STUDIO</span>
-      </div>
-      <h2 class="font-sora text-3xl sm:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-5">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
         No pensamos solo en código. Pensamos en el negocio completo.
       </h2>
-      <p class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed">
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
         Construir software no sirve de nada si nadie lo usa o no genera retorno. Unificamos producto, diseño, marketing y automatización en un solo partner digital.
       </p>
     </div>
 
-    <!-- 4 Pillars Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-14 max-w-5xl mx-auto">
-      {advantages.map((adv) => (
-        <div class="rounded-[20px] border border-black/10 bg-slate-50 p-7 shadow-xs card-hover flex flex-col justify-between">
-          <div>
-            <div class="flex items-center justify-between mb-4">
-              <span class="font-ibm-plex-mono text-xs font-semibold text-opai-purple bg-white px-2.5 py-1 rounded-md border border-black/5">
-                {adv.tag}
-              </span>
+    <!-- 4 Pillars Grid (Clean, consistent with Design System) -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+      {advantages.map((adv, index) => {
+        const IconComponent = adv.icon;
+        return (
+          <div 
+            data-opai-animate
+            data-delay={(0.1 * (index + 1)).toFixed(1)}
+            class="group rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-slate-50/70 p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:bg-white hover:shadow-md hover:border-black/20 hover:border-b-opai-purple"
+          >
+            <div>
+              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white mb-6 group-hover:scale-105 transition-transform shadow-xs">
+                <IconComponent class="h-6 w-6 text-white" />
+              </div>
+
+              <h3 class="font-sora text-xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors">
+                {adv.title}
+              </h3>
+
+              <p class="font-inter-tight text-sm sm:text-base text-background-13/75 leading-relaxed">
+                {adv.description}
+              </p>
             </div>
-
-            <h3 class="font-sora text-xl font-bold text-background-13 mb-2.5">
-              {adv.title}
-            </h3>
-
-            <p class="font-inter-tight text-sm text-background-13/70 leading-relaxed">
-              {adv.description}
-            </p>
           </div>
-
-          <div class="pt-4 border-t border-black/5 mt-4 flex items-center gap-2 font-ibm-plex-mono text-xs text-emerald-700 font-medium">
-            <span>Ventaja 77 Studio</span>
-            <span>✓</span>
-          </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
 
   </div>

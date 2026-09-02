@@ -154,11 +154,13 @@ export function init77Animations() {
   });
 }
 
-// Auto-initialize when DOM is ready
+// Auto-initialize when DOM is ready and on Astro page transitions
 if (typeof document !== 'undefined') {
+  document.addEventListener('astro:page-load', init77Animations);
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', init77Animations);
   } else {
     init77Animations();
   }
 }
+

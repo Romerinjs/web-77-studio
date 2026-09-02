@@ -1,63 +1,35 @@
 ---
 // src/components/web/WebSolutionsGrid.astro
-import {
-  Building2,
-  Rocket,
-  RefreshCw,
-  Filter,
-  Webhook,
-  BarChart3,
-  ArrowRight
-} from 'lucide-astro';
-
 const solutions = [
   {
-    icon: Building2,
-    number: "01",
     title: "Web Corporativa & Institucional",
     description: "Sitios web de alto impacto visual que transmiten solidez, liderazgo y credibilidad ante clientes internacionales e inversionistas.",
-    badge: "Autoridad Global",
-    color: "text-blue-600 bg-blue-50"
+    image: "/img/section-2-web/web-corporativa.jpg"
   },
   {
-    icon: Rocket,
-    number: "02",
     title: "Landing Pages de Alta Conversión",
-    description: "Páginas de aterrizaje diseñadas con arquitectura CRO para campañas de Meta y Google Ads. Carga en &lt; 0.8s y captura de leads sin fugas.",
-    badge: "Paid Media Focus",
-    color: "text-opai-purple bg-opai-purple/10"
+    description: "Páginas de aterrizaje diseñadas con arquitectura CRO para campañas de Meta y Google Ads. Carga en < 0.8s y captura de leads sin fugas.",
+    image: "/img/section-2-web/landings.png"
   },
   {
-    icon: RefreshCw,
-    number: "03",
     title: "Rediseño & Modernización Web",
     description: "Migramos sitios lentos de WordPress/Wix a Astro 5. Multiplicamos la velocidad por 10, renovamos la identidad visual y eliminamos caídas técnicas.",
-    badge: "Performance Boost",
-    color: "text-emerald-600 bg-emerald-50"
+    image: "/img/section-2-web/rediseño-web.jpg"
   },
   {
-    icon: Filter,
-    number: "04",
     title: "Funnels & Embudos Comerciales",
     description: "Recorridos guiados paso a paso con pruebas de calificación de prospectos, agendas de llamadas automáticas y cierre de oportunidades.",
-    badge: "Ventas Guiadas",
-    color: "text-amber-600 bg-amber-50"
+    image: "/img/section-2-web/funnels.webp"
   },
   {
-    icon: Webhook,
-    number: "05",
     title: "Integraciones Tech & Conexión CRM",
     description: "Formularios y eventos conectados instantáneamente a WhatsApp Business, HubSpot, Zoho, ActiveCampaign, Notion y webhooks seguros.",
-    badge: "Automatización",
-    color: "text-rose-600 bg-rose-50"
+    image: "/img/section-2-web/integraciones.jpg"
   },
   {
-    icon: BarChart3,
-    number: "06",
     title: "Analítica Avanzada & Eventos CRO",
     description: "Implementación de Google Analytics 4, Meta Conversions API (CAPI), Google Tag Manager y mapas de calor para optimización continua.",
-    badge: "Medición 100%",
-    color: "text-indigo-600 bg-indigo-50"
+    image: "/img/section-2-web/analitica-cro.jpg"
   }
 ];
 ---
@@ -65,54 +37,45 @@ const solutions = [
 <section class="py-20 bg-slate-50 relative">
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     
-    <!-- Section Header -->
-    <div class="max-w-3xl mb-16">
-      <div class="inline-flex items-center gap-2 font-ibm-plex-mono text-xs font-semibold uppercase tracking-wider text-blue-600 mb-3">
-        <span>// Soluciones Web a Medida</span>
-      </div>
-      <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+    <!-- Section Header (Centered without restrictive line-break margin) -->
+    <div class="text-center max-w-5xl mx-auto mb-16">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
         Arquitectura digital diseñada para vender, no solo para adornar.
       </h2>
-      <p class="font-inter-tight text-lg text-background-13/70 leading-relaxed">
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed max-w-3xl mx-auto">
         Cada tipo de empresa necesita una estructura web diferente. Construimos desde páginas corporativas multinacionales hasta landings de aterrizaje para pauta de alto volumen.
       </p>
     </div>
 
-    <!-- 6 Solutions Grid -->
+    <!-- 6 Solutions Grid with 75% Opacity Image Hover & Purple Bottom Border -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-      {solutions.map((item) => (
-        <div class="group relative rounded-[20px] border border-stroke-2/60 bg-white p-7 transition-all duration-300 hover:shadow-lg hover:border-black/20 flex flex-col justify-between">
+      {solutions.map((item, index) => (
+        <div 
+          data-opai-animate
+          data-delay={((index % 3) * 0.15).toFixed(2)}
+          class="group relative overflow-hidden rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-white p-7 sm:p-8 transition-all duration-500 hover:shadow-xl hover:border-black/20 hover:border-b-opai-purple flex flex-col justify-start"
+        >
           
-          <div>
-            <!-- Card Header with Icon, Number & Badge -->
-            <div class="flex items-center justify-between mb-5">
-              <div class={`flex h-12 w-12 items-center justify-center rounded-xl ${item.color} transition-transform group-hover:scale-105`}>
-                <item.icon class="h-6 w-6" />
-              </div>
-              
-              <div class="flex items-center gap-2">
-                <span class="font-ibm-plex-mono text-xs text-background-13/40">{item.number}</span>
-                <span class="font-ibm-plex-mono text-[11px] px-2.5 py-0.5 rounded-full bg-slate-100 text-background-13/70">
-                  {item.badge}
-                </span>
-              </div>
-            </div>
+          <!-- Background Hover Image with 75% opacity -->
+          <div 
+            class="absolute inset-0 z-0 bg-cover bg-center bg-no-repeat opacity-0 group-hover:opacity-75 transition-all duration-500 scale-100 group-hover:scale-105 pointer-events-none"
+            style={`background-image: url('${item.image}');`}
+          ></div>
 
+          <!-- Legibility Gradient Overlay on Hover -->
+          <div class="absolute inset-0 z-0 bg-gradient-to-t from-white/95 via-white/80 to-white/70 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none backdrop-blur-[0.5px]"></div>
+
+          <!-- Card Content (Always High Contrast & Crisp) -->
+          <div class="relative z-10">
             <!-- Title -->
-            <h3 class="font-sora text-xl font-bold text-background-13 mb-3 group-hover:text-blue-600 transition-colors">
+            <h3 class="font-sora text-xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors duration-300">
               {item.title}
             </h3>
 
             <!-- Description -->
-            <p class="font-inter-tight text-sm text-background-13/70 leading-relaxed mb-6">
+            <p class="font-inter-tight text-sm sm:text-base text-background-13/75 group-hover:text-background-13/95 leading-relaxed transition-colors duration-300">
               {item.description}
             </p>
-          </div>
-
-          <!-- Bottom Card Action Tag -->
-          <div class="pt-4 border-t border-black/5 flex items-center justify-between font-ibm-plex-mono text-xs text-background-13/50 group-hover:text-blue-600 transition-colors">
-            <span>Explorar solución</span>
-            <ArrowRight class="h-4 w-4 transition-transform group-hover:translate-x-1" />
           </div>
 
         </div>

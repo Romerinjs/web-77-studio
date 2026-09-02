@@ -1,5 +1,7 @@
 ---
 // src/components/contacto/FAQContacto.astro
+import { ChevronDown, HelpCircle } from 'lucide-astro';
+
 const faqs = [
   {
     q: "¿Qué sucede después de enviar el formulario o escribir por WhatsApp?",
@@ -20,30 +22,113 @@ const faqs = [
 ];
 ---
 
-<section class="py-16 sm:py-24 bg-white border-t border-black/5">
+<section class="py-16 sm:py-24 bg-white border-t border-black/5" id="faqs-contacto">
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     
-    <div class="max-w-3xl mx-auto text-center mb-14">
-      <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-slate-50 px-3.5 py-1 font-ibm-plex-mono text-xs text-opai-purple mb-4">
-        <span>PREGUNTAS FRECUENTES</span>
-      </div>
-      <h2 class="font-sora text-2xl sm:text-4xl font-bold tracking-tight text-background-13">
+    <!-- Header (Centered, Clean without tags) -->
+    <div class="max-w-3xl mx-auto text-center mb-12">
+      <h2 data-text-reveal class="font-sora text-2xl sm:text-4xl font-bold tracking-tight text-background-13">
         Respuestas directas antes de iniciar.
       </h2>
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-      {faqs.map((faq) => (
-        <div class="rounded-[20px] border border-black/10 bg-slate-50 p-6 sm:p-7 shadow-xs">
-          <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 mb-2.5">
-            {faq.q}
-          </h3>
-          <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
-            {faq.a}
-          </p>
+    <!-- Accordion Container -->
+    <div class="max-w-3xl mx-auto space-y-4" id="faq-accordion-group">
+      {faqs.map((faq, index) => (
+        <div 
+          data-opai-animate
+          data-delay={(0.1 * (index + 1)).toFixed(1)}
+          class="faq-accordion-item rounded-[20px] border border-black/10 border-b-2 border-b-transparent bg-slate-50/80 transition-all duration-300 hover:bg-white hover:border-black/20 hover:border-b-opai-purple hover:shadow-sm overflow-hidden"
+        >
+          <button
+            type="button"
+            class="faq-accordion-trigger w-full p-6 sm:p-7 flex items-center justify-between gap-4 text-left cursor-pointer select-none"
+            aria-expanded="false"
+            aria-controls={`faq-answer-${index}`}
+          >
+            <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 transition-colors pr-2">
+              {faq.q}
+            </h3>
+            
+            <div class="faq-chevron-box shrink-0 size-8 sm:size-9 rounded-xl bg-background-13 text-white flex items-center justify-center transition-transform duration-300 shadow-xs">
+              <ChevronDown class="size-4 transition-transform duration-300" />
+            </div>
+          </button>
+
+          <!-- Accordion Answer Body (Closed by default) -->
+          <div
+            id={`faq-answer-${index}`}
+            class="faq-accordion-content max-h-0 overflow-hidden transition-all duration-300 ease-in-out px-6 sm:px-7"
+          >
+            <div class="pb-6 sm:pb-7 pt-2 border-t border-black/5">
+              <p class="font-inter-tight text-sm sm:text-base text-background-13/80 leading-relaxed">
+                {faq.a}
+              </p>
+            </div>
+          </div>
         </div>
       ))}
     </div>
 
   </div>
 </section>
+
+<script>
+  function initFAQAccordion() {
+    const items = document.querySelectorAll('.faq-accordion-item');
+    if (!items.length) return;
+
+    items.forEach((item) => {
+      const trigger = item.querySelector('.faq-accordion-trigger');
+      const content = item.querySelector('.faq-accordion-content') as HTMLElement;
+      const chevron = item.querySelector('.faq-chevron-box');
+      const title = item.querySelector('h3');
+
+      if (!trigger || !content) return;
+
+      trigger.addEventListener('click', () => {
+        const isExpanded = trigger.getAttribute('aria-expanded') === 'true';
+
+        // Close other accordion items if open (single open behavior)
+        items.forEach((otherItem) => {
+          if (otherItem !== item) {
+            const otherTrigger = otherItem.querySelector('.faq-accordion-trigger');
+            const otherContent = otherItem.querySelector('.faq-accordion-content') as HTMLElement;
+            const otherChevron = otherItem.querySelector('.faq-chevron-box');
+            const otherTitle = otherItem.querySelector('h3');
+
+            if (otherTrigger && otherContent) {
+              otherTrigger.setAttribute('aria-expanded', 'false');
+              otherContent.style.maxHeight = '0px';
+              if (otherChevron) otherChevron.classList.remove('rotate-180', 'bg-opai-purple');
+              if (otherTitle) otherTitle.classList.remove('text-opai-purple');
+              otherItem.classList.remove('bg-white', 'shadow-md', 'border-b-opai-purple');
+            }
+          }
+        });
+
+        // Toggle current item
+        if (isExpanded) {
+          trigger.setAttribute('aria-expanded', 'false');
+          content.style.maxHeight = '0px';
+          if (chevron) chevron.classList.remove('rotate-180', 'bg-opai-purple');
+          if (title) title.classList.remove('text-opai-purple');
+          item.classList.remove('bg-white', 'shadow-md', 'border-b-opai-purple');
+        } else {
+          trigger.setAttribute('aria-expanded', 'true');
+          content.style.maxHeight = `${content.scrollHeight + 30}px`;
+          if (chevron) chevron.classList.add('rotate-180', 'bg-opai-purple');
+          if (title) title.classList.add('text-opai-purple');
+          item.classList.add('bg-white', 'shadow-md', 'border-b-opai-purple');
+        }
+      });
+    });
+  }
+
+  document.addEventListener('astro:page-load', initFAQAccordion);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFAQAccordion);
+  } else {
+    initFAQAccordion();
+  }
+</script>

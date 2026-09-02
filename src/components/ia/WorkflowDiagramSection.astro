@@ -1,35 +1,23 @@
 ---
 // src/components/ia/WorkflowDiagramSection.astro
-import { Clock, ShieldCheck, Users, Zap, ArrowRight, Check } from 'lucide-astro';
+import { ChevronRight } from 'lucide-astro';
 
 const pipelineStages = [
   {
-    time: "Segundo 0",
     title: "Contacto Multi-Canal",
-    description: "Un prospecto calificado envía un mensaje por WhatsApp o llena el formulario web a las 10:45 PM.",
-    actor: "Cliente Potencial",
-    badge: "Inbound"
+    description: "Un prospecto calificado envía un mensaje por WhatsApp o llena el formulario web a las 10:45 PM."
   },
   {
-    time: "Segundo 5",
     title: "Clasificación & Scoring",
-    description: "El agente IA analiza los requerimientos, consulta el CRM y determina el nivel de prioridad y servicio adecuado.",
-    actor: "Agente IA RAG",
-    badge: "Análisis Inteligente"
+    description: "El agente IA analiza los requerimientos, consulta el CRM y determina el nivel de prioridad y servicio adecuado."
   },
   {
-    time: "Segundo 15",
     title: "Respuesta & Agenda",
-    description: "El cliente recibe la información precisa solicitada y un enlace interactivo para agendar llamada según disponibilidad.",
-    actor: "Automatización Make/n8n",
-    badge: "Cero Espera"
+    description: "El cliente recibe la información precisa solicitada y un enlace interactivo para agendar llamada según disponibilidad."
   },
   {
-    time: "Día Siguiente",
     title: "Llamada de Cierre",
-    description: "Tu asesor comercial llega a la reunión con el historial completo, resumen del caso y objeciones ya resueltas.",
-    actor: "Asesor Humano",
-    badge: "Venta Cerrada"
+    description: "Tu asesor comercial llega a la reunión con el historial completo, resumen del caso y objeciones ya resueltas."
   }
 ];
 ---
@@ -37,74 +25,95 @@ const pipelineStages = [
 <section class="py-24 bg-white relative overflow-hidden">
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     
-    <!-- Section Header -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <div class="inline-flex items-center gap-2 font-ibm-plex-mono text-xs font-semibold uppercase tracking-wider text-emerald-600 mb-3">
-        <span>// Anatomía de un Workflow Real</span>
-      </div>
-      <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+    <!-- Section Header (Centered) -->
+    <div class="text-center max-w-4xl mx-auto mb-16">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
         De visitante a reunión calificada sin intervención manual.
       </h2>
-      <p class="font-inter-tight text-lg text-background-13/75 leading-relaxed">
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-3xl mx-auto">
         Así funciona un ecosistema de automatización real: tu empresa atiende 24/7 sin que tu equipo tenga que estar conectado a medianoche.
       </p>
     </div>
 
-    <!-- Interactive Pipeline Visual Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-14 relative">
-      {pipelineStages.map((stage, idx) => (
-        <div class="rounded-[24px] border border-stroke-2/60 bg-slate-50/70 p-6 flex flex-col justify-between relative transition-all hover:bg-white hover:shadow-md hover:border-black/20">
-          
-          <div>
-            <!-- Stage Time & Badge -->
-            <div class="flex items-center justify-between mb-4">
-              <span class="font-ibm-plex-mono text-xs font-bold text-opai-purple bg-opai-purple/10 px-2.5 py-1 rounded-lg">
-                {stage.time}
-              </span>
-              <span class="font-ibm-plex-mono text-[11px] text-background-13/50">
-                Paso 0{idx + 1}
-              </span>
-            </div>
+    <!-- Flow Pipeline Cards Container with Animated Moving Dashed Line -->
+    <div class="relative mb-14">
+      
+      <!-- Animated Dashed Flow Line between cards (Desktop lg) -->
+      <div class="hidden lg:block absolute top-1/2 left-0 right-0 -translate-y-1/2 h-[3px] pointer-events-none z-0">
+        <svg class="w-full h-4 overflow-visible" preserveAspectRatio="none">
+          <defs>
+            <linearGradient id="flowDashedGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%" stop-color="#8d59ff" stop-opacity="0.35" />
+              <stop offset="50%" stop-color="#8d59ff" stop-opacity="0.9" />
+              <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.5" />
+            </linearGradient>
+          </defs>
+          <line 
+            x1="0" y1="8" x2="100%" y2="8" 
+            stroke="url(#flowDashedGrad)" 
+            stroke-width="3" 
+            stroke-dasharray="10 8" 
+            class="flow-moving-line"
+          />
+        </svg>
+      </div>
 
-            <h3 class="font-sora text-lg font-bold text-background-13 mb-2">
+      <!-- Clean Pipeline Cards Grid -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 relative z-10">
+        {pipelineStages.map((stage, idx) => (
+          <div 
+            data-opai-animate
+            data-delay={(0.1 * (idx + 1)).toFixed(1)}
+            class="group relative rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-white p-6 sm:p-7 flex flex-col justify-start transition-all duration-300 hover:shadow-lg hover:border-black/20 hover:border-b-opai-purple"
+          >
+            <h3 class="font-sora text-lg font-bold text-background-13 mb-2.5 group-hover:text-opai-purple transition-colors">
               {stage.title}
             </h3>
 
-            <p class="font-inter-tight text-xs sm:text-sm text-background-13/70 leading-relaxed mb-6">
+            <p class="font-inter-tight text-xs sm:text-sm text-background-13/70 leading-relaxed">
               {stage.description}
             </p>
-          </div>
 
-          <!-- Bottom Actor Indicator -->
-          <div class="pt-3.5 border-t border-black/5 font-ibm-plex-mono text-[11px] text-background-13/60 flex items-center justify-between">
-            <span class="text-background-13/40">Ejecuta:</span>
-            <span class="font-medium text-background-13">{stage.actor}</span>
+            <!-- Connector Chevron to the right between cards on Desktop -->
+            {idx < pipelineStages.length - 1 && (
+              <div class="hidden lg:flex absolute -right-3.5 top-1/2 -translate-y-1/2 z-20 items-center justify-center size-7 rounded-full bg-white border border-opai-purple/30 text-opai-purple shadow-xs group-hover:scale-110 group-hover:border-opai-purple transition-all">
+                <ChevronRight class="size-4" />
+              </div>
+            )}
           </div>
+        ))}
+      </div>
 
-        </div>
-      ))}
     </div>
 
-    <!-- Key Principle Box: Humans + AI Synergy -->
-    <div class="rounded-[24px] bg-background-13 text-white p-7 sm:p-9 border border-white/10 shadow-lg">
-      <div class="flex flex-col lg:flex-row items-center justify-between gap-8">
+    <!-- Key Principle Box with 77 Brand Color Gradient & 77 Studio Logo under Title -->
+    <div data-opai-animate data-delay="0.5" class="relative overflow-hidden rounded-[28px] bg-gradient-to-r from-[#0c0c14] via-[#1a0f2e] to-[#2a0e4a] text-white p-8 sm:p-10 border border-opai-purple/30 shadow-[0_20px_50px_rgba(141,89,255,0.12)]">
+      <!-- Ambient Brand Glow Effects -->
+      <div class="pointer-events-none absolute -right-20 -top-20 h-64 w-64 rounded-full bg-opai-purple/20 blur-[80px]"></div>
+      <div class="pointer-events-none absolute -left-20 -bottom-20 h-64 w-64 rounded-full bg-blue-600/15 blur-[80px]"></div>
+
+      <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8">
         
-        <div class="space-y-3 max-w-3xl">
-          <div class="inline-flex items-center gap-2 font-ibm-plex-mono text-xs text-opai-purple uppercase font-semibold">
-            <ShieldCheck class="h-4 w-4" /> Filosofía 77 Studio
-          </div>
+        <div class="max-w-3xl space-y-4">
           <h3 class="font-sora text-2xl sm:text-3xl font-bold leading-snug">
             La automatización no reemplaza a tu equipo: multiplica su capacidad comercial.
           </h3>
-          <p class="font-inter-tight text-sm sm:text-base text-white/70 leading-relaxed">
-            Eliminamos las tareas repetitivas de copiar datos, enviar recordatorios y responder lo mismo 50 veces al día. Tu equipo se dedica a lo que realmente importa: negociar, cerrar y crear valor.
-          </p>
+
+          <!-- 77 Studio Logo Badge under title -->
+          <div class="flex items-center gap-2.5 pt-1">
+            <div class="h-8 w-8 rounded-full bg-white/10 border border-white/20 flex items-center justify-center shadow-xs">
+              <img src="/img/77studio.png" alt="77 Studio Logo" class="h-5 w-5 object-contain" />
+            </div>
+            <span class="font-sora font-semibold text-sm tracking-wider text-white/90">
+              STUDIO
+            </span>
+          </div>
         </div>
 
         <div class="shrink-0 flex flex-col sm:flex-row gap-4 w-full lg:w-auto">
           <a
             href="#contacto"
-            class="w-full sm:w-auto text-center font-ibm-plex-mono text-xs uppercase tracking-wider bg-opai-purple hover:bg-opai-purple/90 text-white px-6 py-3.5 rounded-xl transition-all font-semibold"
+            class="w-full sm:w-auto text-center font-ibm-plex-mono text-xs uppercase tracking-wider bg-opai-purple hover:bg-opai-purple-hover text-white px-7 py-4 rounded-xl transition-all font-semibold shadow-lg hover:shadow-opai-purple/25 hover:scale-[1.02] active:scale-98"
           >
             Evaluar Procesos de mi Empresa
           </a>
@@ -115,3 +124,18 @@ const pipelineStages = [
 
   </div>
 </section>
+
+<style>
+  @keyframes flowDashForward {
+    from {
+      stroke-dashoffset: 36;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  .flow-moving-line {
+    animation: flowDashForward 1s linear infinite;
+  }
+</style>

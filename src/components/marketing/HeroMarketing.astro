@@ -1,7 +1,7 @@
 ---
 // src/components/marketing/HeroMarketing.astro
 import DualCTA from '@/components/DualCTA.astro';
-import { Target, TrendingUp, Sparkles, CheckCircle2, BarChart2 } from 'lucide-astro';
+import { Target, TrendingUp, Sparkles, BarChart2 } from 'lucide-astro';
 ---
 
 <section class="relative pt-36 pb-16 sm:pt-44 sm:pb-24 overflow-hidden">
@@ -14,26 +14,18 @@ import { Target, TrendingUp, Sparkles, CheckCircle2, BarChart2 } from 'lucide-as
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     <div class="text-center max-w-4xl mx-auto">
       
-      <!-- Top Pill Badge -->
-      <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/90 px-4 py-1.5 backdrop-blur-md shadow-xs mb-6">
-        <span class="h-2 w-2 rounded-full bg-opai-purple animate-pulse"></span>
-        <span class="font-ibm-plex-mono text-xs font-medium tracking-wide text-background-13/80 uppercase">
-          Módulo 02 · Paid Media & Growth Marketing
-        </span>
-      </div>
-
       <!-- Main Headline -->
-      <h1 class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
+      <h1 data-text-reveal class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
         Marketing diseñado para <span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">hacer crecer</span> tu empresa.
       </h1>
 
       <!-- Subheadline -->
-      <p class="font-inter-tight text-lg sm:text-xl text-background-13/75 max-w-3xl mx-auto mb-9 leading-relaxed">
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-lg sm:text-xl text-background-13/75 max-w-3xl mx-auto mb-9 leading-relaxed">
         Integramos estrategia, Meta Ads, Google Ads, creatividad, contenido, branding y automatización para ayudar a empresas a atraer atención calificada, despertar demanda y cerrar más oportunidades comerciales.
       </p>
 
       <!-- Dual Commercial CTA (WhatsApp Marketing context + Contact form) -->
-      <div class="mb-12">
+      <div data-opai-animate data-delay="0.3" class="mb-12">
         <DualCTA
           whatsappContext="marketing"
           whatsappText="Hablar por WhatsApp"
@@ -43,26 +35,10 @@ import { Target, TrendingUp, Sparkles, CheckCircle2, BarChart2 } from 'lucide-as
         />
       </div>
 
-      <!-- Trust Pillars -->
-      <div class="pt-4 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs font-ibm-plex-mono text-background-13/60 border-t border-black/5">
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-500 font-bold">✓</span>
-          <span>Meta Ads & Google Ads Conectados</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-500 font-bold">✓</span>
-          <span>Creativos con Hooks de Alta Retención</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-500 font-bold">✓</span>
-          <span>Tracking CAPI + Atribución Precisa</span>
-        </div>
-      </div>
-
     </div>
 
     <!-- Interactive Paid Media Dashboard Showcase -->
-    <div class="mt-14 relative mx-auto max-w-5xl">
+    <div data-opai-animate data-delay="0.4" class="mt-14 relative mx-auto max-w-5xl">
       <div class="relative rounded-[24px] border border-black/10 bg-white/95 p-4 sm:p-6 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] backdrop-blur-xl">
         
         <!-- Showcase Top Navigation Bar -->
@@ -86,7 +62,7 @@ import { Target, TrendingUp, Sparkles, CheckCircle2, BarChart2 } from 'lucide-as
         <!-- 4 Key Performance Metrics Grid -->
         <div class="grid grid-cols-2 md:grid-cols-4 gap-3.5 pt-5 mb-5">
           
-          <div class="rounded-2xl border border-black/5 bg-slate-50/80 p-3.5 transition-all hover:bg-white hover:shadow-xs">
+          <div data-opai-animate data-delay="0.1" class="rounded-2xl border border-black/5 bg-slate-50/80 p-3.5 transition-all hover:bg-white hover:shadow-xs">
             <div class="flex items-center justify-between mb-1.5 text-background-13/60">
               <span class="font-ibm-plex-mono text-[11px] uppercase tracking-wider font-medium">Retorno (ROAS)</span>
               <TrendingUp class="w-4 h-4 text-emerald-600" />
@@ -95,7 +71,7 @@ import { Target, TrendingUp, Sparkles, CheckCircle2, BarChart2 } from 'lucide-as
             <div class="font-inter-tight text-xs text-emerald-600 font-medium mt-0.5">+48% vs Promedio Industria</div>
           </div>
 
-          <div class="rounded-2xl border border-black/5 bg-slate-50/80 p-3.5 transition-all hover:bg-white hover:shadow-xs">
+          <div data-opai-animate data-delay="0.2" class="rounded-2xl border border-black/5 bg-slate-50/80 p-3.5 transition-all hover:bg-white hover:shadow-xs">
             <div class="flex items-center justify-between mb-1.5 text-background-13/60">
               <span class="font-ibm-plex-mono text-[11px] uppercase tracking-wider font-medium">Click-Through (CTR)</span>
               <Target class="w-4 h-4 text-opai-purple" />
@@ -104,7 +80,7 @@ import { Target, TrendingUp, Sparkles, CheckCircle2, BarChart2 } from 'lucide-as
             <div class="font-inter-tight text-xs text-opai-purple font-medium mt-0.5">Creativos con Hook Testeado</div>
           </div>
 
-          <div class="rounded-2xl border border-black/5 bg-slate-50/80 p-3.5 transition-all hover:bg-white hover:shadow-xs">
+          <div data-opai-animate data-delay="0.3" class="rounded-2xl border border-black/5 bg-slate-50/80 p-3.5 transition-all hover:bg-white hover:shadow-xs">
             <div class="flex items-center justify-between mb-1.5 text-background-13/60">
               <span class="font-ibm-plex-mono text-[11px] uppercase tracking-wider font-medium">Costo por Lead (CPL)</span>
               <BarChart2 class="w-4 h-4 text-blue-600" />
@@ -113,7 +89,7 @@ import { Target, TrendingUp, Sparkles, CheckCircle2, BarChart2 } from 'lucide-as
             <div class="font-inter-tight text-xs text-blue-600 font-medium mt-0.5">Optimización continua CAPI</div>
           </div>
 
-          <div class="rounded-2xl border border-black/5 bg-slate-50/80 p-3.5 transition-all hover:bg-white hover:shadow-xs">
+          <div data-opai-animate data-delay="0.4" class="rounded-2xl border border-black/5 bg-slate-50/80 p-3.5 transition-all hover:bg-white hover:shadow-xs">
             <div class="flex items-center justify-between mb-1.5 text-background-13/60">
               <span class="font-ibm-plex-mono text-[11px] uppercase tracking-wider font-medium">Calidad de Leads</span>
               <Sparkles class="w-4 h-4 text-amber-500" />
@@ -128,7 +104,7 @@ import { Target, TrendingUp, Sparkles, CheckCircle2, BarChart2 } from 'lucide-as
         <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
           
           <!-- Campaign 1: Meta Demand Gen -->
-          <div class="rounded-2xl border border-black/5 bg-slate-50 p-4">
+          <div data-opai-animate data-delay="0.2" class="rounded-2xl border border-black/5 bg-slate-50 p-4">
             <div class="flex items-center justify-between mb-2">
               <div class="flex items-center gap-2">
                 <span class="h-2 w-2 rounded-full bg-blue-500"></span>
@@ -146,7 +122,7 @@ import { Target, TrendingUp, Sparkles, CheckCircle2, BarChart2 } from 'lucide-as
           </div>
 
           <!-- Campaign 2: Google Search Intent -->
-          <div class="rounded-2xl border border-black/5 bg-slate-50 p-4">
+          <div data-opai-animate data-delay="0.3" class="rounded-2xl border border-black/5 bg-slate-50 p-4">
             <div class="flex items-center justify-between mb-2">
               <div class="flex items-center gap-2">
                 <span class="h-2 w-2 rounded-full bg-emerald-500"></span>

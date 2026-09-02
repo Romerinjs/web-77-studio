@@ -2,7 +2,6 @@
 // src/components/web/WebContactSection.astro
 import ContactForm from '@/components/ContactForm.astro';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
-import { ArrowRight, ShieldCheck, Zap, Code2 } from 'lucide-astro';
 
 const whatsappUrl = getWhatsAppUrl('web');
 ---
@@ -23,16 +22,16 @@ const whatsappUrl = getWhatsAppUrl('web');
       <div class="lg:col-span-5 space-y-8">
         
         <div>
-          <h2 class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
+          <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
             Construyamos la web que tu empresa merece.
           </h2>
-          <p class="font-inter-tight text-base sm:text-lg text-white/80 leading-relaxed">
+          <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-white/80 leading-relaxed">
             Conversemos sobre los objetivos de tu sitio web o landing page, analicemos tu arquitectura actual y diseñemos una propuesta técnica y visual a la medida de tu negocio.
           </p>
         </div>
 
         <!-- Direct WhatsApp Card tailored for Web -->
-        <div class="rounded-[24px] border border-blue-200 bg-white/95 backdrop-blur-md p-7 shadow-[0_10px_30px_rgba(37,99,235,0.08)]">
+        <div data-opai-animate data-delay="0.3" class="rounded-[24px] border border-blue-200 bg-white/95 backdrop-blur-md p-7 shadow-[0_10px_30px_rgba(37,99,235,0.08)]">
           <div class="flex items-center gap-3 mb-4">
             <div class="h-10 w-10 rounded-xl bg-blue-600 text-white flex items-center justify-center shadow-xs">
               <svg class="w-5 h-5 fill-current" viewBox="0 0 24 24">
@@ -60,22 +59,10 @@ const whatsappUrl = getWhatsAppUrl('web');
           </a>
         </div>
 
-        <!-- Trust Badges for Web Inquiries -->
-        <div class="space-y-2.5 font-ibm-plex-mono text-xs text-background-13/70">
-          <div class="flex items-center gap-2">
-            <span class="h-1.5 w-1.5 rounded-full bg-emerald-500"></span>
-            <span>Código 100% propio y transferible, sin ataduras a plataformas propietarias</span>
-          </div>
-          <div class="flex items-center gap-2">
-            <span class="h-1.5 w-1.5 rounded-full bg-blue-600"></span>
-            <span>Garantía de velocidad y soporte técnico continuo</span>
-          </div>
-        </div>
-
       </div>
 
       <!-- Right Column: Lead Form prefilled for Web -->
-      <div class="lg:col-span-7">
+      <div data-opai-animate data-delay="0.4" class="lg:col-span-7">
         <ContactForm originPage="web" />
       </div>
 

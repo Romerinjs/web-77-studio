@@ -1,7 +1,7 @@
 ---
 // src/components/productos/HeroProductos.astro
 import DualCTA from '@/components/DualCTA.astro';
-import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, Database, BarChart3, CheckCircle2, ArrowRight } from 'lucide-astro';
+import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, Database, BarChart3, CheckCircle2, ArrowRight, Server, Users2, Activity, Zap } from 'lucide-astro';
 ---
 
 <section class="relative pt-36 pb-16 sm:pt-44 sm:pb-24 overflow-hidden">
@@ -14,26 +14,18 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     <div class="text-center max-w-4xl mx-auto">
       
-      <!-- Top Pill Badge -->
-      <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/90 px-4 py-1.5 backdrop-blur-md shadow-xs mb-6">
-        <span class="h-2 w-2 rounded-full bg-amber-500 animate-pulse"></span>
-        <span class="font-ibm-plex-mono text-xs font-medium tracking-wide text-background-13/80 uppercase">
-          Módulo 05 · Product Studio & SaaS a la Medida
-        </span>
-      </div>
-
       <!-- Main Headline -->
-      <h1 class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
+      <h1 data-text-reveal class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
         Si tu empresa necesita una herramienta que todavía no existe, <span class="bg-gradient-to-r from-background-13 via-opai-purple to-amber-600 bg-clip-text text-transparent">podemos construirla</span>.
       </h1>
 
       <!-- Subheadline -->
-      <p class="font-inter-tight text-lg sm:text-xl text-background-13/75 max-w-3xl mx-auto mb-9 leading-relaxed">
-        PRODUCTOS DIGITALES PARA EMPRESAS: Convertimos necesidades operativas e ideas de negocio en productos digitales, portales de clientes, plataformas SaaS y dashboards a medida adaptados a tu modelo.
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-lg sm:text-xl text-background-13/75 max-w-3xl mx-auto mb-10 leading-relaxed">
+        Convertimos necesidades operativas e ideas de negocio en productos digitales, portales de clientes, plataformas SaaS y dashboards a medida adaptados a tu modelo.
       </p>
 
       <!-- Dual Commercial CTA (WhatsApp productos context + Contact form) -->
-      <div class="mb-12">
+      <div data-opai-animate data-delay="0.3" class="mb-6">
         <DualCTA
           whatsappContext="productos"
           whatsappText="Hablar de mi idea de producto"
@@ -43,26 +35,10 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
         />
       </div>
 
-      <!-- Trust Pillars -->
-      <div class="pt-4 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs font-ibm-plex-mono text-background-13/60 border-t border-black/5">
-        <div class="flex items-center gap-2">
-          <span class="text-amber-600 font-bold">✓</span>
-          <span>Product Studio, no Fábrica Tradicional</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-500 font-bold">✓</span>
-          <span>Código 100% Propietario del Cliente</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-opai-purple font-bold">✓</span>
-          <span>Arquitectura en la Nube Escalable</span>
-        </div>
-      </div>
-
     </div>
 
-    <!-- Product Studio Showcase (Modern Interactive SaaS App / Dashboard Mockup) -->
-    <div class="mt-14 relative mx-auto max-w-5xl">
+    <!-- Product Studio Showcase (Interactive SaaS App / Mini-System Mockup) -->
+    <div data-opai-animate data-delay="0.4" class="mt-14 relative mx-auto max-w-5xl" id="saas-mockup-container">
       <div class="relative rounded-[28px] border border-black/10 bg-white p-3 sm:p-5 shadow-[0_25px_60px_-15px_rgba(0,0,0,0.08)] backdrop-blur-xl">
         
         <!-- App Window Header -->
@@ -82,107 +58,322 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
         <!-- SaaS Core Dashboard Interface -->
         <div class="pt-4 grid grid-cols-1 lg:grid-cols-12 gap-4">
           
-          <!-- Left Mini Sidebar / Navigation -->
-          <div class="hidden lg:flex lg:col-span-3 flex-col justify-between rounded-2xl border border-black/5 bg-slate-50 p-4">
-            <div class="space-y-4">
-              <div class="flex items-center gap-2.5 pb-3 border-b border-black/5">
-                <div class="h-7 w-7 rounded-lg bg-background-13 text-white flex items-center justify-center font-sora font-bold text-xs">
-                  77
-                </div>
-                <div class="text-left">
-                  <span class="font-sora text-xs font-bold text-background-13 block">Portal B2B</span>
-                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50">Multi-Tenant Platform</span>
-                </div>
+          <!-- Left Interactive Sidebar / Navigation -->
+          <div class="lg:col-span-3 flex flex-col justify-start rounded-2xl border border-black/5 bg-slate-50 p-3 sm:p-4 space-y-4">
+            
+            <!-- Brand Portal Header -->
+            <div class="flex items-center gap-2.5 pb-3 border-b border-black/5">
+              <div class="h-7 w-7 rounded-lg bg-background-13 text-white flex items-center justify-center font-sora font-bold text-xs">
+                77
               </div>
-
-              <div class="space-y-1 text-xs font-inter-tight">
-                <div class="flex items-center gap-2 px-3 py-2 rounded-xl bg-white border border-black/5 text-background-13 font-semibold shadow-xs">
-                  <LayoutDashboard class="w-4 h-4 text-opai-purple" />
-                  <span>Dashboard Central</span>
-                </div>
-                <div class="flex items-center gap-2 px-3 py-2 rounded-xl text-background-13/60 hover:bg-black/5 transition-colors">
-                  <Layers class="w-4 h-4 text-background-13/40" />
-                  <span>Módulos de Clientes</span>
-                </div>
-                <div class="flex items-center gap-2 px-3 py-2 rounded-xl text-background-13/60 hover:bg-black/5 transition-colors">
-                  <Database class="w-4 h-4 text-background-13/40" />
-                  <span>Bases de Datos & APIs</span>
-                </div>
-                <div class="flex items-center gap-2 px-3 py-2 rounded-xl text-background-13/60 hover:bg-black/5 transition-colors">
-                  <BarChart3 class="w-4 h-4 text-background-13/40" />
-                  <span>Reportes en Vivo</span>
-                </div>
+              <div class="text-left">
+                <span class="font-sora text-xs font-bold text-background-13 block">Portal B2B</span>
+                <span class="font-ibm-plex-mono text-[10px] text-background-13/50">Multi-Tenant Platform</span>
               </div>
             </div>
 
-            <div class="pt-3 border-t border-black/5">
-              <div class="rounded-xl bg-amber-50 border border-amber-200/60 p-2.5 text-[11px] font-inter-tight text-amber-900">
-                <span class="font-semibold block font-ibm-plex-mono text-[10px] text-amber-700">ARQUITECTURA MODERNA</span>
-                <span>TypeScript · Astro · Node · PostgreSQL</span>
-              </div>
+            <!-- Navigation Tabs -->
+            <div class="space-y-1 text-xs font-inter-tight" id="saas-nav-tabs">
+              <!-- Tab 1: Dashboard -->
+              <button 
+                type="button"
+                data-tab-target="dashboard"
+                class="saas-tab-btn active w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white border border-black/10 text-background-13 font-semibold shadow-xs transition-all cursor-pointer text-left"
+              >
+                <LayoutDashboard class="w-4 h-4 text-opai-purple shrink-0" />
+                <span>Dashboard Central</span>
+              </button>
+
+              <!-- Tab 2: Clientes -->
+              <button 
+                type="button"
+                data-tab-target="clientes"
+                class="saas-tab-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl border border-transparent text-background-13/60 hover:text-background-13 hover:bg-black/5 transition-all cursor-pointer text-left"
+              >
+                <Layers class="w-4 h-4 text-background-13/40 shrink-0" />
+                <span>Módulos de Clientes</span>
+              </button>
+
+              <!-- Tab 3: Bases de Datos -->
+              <button 
+                type="button"
+                data-tab-target="database"
+                class="saas-tab-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl border border-transparent text-background-13/60 hover:text-background-13 hover:bg-black/5 transition-all cursor-pointer text-left"
+              >
+                <Database class="w-4 h-4 text-background-13/40 shrink-0" />
+                <span>Bases de Datos & APIs</span>
+              </button>
+
+              <!-- Tab 4: Reportes -->
+              <button 
+                type="button"
+                data-tab-target="reportes"
+                class="saas-tab-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl border border-transparent text-background-13/60 hover:text-background-13 hover:bg-black/5 transition-all cursor-pointer text-left"
+              >
+                <BarChart3 class="w-4 h-4 text-background-13/40 shrink-0" />
+                <span>Reportes en Vivo</span>
+              </button>
             </div>
+
           </div>
 
-          <!-- Main Dashboard Interactive Content -->
-          <div class="lg:col-span-9 space-y-4">
+          <!-- Main Interactive Content Panels -->
+          <div class="lg:col-span-9" id="saas-panels-container">
             
-            <!-- Metric Stats Ribbon -->
-            <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
-              <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Usuarios Activos (SaaS)</span>
-                <span class="font-sora text-xl sm:text-2xl font-bold text-background-13 mt-0.5 block">14,820</span>
-                <span class="font-ibm-plex-mono text-[11px] text-emerald-600 font-semibold">↑ +28.4% mensual</span>
+            <!-- PANEL 1: Dashboard Central (Default Visible) -->
+            <div id="panel-dashboard" class="saas-panel active space-y-4">
+              <!-- Metric Stats Ribbon -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Usuarios Activos (SaaS)</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-background-13 mt-0.5 block">14,820</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-emerald-600 font-semibold">↑ +28.4% mensual</span>
+                </div>
+
+                <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Tiempo Ahorrado Equipo</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-opai-purple mt-0.5 block">32h / sem</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-background-13/60 font-medium">Digitalización de procesos</span>
+                </div>
+
+                <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Latencia de Plataforma</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-emerald-600 mt-0.5 block">&lt; 120ms</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-emerald-700 font-semibold">99.98% Uptime SLA</span>
+                </div>
               </div>
 
-              <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Tiempo Ahorrado Equipo</span>
-                <span class="font-sora text-xl sm:text-2xl font-bold text-opai-purple mt-0.5 block">32h / sem</span>
-                <span class="font-ibm-plex-mono text-[11px] text-background-13/60 font-medium">Digitalización de procesos</span>
-              </div>
+              <!-- Central Data Visualisation Box -->
+              <div class="rounded-2xl border border-black/5 bg-slate-50 p-5 text-left">
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <h4 class="font-sora text-sm font-bold text-background-13">Flujo Operativo en Tiempo Real</h4>
+                    <p class="font-inter-tight text-xs text-background-13/60">Monitoreo de transacciones, altas y sincronización de datos</p>
+                  </div>
+                  <span class="font-ibm-plex-mono text-[11px] bg-white border border-black/5 px-2.5 py-1 rounded-lg text-background-13 font-medium">
+                    Live Feed
+                  </span>
+                </div>
 
-              <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Latencia de Plataforma</span>
-                <span class="font-sora text-xl sm:text-2xl font-bold text-emerald-600 mt-0.5 block">&lt; 120ms</span>
-                <span class="font-ibm-plex-mono text-[11px] text-emerald-700 font-semibold">99.98% Uptime SLA</span>
+                <!-- Flow Timeline Items -->
+                <div class="space-y-2 font-ibm-plex-mono text-xs">
+                  <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
+                    <div class="flex items-center gap-2.5">
+                      <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
+                      <span class="font-medium text-background-13">Nuevo Tenant Corporativo Registrado</span>
+                    </div>
+                    <span class="text-background-13/40 text-[11px]">Hace 2 min · Autogestión</span>
+                  </div>
+
+                  <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
+                    <div class="flex items-center gap-2.5">
+                      <span class="h-2 w-2 rounded-full bg-opai-purple"></span>
+                      <span class="font-medium text-background-13">Exportación Automática de Reporte Financiero</span>
+                    </div>
+                    <span class="text-background-13/40 text-[11px]">Hace 8 min · Cron Job</span>
+                  </div>
+
+                  <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
+                    <div class="flex items-center gap-2.5">
+                      <span class="h-2 w-2 rounded-full bg-blue-500"></span>
+                      <span class="font-medium text-background-13">Sincronización Webhook API con CRM</span>
+                    </div>
+                    <span class="text-background-13/40 text-[11px]">Hace 14 min · 200 OK</span>
+                  </div>
+                </div>
               </div>
             </div>
 
-            <!-- Central Data Visualisation Box -->
-            <div class="rounded-2xl border border-black/5 bg-slate-50 p-5 text-left">
-              <div class="flex items-center justify-between mb-4">
-                <div>
-                  <h4 class="font-sora text-sm font-bold text-background-13">Flujo Operativo en Tiempo Real</h4>
-                  <p class="font-inter-tight text-xs text-background-13/60">Monitoreo de transacciones, altas y sincronización de datos</p>
+            <!-- PANEL 2: Módulos de Clientes (Tenants) -->
+            <div id="panel-clientes" class="saas-panel hidden space-y-4">
+              <!-- Metric Stats Ribbon -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Empresas Activas (Tenants)</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-background-13 mt-0.5 block">48 Empresas</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-emerald-600 font-semibold">100% Onboarded</span>
                 </div>
-                <span class="font-ibm-plex-mono text-[11px] bg-white border border-black/5 px-2.5 py-1 rounded-lg text-background-13 font-medium">
-                  Live Feed
-                </span>
+
+                <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Ingresos Recurrentes (MRR)</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-opai-purple mt-0.5 block">$28,400 USD</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-background-13/60 font-medium">Facturación automatizada</span>
+                </div>
+
+                <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Retención de Clientes</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-emerald-600 mt-0.5 block">99.4%</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-emerald-700 font-semibold">Churn &lt; 0.6%</span>
+                </div>
               </div>
 
-              <!-- Flow Timeline Items -->
-              <div class="space-y-2 font-ibm-plex-mono text-xs">
-                <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
-                  <div class="flex items-center gap-2.5">
-                    <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-                    <span class="font-medium text-background-13">Nuevo Tenant Corporativo Registrado</span>
+              <!-- Client List Table -->
+              <div class="rounded-2xl border border-black/5 bg-slate-50 p-5 text-left">
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <h4 class="font-sora text-sm font-bold text-background-13">Portales Privados de Clientes</h4>
+                    <p class="font-inter-tight text-xs text-background-13/60">Gestión de accesos, roles y facturación por empresa</p>
                   </div>
-                  <span class="text-background-13/40 text-[11px]">Hace 2 min · Autogestión</span>
+                  <span class="font-ibm-plex-mono text-[11px] bg-emerald-50 text-emerald-700 border border-emerald-200/60 px-2.5 py-1 rounded-lg font-semibold">
+                    Multi-Tenant
+                  </span>
                 </div>
 
-                <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
-                  <div class="flex items-center gap-2.5">
-                    <span class="h-2 w-2 rounded-full bg-opai-purple"></span>
-                    <span class="font-medium text-background-13">Exportación Automática de Reporte Financiero</span>
+                <div class="space-y-2 font-ibm-plex-mono text-xs">
+                  <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
+                    <div class="flex items-center gap-3">
+                      <div class="size-6 rounded-md bg-blue-600/10 text-blue-600 flex items-center justify-center font-bold text-[11px]">AC</div>
+                      <div>
+                        <span class="font-bold text-background-13 block">Acme Corp Logistics</span>
+                        <span class="text-background-13/50 text-[10px]">Plan Enterprise · 180 Usuarios</span>
+                      </div>
+                    </div>
+                    <span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-semibold">Activo</span>
                   </div>
-                  <span class="text-background-13/40 text-[11px]">Hace 8 min · Cron Job</span>
+
+                  <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
+                    <div class="flex items-center gap-3">
+                      <div class="size-6 rounded-md bg-purple-600/10 text-purple-600 flex items-center justify-center font-bold text-[11px]">FL</div>
+                      <div>
+                        <span class="font-bold text-background-13 block">Fintech Latam Partners</span>
+                        <span class="text-background-13/50 text-[10px]">Plan Scale Pro · 45 Usuarios</span>
+                      </div>
+                    </div>
+                    <span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-semibold">Activo</span>
+                  </div>
+
+                  <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
+                    <div class="flex items-center gap-3">
+                      <div class="size-6 rounded-md bg-amber-600/10 text-amber-600 flex items-center justify-center font-bold text-[11px]">GI</div>
+                      <div>
+                        <span class="font-bold text-background-13 block">Grupo Industrial & Distribución</span>
+                        <span class="text-background-13/50 text-[10px]">Portal Mayorista B2B</span>
+                      </div>
+                    </div>
+                    <span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-semibold">Activo</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 3: Bases de Datos & APIs -->
+            <div id="panel-database" class="saas-panel hidden space-y-4">
+              <!-- Metric Stats Ribbon -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Motor de Datos</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-background-13 mt-0.5 block">PostgreSQL 16</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-emerald-600 font-semibold">Alta Disponibilidad</span>
                 </div>
 
-                <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
-                  <div class="flex items-center gap-2.5">
-                    <span class="h-2 w-2 rounded-full bg-blue-500"></span>
-                    <span class="font-medium text-background-13">Sincronización Webhook API con CRM</span>
+                <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Endpoints & Webhooks</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-opai-purple mt-0.5 block">24 Servicios</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-background-13/60 font-medium">REST &amp; GraphQL API</span>
+                </div>
+
+                <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Tasa de Error Global</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-emerald-600 mt-0.5 block">0.01%</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-emerald-700 font-semibold">Self-healing Architecture</span>
+                </div>
+              </div>
+
+              <!-- Database Endpoints Monitor -->
+              <div class="rounded-2xl border border-black/5 bg-slate-50 p-5 text-left">
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <h4 class="font-sora text-sm font-bold text-background-13">Microservicios & Conexiones API</h4>
+                    <p class="font-inter-tight text-xs text-background-13/60">Integración en tiempo real con pasarelas, CRM y bases de datos</p>
                   </div>
-                  <span class="text-background-13/40 text-[11px]">Hace 14 min · 200 OK</span>
+                  <span class="font-ibm-plex-mono text-[11px] bg-blue-50 text-blue-700 border border-blue-200/60 px-2.5 py-1 rounded-lg font-semibold">
+                    API Gateway
+                  </span>
+                </div>
+
+                <div class="space-y-2 font-ibm-plex-mono text-xs">
+                  <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
+                    <div class="flex items-center gap-2.5">
+                      <span class="px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-800 text-[10px] font-bold">POST</span>
+                      <span class="font-medium text-background-13">/api/v1/auth/session</span>
+                    </div>
+                    <span class="text-emerald-600 text-[11px] font-semibold">200 OK · 24ms</span>
+                  </div>
+
+                  <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
+                    <div class="flex items-center gap-2.5">
+                      <span class="px-1.5 py-0.5 rounded bg-blue-100 text-blue-800 text-[10px] font-bold">GET</span>
+                      <span class="font-medium text-background-13">/api/v1/tenants/sync</span>
+                    </div>
+                    <span class="text-emerald-600 text-[11px] font-semibold">200 OK · 48ms</span>
+                  </div>
+
+                  <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
+                    <div class="flex items-center gap-2.5">
+                      <span class="px-1.5 py-0.5 rounded bg-purple-100 text-purple-800 text-[10px] font-bold">WS</span>
+                      <span class="font-medium text-background-13">/realtime/subscriptions</span>
+                    </div>
+                    <span class="text-opai-purple text-[11px] font-semibold">Connected · 11ms</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- PANEL 4: Reportes en Vivo -->
+            <div id="panel-reportes" class="saas-panel hidden space-y-4">
+              <!-- Metric Stats Ribbon -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Eficiencia Operativa</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-background-13 mt-0.5 block">+210%</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-emerald-600 font-semibold">Cero tareas manuales</span>
+                </div>
+
+                <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Satisfacción de Usuario</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-opai-purple mt-0.5 block">98.6 CSAT</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-background-13/60 font-medium">Adopción intuitiva UX/UI</span>
+                </div>
+
+                <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Tiempo a Valor (TTV)</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-emerald-600 mt-0.5 block">&lt; 3 Semanas</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-emerald-700 font-semibold">Lanzamiento MVP rápido</span>
+                </div>
+              </div>
+
+              <!-- Report Metrics Breakdown -->
+              <div class="rounded-2xl border border-black/5 bg-slate-50 p-5 text-left">
+                <div class="flex items-center justify-between mb-4">
+                  <div>
+                    <h4 class="font-sora text-sm font-bold text-background-13">Métricas de Adopción & Rendimiento</h4>
+                    <p class="font-inter-tight text-xs text-background-13/60">Impacto medible en la rentabilidad y velocidad de tu empresa</p>
+                  </div>
+                  <span class="font-ibm-plex-mono text-[11px] bg-purple-50 text-opai-purple border border-opai-purple/20 px-2.5 py-1 rounded-lg font-semibold">
+                    Live Analytics
+                  </span>
+                </div>
+
+                <div class="space-y-3 font-inter-tight text-xs">
+                  <div class="bg-white p-3 rounded-xl border border-black/5 space-y-1.5">
+                    <div class="flex justify-between font-ibm-plex-mono">
+                      <span class="font-medium text-background-13">Automatización de Cobros & Facturación</span>
+                      <span class="font-bold text-emerald-600">99.8% completado</span>
+                    </div>
+                    <div class="w-full h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                      <div class="h-full rounded-full bg-emerald-500 w-[99.8%]"></div>
+                    </div>
+                  </div>
+
+                  <div class="bg-white p-3 rounded-xl border border-black/5 space-y-1.5">
+                    <div class="flex justify-between font-ibm-plex-mono">
+                      <span class="font-medium text-background-13">Adopción de Usuarios en Portal Privado</span>
+                      <span class="font-bold text-opai-purple">94.2% activo diario</span>
+                    </div>
+                    <div class="w-full h-1.5 rounded-full bg-slate-100 overflow-hidden">
+                      <div class="h-full rounded-full bg-opai-purple w-[94.2%]"></div>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -196,3 +387,57 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
 
   </div>
 </section>
+
+<script>
+  function initSaasMockupTabs() {
+    const container = document.getElementById('saas-mockup-container');
+    if (!container) return;
+
+    const tabButtons = container.querySelectorAll('.saas-tab-btn');
+    const panels = container.querySelectorAll('.saas-panel');
+
+    tabButtons.forEach((btn) => {
+      btn.addEventListener('click', () => {
+        const targetId = btn.getAttribute('data-tab-target');
+        if (!targetId) return;
+
+        // Update active tab button styles
+        tabButtons.forEach((b) => {
+          b.classList.remove('active', 'bg-white', 'border-black/10', 'text-background-13', 'font-semibold', 'shadow-xs');
+          b.classList.add('border-transparent', 'text-background-13/60');
+          const icon = b.querySelector('svg');
+          if (icon) {
+            icon.classList.remove('text-opai-purple');
+            icon.classList.add('text-background-13/40');
+          }
+        });
+
+        btn.classList.add('active', 'bg-white', 'border-black/10', 'text-background-13', 'font-semibold', 'shadow-xs');
+        btn.classList.remove('border-transparent', 'text-background-13/60');
+        const activeIcon = btn.querySelector('svg');
+        if (activeIcon) {
+          activeIcon.classList.remove('text-background-13/40');
+          activeIcon.classList.add('text-opai-purple');
+        }
+
+        // Show target panel with smooth transition
+        panels.forEach((panel) => {
+          if (panel.id === `panel-${targetId}`) {
+            panel.classList.remove('hidden');
+            panel.classList.add('active');
+          } else {
+            panel.classList.add('hidden');
+            panel.classList.remove('active');
+          }
+        });
+      });
+    });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initSaasMockupTabs);
+  } else {
+    initSaasMockupTabs();
+  }
+  document.addEventListener('astro:page-load', initSaasMockupTabs);
+</script>

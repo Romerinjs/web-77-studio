@@ -1,39 +1,37 @@
 ---
 // src/components/ia/HeroIA.astro
 import DualCTA from '@/components/DualCTA.astro';
-import { Cpu, Zap, ArrowRight, Bot, Database, MessageSquare, CheckCircle2 } from 'lucide-astro';
+import { Zap, Bot, Database, MessageSquare } from 'lucide-astro';
 ---
 
-<section class="relative pt-36 pb-16 sm:pt-44 sm:pb-24 overflow-hidden">
+<section 
+  class="relative pt-36 pb-16 sm:pt-44 sm:pb-24 overflow-hidden bg-cover bg-center bg-no-repeat"
+  style="background-image: url('/img/ia-automatizacion-hero.webp');"
+>
+  <!-- Higher White Tint / Opacity Overlay for Greater Clarity -->
+  <div class="absolute inset-0 bg-white/80 backdrop-blur-[1px]"></div>
+
   <!-- Ambient Gradient Glow -->
-  <div class="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center opacity-60">
+  <div class="pointer-events-none absolute inset-0 -z-10 flex items-center justify-center opacity-30">
     <div class="h-[520px] w-[520px] rounded-full bg-gradient-to-tr from-opai-purple/15 to-transparent blur-[130px]"></div>
     <div class="h-[420px] w-[420px] rounded-full bg-gradient-to-bl from-indigo-500/10 to-transparent blur-[110px] -translate-y-20"></div>
   </div>
 
-  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6 relative z-10">
     <div class="text-center max-w-4xl mx-auto">
       
-      <!-- Top Pill Badge -->
-      <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white/90 px-4 py-1.5 backdrop-blur-md shadow-xs mb-6">
-        <span class="h-2 w-2 rounded-full bg-opai-purple animate-pulse"></span>
-        <span class="font-ibm-plex-mono text-xs font-medium tracking-wide text-background-13/80 uppercase">
-          Módulo 04 · IA Aplicada & Automatización de Procesos
-        </span>
-      </div>
-
       <!-- Main Headline -->
-      <h1 class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
+      <h1 data-text-reveal class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
         Haz que tu empresa funcione de forma <span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">más inteligente</span>.
       </h1>
 
       <!-- Subheadline -->
-      <p class="font-inter-tight text-lg sm:text-xl text-background-13/75 max-w-3xl mx-auto mb-9 leading-relaxed">
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-lg sm:text-xl text-background-13/85 max-w-3xl mx-auto mb-9 leading-relaxed font-medium">
         Menos tareas manuales. Más tiempo para hacer crecer tu empresa. Diseñamos automatizaciones de procesos y soluciones de IA aplicada para optimizar el seguimiento de prospectos, la atención a clientes y la eficiencia operativa.
       </p>
 
       <!-- Dual Commercial CTA (WhatsApp IA context + Contact form) -->
-      <div class="mb-12">
+      <div data-opai-animate data-delay="0.3">
         <DualCTA
           whatsappContext="ia"
           whatsappText="Explorar Oportunidades de IA"
@@ -43,123 +41,83 @@ import { Cpu, Zap, ArrowRight, Bot, Database, MessageSquare, CheckCircle2 } from
         />
       </div>
 
-      <!-- Trust Pillars -->
-      <div class="pt-4 flex flex-wrap items-center justify-center gap-y-3 gap-x-8 text-xs font-ibm-plex-mono text-background-13/60 border-t border-black/5">
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-500 font-bold">✓</span>
-          <span>Tecnología sin Humo ni Clichés</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-500 font-bold">✓</span>
-          <span>Respuestas a Leads en &lt; 15 Segundos</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-emerald-500 font-bold">✓</span>
-          <span>Integración Total con CRM & WhatsApp</span>
-        </div>
-      </div>
-
     </div>
 
-    <!-- Interactive Node Architecture & Live Flow Showcase -->
-    <div class="mt-14 relative mx-auto max-w-5xl">
-      <div class="relative rounded-[24px] border border-black/10 bg-white/95 p-4 sm:p-6 shadow-[0_20px_50px_-15px_rgba(0,0,0,0.08)] backdrop-blur-xl">
-        
-        <!-- Showcase Header Bar -->
-        <div class="flex flex-wrap items-center justify-between border-b border-black/5 pb-4 gap-3">
-          <div class="flex items-center gap-2">
-            <div class="h-3 w-3 rounded-full bg-red-400/80"></div>
-            <div class="h-3 w-3 rounded-full bg-amber-400/80"></div>
-            <div class="h-3 w-3 rounded-full bg-emerald-400/80"></div>
-            <span class="ml-2 font-ibm-plex-mono text-xs text-background-13/50">workflow.77.studio // lead-to-close-pipeline</span>
+    <!-- 4 Standalone Separated Cards (Clean without top tags, Black Icon, White Card) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mt-12 max-w-5xl mx-auto">
+      
+      <!-- Card 1: Disparador -->
+      <div data-opai-animate data-delay="0.1" class="rounded-2xl border border-black/10 bg-white/95 p-5 sm:p-6 backdrop-blur-md shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+        <div>
+          <!-- Icon: White icon inside black background -->
+          <div class="h-11 w-11 rounded-xl bg-background-13 text-white flex items-center justify-center mb-4 shadow-xs group-hover:scale-105 transition-transform">
+            <Zap class="h-5 w-5 text-white" />
           </div>
 
-          <div class="flex items-center gap-3">
-            <span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-ibm-plex-mono text-xs font-medium">
-              <span class="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-ping"></span>
-              Pipeline en Ejecución Automática
-            </span>
-            <span class="hidden sm:inline-block font-ibm-plex-mono text-xs text-background-13/40">Latencia: 120ms</span>
-          </div>
+          <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 mb-2">
+            Lead Entrante
+          </h3>
+
+          <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
+            Captura desde Formulario Web, Anuncio de Meta Ads o WhatsApp.
+          </p>
         </div>
-
-        <!-- 4 Sequential Connected Workflow Nodes -->
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4 pt-6 relative">
-          
-          <!-- Node 1: Inbound Trigger -->
-          <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 relative transition-all hover:bg-white hover:shadow-xs group">
-            <div class="flex items-center justify-between mb-3">
-              <span class="font-ibm-plex-mono text-[11px] font-semibold text-blue-600 uppercase">01. DISPARADOR</span>
-              <span class="h-2 w-2 rounded-full bg-blue-500"></span>
-            </div>
-            <div class="h-10 w-10 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center mb-3">
-              <Zap class="h-5 w-5" />
-            </div>
-            <h3 class="font-sora text-sm font-bold text-background-13 mb-1">Lead Entrante</h3>
-            <p class="font-inter-tight text-xs text-background-13/70 leading-relaxed">
-              Captura desde Formulario Web, Anuncio de Meta Ads o WhatsApp.
-            </p>
-          </div>
-
-          <!-- Node 2: AI Agent & Qualifier -->
-          <div class="rounded-2xl border border-opai-purple/30 bg-opai-purple/5 p-4 relative transition-all hover:bg-white hover:shadow-xs group">
-            <div class="flex items-center justify-between mb-3">
-              <span class="font-ibm-plex-mono text-[11px] font-semibold text-opai-purple uppercase">02. AGENTE IA</span>
-              <span class="h-2 w-2 rounded-full bg-opai-purple animate-pulse"></span>
-            </div>
-            <div class="h-10 w-10 rounded-xl bg-opai-purple/10 text-opai-purple flex items-center justify-center mb-3">
-              <Bot class="h-5 w-5" />
-            </div>
-            <h3 class="font-sora text-sm font-bold text-background-13 mb-1">Análisis & Scoring</h3>
-            <p class="font-inter-tight text-xs text-background-13/70 leading-relaxed">
-              Evalúa la intención de compra, extrae datos clave y clasifica el lead.
-            </p>
-          </div>
-
-          <!-- Node 3: CRM Synchronization -->
-          <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 relative transition-all hover:bg-white hover:shadow-xs group">
-            <div class="flex items-center justify-between mb-3">
-              <span class="font-ibm-plex-mono text-[11px] font-semibold text-amber-600 uppercase">03. CRM HUB</span>
-              <span class="h-2 w-2 rounded-full bg-amber-500"></span>
-            </div>
-            <div class="h-10 w-10 rounded-xl bg-amber-50 text-amber-600 flex items-center justify-center mb-3">
-              <Database class="h-5 w-5" />
-            </div>
-            <h3 class="font-sora text-sm font-bold text-background-13 mb-1">Registro en CRM</h3>
-            <p class="font-inter-tight text-xs text-background-13/70 leading-relaxed">
-              Crea el contacto en HubSpot/Zoho con etiqueta de servicio y presupuesto.
-            </p>
-          </div>
-
-          <!-- Node 4: Action & Human Handover -->
-          <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 relative transition-all hover:bg-white hover:shadow-xs group">
-            <div class="flex items-center justify-between mb-3">
-              <span class="font-ibm-plex-mono text-[11px] font-semibold text-emerald-600 uppercase">04. ACCIÓN</span>
-              <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-            </div>
-            <div class="h-10 w-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mb-3">
-              <MessageSquare class="h-5 w-5" />
-            </div>
-            <h3 class="font-sora text-sm font-bold text-background-13 mb-1">Cierre Humano</h3>
-            <p class="font-inter-tight text-xs text-background-13/70 leading-relaxed">
-              Notificación instantánea a WhatsApp del vendedor con resumen listo.
-            </p>
-          </div>
-
-        </div>
-
-        <!-- Live Impact Banner at Bottom of Mockup -->
-        <div class="mt-6 pt-4 border-t border-black/5 flex flex-wrap items-center justify-between gap-3 text-xs font-ibm-plex-mono text-background-13/70">
-          <div class="flex items-center gap-2">
-            <span class="font-semibold text-background-13">Resultado del Flujo:</span>
-            <span class="text-emerald-600 font-medium">0% Leads Perdidos · Tiempo de Respuesta &lt; 30 segundos</span>
-          </div>
-          <div class="flex items-center gap-2 text-opai-purple font-medium">
-            <span>Make / n8n / OpenAI / Webhooks</span>
-          </div>
-        </div>
-
       </div>
+
+      <!-- Card 2: Agente IA -->
+      <div data-opai-animate data-delay="0.2" class="rounded-2xl border border-black/10 bg-white/95 p-5 sm:p-6 backdrop-blur-md shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+        <div>
+          <!-- Icon: White icon inside black background -->
+          <div class="h-11 w-11 rounded-xl bg-background-13 text-white flex items-center justify-center mb-4 shadow-xs group-hover:scale-105 transition-transform">
+            <Bot class="h-5 w-5 text-white" />
+          </div>
+
+          <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 mb-2">
+            Análisis & Scoring
+          </h3>
+
+          <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
+            Evalúa la intención de compra, extrae datos clave y clasifica el lead.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 3: CRM Hub -->
+      <div data-opai-animate data-delay="0.3" class="rounded-2xl border border-black/10 bg-white/95 p-5 sm:p-6 backdrop-blur-md shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+        <div>
+          <!-- Icon: White icon inside black background -->
+          <div class="h-11 w-11 rounded-xl bg-background-13 text-white flex items-center justify-center mb-4 shadow-xs group-hover:scale-105 transition-transform">
+            <Database class="h-5 w-5 text-white" />
+          </div>
+
+          <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 mb-2">
+            Registro en CRM
+          </h3>
+
+          <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
+            Crea el contacto en HubSpot/Zoho con etiqueta de servicio y presupuesto.
+          </p>
+        </div>
+      </div>
+
+      <!-- Card 4: Acción -->
+      <div data-opai-animate data-delay="0.4" class="rounded-2xl border border-black/10 bg-white/95 p-5 sm:p-6 backdrop-blur-md shadow-xs hover:shadow-md transition-all flex flex-col justify-between group">
+        <div>
+          <!-- Icon: White icon inside black background -->
+          <div class="h-11 w-11 rounded-xl bg-background-13 text-white flex items-center justify-center mb-4 shadow-xs group-hover:scale-105 transition-transform">
+            <MessageSquare class="h-5 w-5 text-white" />
+          </div>
+
+          <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 mb-2">
+            Cierre Humano
+          </h3>
+
+          <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
+            Notificación instantánea a WhatsApp del vendedor con resumen listo.
+          </p>
+        </div>
+      </div>
+
     </div>
 
   </div>
