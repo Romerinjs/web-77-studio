@@ -4,6 +4,7 @@ import '@/styles/global.css';
 import Header from '@/components/Header.astro';
 import Footer from '@/components/Footer.astro';
 import MobileStickyBar from '@/components/MobileStickyBar.astro';
+import AIChatWidget from '@/components/chat/AIChatWidget.astro';
 import { DEFAULT_SEO } from '@/utils/seo';
 import type { WhatsAppContext } from '@/utils/whatsapp';
 
@@ -108,6 +109,9 @@ const currentPath = Astro.url.pathname;
     {!hideFooter && <Footer />}
 
     {!hideMobileBar && <MobileStickyBar whatsappContext={whatsappContext} />}
+
+    <!-- Agente de IA Flotante (Eve 77 Studio) -->
+    <AIChatWidget whatsappContext={whatsappContext} />
 
     <!-- 77 Studio Client-Side Animation Engine -->
     <script src="@/scripts/animations.ts"></script>

@@ -4,19 +4,20 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "77": "node scripts/77-cli.mjs",
     "dev": "astro dev",
     "start": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
     "astro": "astro",
-    "check": "astro check",
-    "77": "node scripts/77-cli.mjs"
+    "check": "astro check"
   },
   "dependencies": {
     "@astrojs/mdx": "^4.1.0",
     "@astrojs/vercel": "^8.0.7",
     "@tailwindcss/vite": "^4.0.9",
     "astro": "^5.4.1",
+    "chat": "^4.39.0",
     "clsx": "^2.1.1",
     "lucide-astro": "^0.556.0",
     "tailwind-merge": "^3.0.2",
