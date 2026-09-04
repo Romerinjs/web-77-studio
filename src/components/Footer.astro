@@ -1,20 +1,15 @@
 ---
 // src/components/Footer.astro
+import { uiTranslations, type SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const t = uiTranslations[currentLang];
 const currentYear = new Date().getFullYear();
-
-const serviceLinks = [
-  { label: 'Marketing Digital & Ads', href: '/marketing' },
-  { label: 'Desarrollo Web Astro', href: '/web' },
-  { label: 'IA + Automatización', href: '/ia-automatizacion' },
-  { label: 'Productos Digitales (SaaS)', href: '/productos-digitales' },
-];
-
-const companyLinks = [
-  { label: 'Acerca de Nosotros', href: '/nosotros' },
-  { label: 'Casos de Negocio', href: '/#casos' },
-  { label: 'Metodología en 4 Pasos', href: '/#proceso' },
-  { label: 'Contacto & Diagnóstico', href: '/contacto' },
-];
+const homeUrl = currentLang === 'en' ? '/en' : '/';
 ---
 
 <footer class="border-t border-black/10 bg-white pt-16 pb-24 sm:pb-12 text-background-13">
@@ -23,7 +18,7 @@ const companyLinks = [
       
       <!-- Brand column (2 cols wide on LG) -->
       <div class="lg:col-span-2 space-y-4">
-        <a href="/" class="flex items-center gap-2.5">
+        <a href={homeUrl} class="flex items-center gap-2.5">
           <div class="h-8 w-8 rounded-lg bg-background-13 flex items-center justify-center text-white font-sora font-bold text-sm tracking-tighter">
             77
           </div>
@@ -33,20 +28,17 @@ const companyLinks = [
         </a>
         
         <p class="font-inter-tight text-background-13/70 text-sm max-w-sm leading-relaxed">
-        Un solo equipo para hacer que tu empresa se vea mejor, venda mejor y funcione mejor.
+          {t.footer.tagline}
         </p>
-
-        <div class="pt-2 flex items-center gap-2 font-ibm-plex-mono text-xs text-background-13/60">
-        </div>
       </div>
 
       <!-- Servicios -->
       <div>
         <h4 class="font-sora font-semibold text-sm text-background-13 tracking-tight mb-4">
-          Servicios
+          {t.footer.servicesHeading}
         </h4>
         <ul class="space-y-2.5 text-sm text-background-13/70">
-          {serviceLinks.map((link) => (
+          {t.footer.serviceLinks.map((link) => (
             <li>
               <a href={link.href} class="hover:text-background-13 hover:translate-x-1 inline-block transition-transform">
                 {link.label}
@@ -59,10 +51,10 @@ const companyLinks = [
       <!-- Empresa -->
       <div>
         <h4 class="font-sora font-semibold text-sm text-background-13 tracking-tight mb-4">
-          Empresa
+          {t.footer.companyHeading}
         </h4>
         <ul class="space-y-2.5 text-sm text-background-13/70">
-          {companyLinks.map((link) => (
+          {t.footer.companyLinks.map((link) => (
             <li>
               <a href={link.href} class="hover:text-background-13 hover:translate-x-1 inline-block transition-transform">
                 {link.label}
@@ -75,7 +67,7 @@ const companyLinks = [
       <!-- Presencia Internacional -->
       <div>
         <h4 class="font-sora font-semibold text-sm text-background-13 tracking-tight mb-4">
-          Sedes & Cobertura
+          {currentLang === 'en' ? 'Offices & Reach' : 'Sedes & Cobertura'}
         </h4>
         <div class="space-y-3 text-sm text-background-13/70">
           <div class="rounded-xl border border-black/5 bg-slate-50 p-3">
@@ -83,8 +75,8 @@ const companyLinks = [
             <span class="text-xs text-background-13/60">Medellín / Bogotá · LatAm Hub</span>
           </div>
           <div class="rounded-xl border border-black/5 bg-slate-50 p-3">
-            <span class="font-semibold block text-background-13 text-xs font-ibm-plex-mono">ESTADOS UNIDOS</span>
-            <span class="text-xs text-background-13/60">North America & Global Clients</span>
+            <span class="font-semibold block text-background-13 text-xs font-ibm-plex-mono">UNITED STATES</span>
+            <span class="text-xs text-background-13/60">Miami, FL · North America & Global</span>
           </div>
         </div>
       </div>
@@ -93,10 +85,10 @@ const companyLinks = [
 
     <!-- Bottom copyright row -->
     <div class="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs font-inter-tight text-background-13/50">
-      <p>© {currentYear} 77 Studio. Todos los derechos reservados.</p>
+      <p>© {currentYear} 77 Studio. {t.footer.rights}</p>
       
-      <div class="flex items-center gap-6 font-ibm-plex-mono">
-
+      <div class="flex items-center gap-6 font-ibm-plex-mono text-xs text-background-13/60">
+        <span>{t.footer.presence}</span>
       </div>
     </div>
   </div>

@@ -1,30 +1,49 @@
 ---
 // src/components/productos/ProductProcessSection.astro
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
 const steps = [
   {
     step: "01",
-    title: "Problema & Requisitos",
-    description: "Mapeamos el flujo de trabajo actual, identificamos los cuellos de botella y definimos con precisión qué debe resolver la herramienta antes de tirar una sola línea de código."
+    title: isEn ? "Problem & Requirements" : "Problema & Requisitos",
+    description: isEn
+      ? "We map your current workflow, identify operational bottlenecks, and precisely define what the system must resolve before writing a single line of code."
+      : "Mapeamos el flujo de trabajo actual, identificamos los cuellos de botella y definimos con precisión qué debe resolver la herramienta antes de tirar una sola línea de código."
   },
   {
     step: "02",
-    title: "Prototipos & Flujo UX/UI",
-    description: "Creamos wireframes interactivos y el diseño visual de cada pantalla para que puedas ver y validar la experiencia de usuario y la lógica operativa antes del desarrollo."
+    title: isEn ? "Prototypes & UX/UI Flow" : "Prototipos & Flujo UX/UI",
+    description: isEn
+      ? "We design interactive wireframes and the visual UI of every screen so you can validate user experience and business logic before full engineering."
+      : "Creamos wireframes interactivos y el diseño visual de cada pantalla para que puedas ver y validar la experiencia de usuario y la lógica operativa antes del desarrollo."
   },
   {
     step: "03",
-    title: "Desarrollo Ágil & Robusto",
-    description: "Programamos la plataforma utilizando tecnologías modernas, seguras y escalables (Astro, TypeScript, Node.js, PostgreSQL y APIs REST/GraphQL)."
+    title: isEn ? "Agile & Robust Development" : "Desarrollo Ágil & Robusto",
+    description: isEn
+      ? "We build the platform using modern, secure, and hyper-scalable technologies (Astro, TypeScript, Node.js, PostgreSQL, and REST/GraphQL APIs)."
+      : "Programamos la plataforma utilizando tecnologías modernas, seguras y escalables (Astro, TypeScript, Node.js, PostgreSQL y APIs REST/GraphQL)."
   },
   {
     step: "04",
-    title: "Despliegue & Validación",
-    description: "Configuramos los servidores cloud en Vercel o Dokploy, realizamos pruebas de seguridad y lanzamos la versión funcional para tu equipo o primeros usuarios."
+    title: isEn ? "Deployment & Validation" : "Despliegue & Validación",
+    description: isEn
+      ? "We configure cloud infrastructure on Vercel or Dokploy, perform security audits, and launch the functional version for your team or beta users."
+      : "Configuramos los servidores cloud en Vercel o Dokploy, realizamos pruebas de seguridad y lanzamos la versión funcional para tu equipo o primeros usuarios."
   },
   {
     step: "05",
-    title: "Iteración & Nuevos Módulos",
-    description: "Analizamos el uso real de la herramienta e incorporamos mejoras continuas, nuevas automatizaciones y módulos adicionales a medida que tu empresa crece."
+    title: isEn ? "Iteration & Feature Growth" : "Iteración & Nuevos Módulos",
+    description: isEn
+      ? "We analyze live platform usage to continuously deploy optimizations, new automated workflows, and additional feature modules as your business expands."
+      : "Analizamos el uso real de la herramienta e incorporamos mejoras continuas, nuevas automatizaciones y módulos adicionales a medida que tu empresa crece."
   }
 ];
 ---
@@ -35,10 +54,12 @@ const steps = [
     <!-- Section Header (Centered) -->
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        De la necesidad a un producto funcional en 5 pasos.
+        {isEn ? "From business requirement to functional software in 5 steps." : "De la necesidad a un producto funcional en 5 pasos."}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-        Un proceso estructurado para construir herramientas digitales ágiles sin proyectos interminables ni desviaciones presupuestarias.
+        {isEn
+          ? "A structured process to build agile digital tools without endless projects or budget overruns."
+          : "Un proceso estructurado para construir herramientas digitales ágiles sin proyectos interminables ni desviaciones presupuestarias."}
       </p>
     </div>
 

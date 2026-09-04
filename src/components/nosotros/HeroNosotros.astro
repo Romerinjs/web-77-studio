@@ -2,6 +2,15 @@
 // src/components/nosotros/HeroNosotros.astro
 import DualCTA from '@/components/DualCTA.astro';
 import { Palette, Code2, Cpu } from 'lucide-astro';
+import { getNosotrosTranslations } from '@/lib/i18n/pages/nosotros';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const t = getNosotrosTranslations(currentLang);
 
 const heroImages = [
   "https://77studio.co/wp-content/uploads/2024/11/77-scaled.jpg",
@@ -40,22 +49,23 @@ const heroImages = [
       
       <!-- Main Headline -->
       <h1 data-text-reveal class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6 drop-shadow-sm">
-        Un equipo creativo y tecnológico construido para <span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">resolver retos digitales</span>.
+        {t.hero.headline}<span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">{t.hero.headlineHighlight}</span>
       </h1>
 
       <!-- Subheadline -->
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-lg sm:text-xl text-background-13/95 max-w-3xl mx-auto mb-10 leading-relaxed font-semibold drop-shadow-xs">
-        Un solo equipo multidisciplinario que reúne estrategia, Paid Media, diseño, ingeniería web, automatización e inteligencia artificial. Sin burocracia de agencia tradicional ni silos desconectados.
+        {t.hero.subheadline}
       </p>
 
       <!-- Dual Commercial CTA -->
       <div data-opai-animate data-delay="0.3" class="mb-14">
         <DualCTA
           whatsappContext="nosotros"
-          whatsappText="Hablar con el equipo fundador"
-          emailText="Escribirnos por email"
+          whatsappText={t.hero.whatsappBtn}
+          emailText={t.hero.emailBtn}
           emailHref="#contacto"
           centered={true}
+          lang={currentLang}
         />
       </div>
 
@@ -70,10 +80,12 @@ const heroImages = [
           <Palette class="h-6 w-6 text-white" />
         </div>
         <h3 class="font-sora text-xl font-bold text-background-13 mb-2.5 group-hover:text-opai-purple transition-colors">
-          Estrategia & Contenido
+          {currentLang === 'en' ? 'Strategy & Creative Content' : 'Estrategia & Contenido'}
         </h3>
         <p class="font-inter-tight text-sm text-background-13/80 leading-relaxed">
-          Dirección de arte, producción audiovisual, copywriting persuasivo y campañas publicitarias en Meta y Google.
+          {currentLang === 'en'
+            ? 'Art direction, cinematic video production, persuasive copywriting, and full-funnel paid media across Meta and Google.'
+            : 'Dirección de arte, producción audiovisual, copywriting persuasivo y campañas publicitarias en Meta y Google.'}
         </p>
       </div>
 
@@ -83,10 +95,12 @@ const heroImages = [
           <Code2 class="h-6 w-6 text-white" />
         </div>
         <h3 class="font-sora text-xl font-bold text-background-13 mb-2.5 group-hover:text-opai-purple transition-colors">
-          Desarrollo Web & SaaS
+          {currentLang === 'en' ? 'Web Engineering & SaaS' : 'Desarrollo Web & SaaS'}
         </h3>
         <p class="font-inter-tight text-sm text-background-13/80 leading-relaxed">
-          Arquitecturas modernas ultra veloces en Astro 5, TypeScript, portales de autogestión y dashboards a la medida.
+          {currentLang === 'en'
+            ? 'Modern ultra-fast architectures in Astro 5, TypeScript, self-service client portals, and bespoke executive dashboards.'
+            : 'Arquitecturas modernas ultra veloces en Astro 5, TypeScript, portales de autogestión y dashboards a la medida.'}
         </p>
       </div>
 
@@ -96,10 +110,12 @@ const heroImages = [
           <Cpu class="h-6 w-6 text-white" />
         </div>
         <h3 class="font-sora text-xl font-bold text-background-13 mb-2.5 group-hover:text-opai-purple transition-colors">
-          Automatización & IA
+          {currentLang === 'en' ? 'Automation & Applied AI' : 'Automatización & IA'}
         </h3>
         <p class="font-inter-tight text-sm text-background-13/80 leading-relaxed">
-          Integración de CRMs, secuencias de WhatsApp Business, agentes de atención 24/7 y eliminación de tareas manuales.
+          {currentLang === 'en'
+            ? 'CRM integrations, WhatsApp Business automated sequences, 24/7 contextual AI support agents, and manual chore elimination.'
+            : 'Integración de CRMs, secuencias de WhatsApp Business, agentes de atención 24/7 y eliminación de tareas manuales.'}
         </p>
       </div>
 

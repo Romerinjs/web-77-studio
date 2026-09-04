@@ -10,6 +10,14 @@ export default defineConfig({
   integrations: [mdx()],
   output: 'static',
   adapter: vercel(),
+  i18n: {
+    defaultLocale: 'es',
+    locales: ['es', 'en'],
+    routing: {
+      prefixDefaultLocale: false,
+      redirectToDefaultLocale: false
+    }
+  },
   vite: {
     plugins: [/** @type {any} */ (tailwindcss())]
   }

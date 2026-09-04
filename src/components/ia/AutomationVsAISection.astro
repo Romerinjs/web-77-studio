@@ -1,6 +1,14 @@
 ---
 // src/components/ia/AutomationVsAISection.astro
 import { GitBranch, BrainCircuit, CheckCircle2, ChevronDown } from 'lucide-astro';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
 
 const automationTools = [
   { name: "Make (Integromat)", logo: "/img/logos-platforms/make-automation-expert-logo.png" },
@@ -21,10 +29,12 @@ const aiTools = [
     <!-- Section Header (Centered) -->
     <div class="text-center max-w-4xl mx-auto mb-16">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        Automatización vs. Inteligencia Artificial: ¿Cuál necesita tu empresa?
+        {isEn ? "Deterministic Automation vs. AI: What does your business actually need?" : "Automatización vs. Inteligencia Artificial: ¿Cuál necesita tu empresa?"}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-3xl mx-auto">
-        Muchas agencias venden "IA" para cosas que solo requieren una buena automatización lógica. Te explicamos la diferencia para que inviertas exactamente en lo que genera retorno.
+        {isEn
+          ? "Many agencies push expensive 'AI' for things that only require robust deterministic logic. We clarify the difference so you invest strictly in high-ROI systems."
+          : "Muchas agencias venden 'IA' para cosas que solo requieren una buena automatización lógica. Te explicamos la diferencia para que inviertas exactamente en lo que genera retorno."}
       </p>
     </div>
 
@@ -42,7 +52,7 @@ const aiTools = [
               </div>
               <div>
                 <h3 class="font-sora text-2xl font-bold text-background-13 group-hover:text-blue-600 transition-colors">
-                  Automatización
+                  {isEn ? "Deterministic Automation" : "Automatización"}
                 </h3>
               </div>
             </div>
@@ -58,25 +68,27 @@ const aiTools = [
             <div class="overflow-hidden">
               <div class="pt-2 pb-4">
                 <div class="font-sora text-base font-bold text-background-13 mb-3">
-                  Principio: "Si ocurre A, ejecuta B de forma exacta y sin error."
+                  {isEn ? 'Principle: "If trigger A occurs, execute action B with zero error."' : 'Principio: "Si ocurre A, ejecuta B de forma exacta y sin error."'}
                 </div>
 
                 <p class="font-inter-tight text-sm text-background-13/75 mb-6 leading-relaxed">
-                  Conecta sistemas mediante reglas fijas. No necesita pensar ni interpretar; ejecuta acciones mecánicas a la velocidad de la luz con cero margen de desviación.
+                  {isEn
+                    ? "Connects systems via strict deterministic logic. It doesn't need to guess or interpret; it executes mechanical operations at light speed with 100% precision."
+                    : "Conecta sistemas mediante reglas fijas. No necesita pensar ni interpretar; ejecuta acciones mecánicas a la velocidad de la luz con cero margen de desviación."}
                 </p>
 
                 <div class="space-y-3 font-inter-tight text-sm text-background-13/80">
                   <div class="p-3 rounded-xl bg-slate-50 border border-black/5 flex items-center gap-2.5">
                     <CheckCircle2 class="h-4 w-4 text-blue-600 shrink-0" />
-                    <span>Sincronización de pagos y facturas con tu software contable</span>
+                    <span>{isEn ? "Payment and invoice synchronization with ERP / accounting software" : "Sincronización de pagos y facturas con tu software contable"}</span>
                   </div>
                   <div class="p-3 rounded-xl bg-slate-50 border border-black/5 flex items-center gap-2.5">
                     <CheckCircle2 class="h-4 w-4 text-blue-600 shrink-0" />
-                    <span>Envío automático de confirmaciones por WhatsApp y email</span>
+                    <span>{isEn ? "Instant automated transactional notifications via WhatsApp and email" : "Envío automático de confirmaciones por WhatsApp y email"}</span>
                   </div>
                   <div class="p-3 rounded-xl bg-slate-50 border border-black/5 flex items-center gap-2.5">
                     <CheckCircle2 class="h-4 w-4 text-blue-600 shrink-0" />
-                    <span>Creación y asignación de tareas en CRM / Trello / ClickUp</span>
+                    <span>{isEn ? "Task creation and assignment in CRM, Trello, or ClickUp" : "Creación y asignación de tareas en CRM / Trello / ClickUp"}</span>
                   </div>
                 </div>
               </div>
@@ -116,7 +128,7 @@ const aiTools = [
               </div>
               <div>
                 <h3 class="font-sora text-2xl font-bold text-background-13 group-hover:text-opai-purple transition-colors">
-                  Inteligencia Artificial
+                  {isEn ? "Applied Artificial Intelligence" : "Inteligencia Artificial"}
                 </h3>
               </div>
             </div>
@@ -132,25 +144,27 @@ const aiTools = [
             <div class="overflow-hidden">
               <div class="pt-2 pb-4">
                 <div class="font-sora text-base font-bold text-background-13 mb-3">
-                  Principio: "Analiza información desordenada y extrae sentido."
+                  {isEn ? 'Principle: "Analyze messy, unstructured context and reason logically."' : 'Principio: "Analiza información desordenada y extrae sentido."'}
                 </div>
 
                 <p class="font-inter-tight text-sm text-background-13/75 mb-6 leading-relaxed">
-                  Interpreta lenguaje humano, clasifica intención y razona sobre datos no estructurados antes de decidir qué respuesta o acción ejecutar.
+                  {isEn
+                    ? "Understands human language, classifies customer intents, and reasons across complex documents before deciding what action to trigger."
+                    : "Interpreta lenguaje humano, clasifica intención y razona sobre datos no estructurados antes de decidir qué respuesta o acción ejecutar."}
                 </p>
 
                 <div class="space-y-3 font-inter-tight text-sm text-background-13/80">
                   <div class="p-3 rounded-xl bg-slate-50 border border-black/5 flex items-center gap-2.5">
                     <CheckCircle2 class="h-4 w-4 text-opai-purple shrink-0" />
-                    <span>Comprensión de mensajes de voz y textos complejos de clientes</span>
+                    <span>{isEn ? "Natural voice note comprehension and complex lead inquiry parsing" : "Comprensión de mensajes de voz y textos complejos de clientes"}</span>
                   </div>
                   <div class="p-3 rounded-xl bg-slate-50 border border-black/5 flex items-center gap-2.5">
                     <CheckCircle2 class="h-4 w-4 text-opai-purple shrink-0" />
-                    <span>Búsqueda semántica en bases de conocimiento y catálogos (RAG)</span>
+                    <span>{isEn ? "Semantic catalog and corporate knowledge retrieval (RAG systems)" : "Búsqueda semántica en bases de conocimiento y catálogos (RAG)"}</span>
                   </div>
                   <div class="p-3 rounded-xl bg-slate-50 border border-black/5 flex items-center gap-2.5">
                     <CheckCircle2 class="h-4 w-4 text-opai-purple shrink-0" />
-                    <span>Extracción automática de requerimientos desde correos extensos</span>
+                    <span>{isEn ? "Automated requirement extraction from lengthy emails and RFPs" : "Extracción automática de requerimientos desde correos extensos"}</span>
                   </div>
                 </div>
               </div>

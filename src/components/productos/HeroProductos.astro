@@ -2,6 +2,15 @@
 // src/components/productos/HeroProductos.astro
 import DualCTA from '@/components/DualCTA.astro';
 import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, Database, BarChart3, CheckCircle2, ArrowRight, Server, Users2, Activity, Zap } from 'lucide-astro';
+import { getProductosTranslations } from '@/lib/i18n/pages/productos-digitales';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const t = getProductosTranslations(currentLang);
 ---
 
 <section class="relative pt-36 pb-16 sm:pt-44 sm:pb-24 overflow-hidden">
@@ -16,22 +25,23 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
       
       <!-- Main Headline -->
       <h1 data-text-reveal class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
-        Si tu empresa necesita una herramienta que todavía no existe, <span class="bg-gradient-to-r from-background-13 via-opai-purple to-amber-600 bg-clip-text text-transparent">podemos construirla</span>.
+        {t.hero.headline}<span class="bg-gradient-to-r from-background-13 via-opai-purple to-amber-600 bg-clip-text text-transparent">{t.hero.headlineHighlight}</span>
       </h1>
 
       <!-- Subheadline -->
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-lg sm:text-xl text-background-13/75 max-w-3xl mx-auto mb-10 leading-relaxed">
-        Convertimos necesidades operativas e ideas de negocio en productos digitales, portales de clientes, plataformas SaaS y dashboards a medida adaptados a tu modelo.
+        {t.hero.subheadline}
       </p>
 
       <!-- Dual Commercial CTA (WhatsApp productos context + Contact form) -->
       <div data-opai-animate data-delay="0.3" class="mb-6">
         <DualCTA
           whatsappContext="productos"
-          whatsappText="Hablar de mi idea de producto"
-          emailText="Contarnos el proyecto por email"
+          whatsappText={t.hero.whatsappBtn}
+          emailText={t.hero.emailBtn}
           emailHref="#contacto"
           centered={true}
+          lang={currentLang}
         />
       </div>
 
@@ -67,7 +77,7 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
                 77
               </div>
               <div class="text-left">
-                <span class="font-sora text-xs font-bold text-background-13 block">Portal B2B</span>
+                <span class="font-sora text-xs font-bold text-background-13 block">{currentLang === 'en' ? 'B2B Portal' : 'Portal B2B'}</span>
                 <span class="font-ibm-plex-mono text-[10px] text-background-13/50">Multi-Tenant Platform</span>
               </div>
             </div>
@@ -81,7 +91,7 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
                 class="saas-tab-btn active w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl bg-white border border-black/10 text-background-13 font-semibold shadow-xs transition-all cursor-pointer text-left"
               >
                 <LayoutDashboard class="w-4 h-4 text-opai-purple shrink-0" />
-                <span>Dashboard Central</span>
+                <span>{currentLang === 'en' ? 'Central Dashboard' : 'Dashboard Central'}</span>
               </button>
 
               <!-- Tab 2: Clientes -->
@@ -91,7 +101,7 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
                 class="saas-tab-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl border border-transparent text-background-13/60 hover:text-background-13 hover:bg-black/5 transition-all cursor-pointer text-left"
               >
                 <Layers class="w-4 h-4 text-background-13/40 shrink-0" />
-                <span>Módulos de Clientes</span>
+                <span>{currentLang === 'en' ? 'Client Modules' : 'Módulos de Clientes'}</span>
               </button>
 
               <!-- Tab 3: Bases de Datos -->
@@ -101,7 +111,7 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
                 class="saas-tab-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl border border-transparent text-background-13/60 hover:text-background-13 hover:bg-black/5 transition-all cursor-pointer text-left"
               >
                 <Database class="w-4 h-4 text-background-13/40 shrink-0" />
-                <span>Bases de Datos & APIs</span>
+                <span>{currentLang === 'en' ? 'Databases & APIs' : 'Bases de Datos & APIs'}</span>
               </button>
 
               <!-- Tab 4: Reportes -->
@@ -111,7 +121,7 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
                 class="saas-tab-btn w-full flex items-center gap-2.5 px-3 py-2.5 rounded-xl border border-transparent text-background-13/60 hover:text-background-13 hover:bg-black/5 transition-all cursor-pointer text-left"
               >
                 <BarChart3 class="w-4 h-4 text-background-13/40 shrink-0" />
-                <span>Reportes en Vivo</span>
+                <span>{currentLang === 'en' ? 'Live Reports' : 'Reportes en Vivo'}</span>
               </button>
             </div>
 
@@ -125,19 +135,19 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
               <!-- Metric Stats Ribbon -->
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Usuarios Activos (SaaS)</span>
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">{currentLang === 'en' ? 'Active Users (SaaS)' : 'Usuarios Activos (SaaS)'}</span>
                   <span class="font-sora text-xl sm:text-2xl font-bold text-background-13 mt-0.5 block">14,820</span>
-                  <span class="font-ibm-plex-mono text-[11px] text-emerald-600 font-semibold">↑ +28.4% mensual</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-emerald-600 font-semibold">{currentLang === 'en' ? '↑ +28.4% monthly' : '↑ +28.4% mensual'}</span>
                 </div>
 
                 <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Tiempo Ahorrado Equipo</span>
-                  <span class="font-sora text-xl sm:text-2xl font-bold text-opai-purple mt-0.5 block">32h / sem</span>
-                  <span class="font-ibm-plex-mono text-[11px] text-background-13/60 font-medium">Digitalización de procesos</span>
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">{currentLang === 'en' ? 'Team Time Saved' : 'Tiempo Ahorrado Equipo'}</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-opai-purple mt-0.5 block">{currentLang === 'en' ? '32h / week' : '32h / sem'}</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-background-13/60 font-medium">{currentLang === 'en' ? 'Process digitization' : 'Digitalización de procesos'}</span>
                 </div>
 
                 <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Latencia de Plataforma</span>
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">{currentLang === 'en' ? 'Platform Latency' : 'Latencia de Plataforma'}</span>
                   <span class="font-sora text-xl sm:text-2xl font-bold text-emerald-600 mt-0.5 block">&lt; 120ms</span>
                   <span class="font-ibm-plex-mono text-[11px] text-emerald-700 font-semibold">99.98% Uptime SLA</span>
                 </div>
@@ -147,8 +157,8 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
               <div class="rounded-2xl border border-black/5 bg-slate-50 p-5 text-left">
                 <div class="flex items-center justify-between mb-4">
                   <div>
-                    <h4 class="font-sora text-sm font-bold text-background-13">Flujo Operativo en Tiempo Real</h4>
-                    <p class="font-inter-tight text-xs text-background-13/60">Monitoreo de transacciones, altas y sincronización de datos</p>
+                    <h4 class="font-sora text-sm font-bold text-background-13">{currentLang === 'en' ? 'Real-Time Operational Stream' : 'Flujo Operativo en Tiempo Real'}</h4>
+                    <p class="font-inter-tight text-xs text-background-13/60">{currentLang === 'en' ? 'Live transactions, user signups, and data sync monitoring' : 'Monitoreo de transacciones, altas y sincronización de datos'}</p>
                   </div>
                   <span class="font-ibm-plex-mono text-[11px] bg-white border border-black/5 px-2.5 py-1 rounded-lg text-background-13 font-medium">
                     Live Feed
@@ -160,25 +170,25 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
                   <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
                     <div class="flex items-center gap-2.5">
                       <span class="h-2 w-2 rounded-full bg-emerald-500"></span>
-                      <span class="font-medium text-background-13">Nuevo Tenant Corporativo Registrado</span>
+                      <span class="font-medium text-background-13">{currentLang === 'en' ? 'New Enterprise Tenant Registered' : 'Nuevo Tenant Corporativo Registrado'}</span>
                     </div>
-                    <span class="text-background-13/40 text-[11px]">Hace 2 min · Autogestión</span>
+                    <span class="text-background-13/40 text-[11px]">{currentLang === 'en' ? '2m ago · Self-service' : 'Hace 2 min · Autogestión'}</span>
                   </div>
 
                   <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
                     <div class="flex items-center gap-2.5">
                       <span class="h-2 w-2 rounded-full bg-opai-purple"></span>
-                      <span class="font-medium text-background-13">Exportación Automática de Reporte Financiero</span>
+                      <span class="font-medium text-background-13">{currentLang === 'en' ? 'Automated Financial Report Exported' : 'Exportación Automática de Reporte Financiero'}</span>
                     </div>
-                    <span class="text-background-13/40 text-[11px]">Hace 8 min · Cron Job</span>
+                    <span class="text-background-13/40 text-[11px]">{currentLang === 'en' ? '8m ago · Cron Job' : 'Hace 8 min · Cron Job'}</span>
                   </div>
 
                   <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
                     <div class="flex items-center gap-2.5">
                       <span class="h-2 w-2 rounded-full bg-blue-500"></span>
-                      <span class="font-medium text-background-13">Sincronización Webhook API con CRM</span>
+                      <span class="font-medium text-background-13">{currentLang === 'en' ? 'Webhook API Synced with CRM' : 'Sincronización Webhook API con CRM'}</span>
                     </div>
-                    <span class="text-background-13/40 text-[11px]">Hace 14 min · 200 OK</span>
+                    <span class="text-background-13/40 text-[11px]">{currentLang === 'en' ? '14m ago · 200 OK' : 'Hace 14 min · 200 OK'}</span>
                   </div>
                 </div>
               </div>
@@ -189,19 +199,19 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
               <!-- Metric Stats Ribbon -->
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Empresas Activas (Tenants)</span>
-                  <span class="font-sora text-xl sm:text-2xl font-bold text-background-13 mt-0.5 block">48 Empresas</span>
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">{currentLang === 'en' ? 'Active Enterprises (Tenants)' : 'Empresas Activas (Tenants)'}</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-background-13 mt-0.5 block">{currentLang === 'en' ? '48 Companies' : '48 Empresas'}</span>
                   <span class="font-ibm-plex-mono text-[11px] text-emerald-600 font-semibold">100% Onboarded</span>
                 </div>
 
                 <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Ingresos Recurrentes (MRR)</span>
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">{currentLang === 'en' ? 'Recurring Revenue (MRR)' : 'Ingresos Recurrentes (MRR)'}</span>
                   <span class="font-sora text-xl sm:text-2xl font-bold text-opai-purple mt-0.5 block">$28,400 USD</span>
-                  <span class="font-ibm-plex-mono text-[11px] text-background-13/60 font-medium">Facturación automatizada</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-background-13/60 font-medium">{currentLang === 'en' ? 'Automated billing' : 'Facturación automatizada'}</span>
                 </div>
 
                 <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Retención de Clientes</span>
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">{currentLang === 'en' ? 'Client Retention' : 'Retención de Clientes'}</span>
                   <span class="font-sora text-xl sm:text-2xl font-bold text-emerald-600 mt-0.5 block">99.4%</span>
                   <span class="font-ibm-plex-mono text-[11px] text-emerald-700 font-semibold">Churn &lt; 0.6%</span>
                 </div>
@@ -211,8 +221,8 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
               <div class="rounded-2xl border border-black/5 bg-slate-50 p-5 text-left">
                 <div class="flex items-center justify-between mb-4">
                   <div>
-                    <h4 class="font-sora text-sm font-bold text-background-13">Portales Privados de Clientes</h4>
-                    <p class="font-inter-tight text-xs text-background-13/60">Gestión de accesos, roles y facturación por empresa</p>
+                    <h4 class="font-sora text-sm font-bold text-background-13">{currentLang === 'en' ? 'Private Client Portals' : 'Portales Privados de Clientes'}</h4>
+                    <p class="font-inter-tight text-xs text-background-13/60">{currentLang === 'en' ? 'Role-based access control, permissions, and company billing' : 'Gestión de accesos, roles y facturación por empresa'}</p>
                   </div>
                   <span class="font-ibm-plex-mono text-[11px] bg-emerald-50 text-emerald-700 border border-emerald-200/60 px-2.5 py-1 rounded-lg font-semibold">
                     Multi-Tenant
@@ -225,10 +235,10 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
                       <div class="size-6 rounded-md bg-blue-600/10 text-blue-600 flex items-center justify-center font-bold text-[11px]">AC</div>
                       <div>
                         <span class="font-bold text-background-13 block">Acme Corp Logistics</span>
-                        <span class="text-background-13/50 text-[10px]">Plan Enterprise · 180 Usuarios</span>
+                        <span class="text-background-13/50 text-[10px]">{currentLang === 'en' ? 'Enterprise Plan · 180 Users' : 'Plan Enterprise · 180 Usuarios'}</span>
                       </div>
                     </div>
-                    <span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-semibold">Activo</span>
+                    <span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-semibold">{currentLang === 'en' ? 'Active' : 'Activo'}</span>
                   </div>
 
                   <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
@@ -236,10 +246,10 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
                       <div class="size-6 rounded-md bg-purple-600/10 text-purple-600 flex items-center justify-center font-bold text-[11px]">FL</div>
                       <div>
                         <span class="font-bold text-background-13 block">Fintech Latam Partners</span>
-                        <span class="text-background-13/50 text-[10px]">Plan Scale Pro · 45 Usuarios</span>
+                        <span class="text-background-13/50 text-[10px]">{currentLang === 'en' ? 'Scale Pro Plan · 45 Users' : 'Plan Scale Pro · 45 Usuarios'}</span>
                       </div>
                     </div>
-                    <span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-semibold">Activo</span>
+                    <span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-semibold">{currentLang === 'en' ? 'Active' : 'Activo'}</span>
                   </div>
 
                   <div class="flex items-center justify-between bg-white p-3 rounded-xl border border-black/5">
@@ -247,10 +257,10 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
                       <div class="size-6 rounded-md bg-amber-600/10 text-amber-600 flex items-center justify-center font-bold text-[11px]">GI</div>
                       <div>
                         <span class="font-bold text-background-13 block">Grupo Industrial & Distribución</span>
-                        <span class="text-background-13/50 text-[10px]">Portal Mayorista B2B</span>
+                        <span class="text-background-13/50 text-[10px]">{currentLang === 'en' ? 'B2B Wholesale Portal' : 'Portal Mayorista B2B'}</span>
                       </div>
                     </div>
-                    <span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-semibold">Activo</span>
+                    <span class="px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-semibold">{currentLang === 'en' ? 'Active' : 'Activo'}</span>
                   </div>
                 </div>
               </div>
@@ -261,19 +271,19 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
               <!-- Metric Stats Ribbon -->
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Motor de Datos</span>
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">{currentLang === 'en' ? 'Database Engine' : 'Motor de Datos'}</span>
                   <span class="font-sora text-xl sm:text-2xl font-bold text-background-13 mt-0.5 block">PostgreSQL 16</span>
-                  <span class="font-ibm-plex-mono text-[11px] text-emerald-600 font-semibold">Alta Disponibilidad</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-emerald-600 font-semibold">{currentLang === 'en' ? 'High Availability' : 'Alta Disponibilidad'}</span>
                 </div>
 
                 <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Endpoints & Webhooks</span>
-                  <span class="font-sora text-xl sm:text-2xl font-bold text-opai-purple mt-0.5 block">24 Servicios</span>
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">{currentLang === 'en' ? 'Endpoints & Webhooks' : 'Endpoints & Webhooks'}</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-opai-purple mt-0.5 block">{currentLang === 'en' ? '24 Services' : '24 Servicios'}</span>
                   <span class="font-ibm-plex-mono text-[11px] text-background-13/60 font-medium">REST &amp; GraphQL API</span>
                 </div>
 
                 <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Tasa de Error Global</span>
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">{currentLang === 'en' ? 'Global Error Rate' : 'Tasa de Error Global'}</span>
                   <span class="font-sora text-xl sm:text-2xl font-bold text-emerald-600 mt-0.5 block">0.01%</span>
                   <span class="font-ibm-plex-mono text-[11px] text-emerald-700 font-semibold">Self-healing Architecture</span>
                 </div>
@@ -283,8 +293,8 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
               <div class="rounded-2xl border border-black/5 bg-slate-50 p-5 text-left">
                 <div class="flex items-center justify-between mb-4">
                   <div>
-                    <h4 class="font-sora text-sm font-bold text-background-13">Microservicios & Conexiones API</h4>
-                    <p class="font-inter-tight text-xs text-background-13/60">Integración en tiempo real con pasarelas, CRM y bases de datos</p>
+                    <h4 class="font-sora text-sm font-bold text-background-13">{currentLang === 'en' ? 'Microservices & API Gateways' : 'Microservicios & Conexiones API'}</h4>
+                    <p class="font-inter-tight text-xs text-background-13/60">{currentLang === 'en' ? 'Real-time integrations with payment processors, CRMs, and data stores' : 'Integración en tiempo real con pasarelas, CRM y bases de datos'}</p>
                   </div>
                   <span class="font-ibm-plex-mono text-[11px] bg-blue-50 text-blue-700 border border-blue-200/60 px-2.5 py-1 rounded-lg font-semibold">
                     API Gateway
@@ -324,21 +334,21 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
               <!-- Metric Stats Ribbon -->
               <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
                 <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Eficiencia Operativa</span>
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">{currentLang === 'en' ? 'Operational Efficiency' : 'Eficiencia Operativa'}</span>
                   <span class="font-sora text-xl sm:text-2xl font-bold text-background-13 mt-0.5 block">+210%</span>
-                  <span class="font-ibm-plex-mono text-[11px] text-emerald-600 font-semibold">Cero tareas manuales</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-emerald-600 font-semibold">{currentLang === 'en' ? 'Zero manual tasks' : 'Cero tareas manuales'}</span>
                 </div>
 
                 <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Satisfacción de Usuario</span>
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">{currentLang === 'en' ? 'User Satisfaction' : 'Satisfacción de Usuario'}</span>
                   <span class="font-sora text-xl sm:text-2xl font-bold text-opai-purple mt-0.5 block">98.6 CSAT</span>
-                  <span class="font-ibm-plex-mono text-[11px] text-background-13/60 font-medium">Adopción intuitiva UX/UI</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-background-13/60 font-medium">{currentLang === 'en' ? 'Intuitive UX/UI adoption' : 'Adopción intuitiva UX/UI'}</span>
                 </div>
 
                 <div class="rounded-2xl border border-black/5 bg-slate-50 p-4 text-left">
-                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">Tiempo a Valor (TTV)</span>
-                  <span class="font-sora text-xl sm:text-2xl font-bold text-emerald-600 mt-0.5 block">&lt; 3 Semanas</span>
-                  <span class="font-ibm-plex-mono text-[11px] text-emerald-700 font-semibold">Lanzamiento MVP rápido</span>
+                  <span class="font-ibm-plex-mono text-[10px] text-background-13/50 uppercase tracking-wider block">{currentLang === 'en' ? 'Time to Value (TTV)' : 'Tiempo a Valor (TTV)'}</span>
+                  <span class="font-sora text-xl sm:text-2xl font-bold text-emerald-600 mt-0.5 block">{currentLang === 'en' ? '&lt; 3 Weeks' : '&lt; 3 Semanas'}</span>
+                  <span class="font-ibm-plex-mono text-[11px] text-emerald-700 font-semibold">{currentLang === 'en' ? 'Rapid MVP launch' : 'Lanzamiento MVP rápido'}</span>
                 </div>
               </div>
 
@@ -346,8 +356,8 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
               <div class="rounded-2xl border border-black/5 bg-slate-50 p-5 text-left">
                 <div class="flex items-center justify-between mb-4">
                   <div>
-                    <h4 class="font-sora text-sm font-bold text-background-13">Métricas de Adopción & Rendimiento</h4>
-                    <p class="font-inter-tight text-xs text-background-13/60">Impacto medible en la rentabilidad y velocidad de tu empresa</p>
+                    <h4 class="font-sora text-sm font-bold text-background-13">{currentLang === 'en' ? 'Adoption & Performance Metrics' : 'Métricas de Adopción & Rendimiento'}</h4>
+                    <p class="font-inter-tight text-xs text-background-13/60">{currentLang === 'en' ? 'Measurable impact on enterprise velocity and revenue' : 'Impacto medible en la rentabilidad y velocidad de tu empresa'}</p>
                   </div>
                   <span class="font-ibm-plex-mono text-[11px] bg-purple-50 text-opai-purple border border-opai-purple/20 px-2.5 py-1 rounded-lg font-semibold">
                     Live Analytics
@@ -357,8 +367,8 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
                 <div class="space-y-3 font-inter-tight text-xs">
                   <div class="bg-white p-3 rounded-xl border border-black/5 space-y-1.5">
                     <div class="flex justify-between font-ibm-plex-mono">
-                      <span class="font-medium text-background-13">Automatización de Cobros & Facturación</span>
-                      <span class="font-bold text-emerald-600">99.8% completado</span>
+                      <span class="font-medium text-background-13">{currentLang === 'en' ? 'Billing & Subscription Automation' : 'Automatización de Cobros & Facturación'}</span>
+                      <span class="font-bold text-emerald-600">{currentLang === 'en' ? '99.8% completed' : '99.8% completado'}</span>
                     </div>
                     <div class="w-full h-1.5 rounded-full bg-slate-100 overflow-hidden">
                       <div class="h-full rounded-full bg-emerald-500 w-[99.8%]"></div>
@@ -367,8 +377,8 @@ import { LayoutDashboard, Layers, Smartphone, Sparkles, Terminal, ShieldCheck, D
 
                   <div class="bg-white p-3 rounded-xl border border-black/5 space-y-1.5">
                     <div class="flex justify-between font-ibm-plex-mono">
-                      <span class="font-medium text-background-13">Adopción de Usuarios en Portal Privado</span>
-                      <span class="font-bold text-opai-purple">94.2% activo diario</span>
+                      <span class="font-medium text-background-13">{currentLang === 'en' ? 'Private Portal User Adoption' : 'Adopción de Usuarios en Portal Privado'}</span>
+                      <span class="font-bold text-opai-purple">{currentLang === 'en' ? '94.2% daily active' : '94.2% activo diario'}</span>
                     </div>
                     <div class="w-full h-1.5 rounded-full bg-slate-100 overflow-hidden">
                       <div class="h-full rounded-full bg-opai-purple w-[94.2%]"></div>

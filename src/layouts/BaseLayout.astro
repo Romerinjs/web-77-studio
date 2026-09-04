@@ -7,6 +7,8 @@ import MobileStickyBar from '@/components/MobileStickyBar.astro';
 import AIChatWidget from '@/components/chat/AIChatWidget.astro';
 import { DEFAULT_SEO } from '@/utils/seo';
 import type { WhatsAppContext } from '@/utils/whatsapp';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+import { getLangFromUrl, getAlternateLocaleUrl } from '@/lib/i18n/utils';
 
 interface Props {
   title?: string;
@@ -14,10 +16,13 @@ interface Props {
   canonical?: string;
   ogImage?: string;
   whatsappContext?: WhatsAppContext;
+  lang?: SupportedLocale;
   hideNav?: boolean;
   hideFooter?: boolean;
   hideMobileBar?: boolean;
 }
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || getLangFromUrl(Astro.url)) as SupportedLocale;
 
 const {
   title = DEFAULT_SEO.title,
@@ -31,15 +36,22 @@ const {
 } = Astro.props;
 
 const currentPath = Astro.url.pathname;
+const esUrl = new URL(getAlternateLocaleUrl(Astro.url, 'es'), Astro.site || Astro.url.origin).href;
+const enUrl = new URL(getAlternateLocaleUrl(Astro.url, 'en'), Astro.site || Astro.url.origin).href;
 ---
 
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang={currentLang} class="scroll-smooth">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/png" href="/img/77studio.png" />
     <link rel="canonical" href={canonical} />
+
+    <!-- Hreflang SEO multi-idioma -->
+    <link rel="alternate" hreflang="es" href={esUrl} />
+    <link rel="alternate" hreflang="en" href={enUrl} />
+    <link rel="alternate" hreflang="x-default" href={esUrl} />
 
     <!-- Google Fonts: Sora, Inter Tight, IBM Plex Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -61,6 +73,7 @@ const currentPath = Astro.url.pathname;
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={currentLang === 'en' ? 'en_US' : 'es_CO'} />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
@@ -90,7 +103,9 @@ const currentPath = Astro.url.pathname;
           "addressCountry": "US"
         }
       ],
-      "description": "Digital Studio + Creative Partner + Technology & AI Company en Colombia y Estados Unidos.",
+      "description": currentLang === 'en' 
+        ? "Digital Studio + Creative Partner + Technology & AI Company in Colombia and the United States."
+        : "Digital Studio + Creative Partner + Technology & AI Company en Colombia y Estados Unidos.",
       "sameAs": [
         "https://www.instagram.com/77studio",
         "https://www.linkedin.com/company/77studio"
@@ -100,18 +115,18 @@ const currentPath = Astro.url.pathname;
 
   <body class="min-h-screen flex flex-col bg-slate-50 text-background-13 antialiased selection:bg-opai-purple selection:text-white">
     
-    {!hideNav && <Header currentPath={currentPath} whatsappContext={whatsappContext} />}
+    {!hideNav && <Header currentPath={currentPath} whatsappContext={whatsappContext} lang={currentLang} />}
 
     <main class="flex-1">
       <slot />
     </main>
 
-    {!hideFooter && <Footer />}
+    {!hideFooter && <Footer lang={currentLang} />}
 
-    {!hideMobileBar && <MobileStickyBar whatsappContext={whatsappContext} />}
+    {!hideMobileBar && <MobileStickyBar whatsappContext={whatsappContext} lang={currentLang} />}
 
-    <!-- Agente de IA Flotante (Eve 77 Studio) -->
-    <AIChatWidget whatsappContext={whatsappContext} />
+    <!-- Asesora Comercial Flotante con IA (Sofía - 77 Studio) -->
+    <AIChatWidget whatsappContext={whatsappContext} lang={currentLang} />
 
     <!-- 77 Studio Client-Side Animation Engine -->
     <script src="@/scripts/animations.ts"></script>

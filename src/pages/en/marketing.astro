@@ -1,0 +1,44 @@
+---
+// src/pages/en/marketing.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroMarketing from '@/components/marketing/HeroMarketing.astro';
+import CapabilitiesGrid from '@/components/marketing/CapabilitiesGrid.astro';
+import PPCComparisonSection from '@/components/marketing/PPCComparisonSection.astro';
+import ChannelsComparison from '@/components/marketing/ChannelsComparison.astro';
+import CreativeShowcase from '@/components/marketing/CreativeShowcase.astro';
+import MarketingProcess from '@/components/marketing/MarketingProcess.astro';
+import MarketingContactSection from '@/components/marketing/MarketingContactSection.astro';
+import { getMarketingTranslations } from '@/lib/i18n/pages/marketing';
+
+const lang = 'en';
+const t = getMarketingTranslations(lang);
+---
+
+<BaseLayout
+  title={t.meta.title}
+  description={t.meta.description}
+  canonical="https://77.studio/en/marketing"
+  whatsappContext="marketing"
+  lang={lang}
+>
+  <!-- 01. Paid Media Hero Section & Dual CTAs -->
+  <HeroMarketing lang={lang} />
+
+  <!-- 02. Integrated Capabilities Grid -->
+  <CapabilitiesGrid lang={lang} />
+
+  <!-- 03. The Challenge: Paid Media Is Not Just Boosting Posts -->
+  <PPCComparisonSection lang={lang} />
+
+  <!-- 04. Meta Ads vs Google Ads: Complementary Demand Engines -->
+  <ChannelsComparison lang={lang} />
+
+  <!-- 05. Creative Production That Backs Paid Ads -->
+  <CreativeShowcase lang={lang} />
+
+  <!-- 06. 4-Step Marketing Methodology -->
+  <MarketingProcess lang={lang} />
+
+  <!-- 07. Commercial Closing Block with WhatsApp & Lead Form -->
+  <MarketingContactSection lang={lang} />
+</BaseLayout>

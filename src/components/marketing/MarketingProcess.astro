@@ -1,8 +1,41 @@
 ---
 // src/components/marketing/MarketingProcess.astro
 import { Search, PenTool, Rocket, LineChart } from 'lucide-astro';
+import type { SupportedLocale } from '@/lib/i18n/ui';
 
-const steps = [
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
+const steps = isEn ? [
+  {
+    number: "01",
+    icon: Search,
+    title: "Discover & Analyze",
+    description: "We analyze your business model, commercial offer, ideal customer profile (ICP), and unexploited competitive angles."
+  },
+  {
+    number: "02",
+    icon: PenTool,
+    title: "Design & Produce",
+    description: "We craft high-converting video hooks, graphic ads, copy, and dedicated landing pages to capture incoming demand."
+  },
+  {
+    number: "03",
+    icon: Rocket,
+    title: "Launch & Track",
+    description: "We configure Meta Conversions API (CAPI), Google Tag Manager, GA4, and launch campaigns with controlled testing budgets."
+  },
+  {
+    number: "04",
+    icon: LineChart,
+    title: "Optimize & Scale",
+    description: "We monitor real-time KPIs, eliminate non-performers, double down on winning creative hooks, and scale profitable ad spend."
+  }
+] : [
   {
     number: "01",
     icon: Search,
@@ -28,6 +61,14 @@ const steps = [
     description: "Monitoreamos métricas en tiempo real, apagamos lo que no funciona, duplicamos los creativos ganadores y escalamos el presupuesto."
   }
 ];
+
+const title = isEn
+  ? "How we take your campaigns from 0 to scale in 4 steps."
+  : "Cómo llevamos tus campañas de 0 a escala en 4 pasos.";
+
+const subtitle = isEn
+  ? "A structured, transparent methodology focused on real bottom-line business metrics, zero guesswork."
+  : "Un proceso estructurado, transparente y orientado a métricas de negocio reales, sin sorpresas ni experimentos a ciegas.";
 ---
 
 <section class="py-20 sm:py-28 bg-slate-50 relative border-t border-black/5">
@@ -36,10 +77,10 @@ const steps = [
     <!-- Section Header (Centered) -->
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        Cómo llevamos tus campañas de 0 a escala en 4 pasos.
+        {title}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-        Un proceso estructurado, transparente y orientado a métricas de negocio reales, sin sorpresas ni experimentos a ciegas.
+        {subtitle}
       </p>
     </div>
 

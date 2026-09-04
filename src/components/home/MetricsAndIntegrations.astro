@@ -1,5 +1,69 @@
 ---
 // src/components/home/MetricsAndIntegrations.astro
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
+const metrics = isEn ? [
+  {
+    value: "+310%",
+    label: "Qualified Leads Increase",
+    desc: "AI filter pre-qualifies before scheduling",
+    bg: "/img/header/Grainy_Gradient_Background_high_resolution_preview_2222917.jpg"
+  },
+  {
+    value: "< 45s",
+    label: "Commercial Response Time",
+    desc: "24/7 instant attention on WhatsApp",
+    bg: "/img/header/1000_F_226549800_JcTsSD70la5lDHAuo1MWRmBpECmJTH8d.jpg"
+  },
+  {
+    value: "-42%",
+    label: "Average CAC Reduction",
+    desc: "Continuous ad & conversion optimization",
+    bg: "/img/header/abstract-blue-and-yellow-gradient-background-with-grainy-texture-free-photo.jpg"
+  },
+  {
+    value: "100%",
+    label: "Transparent ROI Attribution",
+    desc: "Unified tracking from click to payment",
+    bg: "/img/header/Grainy_Gradient_Background_high_resolution_preview_2222926.jpg"
+  }
+] : [
+  {
+    value: "+310%",
+    label: "Incremento en Leads Calificados",
+    desc: "Filtro de IA pre-califica antes de agendar",
+    bg: "/img/header/Grainy_Gradient_Background_high_resolution_preview_2222917.jpg"
+  },
+  {
+    value: "< 45s",
+    label: "Tiempo de Respuesta Comercial",
+    desc: "Atención 24/7 sin demora en WhatsApp",
+    bg: "/img/header/1000_F_226549800_JcTsSD70la5lDHAuo1MWRmBpECmJTH8d.jpg"
+  },
+  {
+    value: "-42%",
+    label: "Reducción del CAC Promedio",
+    desc: "Optimización continua de pauta & conversión",
+    bg: "/img/header/abstract-blue-and-yellow-gradient-background-with-grainy-texture-free-photo.jpg"
+  },
+  {
+    value: "100%",
+    label: "Atribución de ROI Transparente",
+    desc: "Tracking unificado desde clic hasta pago",
+    bg: "/img/header/Grainy_Gradient_Background_high_resolution_preview_2222926.jpg"
+  }
+];
+
+const integrationsTitle = isEn 
+  ? "Native Integrations & Technology Ecosystem"
+  : "Ecosistema de Integraciones & Tecnología Nativa";
 ---
 
 <section class="py-16 sm:py-24 bg-slate-50 border-t border-black/5">
@@ -7,58 +71,24 @@
     
     <!-- 4 Metrics Grid -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-      
-      <!-- Metric 1 -->
-      <div class="metric-card rounded-3xl bg-white p-8 sm:p-10 border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-        <!-- Background Grainy Gradient Aura -->
-        <div class="card-aura-bg" style="background-image: url('/img/header/Grainy_Gradient_Background_high_resolution_preview_2222917.jpg')"></div>
-        <div class="metric-card-content flex flex-col items-center text-center space-y-2.5">
-          <span class="font-sora text-4xl sm:text-5xl font-extrabold text-background-13 leading-none">+310%</span>
-          <span class="font-sora text-base font-semibold text-background-13/90 leading-tight">Incremento en Leads Calificados</span>
-          <span class="font-inter-tight text-xs text-background-13/60 leading-relaxed">Filtro de IA pre-califica antes de agendar</span>
+      {metrics.map((m) => (
+        <div class="metric-card rounded-3xl bg-white p-8 sm:p-10 border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
+          <!-- Background Grainy Gradient Aura -->
+          <div class="card-aura-bg" style={`background-image: url('${m.bg}')`}></div>
+          <div class="metric-card-content flex flex-col items-center text-center space-y-2.5">
+            <span class="font-sora text-4xl sm:text-5xl font-extrabold text-background-13 leading-none">{m.value}</span>
+            <span class="font-sora text-base font-semibold text-background-13/90 leading-tight">{m.label}</span>
+            <span class="font-inter-tight text-xs text-background-13/60 leading-relaxed">{m.desc}</span>
+          </div>
         </div>
-      </div>
-
-      <!-- Metric 2 -->
-      <div class="metric-card rounded-3xl bg-white p-8 sm:p-10 border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-        <!-- Background Grainy Gradient Aura -->
-        <div class="card-aura-bg" style="background-image: url('/img/header/1000_F_226549800_JcTsSD70la5lDHAuo1MWRmBpECmJTH8d.jpg')"></div>
-        <div class="metric-card-content flex flex-col items-center text-center space-y-2.5">
-          <span class="font-sora text-4xl sm:text-5xl font-extrabold text-background-13 leading-none">&lt; 45s</span>
-          <span class="font-sora text-base font-semibold text-background-13/90 leading-tight">Tiempo de Respuesta Comercial</span>
-          <span class="font-inter-tight text-xs text-background-13/60 leading-relaxed">Atención 24/7 sin demora en WhatsApp</span>
-        </div>
-      </div>
-
-      <!-- Metric 3 -->
-      <div class="metric-card rounded-3xl bg-white p-8 sm:p-10 border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-        <!-- Background Grainy Gradient Aura -->
-        <div class="card-aura-bg" style="background-image: url('/img/header/abstract-blue-and-yellow-gradient-background-with-grainy-texture-free-photo.jpg')"></div>
-        <div class="metric-card-content flex flex-col items-center text-center space-y-2.5">
-          <span class="font-sora text-4xl sm:text-5xl font-extrabold text-background-13 leading-none">-42%</span>
-          <span class="font-sora text-base font-semibold text-background-13/90 leading-tight">Reducción del CAC Promedio</span>
-          <span class="font-inter-tight text-xs text-background-13/60 leading-relaxed">Optimización continua de pauta & conversión</span>
-        </div>
-      </div>
-
-      <!-- Metric 4 -->
-      <div class="metric-card rounded-3xl bg-white p-8 sm:p-10 border border-black/5 shadow-[0_8px_30px_rgb(0,0,0,0.02)]">
-        <!-- Background Grainy Gradient Aura -->
-        <div class="card-aura-bg" style="background-image: url('/img/header/Grainy_Gradient_Background_high_resolution_preview_2222926.jpg')"></div>
-        <div class="metric-card-content flex flex-col items-center text-center space-y-2.5">
-          <span class="font-sora text-4xl sm:text-5xl font-extrabold text-background-13 leading-none">100%</span>
-          <span class="font-sora text-base font-semibold text-background-13/90 leading-tight">Atribución de ROI Transparente</span>
-          <span class="font-inter-tight text-xs text-background-13/60 leading-relaxed">Tracking unificado desde clic hasta pago</span>
-        </div>
-      </div>
-
+      ))}
     </div>
 
     <!-- Integrations Section -->
     <div class="space-y-4 pt-4">
       <div class="text-center">
         <h2 class="font-sora text-2xl sm:text-3xl font-bold tracking-tight text-background-13 leading-tight">
-          Ecosistema de Integraciones & Tecnología Nativa
+          {integrationsTitle}
         </h2>
       </div>
 

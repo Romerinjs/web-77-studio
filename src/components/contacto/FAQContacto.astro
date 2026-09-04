@@ -1,25 +1,16 @@
 ---
 // src/components/contacto/FAQContacto.astro
 import { ChevronDown, HelpCircle } from 'lucide-astro';
+import { getContactoTranslations } from '@/lib/i18n/pages/contacto';
+import type { SupportedLocale } from '@/lib/i18n/ui';
 
-const faqs = [
-  {
-    q: "¿Qué sucede después de enviar el formulario o escribir por WhatsApp?",
-    a: "Uno de nuestros líderes técnicos o estratégicos revisará la información de tu empresa, evaluará la viabilidad y te responderá en menos de 2 horas hábiles con una orientación clara sobre los pasos recomendados."
-  },
-  {
-    q: "¿Trabajan con empresas fuera de Colombia o Estados Unidos?",
-    a: "Sí. Nuestra operación es 100% remota y asíncrona, lo que nos permite colaborar fluidamente con compañías en México, España, Chile, Perú, Centroamérica y mercados globales."
-  },
-  {
-    q: "¿Pueden firmar un acuerdo de confidencialidad (NDA) antes de ver mi proyecto?",
-    a: "Totalmente. Si tu proyecto involucra un nuevo SaaS, un proceso operativo sensible o propiedad intelectual protegida, firmamos un acuerdo de confidencialidad (NDA) mutuo previo a cualquier revisión técnica."
-  },
-  {
-    q: "¿Cuáles son los tiempos promedio de inicio y entrega?",
-    a: "Podemos iniciar en un plazo de 48 a 72 horas hábiles tras la validación de la propuesta. Para landing pages y automatizaciones los tiempos van de 1 a 2 semanas; para proyectos web completos o SaaS de 3 a 6 semanas."
-  }
-];
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const t = getContactoTranslations(currentLang);
+const faqs = t.faq.items;
 ---
 
 <section class="py-16 sm:py-24 bg-white border-t border-black/5" id="faqs-contacto">
@@ -28,7 +19,7 @@ const faqs = [
     <!-- Header (Centered, Clean without tags) -->
     <div class="max-w-3xl mx-auto text-center mb-12">
       <h2 data-text-reveal class="font-sora text-2xl sm:text-4xl font-bold tracking-tight text-background-13">
-        Respuestas directas antes de iniciar.
+        {t.faq.title}
       </h2>
     </div>
 

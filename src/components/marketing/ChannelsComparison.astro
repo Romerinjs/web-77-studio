@@ -1,6 +1,22 @@
 ---
 // src/components/marketing/ChannelsComparison.astro
 import { Share2, Search, ArrowRight, Repeat } from 'lucide-astro';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
+const title = isEn
+  ? "Meta Ads vs. Google Ads: They don't compete, they compound."
+  : "Meta Ads vs. Google Ads: No compiten, se multiplican.";
+
+const subtitle = isEn
+  ? "The common mistake is choosing one or the other. High-growth strategy uses them as a unified acquisition pincer: Meta sparks demand while Google captures high intent."
+  : "El error común es elegir uno u otro. La estrategia de alto impacto consiste en usarlos como una pinza comercial: Meta despierta la demanda y Google captura la intención.";
 ---
 
 <section class="py-20 sm:py-28 bg-white relative border-t border-black/5">
@@ -9,10 +25,10 @@ import { Share2, Search, ArrowRight, Repeat } from 'lucide-astro';
     <!-- Header (Centered) -->
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        Meta Ads vs. Google Ads: No compiten, se multiplican.
+        {title}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-        El error común es elegir uno u otro. La estrategia de alto impacto consiste en usarlos como una pinza comercial: Meta despierta la demanda y Google captura la intención.
+        {subtitle}
       </p>
     </div>
 
@@ -43,29 +59,47 @@ import { Share2, Search, ArrowRight, Repeat } from 'lucide-astro';
           </div>
 
           <div class="font-sora text-lg font-semibold text-background-13 mb-3">
-            Misión: Generar Demanda & Despertar Interés
+            {isEn ? "Mission: Generate Demand & Spark Desire" : "Misión: Generar Demanda & Despertar Interés"}
           </div>
 
           <p class="font-inter-tight text-sm sm:text-base text-background-13/75 mb-6 leading-relaxed">
-            Tu cliente no sabe que existes o no está buscando activamente tu servicio en este momento. Meta Ads interrumpe su feed con contenido visual relevante, crea la necesidad y posiciona tu marca en su mente.
+            {isEn
+              ? "Your future client doesn't know you exist or isn't actively searching for your service yet. Meta Ads interrupts their scroll with compelling visual storytelling, creating the need and cementing top-of-mind brand authority."
+              : "Tu cliente no sabe que existes o no está buscando activamente tu servicio en este momento. Meta Ads interrumpe su feed con contenido visual relevante, crea la necesidad y posiciona tu marca en su mente."}
           </p>
 
           <div class="space-y-3 font-inter-tight text-sm text-background-13/80">
-            <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-              <span><strong>Audiencias:</strong> Lookalikes, Advantage+ e intereses de alto poder adquisitivo</span>
-            </div>
-            <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-              <span><strong>Formatos:</strong> Reels con hook, carruseles de producto y video UGC</span>
-            </div>
-            <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-              <span><strong>Remarketing:</strong> Recuperación de carritos y visitantes de la web</span>
-            </div>
+            {isEn ? (
+              <>
+                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+                  <span><strong>Targeting:</strong> Lookalikes, Advantage+ & high-purchasing power segments</span>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+                  <span><strong>Formats:</strong> Hook-first Reels, product carousels & UGC videos</span>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+                  <span><strong>Remarketing:</strong> Re-engaging website visitors & abandoned carts</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+                  <span><strong>Audiencias:</strong> Lookalikes, Advantage+ e intereses de alto poder adquisitivo</span>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+                  <span><strong>Formatos:</strong> Reels con hook, carruseles de producto y video UGC</span>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+                  <span><strong>Remarketing:</strong> Recuperación de carritos y visitantes de la web</span>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
         <div class="mt-8 pt-5 border-t border-black/5 font-ibm-plex-mono text-xs text-background-13/70 font-medium flex items-center justify-between">
-          <span>Objetivo Principal:</span>
-          <span class="text-opai-purple font-semibold">Demanda nueva & Recuerdo de marca</span>
+          <span>{isEn ? "Primary Objective:" : "Objetivo Principal:"}</span>
+          <span class="text-opai-purple font-semibold">{isEn ? "New Demand & Brand Recall" : "Demanda nueva & Recuerdo de marca"}</span>
         </div>
       </div>
 
@@ -93,29 +127,47 @@ import { Share2, Search, ArrowRight, Repeat } from 'lucide-astro';
           </div>
 
           <div class="font-sora text-lg font-semibold text-background-13 mb-3">
-            Misión: Capturar Intención Activa de Compra
+            {isEn ? "Mission: Capture Active Purchase Intent" : "Misión: Capturar Intención Activa de Compra"}
           </div>
 
           <p class="font-inter-tight text-sm sm:text-base text-background-13/75 mb-6 leading-relaxed">
-            El cliente ya sabe qué necesita, tiene urgencia y está buscando en Google la mejor opción para contratar o comprar hoy mismo. Google Ads coloca tu empresa en la primera posición exacta en ese instante crítico.
+            {isEn
+              ? "The buyer already knows what they need, has urgency, and is searching Google for the best provider to hire today. Google Ads positions your company at the very top at that critical decision point."
+              : "El cliente ya sabe qué necesita, tiene urgencia y está buscando en Google la mejor opción para contratar o comprar hoy mismo. Google Ads coloca tu empresa en la primera posición exacta en ese instante crítico."}
           </p>
 
           <div class="space-y-3 font-inter-tight text-sm text-background-13/80">
-            <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-              <span><strong>Búsqueda de Alta Intención:</strong> Términos transaccionales y de solución inmediata</span>
-            </div>
-            <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-              <span><strong>Performance Max:</strong> Cobertura en Search, YouTube, Gmail y Maps</span>
-            </div>
-            <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-              <span><strong>Conversión Inmediata:</strong> Clics directos a llamada, WhatsApp y formulario</span>
-            </div>
+            {isEn ? (
+              <>
+                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+                  <span><strong>High-Intent Search:</strong> Transactional queries and high-intent commercial terms</span>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+                  <span><strong>Performance Max:</strong> Multi-channel reach across Search, YouTube, Gmail & Maps</span>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+                  <span><strong>Direct Action:</strong> One-click inbound calls, WhatsApp chats, and fast form fills</span>
+                </div>
+              </>
+            ) : (
+              <>
+                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+                  <span><strong>Búsqueda de Alta Intención:</strong> Términos transaccionales y de solución inmediata</span>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+                  <span><strong>Performance Max:</strong> Cobertura en Search, YouTube, Gmail y Maps</span>
+                </div>
+                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
+                  <span><strong>Conversión Inmediata:</strong> Clics directos a llamada, WhatsApp y formulario</span>
+                </div>
+              </>
+            )}
           </div>
         </div>
 
         <div class="mt-8 pt-5 border-t border-black/5 font-ibm-plex-mono text-xs text-background-13/70 font-medium flex items-center justify-between">
-          <span>Objetivo Principal:</span>
-          <span class="text-emerald-700 font-semibold">Conversión inmediata & Cierre de venta</span>
+          <span>{isEn ? "Primary Objective:" : "Objetivo Principal:"}</span>
+          <span class="text-emerald-700 font-semibold">{isEn ? "Instant Inquiries & Deal Closing" : "Conversión inmediata & Cierre de venta"}</span>
         </div>
       </div>
 
@@ -130,13 +182,17 @@ import { Share2, Search, ArrowRight, Repeat } from 'lucide-astro';
       <div class="flex flex-col lg:flex-row items-center justify-between gap-6">
         <div class="space-y-2">
           <div class="inline-flex items-center gap-2 font-ibm-plex-mono text-xs text-opai-purple uppercase font-semibold">
-            <Repeat class="h-4 w-4" /> El Bucle de Conversión 77
+            <Repeat class="h-4 w-4" /> {isEn ? "The 77 Conversion Loop" : "El Bucle de Conversión 77"}
           </div>
           <h4 class="font-sora text-xl sm:text-2xl font-bold">
-            Meta despierta el deseo → Google captura la búsqueda → Tu web convierte.
+            {isEn 
+              ? "Meta sparks desire → Google captures search → Your web converts."
+              : "Meta despierta el deseo → Google captura la búsqueda → Tu web convierte."}
           </h4>
           <p class="font-inter-tight text-sm text-white/70 max-w-2xl">
-            Cuando un prospecto ve tu anuncio en Instagram y luego busca tu servicio en Google, tu presencia coordinada genera una percepción de líder indiscutible en la industria.
+            {isEn
+              ? "When a decision-maker sees your ad on Instagram and later searches for your service on Google, your coordinated multi-channel authority establishes you as the undisputed market leader."
+              : "Cuando un prospecto ve tu anuncio en Instagram y luego busca tu servicio en Google, tu presencia coordinada genera una percepción de líder indiscutible en la industria."}
           </p>
         </div>
 
@@ -145,7 +201,7 @@ import { Share2, Search, ArrowRight, Repeat } from 'lucide-astro';
             href="#contacto"
             class="font-ibm-plex-mono text-xs uppercase tracking-wider bg-opai-purple hover:bg-opai-purple/90 text-white px-6 py-3.5 rounded-xl transition-all font-medium inline-flex items-center gap-2"
           >
-            Diseñar mi Estrategia <ArrowRight class="h-4 w-4" />
+            <span>{isEn ? "Design My Strategy" : "Diseñar mi Estrategia"}</span> <ArrowRight class="h-4 w-4" />
           </a>
         </div>
       </div>

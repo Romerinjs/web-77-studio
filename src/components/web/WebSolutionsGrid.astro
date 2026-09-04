@@ -1,6 +1,46 @@
 ---
 // src/components/web/WebSolutionsGrid.astro
-const solutions = [
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
+const solutions = isEn ? [
+  {
+    title: "Corporate & Flagship Websites",
+    description: "High-impact visual web flagships that project institutional authority, leadership, and trust for international clients and investors.",
+    image: "/img/section-2-web/web-corporativa.jpg"
+  },
+  {
+    title: "High-Converting Landing Pages",
+    description: "Landing pages engineered with strict CRO architecture for Meta and Google Ads campaigns. Sub-0.8s load times and leak-free lead capture.",
+    image: "/img/section-2-web/landings.png"
+  },
+  {
+    title: "Full Redesign & Tech Modernization",
+    description: "We migrate slow WordPress/Wix sites to Astro 5. Multiply load speeds by 10x, refresh visual branding, and eliminate plugin downtime.",
+    image: "/img/section-2-web/rediseño-web.jpg"
+  },
+  {
+    title: "Lead Qualification & Sales Funnels",
+    description: "Step-by-step guided user funnels with interactive lead qualification quizzes, automated call scheduling, and high-ticket pipeline closings.",
+    image: "/img/section-2-web/funnels.webp"
+  },
+  {
+    title: "Tech Integrations & CRM Sync",
+    description: "Forms and custom events connected instantly to WhatsApp Business, HubSpot, Zoho, ActiveCampaign, Notion, and secure webhooks.",
+    image: "/img/section-2-web/integraciones.jpg"
+  },
+  {
+    title: "Advanced Analytics & CRO Tracking",
+    description: "Full implementation of Google Analytics 4, Meta Conversions API (CAPI), Google Tag Manager, and heatmaps for continuous optimization.",
+    image: "/img/section-2-web/analitica-cro.jpg"
+  }
+] : [
   {
     title: "Web Corporativa & Institucional",
     description: "Sitios web de alto impacto visual que transmiten solidez, liderazgo y credibilidad ante clientes internacionales e inversionistas.",
@@ -32,6 +72,14 @@ const solutions = [
     image: "/img/section-2-web/analitica-cro.jpg"
   }
 ];
+
+const title = isEn
+  ? "Digital architecture designed to sell, not just decorate."
+  : "Arquitectura digital diseñada para vender, no solo para adornar.";
+
+const subtitle = isEn
+  ? "Different businesses need different web architectures. We engineer everything from international corporate hubs to high-volume paid media landing pages."
+  : "Cada tipo de empresa necesita una estructura web diferente. Construimos desde páginas corporativas multinacionales hasta landings de aterrizaje para pauta de alto volumen.";
 ---
 
 <section class="py-20 bg-slate-50 relative">
@@ -40,10 +88,10 @@ const solutions = [
     <!-- Section Header (Centered without restrictive line-break margin) -->
     <div class="text-center max-w-5xl mx-auto mb-16">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        Arquitectura digital diseñada para vender, no solo para adornar.
+        {title}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed max-w-3xl mx-auto">
-        Cada tipo de empresa necesita una estructura web diferente. Construimos desde páginas corporativas multinacionales hasta landings de aterrizaje para pauta de alto volumen.
+        {subtitle}
       </p>
     </div>
 

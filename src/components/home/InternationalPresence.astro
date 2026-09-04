@@ -1,5 +1,14 @@
 ---
 // src/components/home/InternationalPresence.astro
+import { getHomeTranslations } from '@/lib/i18n/pages/home';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const t = getHomeTranslations(currentLang);
 ---
 
 <section class="relative py-20 sm:py-28 overflow-hidden bg-background-6">
@@ -17,16 +26,15 @@
     <div class="text-center max-w-4xl mx-auto space-y-6">
       
       <span class="inline-block font-ibm-plex-mono text-xs font-semibold text-white/50 uppercase tracking-widest">
-        Presencia & Cobertura Global
+        {t.international.badge}
       </span>
 
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-[40px] font-extrabold tracking-tight text-white leading-[1.2] uppercase">
-        Desde Colombia y Estados Unidos,<br class="hidden sm:inline" />
-        trabajando con empresas sin fronteras.
+        {t.international.title}
       </h2>
 
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-sm sm:text-base md:text-lg text-white/70 max-w-3xl mx-auto leading-relaxed">
-        Combinamos talento de alto nivel, visión estratégica y ejecución tecnológica para colaborar con compañías en múltiples industrias y horarios.
+        {t.international.description}
       </p>
 
     </div>

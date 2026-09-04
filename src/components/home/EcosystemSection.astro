@@ -1,6 +1,66 @@
 ---
 // src/components/home/EcosystemSection.astro
-const pillars = [
+import { getHomeTranslations } from '@/lib/i18n/pages/home';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const t = getHomeTranslations(currentLang);
+const langPrefix = currentLang === 'en' ? '/en' : '';
+
+const pillars = currentLang === 'en' ? [
+  {
+    id: "marketing",
+    name: "Marketing & Growth",
+    subtitle: "Acquisition & Brand",
+    description: "We connect commercial strategy, Meta and Google Ads, visual creativity, and content production to generate qualified pipeline.",
+    items: [
+      "High-ROI Meta Ads & Google Ads campaigns",
+      "Video production, ad creative, and social content",
+      "Visual identity design and persuasive copywriting"
+    ],
+    href: `${langPrefix}/marketing`
+  },
+  {
+    id: "web",
+    name: "Web Development & CRO",
+    subtitle: "Conversion & Speed",
+    description: "We design and build ultra-fast websites and landing pages engineered as conversion machines that establish immediate trust.",
+    items: [
+      "Modern architecture for sub-second page loads",
+      "Dual commercial conversion (WhatsApp & Email)",
+      "Technical SEO and 100% responsive fluid design"
+    ],
+    href: `${langPrefix}/web`
+  },
+  {
+    id: "ia",
+    name: "AI + Automation",
+    subtitle: "Efficiency & Workflows",
+    description: "We streamline commercial follow-ups, customer inquiry triage, and daily operations through automated CRM workflows.",
+    items: [
+      "Instant routing and qualification for inbound leads",
+      "Intelligent AI query agents with custom knowledge",
+      "API integrations, webhooks, and multi-system flows"
+    ],
+    href: `${langPrefix}/ia-automatizacion`
+  },
+  {
+    id: "productos",
+    name: "Digital Products & SaaS",
+    subtitle: "Software & Scale",
+    description: "We build custom software products, SaaS platforms, client portals, agile MVPs, and operational dashboards.",
+    items: [
+      "Agile MVP development to validate business models",
+      "Interactive customer portals and admin dashboards",
+      "Scalable and secure cloud-native infrastructure"
+    ],
+    href: `${langPrefix}/productos-digitales`
+  }
+] : [
   {
     id: "marketing",
     name: "Marketing Digital & Ads",
@@ -63,10 +123,10 @@ const pillars = [
     <!-- Section Header (Centered on Dark Background with Enhanced Text Contrast) -->
     <div class="text-center max-w-3xl mx-auto mb-16 space-y-4">
       <h2 id="ecosystem-heading" data-text-reveal class="font-sora text-3xl sm:text-5xl font-bold tracking-tight text-white leading-tight drop-shadow-[0_2px_8px_rgba(0,0,0,0.35)]">
-        No necesitas más proveedores. Necesitas un partner que conecte todo.
+        {t.ecosystem.title}
       </h2>
       <p class="font-inter-tight text-base sm:text-lg text-white/90 font-medium leading-relaxed max-w-2xl mx-auto drop-shadow-[0_2px_4px_rgba(0,0,0,0.25)]">
-        Integramos marketing, diseño web e inteligencia artificial en un solo equipo para impulsar tu crecimiento de la estrategia a la ejecución.
+        {t.ecosystem.description}
       </p>
     </div>
 
@@ -120,7 +180,7 @@ const pillars = [
                   </div>
                 </div>
                 <!-- Text -->
-                <span class="button-text shrink-0 font-medium px-4">Explorar {pillar.name.split(' ')[0]}</span>
+                <span class="button-text shrink-0 font-medium px-4">{currentLang === 'en' ? 'Explore' : 'Explorar'} {pillar.name.split(' ')[0]}</span>
               </div>
             </a>
           </div>

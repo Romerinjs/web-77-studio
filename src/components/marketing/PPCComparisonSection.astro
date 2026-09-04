@@ -1,6 +1,22 @@
 ---
 // src/components/marketing/PPCComparisonSection.astro
 import { XCircle, CheckCircle2, AlertTriangle, Zap } from 'lucide-astro';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
+const title = isEn
+  ? "Running ads isn't just about clicking a button and boosting posts."
+  : "Pautar no es solo oprimir un botón y activar anuncios.";
+
+const subtitle = isEn
+  ? "80% of digital ad spend is wasted when campaigns operate in isolation from web speed, creative hooks, and instant sales follow-ups."
+  : "El 80% del presupuesto de pauta digital se desperdicia cuando los anuncios están desconectados de la web, la creatividad y el seguimiento comercial.";
 ---
 
 <section class="py-20 sm:py-28 bg-white relative overflow-hidden border-t border-black/5">
@@ -9,10 +25,10 @@ import { XCircle, CheckCircle2, AlertTriangle, Zap } from 'lucide-astro';
     <!-- Section Header (Centered) -->
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        Pautar no es solo oprimir un botón y activar anuncios.
+        {title}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-        El 80% del presupuesto de pauta digital se desperdicia cuando los anuncios están desconectados de la web, la creatividad y el seguimiento comercial.
+        {subtitle}
       </p>
     </div>
 
@@ -32,39 +48,68 @@ import { XCircle, CheckCircle2, AlertTriangle, Zap } from 'lucide-astro';
                 <AlertTriangle class="h-6 w-6" />
               </div>
               <div>
-                <span class="font-ibm-plex-mono text-xs font-semibold text-red-600 uppercase tracking-wider">El Modelo Tradicional</span>
-                <h3 class="font-sora text-xl font-bold text-background-13">Campañas Desconectadas</h3>
+                <span class="font-ibm-plex-mono text-xs font-semibold text-red-600 uppercase tracking-wider">
+                  {isEn ? "The Traditional Model" : "El Modelo Tradicional"}
+                </span>
+                <h3 class="font-sora text-xl font-bold text-background-13">
+                  {isEn ? "Disconnected Campaigns" : "Campañas Desconectadas"}
+                </h3>
               </div>
             </div>
           </div>
 
           <p class="font-inter-tight text-sm text-background-13/80 mb-6 leading-relaxed">
-            Sucede cuando contratas a alguien para "hacer anuncios", a otro para "diseñar la web" y a nadie para integrar el flujo comercial:
+            {isEn
+              ? "What happens when you hire one person for 'ads', another for 'web design', and nobody takes responsibility for the bottom-line sales funnel:"
+              : "Sucede cuando contratas a alguien para \"hacer anuncios\", a otro para \"diseñar la web\" y a nadie para integrar el flujo comercial:"}
           </p>
 
           <ul class="space-y-4 font-inter-tight text-sm text-background-13/80">
-            <li class="flex items-start gap-3">
-              <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
-              <span><strong>Tráfico enviado a páginas lentas:</strong> El usuario hace clic, espera 4 segundos, se aburre y abandona.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
-              <span><strong>Pérdida de medición (Sin CAPI):</strong> Sin tracking de eventos del servidor, los algoritmos trabajan a ciegas.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
-              <span><strong>Creativos repetitivos sin hook:</strong> Imágenes genéricas de stock que nadie recuerda ni detienen el scroll.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
-              <span><strong>Leads fríos que se enfrían:</strong> Respuestas comerciales que tardan horas o días, perdiendo la venta.</span>
-            </li>
+            {isEn ? (
+              <>
+                <li class="flex items-start gap-3">
+                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+                  <span><strong>Traffic routed to slow pages:</strong> Visitors click, wait 4 seconds, bounce, and click a competitor.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+                  <span><strong>Blind algorithms (No CAPI):</strong> Without server-side event tracking, Meta and Google optimize in the dark.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+                  <span><strong>Generic stock creative:</strong> Repetitive static imagery that nobody remembers or stops scrolling for.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+                  <span><strong>Cold leads going uncontacted:</strong> Sales responses taking hours or days, completely killing the deal.</span>
+                </li>
+              </>
+            ) : (
+              <>
+                <li class="flex items-start gap-3">
+                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+                  <span><strong>Tráfico enviado a páginas lentas:</strong> El usuario hace clic, espera 4 segundos, se aburre y abandona.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+                  <span><strong>Pérdida de medición (Sin CAPI):</strong> Sin tracking de eventos del servidor, los algoritmos trabajan a ciegas.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+                  <span><strong>Creativos repetitivos sin hook:</strong> Imágenes genéricas de stock que nadie recuerda ni detienen el scroll.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
+                  <span><strong>Leads fríos que se enfrían:</strong> Respuestas comerciales que tardan horas o días, perdiendo la venta.</span>
+                </li>
+              </>
+            )}
           </ul>
         </div>
 
         <div class="mt-8 pt-5 border-t border-red-200/60 font-ibm-plex-mono text-xs text-red-700 font-medium flex items-center justify-between">
-          <span>Resultado Típico:</span>
-          <span>Presupuesto quemado & CPL elevado</span>
+          <span>{isEn ? "Typical Result:" : "Resultado Típico:"}</span>
+          <span>{isEn ? "Burned budget & sky-high CAC" : "Presupuesto quemado & CPL elevado"}</span>
         </div>
       </div>
 
@@ -76,7 +121,7 @@ import { XCircle, CheckCircle2, AlertTriangle, Zap } from 'lucide-astro';
       >
         <div class="absolute -top-3.5 right-6">
           <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-opai-purple text-white font-ibm-plex-mono text-xs font-medium shadow-xs">
-            <Zap class="h-3.5 w-3.5" /> Metodología 77 Studio
+            <Zap class="h-3.5 w-3.5" /> {isEn ? "77 Studio Methodology" : "Metodología 77 Studio"}
           </span>
         </div>
 
@@ -87,39 +132,68 @@ import { XCircle, CheckCircle2, AlertTriangle, Zap } from 'lucide-astro';
                 <CheckCircle2 class="h-6 w-6 text-white" />
               </div>
               <div>
-                <span class="font-ibm-plex-mono text-xs font-semibold text-opai-purple uppercase tracking-wider">Ecosistema Unificado</span>
-                <h3 class="font-sora text-xl font-bold text-background-13">Sistema de Marketing Conectado</h3>
+                <span class="font-ibm-plex-mono text-xs font-semibold text-opai-purple uppercase tracking-wider">
+                  {isEn ? "Unified Ecosystem" : "Ecosistema Unificado"}
+                </span>
+                <h3 class="font-sora text-xl font-bold text-background-13">
+                  {isEn ? "Connected Growth System" : "Sistema de Marketing Conectado"}
+                </h3>
               </div>
             </div>
           </div>
 
           <p class="font-inter-tight text-sm text-background-13/80 mb-6 leading-relaxed">
-            Diseñamos cada anuncio como el primer eslabón de una cadena continua de conversión:
+            {isEn
+              ? "We engineer every paid ad as the first link in a continuous, high-converting customer journey:"
+              : "Diseñamos cada anuncio como el primer eslabón de una cadena continua de conversión:"}
           </p>
 
           <ul class="space-y-4 font-inter-tight text-sm text-background-13/80">
-            <li class="flex items-start gap-3">
-              <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-              <span><strong>Creativos con hooks validados:</strong> Videos y piezas con estructura probada para capturar atención real.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-              <span><strong>Landings ultra rápidas con conversión dual:</strong> Carga en &lt;1s con WhatsApp prellenado y formularios directos.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-              <span><strong>Tracking CAPI + GA4 + GTM:</strong> Atribución precisa del 100% de conversiones para algoritmos de pauta.</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-              <span><strong>Atención inmediata y automatización:</strong> Respuestas ágiles que capturan al prospecto al instante.</span>
-            </li>
+            {isEn ? (
+              <>
+                <li class="flex items-start gap-3">
+                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Validated creative hooks:</strong> Videos and assets engineered with tested frameworks to stop the scroll.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Sub-second landing pages with dual CTAs:</strong> Blazing speed with direct prefilled WhatsApp & booking forms.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Full CAPI + GA4 + GTM tracking:</strong> 100% accurate conversion signals feeding ad platform algorithms.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Instant automated routing:</strong> Zero delays in lead response times, maximizing sales conversion.</span>
+                </li>
+              </>
+            ) : (
+              <>
+                <li class="flex items-start gap-3">
+                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Creativos con hooks validados:</strong> Videos y piezas con estructura probada para capturar atención real.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Landings ultra rápidas con conversión dual:</strong> Carga en &lt;1s con WhatsApp prellenado y formularios directos.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Tracking CAPI + GA4 + GTM:</strong> Atribución precisa del 100% de conversiones para algoritmos de pauta.</span>
+                </li>
+                <li class="flex items-start gap-3">
+                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
+                  <span><strong>Atención inmediata y automatización:</strong> Respuestas ágiles que capturan al prospecto al instante.</span>
+                </li>
+              </>
+            )}
           </ul>
         </div>
 
         <div class="mt-8 pt-5 border-t border-black/5 font-ibm-plex-mono text-xs text-opai-purple font-semibold flex items-center justify-between">
-          <span>Resultado Validado:</span>
-          <span>Mayor ROAS, leads calificados y escala real</span>
+          <span>{isEn ? "Verified Outcome:" : "Resultado Validado:"}</span>
+          <span>{isEn ? "Higher ROAS, qualified pipeline & predictable scale" : "Mayor ROAS, leads calificados y escala real"}</span>
         </div>
       </div>
 

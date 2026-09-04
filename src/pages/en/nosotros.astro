@@ -1,0 +1,40 @@
+---
+// src/pages/en/nosotros.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroNosotros from '@/components/nosotros/HeroNosotros.astro';
+import EvolutionTimeline from '@/components/nosotros/EvolutionTimeline.astro';
+import PhilosophySection from '@/components/nosotros/PhilosophySection.astro';
+import TeamCapabilitiesGrid from '@/components/nosotros/TeamCapabilitiesGrid.astro';
+import GlobalPresenceSection from '@/components/nosotros/GlobalPresenceSection.astro';
+import NosotrosContactSection from '@/components/nosotros/NosotrosContactSection.astro';
+import { getNosotrosTranslations } from '@/lib/i18n/pages/nosotros';
+
+const lang = 'en';
+const t = getNosotrosTranslations(lang);
+---
+
+<BaseLayout
+  title={t.meta.title}
+  description={t.meta.description}
+  canonical="https://77.studio/en/nosotros"
+  whatsappContext="nosotros"
+  lang={lang}
+>
+  <!-- 01. Hero Section with Institutional Value Proposition -->
+  <HeroNosotros lang={lang} />
+
+  <!-- 02. Evolution Timeline & Technical Maturity -->
+  <EvolutionTimeline lang={lang} />
+
+  <!-- 03. Work Philosophy & Core Principles -->
+  <PhilosophySection lang={lang} />
+
+  <!-- 04. Multidisciplinary Disciplines & Team Capabilities -->
+  <TeamCapabilitiesGrid lang={lang} />
+
+  <!-- 05. International Presence & Dual Hubs Colombia ↔ USA -->
+  <GlobalPresenceSection lang={lang} />
+
+  <!-- 06. Commercial Closing Block with WhatsApp & Lead Form -->
+  <NosotrosContactSection lang={lang} />
+</BaseLayout>

@@ -1,6 +1,46 @@
 ---
 // src/components/web/WebProcessSection.astro
-const steps = [
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
+const steps = isEn ? [
+  {
+    step: "01",
+    name: "Discover",
+    title: "Diagnosis & Objectives",
+    description: "We analyze your business model, value proposition, buyer personas, and key conversion metrics before designing."
+  },
+  {
+    step: "02",
+    name: "Wireframe",
+    title: "Architecture & Copywriting",
+    description: "We design information architecture and craft persuasive conversion copy using the AIDA framework before visual styling."
+  },
+  {
+    step: "03",
+    name: "Design",
+    title: "UI & Interactive Prototyping",
+    description: "We create a high-fidelity visual interface with Sora/Inter Tight typography, mobile-first layouts, and fluid micro-animations."
+  },
+  {
+    step: "04",
+    name: "Engineer",
+    title: "Astro 5 Architecture",
+    description: "We build clean code without slow bloated templates, connecting forms to your CRM, WhatsApp, and setting up Meta CAPI + GA4."
+  },
+  {
+    step: "05",
+    name: "Launch",
+    title: "QA & Global Edge CDN",
+    description: "We run exhaustive speed tests (Lighthouse 95+), validate all conversion paths, and deploy globally on Vercel Edge CDN."
+  }
+] : [
   {
     step: "01",
     name: "Entendemos",
@@ -32,6 +72,14 @@ const steps = [
     description: "Realizamos pruebas exhaustivas de velocidad (Score 95+), validamos enlaces de conversión y publicamos en CDN global de Vercel Edge."
   }
 ];
+
+const title = isEn
+  ? "A clear and predictable 5-step engineering process."
+  : "Un proceso claro y predecible de 5 pasos.";
+
+const subtitle = isEn
+  ? "Zero endless delays, zero surprise scope creep. We guide you from initial blueprint to production launch with defined deliverables at every milestone."
+  : "Sin retrasos infinitos ni sorpresas de último momento. Te acompañamos desde la idea hasta el lanzamiento con entregables definidos en cada etapa.";
 ---
 
 <section id="proceso" class="py-20 sm:py-28 bg-slate-50/70 relative overflow-hidden">
@@ -63,10 +111,10 @@ const steps = [
       <!-- Center Header Content (Enclosed inside the Upper Arc) -->
       <div class="text-center max-w-3xl mx-auto pt-2 pb-4 relative z-10 space-y-3">
         <h2 data-text-reveal class="font-sora text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-background-13 leading-tight">
-          Un proceso claro y predecible de 5 pasos.
+          {title}
         </h2>
         <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base lg:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-          Sin retrasos infinitos ni sorpresas de último momento. Te acompañamos desde la idea hasta el lanzamiento con entregables definidos en cada etapa.
+          {subtitle}
         </p>
       </div>
 
@@ -76,7 +124,7 @@ const steps = [
         class="web-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 6%; top: 14%; transform: translate(-50%, -50%);"
         data-step="0"
-        aria-label="Ir al paso 01: Entendemos"
+        aria-label={`Step 01: ${steps[0].name}`}
       >
         01
       </button>
@@ -86,7 +134,7 @@ const steps = [
         class="web-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 16%; top: 60%; transform: translate(-50%, -50%);"
         data-step="1"
-        aria-label="Ir al paso 02: Estructuramos"
+        aria-label={`Step 02: ${steps[1].name}`}
       >
         02
       </button>
@@ -96,7 +144,7 @@ const steps = [
         class="web-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 50%; top: 90%; transform: translate(-50%, -50%);"
         data-step="2"
-        aria-label="Ir al paso 03: Diseñamos"
+        aria-label={`Step 03: ${steps[2].name}`}
       >
         03
       </button>
@@ -106,7 +154,7 @@ const steps = [
         class="web-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 84%; top: 60%; transform: translate(-50%, -50%);"
         data-step="3"
-        aria-label="Ir al paso 04: Desarrollamos"
+        aria-label={`Step 04: ${steps[3].name}`}
       >
         04
       </button>
@@ -116,7 +164,7 @@ const steps = [
         class="web-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 94%; top: 14%; transform: translate(-50%, -50%);"
         data-step="4"
-        aria-label="Ir al paso 05: Lanzamos"
+        aria-label={`Step 05: ${steps[4].name}`}
       >
         05
       </button>
@@ -149,10 +197,10 @@ const steps = [
       <!-- Mobile Header -->
       <div class="text-center max-w-xl mx-auto space-y-3 mb-8">
         <h2 class="font-sora text-2xl sm:text-3xl font-extrabold text-background-13 tracking-tight leading-tight">
-          Un proceso claro y predecible de 5 pasos.
+          {title}
         </h2>
         <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
-          Sin retrasos infinitos ni sorpresas de último momento. Te acompañamos desde la idea hasta el lanzamiento con entregables definidos en cada etapa.
+          {subtitle}
         </p>
       </div>
 

@@ -1,5 +1,19 @@
 ---
 // src/components/home/TestimonialsSection.astro
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
+const titleMain = isEn ? "What Our " : "Lo que Dicen Nuestros ";
+const titleHighlight = isEn ? "Clients & Partners" : "Clientes & Aliados";
+const subtitle = isEn 
+  ? "Leading companies and institutions that have transformed their digital channels and accelerated sales with 77 Studio."
+  : "Empresas e instituciones líderes que han transformado su canal digital y acelerado sus ventas con 77 Studio.";
 ---
 
 <section class="vertical-testimonials-section bg-slate-50 border-t border-b border-black/5 py-20 sm:py-28 relative overflow-hidden" id="casos-de-exito">
@@ -8,10 +22,10 @@
     <!-- Section Header (Centered on Light Background) -->
     <div class="section-header-center">
       <h2 class="section-title-large">
-        Lo que Dicen Nuestros <span>Clientes &amp; Aliados</span>
+        {titleMain}<span>{titleHighlight}</span>
       </h2>
       <p class="section-subtitle-text">
-        Empresas e instituciones líderes que han transformado su canal digital y acelerado sus ventas con 77 Studio.
+        {subtitle}
       </p>
     </div>
 

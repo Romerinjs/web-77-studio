@@ -1,41 +1,62 @@
 ---
 // src/components/ia/IAProcessSection.astro
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
 const steps = [
   {
     step: "01",
-    name: "Entendemos",
-    title: "Mapeo de Procesos",
-    description: "Analizamos cómo opera tu empresa hoy: qué herramientas usan, cómo viaja la información y dónde se frena el flujo operativo."
+    name: isEn ? "We Understand" : "Entendemos",
+    title: isEn ? "Process Mapping" : "Mapeo de Procesos",
+    description: isEn
+      ? "We analyze how your enterprise operates today: what software you use, how data travels, and where operational velocity drops."
+      : "Analizamos cómo opera tu empresa hoy: qué herramientas usan, cómo viaja la información y dónde se frena el flujo operativo."
   },
   {
     step: "02",
-    name: "Detectamos",
-    title: "Cuellos de Botella",
-    description: "Identificamos las tareas manuales repetitivas que consumen tiempo valioso y los puntos ciegos donde se pierden prospectos calificados."
+    name: isEn ? "We Detect" : "Detectamos",
+    title: isEn ? "Bottlenecks" : "Cuellos de Botella",
+    description: isEn
+      ? "We identify repetitive manual chores draining valuable team hours and the blind spots where qualified leads slip through the cracks."
+      : "Identificamos las tareas manuales repetitivas que consumen tiempo valioso y los puntos ciegos donde se pierden prospectos calificados."
   },
   {
     step: "03",
-    name: "Diseñamos",
-    title: "Arquitectura de Nodos",
-    description: "Diseñamos el flujo ideal paso a paso, seleccionando con precisión si cada nodo requiere lógica determinista o un agente de IA generativa."
+    name: isEn ? "We Architect" : "Diseñamos",
+    title: isEn ? "Node Architecture" : "Arquitectura de Nodos",
+    description: isEn
+      ? "We map the ideal step-by-step workflow, precisely determining if each node needs deterministic routing or a generative AI agent."
+      : "Diseñamos el flujo ideal paso a paso, seleccionando con precisión si cada nodo requiere lógica determinista o un agente de IA generativa."
   },
   {
     step: "04",
-    name: "Implementamos",
-    title: "Construcción & APIs",
-    description: "Conectamos Make, n8n, tu CRM, WhatsApp y modelos LLM mediante webhooks cifrados y arquitectura tolerante a fallos."
+    name: isEn ? "We Implement" : "Implementamos",
+    title: isEn ? "Construction & APIs" : "Construcción & APIs",
+    description: isEn
+      ? "We bridge Make, n8n, your CRM, WhatsApp API, and LLMs via encrypted webhooks and fault-tolerant architecture."
+      : "Conectamos Make, n8n, tu CRM, WhatsApp y modelos LLM mediante webhooks cifrados y arquitectura tolerante a fallos."
   },
   {
     step: "05",
-    name: "Probamos",
-    title: "Validación sin Errores",
-    description: "Simulamos cientos de escenarios reales, mensajes atípicos y caídas de servicio para garantizar estabilidad y confiabilidad total."
+    name: isEn ? "We Validate" : "Probamos",
+    title: isEn ? "Error-Free Testing" : "Validación sin Errores",
+    description: isEn
+      ? "We stress-test hundreds of edge cases, atypical messages, and API downtime failovers to guarantee absolute reliability."
+      : "Simulamos cientos de escenarios reales, mensajes atípicos y caídas de servicio para garantizar estabilidad y confiabilidad total."
   },
   {
     step: "06",
-    name: "Mejoramos",
-    title: "Monitoreo & Escalado",
-    description: "Monitoreamos la ejecución diaria, optimizamos prompts y agregamos nuevas integraciones a medida que tu negocio escala."
+    name: isEn ? "We Scale" : "Mejoramos",
+    title: isEn ? "Monitoring & Growth" : "Monitoreo & Escalado",
+    description: isEn
+      ? "We monitor daily execution metrics, optimize LLM prompts, and integrate new tools as your organization grows."
+      : "Monitoreamos la ejecución diaria, optimizamos prompts y agregamos nuevas integraciones a medida que tu negocio escala."
   }
 ];
 ---
@@ -69,10 +90,12 @@ const steps = [
       <!-- Center Header Content (Enclosed inside the Upper Arc) -->
       <div class="text-center max-w-3xl mx-auto pt-2 pb-4 relative z-10 space-y-3">
         <h2 data-text-reveal class="font-sora text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-background-13 leading-tight">
-          Implementación profesional en 6 pasos estructurados.
+          {isEn ? "Professional implementation in 6 structured steps." : "Implementación profesional en 6 pasos estructurados."}
         </h2>
         <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base lg:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-          Una metodología rigurosa para garantizar que cada flujo funcione con precisión matemática desde el primer día de lanzamiento.
+          {isEn
+            ? "A rigorous engineering methodology ensuring every workflow performs with mathematical precision from day one."
+            : "Una metodología rigurosa para garantizar que cada flujo funcione con precisión matemática desde el primer día de lanzamiento."}
         </p>
       </div>
 
@@ -82,7 +105,7 @@ const steps = [
         class="ia-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 6%; top: 14%; transform: translate(-50%, -50%);"
         data-step="0"
-        aria-label="Ir al paso 01: Entendemos"
+        aria-label={`Step 01: ${steps[0].name}`}
       >
         01
       </button>
@@ -92,7 +115,7 @@ const steps = [
         class="ia-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 14%; top: 56%; transform: translate(-50%, -50%);"
         data-step="1"
-        aria-label="Ir al paso 02: Detectamos"
+        aria-label={`Step 02: ${steps[1].name}`}
       >
         02
       </button>
@@ -102,7 +125,7 @@ const steps = [
         class="ia-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 33%; top: 88%; transform: translate(-50%, -50%);"
         data-step="2"
-        aria-label="Ir al paso 03: Diseñamos"
+        aria-label={`Step 03: ${steps[2].name}`}
       >
         03
       </button>
@@ -112,7 +135,7 @@ const steps = [
         class="ia-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 67%; top: 88%; transform: translate(-50%, -50%);"
         data-step="3"
-        aria-label="Ir al paso 04: Implementamos"
+        aria-label={`Step 04: ${steps[3].name}`}
       >
         04
       </button>
@@ -122,7 +145,7 @@ const steps = [
         class="ia-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 86%; top: 56%; transform: translate(-50%, -50%);"
         data-step="4"
-        aria-label="Ir al paso 05: Probamos"
+        aria-label={`Step 05: ${steps[4].name}`}
       >
         05
       </button>
@@ -132,7 +155,7 @@ const steps = [
         class="ia-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 94%; top: 14%; transform: translate(-50%, -50%);"
         data-step="5"
-        aria-label="Ir al paso 06: Mejoramos"
+        aria-label={`Step 06: ${steps[5].name}`}
       >
         06
       </button>
@@ -165,10 +188,12 @@ const steps = [
       <!-- Mobile Header -->
       <div class="text-center max-w-xl mx-auto space-y-3 mb-8">
         <h2 class="font-sora text-2xl sm:text-3xl font-extrabold text-background-13 tracking-tight leading-tight">
-          Implementación profesional en 6 pasos estructurados.
+          {isEn ? "Professional implementation in 6 structured steps." : "Implementación profesional en 6 pasos estructurados."}
         </h2>
         <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
-          Una metodología rigurosa para garantizar que cada flujo funcione con precisión matemática desde el primer día de lanzamiento.
+          {isEn
+            ? "A rigorous engineering methodology ensuring every workflow performs with mathematical precision from day one."
+            : "Una metodología rigurosa para garantizar que cada flujo funcione con precisión matemática desde el primer día de lanzamiento."}
         </p>
       </div>
 

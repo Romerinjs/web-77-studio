@@ -1,0 +1,40 @@
+---
+// src/pages/en/ia-automatizacion.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroIA from '@/components/ia/HeroIA.astro';
+import IACapabilitiesGrid from '@/components/ia/IACapabilitiesGrid.astro';
+import WorkflowDiagramSection from '@/components/ia/WorkflowDiagramSection.astro';
+import AutomationVsAISection from '@/components/ia/AutomationVsAISection.astro';
+import IAProcessSection from '@/components/ia/IAProcessSection.astro';
+import IAContactSection from '@/components/ia/IAContactSection.astro';
+import { getIaTranslations } from '@/lib/i18n/pages/ia-automatizacion';
+
+const lang = 'en';
+const t = getIaTranslations(lang);
+---
+
+<BaseLayout
+  title={t.meta.title}
+  description={t.meta.description}
+  canonical="https://77.studio/en/ia-automatizacion"
+  whatsappContext="ia"
+  lang={lang}
+>
+  <!-- 01. AI Hero Section with Node Architecture & Dual CTAs -->
+  <HeroIA lang={lang} />
+
+  <!-- 02. Practical Applied Tech Capabilities Grid -->
+  <IACapabilitiesGrid lang={lang} />
+
+  <!-- 03. Real Workflow Anatomy (Lead to Closed Won) -->
+  <WorkflowDiagramSection lang={lang} />
+
+  <!-- 04. Deterministic Automation vs Applied AI -->
+  <AutomationVsAISection lang={lang} />
+
+  <!-- 05. 5-Step Implementation Methodology -->
+  <IAProcessSection lang={lang} />
+
+  <!-- 06. Commercial Closing Block with WhatsApp & Lead Form -->
+  <IAContactSection lang={lang} />
+</BaseLayout>

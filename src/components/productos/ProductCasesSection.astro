@@ -1,35 +1,59 @@
 ---
 // src/components/productos/ProductCasesSection.astro
 import { ArrowRight, RotateCw } from 'lucide-astro';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
 
 const cases = [
   {
-    title: "Sistema Multi-Tenant de Cotizaciones & Contratos",
-    industry: "Sector Industrial & Proveedores",
-    challenge: "Cotizaciones lentas enviadas por correos dispersos y seguimiento manual de propuestas en hojas de cálculo.",
-    built: "Plataforma SaaS con generador dinámico de presupuestos, firma electrónica de contratos y pasarela de anticipos.",
-    impact: "+350 Empresas Activas · -65% Tiempo en Emisión de Propuestas"
+    title: isEn ? "Multi-Tenant Quotations & Contracts Engine" : "Sistema Multi-Tenant de Cotizaciones & Contratos",
+    industry: isEn ? "Industrial Sector & Suppliers" : "Sector Industrial & Proveedores",
+    challenge: isEn
+      ? "Slow sales quotations scattered across disjointed emails and manual proposal tracking in spreadsheets."
+      : "Cotizaciones lentas enviadas por correos dispersos y seguimiento manual de propuestas en hojas de cálculo.",
+    built: isEn
+      ? "SaaS platform featuring dynamic quote generators, e-signatures for contracts, and instant upfront payment processing."
+      : "Plataforma SaaS con generador dinámico de presupuestos, firma electrónica de contratos y pasarela de anticipos.",
+    impact: isEn ? "+350 Active Enterprises · -65% Proposal Turnaround Time" : "+350 Empresas Activas · -65% Tiempo en Emisión de Propuestas"
   },
   {
-    title: "Portal Privado de Autogestión & Pedidos Mayoristas",
-    industry: "Distribución & Comercio Internacional",
-    challenge: "Más de 400 consultas telefónicas diarias solicitando estado de pedidos, inventario disponible y facturas.",
-    built: "Portal privado con catálogo en tiempo real, pedidos automáticos, estado de guías y descarga de facturas.",
-    impact: "-70% Carga en Servicio al Cliente · +45% Pedidos Digitales"
+    title: isEn ? "Private Self-Service Portal & Wholesale Orders" : "Portal Privado de Autogestión & Pedidos Mayoristas",
+    industry: isEn ? "Distribution & International Trade" : "Distribución & Comercio Internacional",
+    challenge: isEn
+      ? "Over 400 daily phone inquiries asking for order status, warehouse stock availability, and invoice copies."
+      : "Más de 400 consultas telefónicas diarias solicitando estado de pedidos, inventario disponible y facturas.",
+    built: isEn
+      ? "Private customer portal with real-time stock catalog, automated dispatch tracking, and 1-click invoice downloads."
+      : "Portal privado con catálogo en tiempo real, pedidos automáticos, estado de guías y descarga de facturas.",
+    impact: isEn ? "-70% Customer Support Load · +45% Digital Wholesale Orders" : "-70% Carga en Servicio al Cliente · +45% Pedidos Digitales"
   },
   {
-    title: "Panel Financiero & Operativo en Tiempo Real",
-    industry: "Grupo de Inversión & Retail",
-    challenge: "Información financiera fragmentada en múltiples sucursales que tardaba 10 días en consolidarse a fin de mes.",
-    built: "Dashboard centralizado conectado a bases de datos y pasarelas con actualización automática de márgenes y ventas.",
-    impact: "Métricas en Tiempo Real · Alertas de Rentabilidad por Sucursal"
+    title: isEn ? "Real-Time Operational & Financial Cockpit" : "Panel Financiero & Operativo en Tiempo Real",
+    industry: isEn ? "Private Equity & Multi-Branch Retail" : "Grupo de Inversión & Retail",
+    challenge: isEn
+      ? "Fragmented accounting data across retail locations taking 10 business days to consolidate at month end."
+      : "Información financiera fragmentada en múltiples sucursales que tardaba 10 días en consolidarse a fin de mes.",
+    built: isEn
+      ? "Centralized executive dashboard connected to databases and POS gateways with live gross margin and sales updates."
+      : "Dashboard centralizado conectado a bases de datos y pasarelas con actualización automática de márgenes y ventas.",
+    impact: isEn ? "Real-Time Unified Metrics · Branch Profitability Alerts" : "Métricas en Tiempo Real · Alertas de Rentabilidad por Sucursal"
   },
   {
-    title: "Web App para Control de Envíos & Bodega",
-    industry: "Logística & Última Milla",
-    challenge: "Pérdida de trazabilidad en despachos debido a registros manuales en papel y hojas de cálculo compartidas.",
-    built: "Aplicación web responsiva con escaneo de código de barras, roles de bodeguero/conductor y panel de administración.",
-    impact: "0 Errores de Registro · +1,200 Despachos Controlados al Mes"
+    title: isEn ? "Warehouse & Last-Mile Dispatch Web App" : "Web App para Control de Envíos & Bodega",
+    industry: isEn ? "Logistics & Supply Chain" : "Logística & Última Milla",
+    challenge: isEn
+      ? "Lost dispatch visibility due to manual paper logging and shared outdated spreadsheet entries."
+      : "Pérdida de trazabilidad en despachos debido a registros manuales en papel y hojas de cálculo compartidas.",
+    built: isEn
+      ? "Responsive barcode-scanning web app with role management (picker, driver, manager) and central live tracking."
+      : "Aplicación web responsiva con escaneo de código de barras, roles de bodeguero/conductor y panel de administración.",
+    impact: isEn ? "0 Logging Errors · +1,200 Monthly Monitored Dispatches" : "0 Errores de Registro · +1,200 Despachos Controlados al Mes"
   }
 ];
 ---
@@ -40,10 +64,12 @@ const cases = [
     <!-- Section Header (Centered) -->
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        Herramientas construidas para resolver necesidades reales.
+        {isEn ? "Digital products engineered to solve real enterprise bottlenecks." : "Herramientas construidas para resolver necesidades reales."}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-        Diseñamos software que la gente disfruta usar. Cada pantalla, flujo y base de datos responde a un objetivo de negocio comprobado.
+        {isEn
+          ? "We engineer software that people actually enjoy using. Every screen, workflow, and data structure serves a verified commercial objective."
+          : "Diseñamos software que la gente disfruta usar. Cada pantalla, flujo y base de datos responde a un objetivo de negocio comprobado."}
       </p>
     </div>
 
@@ -64,7 +90,7 @@ const cases = [
                 <div class="flex items-center justify-between mb-5">
                   <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-red-500/20 border border-red-500/40 text-red-400 font-ibm-plex-mono text-xs font-bold uppercase tracking-wider shadow-xs">
                     <span class="size-2 rounded-full bg-red-400 animate-pulse"></span>
-                    <span>El Reto</span>
+                    <span>{isEn ? "The Challenge" : "El Reto"}</span>
                   </div>
                   <span class="font-ibm-plex-mono text-xs text-white/60 font-medium">
                     {cs.industry}
@@ -79,12 +105,12 @@ const cases = [
               <!-- Flip Prompt Footer -->
               <div class="pt-4 border-t border-white/10 flex items-center justify-between font-ibm-plex-mono text-xs text-opai-purple">
                 <span class="font-semibold flex items-center gap-1.5 group-hover:translate-x-1 transition-transform">
-                  <span>Ver Solución Desarrollada</span>
+                  <span>{isEn ? "View Solution Developed" : "Ver Solución Desarrollada"}</span>
                   <ArrowRight class="size-3.5" />
                 </span>
                 <span class="text-white/50 text-[11px] flex items-center gap-1.5">
                   <RotateCw class="size-3 text-opai-purple" />
-                  <span>Girar tarjeta</span>
+                  <span>{isEn ? "Flip card" : "Girar tarjeta"}</span>
                 </span>
               </div>
             </div>
@@ -96,7 +122,7 @@ const cases = [
                 <div class="flex items-center justify-between mb-5">
                   <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-xl bg-emerald-500/15 border border-emerald-500/30 text-emerald-700 font-ibm-plex-mono text-xs font-bold uppercase tracking-wider shadow-xs">
                     <span class="size-2 rounded-full bg-emerald-500"></span>
-                    <span>La Solución</span>
+                    <span>{isEn ? "The Solution" : "La Solución"}</span>
                   </div>
                   <span class="font-ibm-plex-mono text-xs text-background-13/50 font-medium">
                     {cs.industry}
@@ -119,11 +145,11 @@ const cases = [
               <!-- Back Flip Prompt Footer -->
               <div class="pt-4 border-t border-black/5 flex items-center justify-between font-ibm-plex-mono text-xs text-background-13/60">
                 <span class="text-opai-purple font-semibold flex items-center gap-1">
-                  <span>← Volver al Reto</span>
+                  <span>{isEn ? "← Back to Challenge" : "← Volver al Reto"}</span>
                 </span>
                 <span class="text-background-13/50 text-[11px] flex items-center gap-1.5">
                   <RotateCw class="size-3 text-opai-purple" />
-                  <span>Girar tarjeta</span>
+                  <span>{isEn ? "Flip card" : "Girar tarjeta"}</span>
                 </span>
               </div>
             </div>

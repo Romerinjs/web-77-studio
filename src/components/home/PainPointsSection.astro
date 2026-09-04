@@ -1,29 +1,15 @@
 ---
 // src/components/home/PainPointsSection.astro
 import DualCTA from '@/components/DualCTA.astro';
+import { getHomeTranslations } from '@/lib/i18n/pages/home';
+import type { SupportedLocale } from '@/lib/i18n/ui';
 
-const painPoints = [
-  {
-    title: "Presencia digital débil",
-    description: "Tu sitio web y marca actual no reflejan la verdadera calidad, autoridad y nivel de servicio de tu empresa."
-  },
-  {
-    title: "Contenido sin sistema",
-    description: "Producir contenido y videos constantemente es clave, pero tu equipo carece de tiempo y de un flujo operativo estructurado."
-  },
-  {
-    title: "Oportunidades que se pierden",
-    description: "Inviertes en anuncios, pero los leads tardan horas en recibir respuesta o se pierden por falta de seguimiento oportuno."
-  },
-  {
-    title: "IA sin dirección práctica",
-    description: "Escuchas sobre Inteligencia Artificial a diario, pero no encuentras aplicaciones concretas para reducir costos o vender más."
-  },
-  {
-    title: "Demasiados proveedores desconectados",
-    description: "Una agencia de pauta, un programador web y un creador de contenido trabajando aislados, sin un responsable del resultado global."
-  }
-];
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const t = getHomeTranslations(currentLang);
 ---
 
 <section class="py-20 sm:py-28 bg-slate-50 relative" aria-labelledby="reto-heading">
@@ -32,11 +18,14 @@ const painPoints = [
     <!-- Section Header (Centered) -->
     <div class="max-w-3xl mb-14 mx-auto text-center space-y-4">
       <div class="inline-flex items-center gap-2 rounded-full border border-black/10 bg-white px-3.5 py-1 font-ibm-plex-mono text-xs text-opai-purple">
-        <span>EL RETO DIGITAL</span>
+        <span>{t.painPoints.badge}</span>
       </div>
       <h2 id="reto-heading" data-text-reveal class="font-sora text-3xl sm:text-5xl font-bold tracking-tight text-background-13 leading-tight">
-        Tu empresa está creciendo. Pero lo digital sigue demasiado fragmentado.
+        {t.painPoints.title}
       </h2>
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/70">
+        {t.painPoints.subtitle}
+      </p>
     </div>
 
     <!-- 5 Pain Points Editorial Grid (Image 3 inspired layout and cards distribution) -->
@@ -45,7 +34,7 @@ const painPoints = [
       role="list"
       aria-label="Fricciones de crecimiento"
     >
-      {painPoints.map((point, index) => (
+      {t.painPoints.items.map((point, index) => (
         <div
           data-opai-animate
           data-delay={(index + 1) * 0.1}
@@ -112,7 +101,7 @@ const painPoints = [
                   {point.title}
                 </h3>
                 <p class="font-inter-tight text-sm text-background-13/70 leading-relaxed max-w-[270px]">
-                  {point.description}
+                  {'desc' in point ? point.desc : (point as any).description}
                 </p>
               </div>
             </div>
@@ -124,16 +113,21 @@ const painPoints = [
     <!-- Section CTA Block -->
     <div data-opai-animate data-delay="0.6" class="rounded-2xl border border-black/10 bg-white p-8 text-center max-w-3xl mx-auto shadow-sm">
       <h3 class="font-sora text-xl sm:text-2xl font-bold text-background-13 mb-3">
-        ¿Te identificas con alguno de estos puntos en tu empresa?
+        {currentLang === 'en' 
+          ? "Do any of these challenges sound familiar?"
+          : "¿Te identificas con alguno de estos puntos en tu empresa?"}
       </h3>
       <p class="font-inter-tight text-sm sm:text-base text-background-13/70 mb-6 max-w-xl mx-auto">
-        Conversemos directamente. Analizamos tu situación actual y te orientamos sin compromisos sobre el mejor camino.
+        {currentLang === 'en'
+          ? "Let's talk directly. We'll analyze your current setup and provide straightforward guidance with zero obligations."
+          : "Conversemos directamente. Analizamos tu situación actual y te orientamos sin compromisos sobre el mejor camino."}
       </p>
       <DualCTA
         whatsappContext="home"
-        whatsappText="Cuéntanos qué quieres mejorar"
-        emailText="Escribirnos por email"
+        whatsappText={currentLang === 'en' ? "Tell us what you want to improve" : "Cuéntanos qué quieres mejorar"}
+        emailText={currentLang === 'en' ? "Contact via email" : "Escribirnos por email"}
         emailHref="#contacto"
+        lang={currentLang}
       />
     </div>
 
