@@ -2,6 +2,15 @@
 // src/components/ia/HeroIA.astro
 import DualCTA from '@/components/DualCTA.astro';
 import { Zap, Bot, Database, MessageSquare } from 'lucide-astro';
+import { getIaTranslations } from '@/lib/i18n/pages/ia-automatizacion';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const t = getIaTranslations(currentLang);
 ---
 
 <section 
@@ -22,22 +31,23 @@ import { Zap, Bot, Database, MessageSquare } from 'lucide-astro';
       
       <!-- Main Headline -->
       <h1 data-text-reveal class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
-        Haz que tu empresa funcione de forma <span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">más inteligente</span>.
+        {t.hero.headline}<span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">{t.hero.headlineHighlight}</span>
       </h1>
 
       <!-- Subheadline -->
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-lg sm:text-xl text-background-13/85 max-w-3xl mx-auto mb-9 leading-relaxed font-medium">
-        Menos tareas manuales. Más tiempo para hacer crecer tu empresa. Diseñamos automatizaciones de procesos y soluciones de IA aplicada para optimizar el seguimiento de prospectos, la atención a clientes y la eficiencia operativa.
+        {t.hero.subheadline}
       </p>
 
       <!-- Dual Commercial CTA (WhatsApp IA context + Contact form) -->
       <div data-opai-animate data-delay="0.3">
         <DualCTA
           whatsappContext="ia"
-          whatsappText="Explorar Oportunidades de IA"
-          emailText="Solicitar Diagnóstico por Email"
+          whatsappText={t.hero.whatsappBtn}
+          emailText={t.hero.emailBtn}
           emailHref="#contacto"
           centered={true}
+          lang={currentLang}
         />
       </div>
 
@@ -55,11 +65,13 @@ import { Zap, Bot, Database, MessageSquare } from 'lucide-astro';
           </div>
 
           <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 mb-2">
-            Lead Entrante
+            {currentLang === 'en' ? 'Incoming Lead' : 'Lead Entrante'}
           </h3>
 
           <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
-            Captura desde Formulario Web, Anuncio de Meta Ads o WhatsApp.
+            {currentLang === 'en'
+              ? 'Instant capture from Web Forms, Meta Ads, or WhatsApp campaigns.'
+              : 'Captura desde Formulario Web, Anuncio de Meta Ads o WhatsApp.'}
           </p>
         </div>
       </div>
@@ -73,11 +85,13 @@ import { Zap, Bot, Database, MessageSquare } from 'lucide-astro';
           </div>
 
           <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 mb-2">
-            Análisis & Scoring
+            {currentLang === 'en' ? 'Analysis & Scoring' : 'Análisis & Scoring'}
           </h3>
 
           <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
-            Evalúa la intención de compra, extrae datos clave y clasifica el lead.
+            {currentLang === 'en'
+              ? 'Evaluates buying intent, extracts key variables, and scores the prospect.'
+              : 'Evalúa la intención de compra, extrae datos clave y clasifica el lead.'}
           </p>
         </div>
       </div>
@@ -91,11 +105,13 @@ import { Zap, Bot, Database, MessageSquare } from 'lucide-astro';
           </div>
 
           <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 mb-2">
-            Registro en CRM
+            {currentLang === 'en' ? 'CRM Synchronization' : 'Registro en CRM'}
           </h3>
 
           <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
-            Crea el contacto en HubSpot/Zoho con etiqueta de servicio y presupuesto.
+            {currentLang === 'en'
+              ? 'Creates contacts in HubSpot/Zoho with service tagging and budget attributes.'
+              : 'Crea el contacto en HubSpot/Zoho con etiqueta de servicio y presupuesto.'}
           </p>
         </div>
       </div>
@@ -109,11 +125,13 @@ import { Zap, Bot, Database, MessageSquare } from 'lucide-astro';
           </div>
 
           <h3 class="font-sora text-base sm:text-lg font-bold text-background-13 mb-2">
-            Cierre Humano
+            {currentLang === 'en' ? 'Human Closing' : 'Cierre Humano'}
           </h3>
 
           <p class="font-inter-tight text-xs sm:text-sm text-background-13/75 leading-relaxed">
-            Notificación instantánea a WhatsApp del vendedor con resumen listo.
+            {currentLang === 'en'
+              ? 'Instant alert to sales exec on WhatsApp with summarized briefing.'
+              : 'Notificación instantánea a WhatsApp del vendedor con resumen listo.'}
           </p>
         </div>
       </div>

@@ -2,6 +2,15 @@
 // src/components/web/HeroWeb.astro
 import DualCTA from '@/components/DualCTA.astro';
 import { Gauge, Smartphone, Zap, CheckCircle2, Code2 } from 'lucide-astro';
+import { getWebTranslations } from '@/lib/i18n/pages/web';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const t = getWebTranslations(currentLang);
 ---
 
 <section 
@@ -22,22 +31,23 @@ import { Gauge, Smartphone, Zap, CheckCircle2, Code2 } from 'lucide-astro';
       
       <!-- Main Headline -->
       <h1 data-text-reveal class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
-        Una web que represente tu empresa y <span class="bg-gradient-to-r from-background-13 via-blue-600 to-background-13 bg-clip-text text-transparent">convierta visitantes</span> en oportunidades.
+        {t.hero.headline}<span class="bg-gradient-to-r from-background-13 via-blue-600 to-background-13 bg-clip-text text-transparent">{t.hero.headlineHighlight}</span>
       </h1>
 
       <!-- Subheadline -->
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-lg sm:text-xl text-background-13/85 max-w-3xl mx-auto mb-9 leading-relaxed font-medium">
-        Diseñamos experiencias digitales claras, ultra rápidas y pensadas para generar confianza inmediata, explicar tu propuesta de valor y facilitar el contacto comercial por WhatsApp o formulario.
+        {t.hero.subheadline}
       </p>
 
       <!-- Dual Commercial CTA (WhatsApp Web context + Contact form) -->
       <div data-opai-animate data-delay="0.3">
         <DualCTA
           whatsappContext="web"
-          whatsappText="Cotizar Proyecto Web"
-          emailText="Solicitar Propuesta por Email"
+          whatsappText={t.hero.whatsappBtn}
+          emailText={t.hero.emailBtn}
           emailHref="#contacto"
           centered={true}
+          lang={currentLang}
         />
       </div>
 

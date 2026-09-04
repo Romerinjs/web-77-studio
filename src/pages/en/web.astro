@@ -1,0 +1,40 @@
+---
+// src/pages/en/web.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroWeb from '@/components/web/HeroWeb.astro';
+import WebSolutionsGrid from '@/components/web/WebSolutionsGrid.astro';
+import WebPainPointsSection from '@/components/web/WebPainPointsSection.astro';
+import WebDesignPillars from '@/components/web/WebDesignPillars.astro';
+import WebProcessSection from '@/components/web/WebProcessSection.astro';
+import WebContactSection from '@/components/web/WebContactSection.astro';
+import { getWebTranslations } from '@/lib/i18n/pages/web';
+
+const lang = 'en';
+const t = getWebTranslations(lang);
+---
+
+<BaseLayout
+  title={t.meta.title}
+  description={t.meta.description}
+  canonical="https://77.studio/en/web"
+  whatsappContext="web"
+  lang={lang}
+>
+  <!-- 01. Web Hero Section & Performance Metrics -->
+  <HeroWeb lang={lang} />
+
+  <!-- 02. Specialized Web Solutions Grid -->
+  <WebSolutionsGrid lang={lang} />
+
+  <!-- 03. Diagnostic: Outdated Web vs 77 Studio Approach -->
+  <WebPainPointsSection lang={lang} />
+
+  <!-- 04. 5 Design Pillars for Conversion and Performance -->
+  <WebDesignPillars lang={lang} />
+
+  <!-- 05. 5-Step Web Development Process -->
+  <WebProcessSection lang={lang} />
+
+  <!-- 06. Commercial Closing Block with WhatsApp & Lead Form -->
+  <WebContactSection lang={lang} />
+</BaseLayout>

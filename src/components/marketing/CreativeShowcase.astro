@@ -1,8 +1,41 @@
 ---
 // src/components/marketing/CreativeShowcase.astro
 import { Sparkles, Flame, Eye, MousePointerClick, Layers } from 'lucide-astro';
+import type { SupportedLocale } from '@/lib/i18n/ui';
 
-const creativeTypes = [
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
+const creativeTypes = isEn ? [
+  {
+    title: "High-Retention Reels & TikTok Ads",
+    description: "Battle-tested ad structure: Visual hook at 0-3s → Pain point agitation → Solution demonstration → Frictionless call-to-action.",
+    metrics: "68% 3s Retention · 4.1% CTR",
+    gradient: "from-purple-900/90 via-slate-900 to-black"
+  },
+  {
+    title: "Ultra-Clear Single Image Ads",
+    description: "Minimalist visual typography and persuasive microcopy. The value proposition is understood in less than 1 second of scrolling.",
+    metrics: "CPL -42% · +92% Quality Score",
+    gradient: "from-slate-900 via-zinc-900 to-black"
+  },
+  {
+    title: "Objection-Crushing Carousels",
+    description: "5 to 7 slide storytelling sequence that educates buyers, contrasts before vs after, and eliminates objections before they reach sales.",
+    metrics: "+180% Saves · High Engagement",
+    gradient: "from-zinc-900 via-stone-900 to-black"
+  },
+  {
+    title: "AI-Powered Creative Iterations for A/B Testing",
+    description: "Rapid production of visual background variations, headline angles, and hooks to prevent ad fatigue and scale ad spend.",
+    metrics: "12 Variations / Campaign · Continuous Scale",
+    gradient: "from-indigo-950 via-slate-900 to-black"
+  }
+] : [
   {
     title: "Reels & TikTok Ads de Alta Retención",
     description: "Estructura publicitaria: Hook visual en el segundo 0-3 → Identificación del dolor → Demostración de solución → Llamada a la acción precisa.",
@@ -28,6 +61,18 @@ const creativeTypes = [
     gradient: "from-indigo-950 via-slate-900 to-black"
   }
 ];
+
+const title = isEn
+  ? "Algorithms reward the highest-quality creative content."
+  : "El algoritmo premia al mejor contenido publicitario.";
+
+const subtitle = isEn
+  ? "70% of an ad's performance comes down to the creative asset. We engineer formats designed to stop the scroll and capture intentional buyer clicks."
+  : "El 70% del éxito de un anuncio depende de la pieza creativa. Diseñamos formatos estructurados científicamente para detener el scroll y generar clics intencionales.";
+
+const bottomBadge = isEn
+  ? "Format Optimized for High Conversion"
+  : "Formato Optimizado para Conversión";
 ---
 
 <section class="py-20 sm:py-28 bg-white relative overflow-hidden border-t border-black/5">
@@ -36,10 +81,10 @@ const creativeTypes = [
     <!-- Section Header (Centered) -->
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        El algoritmo premia al mejor contenido publicitario.
+        {title}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 max-w-2xl mx-auto leading-relaxed">
-        El 70% del éxito de un anuncio depende de la pieza creativa. Diseñamos formatos estructurados científicamente para detener el scroll y generar clics intencionales.
+        {subtitle}
       </p>
     </div>
 
@@ -80,7 +125,7 @@ const creativeTypes = [
               <div class="pt-6 mt-6 border-t border-white/10 flex items-center justify-between font-ibm-plex-mono text-xs text-white/60">
                 <div class="flex items-center gap-2">
                   <span class="h-2 w-2 rounded-full bg-emerald-400 animate-pulse"></span>
-                  <span>Formato Optimizado para Conversión</span>
+                  <span>{bottomBadge}</span>
                 </div>
               </div>
 

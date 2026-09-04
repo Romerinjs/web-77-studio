@@ -1,6 +1,52 @@
 ---
 // src/components/home/CasesSection.astro
-const cases = [
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
+const cases = isEn ? [
+  {
+    category: "Paid Media & Growth",
+    client: "B2B E-Commerce & Retail",
+    title: "B2B Acquisition Scale",
+    challenge: "High cost-per-lead and creative fatigue in customer acquisition campaigns.",
+    solution: "Audience segmentation and rapid production of high-converting video ad hooks.",
+    result: "+185% Qualified Leads · -42% Cost Per Acquisition",
+    tag: "Marketing"
+  },
+  {
+    category: "Astro Web Engineering",
+    client: "Consulting & Finance Firm",
+    title: "Conversion-Focused Web Redesign",
+    challenge: "Slow WordPress site with 70% bounce rate and low corporate inquiry conversion.",
+    solution: "Migration to ultra-fast Astro 5 with conversion architecture and direct WhatsApp CTA.",
+    result: "Speed 99/100 · +120% Increase in Direct Inquiries",
+    tag: "Web"
+  },
+  {
+    category: "AI & Automation",
+    client: "Professional Services Firm",
+    title: "24/7 AI Agent & Lead Triage",
+    challenge: "Lead leakage outside business hours due to delayed response times on WhatsApp.",
+    solution: "24/7 AI agent on WhatsApp for instant lead qualification and automated CRM booking.",
+    result: "< 30s Response Time · 100% Leads Answered Instantly",
+    tag: "AI"
+  },
+  {
+    category: "Digital Products & SaaS",
+    client: "Logistics & Dispatch Startup",
+    title: "MVP & Operational Dashboard",
+    challenge: "Decentralized manual operations managed through disconnected spreadsheets.",
+    solution: "Centralized client web portal and real-time dispatch control dashboard.",
+    result: "Shipped in 4 Weeks · 15h Saved Weekly in Reporting",
+    tag: "SaaS"
+  }
+] : [
   {
     category: "Marketing & Ads",
     client: "E-Commerce & Retail B2B",
@@ -38,6 +84,17 @@ const cases = [
     tag: "SaaS"
   }
 ];
+
+const title = isEn
+  ? "Real business projects engineered to move commercial metrics."
+  : "Proyectos reales diseñados para mover métricas comerciales.";
+
+const subtitle = isEn
+  ? "No vanity metrics or empty promises. Here is how we solve tangible growth and operational bottlenecks."
+  : "Sin métricas infladas ni promesas vacías. Así es como resolvemos problemas concretos de crecimiento y eficiencia.";
+
+const challengeBtnText = isEn ? "The Challenge" : "El Reto";
+const solutionBtnText = isEn ? "Our Solution" : "Nuestra Solución";
 ---
 
 <section id="casos" class="py-20 sm:py-28 bg-white border-t border-black/5">
@@ -46,10 +103,10 @@ const cases = [
     <!-- Section Header -->
     <div class="text-center max-w-3xl mx-auto mb-12">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        Proyectos reales diseñados para mover métricas comerciales.
+        {title}
       </h2>
       <p class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed mb-8 max-w-2xl mx-auto">
-        Sin métricas infladas ni promesas vacías. Así es como resolvemos problemas concretos de crecimiento y eficiencia.
+        {subtitle}
       </p>
 
       <!-- Global Interactive Mode Switch (Reto / Solución) -->
@@ -58,17 +115,17 @@ const cases = [
           type="button" 
           id="global-reto-btn" 
           class="global-mode-btn is-active px-6 py-2 rounded-full text-xs font-ibm-plex-mono font-semibold cursor-pointer"
-          aria-label="Ver estado El Reto"
+          aria-label={isEn ? "View The Challenge state" : "Ver estado El Reto"}
         >
-          El Reto
+          {challengeBtnText}
         </button>
         <button 
           type="button" 
           id="global-solucion-btn" 
           class="global-mode-btn px-6 py-2 rounded-full text-xs font-ibm-plex-mono font-semibold cursor-pointer"
-          aria-label="Ver estado Nuestra Solución"
+          aria-label={isEn ? "View Our Solution state" : "Ver estado Nuestra Solución"}
         >
-          Nuestra Solución
+          {solutionBtnText}
         </button>
       </div>
     </div>

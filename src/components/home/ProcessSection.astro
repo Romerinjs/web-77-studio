@@ -1,6 +1,40 @@
 ---
 // src/components/home/ProcessSection.astro
-const steps = [
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
+const steps = isEn ? [
+  {
+    step: "01",
+    name: "Discover",
+    title: "Diagnosis & Objectives",
+    description: "We analyze your business model, current bottlenecks, audience, and priority goals before recommending any tech or creative solution."
+  },
+  {
+    step: "02",
+    name: "Strategize",
+    title: "Roadmap & Scope",
+    description: "We design a transparent action plan: concrete deliverables, realistic timelines, and the required marketing or software stack."
+  },
+  {
+    step: "03",
+    name: "Build & Ship",
+    title: "Agile Execution",
+    description: "We develop your ad campaigns, web platform, automated workflows, or custom software with world-class aesthetic and functional standards."
+  },
+  {
+    step: "04",
+    name: "Scale & Optimize",
+    title: "Measurement & Growth",
+    description: "We monitor performance against core business metrics and continuously refine to maximize return on investment and operational leverage."
+  }
+] : [
   {
     step: "01",
     name: "Entendemos",
@@ -26,6 +60,14 @@ const steps = [
     description: "Monitoreamos el rendimiento con métricas reales de negocio y ajustamos continuamente para maximizar el retorno de inversión y la eficiencia operativa."
   }
 ];
+
+const title = isEn
+  ? "A structured 4-step process engineered for guaranteed results."
+  : "Un proceso estructurado en 4 pasos para garantizar resultados.";
+
+const subtitle = isEn
+  ? "Zero friction, zero unnecessary bureaucracy. Direct communication, iterative deliveries, and an unwavering focus on revenue growth."
+  : "Sin fricción ni burocracia innecesaria. Comunicación directa, entregas iterativas y enfoque permanente en mover la aguja comercial.";
 ---
 
 <section id="proceso" class="py-20 sm:py-28 bg-slate-50/70 relative overflow-hidden">
@@ -57,10 +99,10 @@ const steps = [
       <!-- Center Header Content (Enclosed inside the Upper Arc) -->
       <div class="text-center max-w-3xl mx-auto pt-2 pb-4 relative z-10 space-y-3">
         <h2 class="font-sora text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-background-13 leading-tight">
-          Un proceso estructurado en 4 pasos para garantizar resultados.
+          {title}
         </h2>
         <p class="font-inter-tight text-base lg:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-          Sin fricción ni burocracia innecesaria. Comunicación directa, entregas iterativas y enfoque permanente en mover la aguja comercial.
+          {subtitle}
         </p>
       </div>
 
@@ -70,7 +112,7 @@ const steps = [
         class="process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 6%; top: 16%; transform: translate(-50%, -50%);"
         data-step="0"
-        aria-label="Ir al paso 01: Entendemos"
+        aria-label={`Step 01: ${steps[0].name}`}
       >
         01
       </button>
@@ -80,7 +122,7 @@ const steps = [
         class="process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 18%; top: 68%; transform: translate(-50%, -50%);"
         data-step="1"
-        aria-label="Ir al paso 02: Proponemos"
+        aria-label={`Step 02: ${steps[1].name}`}
       >
         02
       </button>
@@ -90,7 +132,7 @@ const steps = [
         class="process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 82%; top: 68%; transform: translate(-50%, -50%);"
         data-step="2"
-        aria-label="Ir al paso 03: Creamos"
+        aria-label={`Step 03: ${steps[2].name}`}
       >
         03
       </button>
@@ -100,7 +142,7 @@ const steps = [
         class="process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
         style="left: 94%; top: 16%; transform: translate(-50%, -50%);"
         data-step="3"
-        aria-label="Ir al paso 04: Optimizamos"
+        aria-label={`Step 04: ${steps[3].name}`}
       >
         04
       </button>
@@ -133,10 +175,10 @@ const steps = [
       <!-- Mobile Header -->
       <div class="text-center max-w-xl mx-auto space-y-3 mb-8">
         <h2 class="font-sora text-2xl sm:text-3xl font-extrabold text-background-13 tracking-tight leading-tight">
-          Un proceso estructurado en 4 pasos para garantizar resultados.
+          {title}
         </h2>
         <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
-          Sin fricción ni burocracia innecesaria. Comunicación directa, entregas iterativas y enfoque permanente en mover la aguja comercial.
+          {subtitle}
         </p>
       </div>
 

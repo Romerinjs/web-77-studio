@@ -38,7 +38,7 @@ export const ALL: APIRoute = async ({ request }) => {
           status: isConnected ? 'online' : 'offline',
           connected: isConnected,
           endpoint: eveUrl,
-          message: isConnected ? 'Conectado con el agente Eve' : 'Servidor de Eve no responde en este puerto',
+          message: isConnected ? 'Conectado con el agente Sofía' : 'Servidor de Sofía no responde en este puerto',
         }),
         {
           status: isConnected ? 200 : 503,
@@ -90,7 +90,7 @@ export const ALL: APIRoute = async ({ request }) => {
       const errText = await response.text().catch(() => '');
       return new Response(
         JSON.stringify({
-          error: `Error en el backend de Eve (${response.status})`,
+          error: `Error en el backend de Sofía (${response.status})`,
           details: errText,
           endpoint: eveUrl,
         }),
@@ -104,7 +104,7 @@ export const ALL: APIRoute = async ({ request }) => {
       );
     }
 
-    // Retransmitir el stream de Eve al navegador
+    // Retransmitir el stream de Sofía al navegador
     return new Response(response.body, {
       status: 200,
       headers: {
@@ -115,10 +115,10 @@ export const ALL: APIRoute = async ({ request }) => {
       },
     });
   } catch (err: any) {
-    console.error('Error de conexión con Eve en /api/chat:', err?.message || err);
+    console.error('Error de conexión con Sofía en /api/chat:', err?.message || err);
     return new Response(
       JSON.stringify({
-        error: 'No se pudo conectar con el agente Eve',
+        error: 'No se pudo conectar con el agente Sofía',
         details: err?.message || 'Servidor backend no disponible en ' + eveUrl,
         endpoint: eveUrl,
       }),

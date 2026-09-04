@@ -2,6 +2,15 @@
 // src/components/marketing/HeroMarketing.astro
 import DualCTA from '@/components/DualCTA.astro';
 import { Target, TrendingUp, Sparkles, BarChart2 } from 'lucide-astro';
+import { getMarketingTranslations } from '@/lib/i18n/pages/marketing';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const t = getMarketingTranslations(currentLang);
 ---
 
 <section class="relative pt-36 pb-16 sm:pt-44 sm:pb-24 overflow-hidden">
@@ -16,22 +25,23 @@ import { Target, TrendingUp, Sparkles, BarChart2 } from 'lucide-astro';
       
       <!-- Main Headline -->
       <h1 data-text-reveal class="font-sora text-4xl sm:text-6xl lg:text-[62px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
-        Marketing diseñado para <span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">hacer crecer</span> tu empresa.
+        {t.hero.headline}<span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">{t.hero.headlineHighlight}</span>{t.hero.headlineSuffix}
       </h1>
 
       <!-- Subheadline -->
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-lg sm:text-xl text-background-13/75 max-w-3xl mx-auto mb-9 leading-relaxed">
-        Integramos estrategia, Meta Ads, Google Ads, creatividad, contenido, branding y automatización para ayudar a empresas a atraer atención calificada, despertar demanda y cerrar más oportunidades comerciales.
+        {t.hero.subheadline}
       </p>
 
       <!-- Dual Commercial CTA (WhatsApp Marketing context + Contact form) -->
       <div data-opai-animate data-delay="0.3" class="mb-12">
         <DualCTA
           whatsappContext="marketing"
-          whatsappText="Hablar por WhatsApp"
-          emailText="Solicitar Propuesta de Marketing"
+          whatsappText={t.hero.whatsappBtn}
+          emailText={t.hero.emailBtn}
           emailHref="#contacto"
           centered={true}
+          lang={currentLang}
         />
       </div>
 

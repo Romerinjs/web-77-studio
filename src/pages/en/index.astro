@@ -1,0 +1,52 @@
+---
+// src/pages/en/index.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroHome from '@/components/home/HeroHome.astro';
+import MetricsAndIntegrations from '@/components/home/MetricsAndIntegrations.astro';
+import InternationalPresence from '@/components/home/InternationalPresence.astro';
+import PainPointsSection from '@/components/home/PainPointsSection.astro';
+import EcosystemSection from '@/components/home/EcosystemSection.astro';
+import CasesSection from '@/components/home/CasesSection.astro';
+import TestimonialsSection from '@/components/home/TestimonialsSection.astro';
+import ProcessSection from '@/components/home/ProcessSection.astro';
+import ContactSection from '@/components/home/ContactSection.astro';
+import { getHomeTranslations } from '@/lib/i18n/pages/home';
+
+const lang = 'en';
+const t = getHomeTranslations(lang);
+---
+
+<BaseLayout
+  title={t.meta.title}
+  description={t.meta.description}
+  canonical="https://77.studio/en"
+  whatsappContext="home"
+  lang={lang}
+>
+  <!-- 01. Hero Section with Live Metrics and Dual CTAs -->
+  <HeroHome lang={lang} />
+
+  <!-- Metrics and Integrations Section -->
+  <MetricsAndIntegrations lang={lang} />
+
+  <!-- 02. International Presence Colombia ↔ USA -->
+  <InternationalPresence lang={lang} />
+
+  <!-- 03. The Challenge: 5 Client Growth Bottlenecks -->
+  <PainPointsSection lang={lang} />
+
+  <!-- 04. One Single Digital Partner: Integrated Ecosystem -->
+  <EcosystemSection lang={lang} />
+
+  <!-- 05. Case Studies & Verified Results -->
+  <CasesSection lang={lang} />
+
+  <!-- 06. Real Testimonials & Social Proof -->
+  <TestimonialsSection lang={lang} />
+
+  <!-- 07. 4-Step Working Process -->
+  <ProcessSection lang={lang} />
+
+  <!-- 08. Direct Commercial Contact (WhatsApp + Consultation Form) -->
+  <ContactSection lang={lang} />
+</BaseLayout>

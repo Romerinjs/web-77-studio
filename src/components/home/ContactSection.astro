@@ -2,8 +2,16 @@
 // src/components/home/ContactSection.astro
 import ContactForm from '@/components/ContactForm.astro';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
+import type { SupportedLocale } from '@/lib/i18n/ui';
 
-const whatsappUrl = getWhatsAppUrl('home');
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const whatsappUrl = getWhatsAppUrl('home', undefined, currentLang);
+
+const isEn = currentLang === 'en';
 ---
 
 <section 
@@ -23,10 +31,12 @@ const whatsappUrl = getWhatsAppUrl('home');
         
         <div>
           <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
-            Hablemos de tu proyecto hoy.
+            {isEn ? "Let's discuss your project today." : "Hablemos de tu proyecto hoy."}
           </h2>
           <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-white/80 leading-relaxed">
-            Ya sea que necesites escalar tu marketing, rediseñar tu web, automatizar flujos con IA o construir un producto digital, el primer paso es una conversación clara y honesta.
+            {isEn 
+              ? "Whether you need to scale paid ads, revamp your website, automate workflows with AI, or build a custom digital product, the first step is an honest, straightforward conversation."
+              : "Ya sea que necesites escalar tu marketing, rediseñar tu web, automatizar flujos con IA o construir un producto digital, el primer paso es una conversación clara y honesta."}
           </p>
         </div>
 
@@ -40,13 +50,15 @@ const whatsappUrl = getWhatsAppUrl('home');
             </div>
             <div>
               <span class="font-sora font-bold text-lg text-background-13 block leading-tight">
-                Respuesta Inmediata
+                {isEn ? "Direct Response" : "Respuesta Inmediata"}
               </span>
             </div>
           </div>
 
           <p class="font-inter-tight text-xs sm:text-sm text-background-13/70 mb-5 leading-relaxed">
-            ¿Prefieres escribirnos directamente por chat? Te responderemos a la brevedad para entender tu caso y orientarte.
+            {isEn 
+              ? "Prefer to text us directly? We'll reply quickly to understand your case and provide immediate guidance."
+              : "¿Prefieres escribirnos directamente por chat? Te responderemos a la brevedad para entender tu caso y orientarte."}
           </p>
 
           <a
@@ -55,7 +67,7 @@ const whatsappUrl = getWhatsAppUrl('home');
             rel="noopener noreferrer"
             class="w-full flex items-center justify-center gap-2 bg-opai-purple hover:bg-opai-purple-hover text-white py-3.5 px-5 rounded-xl font-ibm-plex-mono text-sm font-semibold transition-all shadow-md active:scale-98"
           >
-            <span>Chatea con nosotros</span>
+            <span>{isEn ? "Chat with our team" : "Chatea con nosotros"}</span>
           </a>
         </div>
 
@@ -63,7 +75,7 @@ const whatsappUrl = getWhatsAppUrl('home');
 
       <!-- Right Column: Lead Form prefilled for Home -->
       <div data-opai-animate data-delay="0.4" class="lg:col-span-7">
-        <ContactForm originPage="home" />
+        <ContactForm originPage="home" lang={currentLang} />
       </div>
 
     </div>

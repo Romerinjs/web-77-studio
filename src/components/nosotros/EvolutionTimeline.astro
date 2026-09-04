@@ -1,25 +1,42 @@
 ---
 // src/components/nosotros/EvolutionTimeline.astro
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
 const stages = [
   {
     number: "01",
-    title: "Raíz Creativa & Dirección de Marca",
-    description: "Nacimos con un estándar visual innegociable: diseño de identidad, dirección de arte y piezas audiovisuales con criterio estético de primer nivel."
+    title: isEn ? "Creative Roots & Brand Direction" : "Raíz Creativa & Dirección de Marca",
+    description: isEn
+      ? "We started with a non-negotiable visual standard: identity design, art direction, and cinematic assets built with tier-one aesthetic rigor."
+      : "Nacimos con un estándar visual innegociable: diseño de identidad, dirección de arte y piezas audiovisuales con criterio estético de primer nivel."
   },
   {
     number: "02",
-    title: "Paid Media & Performance Marketing",
-    description: "Conectamos la creatividad con la adquisición en Meta Ads y Google Ads para que el buen diseño se tradujera en clientes reales y ventas para las empresas."
+    title: isEn ? "Paid Media & Growth Performance" : "Paid Media & Performance Marketing",
+    description: isEn
+      ? "We bridged creative excellence with paid acquisition on Meta and Google Ads, turning premium branding into verifiable pipeline revenue."
+      : "Conectamos la creatividad con la adquisición en Meta Ads y Google Ads para que el buen diseño se traduzera en clientes reales y ventas para las empresas."
   },
   {
     number: "03",
-    title: "Ingeniería Web de Alta Conversión",
-    description: "Dejamos atrás plataformas lentas para desarrollar en Astro y Tailwind: páginas ultra-rápidas estructuradas como cartas de venta digitales y doble CTA."
+    title: isEn ? "High-Converting Web Engineering" : "Ingeniería Web de Alta Conversión",
+    description: isEn
+      ? "We left slow legacy website builders behind to engineer in Astro & Tailwind: ultra-fast digital sales architectures with calibrated dual CTAs."
+      : "Dejamos atrás plataformas lentas para desarrollar en Astro y Tailwind: páginas ultra-rápidas estructuradas como cartas de venta digitales y doble CTA."
   },
   {
     number: "04",
-    title: "Automatización, IA & Product Studio",
-    description: "Hoy integramos flujos de CRM automáticos, agentes de IA sin clichés y software a la medida (SaaS, portales y dashboards) dentro de un solo partner digital."
+    title: isEn ? "Automation, AI & Product Studio" : "Automatización, IA & Product Studio",
+    description: isEn
+      ? "Today we integrate automated CRM workflows, zero-fluff AI agents, and bespoke digital software (SaaS, portals, and dashboards) under one strategic partner."
+      : "Hoy integramos flujos de CRM automáticos, agentes de IA sin clichés y software a la medida (SaaS, portales y dashboards) dentro de un solo partner digital."
   }
 ];
 ---
@@ -30,10 +47,12 @@ const stages = [
     <!-- Section Header (Centered) -->
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        Más que una agencia. Una evolución continua.
+        {isEn ? "More than an agency. A continuous evolution." : "Más que una agencia. Una evolución continua."}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-        Evolucionamos junto con las necesidades reales de nuestros clientes. Crecimos desde el diseño creativo hacia capacidades tecnológicas y de automatización integrales.
+        {isEn
+          ? "We evolved directly alongside our clients' real commercial needs. We grew from creative design into comprehensive technological and automation execution."
+          : "Evolucionamos junto con las necesidades reales de nuestros clientes. Crecimos desde el diseño creativo hacia capacidades tecnológicas y de automatización integrales."}
       </p>
     </div>
 

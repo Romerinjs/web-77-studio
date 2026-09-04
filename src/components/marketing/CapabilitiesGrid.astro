@@ -12,8 +12,77 @@ import {
   Mail,
   MessageSquare
 } from 'lucide-astro';
+import type { SupportedLocale } from '@/lib/i18n/ui';
 
-const capabilities = [
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
+const capabilities = isEn ? [
+  {
+    icon: Compass,
+    number: "01",
+    title: "Strategy & Positioning",
+    description: "Definition of commercial goals, ICP buyer personas, differentiated value proposition, and customer acquisition channels."
+  },
+  {
+    icon: Share2,
+    number: "02",
+    title: "Meta Ads (Instagram & FB)",
+    description: "Demand generation campaigns, Advantage+ setups, high-value audiences, and omni-channel dynamic retargeting."
+  },
+  {
+    icon: Search,
+    number: "03",
+    title: "Google Ads & High-Intent Search",
+    description: "Capturing ready-to-buy search intent through Google Search, Performance Max, and conversion keyword optimization."
+  },
+  {
+    icon: Palette,
+    number: "04",
+    title: "Branding & Communication",
+    description: "Visual identity, design systems, and brand storytelling to build instant authority and buyer confidence."
+  },
+  {
+    icon: LayoutGrid,
+    number: "05",
+    title: "Content Production",
+    description: "High-contrast graphic assets, educational carousels, and persuasive copy engineered to retain attention."
+  },
+  {
+    icon: Video,
+    number: "06",
+    title: "Video Editing & Ad Hooks",
+    description: "Shorts, Reels, and video ads with structured hooks in the first 3 seconds to maximize click-through rate (CTR)."
+  },
+  {
+    icon: Sparkles,
+    number: "07",
+    title: "AI-Assisted Content Iteration",
+    description: "Rapid generation of visual variations, alternative copy angles, and conceptual prototyping for constant A/B testing."
+  },
+  {
+    icon: CalendarCheck,
+    number: "08",
+    title: "Publishing Automation",
+    description: "Seamless content distribution and scheduling systems without manual friction or operational bottlenecks."
+  },
+  {
+    icon: Mail,
+    number: "09",
+    title: "Email Marketing & Lead Nurturing",
+    description: "Automated onboarding sequences, lead warming workflows, and commercial re-activation of past customer lists."
+  },
+  {
+    icon: MessageSquare,
+    number: "10",
+    title: "Direct SMS & WhatsApp Marketing",
+    description: "Direct messaging for strategic announcements, exclusive offers, and appointment reminders with +90% open rates."
+  }
+] : [
   {
     icon: Compass,
     number: "01",
@@ -75,6 +144,14 @@ const capabilities = [
     description: "Mensajería directa para alertas estratégicas, ofertas exclusivas y recordatorios de alta tasa de apertura (+90%)."
   }
 ];
+
+const title = isEn
+  ? "10 capabilities integrated into a single growth marketing team."
+  : "10 capacidades integradas en un solo equipo de marketing.";
+
+const subtitle = isEn
+  ? "You don't need to hire 5 agencies or juggle disconnected freelancers. We unify all disciplines so your messaging, ads, and conversion funnel operate in complete sync."
+  : "No necesitas contratar 5 agencias ni lidiar con freelancers desconectados. Unificamos todas las disciplinas para que tu mensaje, tus anuncios y tu embudo funcionen en sincronía.";
 ---
 
 <section class="py-20 sm:py-28 bg-slate-50 relative border-t border-black/5">
@@ -83,10 +160,10 @@ const capabilities = [
     <!-- Section Header (Centered) -->
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        10 capacidades integradas en un solo equipo de marketing.
+        {title}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-        No necesitas contratar 5 agencias ni lidiar con freelancers desconectados. Unificamos todas las disciplinas para que tu mensaje, tus anuncios y tu embudo funcionen en sincronía.
+        {subtitle}
       </p>
     </div>
 

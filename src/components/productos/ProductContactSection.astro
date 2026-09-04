@@ -2,8 +2,15 @@
 // src/components/productos/ProductContactSection.astro
 import ContactForm from '@/components/ContactForm.astro';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
+import type { SupportedLocale } from '@/lib/i18n/ui';
 
-const whatsappUrl = getWhatsAppUrl('productos');
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const whatsappUrl = getWhatsAppUrl('productos', undefined, currentLang);
+const isEn = currentLang === 'en';
 ---
 
 <section 
@@ -23,10 +30,12 @@ const whatsappUrl = getWhatsAppUrl('productos');
         
         <div>
           <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
-            Cuéntanos qué herramienta necesitas crear.
+            {isEn ? "Tell us about the digital tool you want to build." : "Cuéntanos qué herramienta necesitas crear."}
           </h2>
           <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-white/80 leading-relaxed">
-            Puede ser una aplicación web interna para tu equipo, un portal de autogestión para tus clientes o una plataforma SaaS desde cero. Comencemos con una conversación de evaluación.
+            {isEn
+              ? "It can be an internal tooling app, a self-service client portal, or a scalable SaaS platform from scratch. Let's kick off with a technical roadmap discussion."
+              : "Puede ser una aplicación web interna para tu equipo, un portal de autogestión para tus clientes o una plataforma SaaS desde cero. Comencemos con una conversación de evaluación."}
           </p>
         </div>
 
@@ -40,30 +49,32 @@ const whatsappUrl = getWhatsAppUrl('productos');
             </div>
             <div>
               <span class="font-sora font-bold text-lg text-background-13 block leading-tight">
-                Respuesta Inmediata
+                {isEn ? "Direct Response" : "Respuesta Inmediata"}
               </span>
             </div>
           </div>
 
           <p class="font-inter-tight text-xs sm:text-sm text-background-13/70 mb-5 leading-relaxed">
-            ¿Tienes bocetos, ideas o un proceso manual que quieras digitalizar? Cuéntanos por WhatsApp y te damos feedback técnico inmediato.
+            {isEn
+              ? "Pre-filled message ready to discuss your product architecture and technical specifications."
+              : "Mensaje prellenado listo para evaluar el alcance funcional y la arquitectura recomendada de tu producto."}
           </p>
 
           <a
             href={whatsappUrl}
             target="_blank"
             rel="noopener noreferrer"
-            class="w-full flex items-center justify-center gap-2 bg-opai-purple hover:bg-opai-purple-hover text-white py-3.5 px-5 rounded-xl font-ibm-plex-mono text-sm font-semibold transition-all shadow-md active:scale-98"
+            class="w-full flex items-center justify-center gap-2 bg-background-13 hover:bg-black text-white py-3.5 px-5 rounded-xl font-ibm-plex-mono text-sm font-semibold transition-all shadow-md active:scale-98"
           >
-            <span>Chatea con nosotros</span>
+            <span>{isEn ? "Chat with our engineers" : "Chatea con nosotros"}</span>
           </a>
         </div>
 
       </div>
 
-      <!-- Right Column: Lead Form prefilled for Productos -->
+      <!-- Right Column: Lead Form prefilled for Products -->
       <div data-opai-animate data-delay="0.4" class="lg:col-span-7">
-        <ContactForm originPage="productos" />
+        <ContactForm originPage="productos-digitales" lang={currentLang} />
       </div>
 
     </div>

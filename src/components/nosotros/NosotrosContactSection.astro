@@ -2,8 +2,15 @@
 // src/components/nosotros/NosotrosContactSection.astro
 import ContactForm from '@/components/ContactForm.astro';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
+import type { SupportedLocale } from '@/lib/i18n/ui';
 
-const whatsappUrl = getWhatsAppUrl('nosotros');
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const whatsappUrl = getWhatsAppUrl('nosotros', undefined, currentLang);
+const isEn = currentLang === 'en';
 ---
 
 <section 
@@ -23,10 +30,12 @@ const whatsappUrl = getWhatsAppUrl('nosotros');
         
         <div>
           <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
-            Si buscas un equipo que entienda el negocio, hablemos.
+            {isEn ? "Looking for a partner that understands business? Let's talk." : "Si buscas un equipo que entienda el negocio, hablemos."}
           </h2>
           <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-white/80 leading-relaxed">
-            Sin rodeos ni intermediarios comerciales. Conéctate directamente con nuestro equipo para evaluar cómo podemos sumar a tu empresa en marketing, web, automatización o software.
+            {isEn
+              ? "Zero bureaucracy or commercial fluff. Connect directly with our core leadership to evaluate how we can drive growth across marketing, web, automation, or custom software."
+              : "Sin rodeos ni intermediarios comerciales. Conéctate directamente con nuestro equipo para evaluar cómo podemos sumar a tu empresa en marketing, web, automatización o software."}
           </p>
         </div>
 
@@ -40,13 +49,15 @@ const whatsappUrl = getWhatsAppUrl('nosotros');
             </div>
             <div>
               <span class="font-sora font-bold text-lg text-background-13 block leading-tight">
-                Respuesta Inmediata
+                {isEn ? "Direct Response" : "Respuesta Inmediata"}
               </span>
             </div>
           </div>
 
           <p class="font-inter-tight text-xs sm:text-sm text-background-13/70 mb-5 leading-relaxed">
-            Escríbenos directamente para conversar sobre tu empresa, dudas técnicas o posibilidades de colaboración.
+            {isEn
+              ? "Pre-filled message ready to connect directly with the founders and strategic team."
+              : "Mensaje prellenado para coordinar una reunión de diagnóstico con los fundadores del estudio."}
           </p>
 
           <a
@@ -55,7 +66,7 @@ const whatsappUrl = getWhatsAppUrl('nosotros');
             rel="noopener noreferrer"
             class="w-full flex items-center justify-center gap-2 bg-opai-purple hover:bg-opai-purple-hover text-white py-3.5 px-5 rounded-xl font-ibm-plex-mono text-sm font-semibold transition-all shadow-md active:scale-98"
           >
-            <span>Chatea con nosotros</span>
+            <span>{isEn ? "Chat with our leadership" : "Chatea con nosotros"}</span>
           </a>
         </div>
 
@@ -63,7 +74,7 @@ const whatsappUrl = getWhatsAppUrl('nosotros');
 
       <!-- Right Column: Lead Form prefilled for Nosotros -->
       <div data-opai-animate data-delay="0.4" class="lg:col-span-7">
-        <ContactForm originPage="nosotros" />
+        <ContactForm originPage="nosotros" lang={currentLang} />
       </div>
 
     </div>

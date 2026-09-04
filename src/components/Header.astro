@@ -1,22 +1,34 @@
 ---
 // src/components/Header.astro
 import { getWhatsAppUrl, type WhatsAppContext } from '@/utils/whatsapp';
+import { uiTranslations, type SupportedLocale } from '@/lib/i18n/ui';
+import { getAlternateLocaleUrl } from '@/lib/i18n/utils';
 
 interface Props {
   currentPath?: string;
   whatsappContext?: WhatsAppContext;
+  lang?: SupportedLocale;
 }
 
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
 const { currentPath = '/', whatsappContext = 'home' } = Astro.props;
-const whatsappUrl = getWhatsAppUrl(whatsappContext);
+
+const t = uiTranslations[currentLang];
+const whatsappUrl = getWhatsAppUrl(whatsappContext, undefined, currentLang);
+
+const esUrl = getAlternateLocaleUrl(Astro.url, 'es');
+const enUrl = getAlternateLocaleUrl(Astro.url, 'en');
+
+const langPrefix = currentLang === 'en' ? '/en' : '';
+const homeUrl = currentLang === 'en' ? '/en' : '/';
 
 const navItems = [
-  { label: 'Marketing', href: '/marketing' },
-  { label: 'Web', href: '/web' },
-  { label: 'IA + Automatización', href: '/ia-automatizacion' },
-  { label: 'Productos Digitales', href: '/productos-digitales' },
-  { label: 'Nosotros', href: '/nosotros' },
-  { label: 'Contacto', href: '/contacto' },
+  { label: t.nav.marketing, href: `${langPrefix}/marketing` },
+  { label: t.nav.web, href: `${langPrefix}/web` },
+  { label: t.nav.ia, href: `${langPrefix}/ia-automatizacion` },
+  { label: t.nav.productos, href: `${langPrefix}/productos-digitales` },
+  { label: t.nav.nosotros, href: `${langPrefix}/nosotros` },
+  { label: t.nav.contacto, href: `${langPrefix}/contacto` },
 ];
 ---
 
@@ -24,7 +36,7 @@ const navItems = [
   <div class="flex items-center justify-between rounded-2xl bg-white/90 px-4 sm:px-6 py-3 backdrop-blur-[25px] border border-black/10 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.06)]">
     
     <!-- Logo -->
-    <a href="/" class="flex items-center gap-2.5 group" aria-label="77 Studio - Inicio">
+    <a href={homeUrl} class="flex items-center gap-2.5 group" aria-label="77 Studio - Inicio">
       <div class="h-8 w-8 rounded-full bg-black flex items-center justify-center shadow-xs group-hover:bg-opai-purple transition-colors">
         <img src="/img/77studio.png" alt="77 Studio Logo" class="h-5.5 w-5.5 object-contain" />
       </div>
@@ -34,9 +46,9 @@ const navItems = [
     </a>
 
     <!-- Desktop Navigation Menu -->
-    <nav class="hidden lg:flex items-center gap-1.5" aria-label="Navegación principal">
+    <nav class="hidden lg:flex items-center gap-1.5" aria-label={t.nav.menuAria}>
       {navItems.map((item) => {
-        const isActive = currentPath === item.href || (item.href !== '/' && currentPath.startsWith(item.href));
+        const isActive = currentPath === item.href || (item.href !== '/' && item.href !== '/en' && currentPath.startsWith(item.href));
         return (
           <a
             href={item.href}
@@ -56,8 +68,28 @@ const navItems = [
     <div class="hidden sm:flex items-center gap-3">
       <!-- Language Pill -->
       <div class="flex items-center bg-black/5 rounded-lg p-0.5 border border-black/5 font-ibm-plex-mono text-xs">
-        <span class="px-2 py-1 rounded bg-white text-background-13 font-semibold shadow-xs">ES</span>
-        <a href="#en" class="px-2 py-1 text-background-13/60 hover:text-background-13 transition-colors" title="English version coming soon">EN</a>
+        <a
+          href={esUrl}
+          class={`px-2 py-1 rounded transition-all ${
+            currentLang === 'es'
+              ? 'bg-white text-background-13 font-semibold shadow-xs'
+              : 'text-background-13/60 hover:text-background-13'
+          }`}
+          aria-label="Cambiar a Español"
+        >
+          ES
+        </a>
+        <a
+          href={enUrl}
+          class={`px-2 py-1 rounded transition-all ${
+            currentLang === 'en'
+              ? 'bg-white text-background-13 font-semibold shadow-xs'
+              : 'text-background-13/60 hover:text-background-13'
+          }`}
+          aria-label="Switch to English"
+        >
+          EN
+        </a>
       </div>
 
       <!-- Action Button -->
@@ -67,29 +99,56 @@ const navItems = [
         rel="noopener noreferrer"
         class="inline-flex items-center gap-2 bg-background-13 hover:bg-black text-white px-4 py-2 rounded-xl text-xs sm:text-sm font-medium transition-all shadow-xs hover:shadow-md active:scale-95"
       >
-        <span>Hablemos</span>
+        <span>{t.header.talkButton}</span>
         <svg xmlns="http://www.w3.org/2000/svg" class="h-3.5 w-3.5 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
         </svg>
       </a>
     </div>
 
-    <!-- Mobile Hamburger Button -->
-    <button
-      id="mobile-menu-btn"
-      type="button"
-      class="lg:hidden p-2 rounded-xl text-background-13 hover:bg-black/5 transition-colors"
-      aria-label="Abrir menú de navegación"
-      aria-expanded="false"
-      aria-controls="mobile-nav"
-    >
-      <svg id="hamburger-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-      </svg>
-      <svg id="close-icon" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-      </svg>
-    </button>
+    <!-- Mobile Controls: Language Pill + Hamburger Button -->
+    <div class="flex sm:hidden items-center gap-2">
+      <!-- Mobile Language Pill -->
+      <div class="flex items-center bg-black/5 rounded-lg p-0.5 border border-black/5 font-ibm-plex-mono text-xs">
+        <a
+          href={esUrl}
+          class={`px-1.5 py-0.5 rounded text-[11px] transition-all ${
+            currentLang === 'es'
+              ? 'bg-white text-background-13 font-semibold shadow-xs'
+              : 'text-background-13/60'
+          }`}
+        >
+          ES
+        </a>
+        <a
+          href={enUrl}
+          class={`px-1.5 py-0.5 rounded text-[11px] transition-all ${
+            currentLang === 'en'
+              ? 'bg-white text-background-13 font-semibold shadow-xs'
+              : 'text-background-13/60'
+          }`}
+        >
+          EN
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        class="p-2 rounded-xl text-background-13 hover:bg-black/5 transition-colors"
+        aria-label={t.nav.openMenu}
+        aria-expanded="false"
+        aria-controls="mobile-nav"
+      >
+        <svg id="hamburger-icon" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+        </svg>
+        <svg id="close-icon" class="hidden h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+        </svg>
+      </button>
+    </div>
   </div>
 
   <!-- Mobile Drawer Menu -->
@@ -121,7 +180,7 @@ const navItems = [
           rel="noopener noreferrer"
           class="w-full flex items-center justify-center gap-2 bg-opai-purple text-white py-3 rounded-xl font-medium text-sm shadow-sm"
         >
-          <span>Hablar por WhatsApp</span>
+          <span>{t.header.talkWhatsapp}</span>
           <svg class="w-4 h-4 fill-current" viewBox="0 0 24 24">
             <path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981z"/>
           </svg>

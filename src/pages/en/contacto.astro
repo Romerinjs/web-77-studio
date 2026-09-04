@@ -1,0 +1,24 @@
+---
+// src/pages/en/contacto.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroContacto from '@/components/contacto/HeroContacto.astro';
+import FAQContacto from '@/components/contacto/FAQContacto.astro';
+import { getContactoTranslations } from '@/lib/i18n/pages/contacto';
+
+const lang = 'en';
+const t = getContactoTranslations(lang);
+---
+
+<BaseLayout
+  title={t.meta.title}
+  description={t.meta.description}
+  canonical="https://77.studio/en/contacto"
+  whatsappContext="contacto"
+  lang={lang}
+>
+  <!-- 01. High-Converting 2-Column Hero Section (WhatsApp + Consultation Form) -->
+  <HeroContacto lang={lang} />
+
+  <!-- 02. Frequently Asked Questions Before Kickoff -->
+  <FAQContacto lang={lang} />
+</BaseLayout>

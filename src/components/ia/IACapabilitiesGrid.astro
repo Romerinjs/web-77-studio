@@ -6,47 +6,87 @@ import {
   FileSpreadsheet,
   BrainCircuit
 } from 'lucide-astro';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
 
 const capabilities = [
   {
     icon: TrendingUp,
-    title: "Automatización Comercial & CRM",
-    description: "Conexión instantánea de leads a tu CRM, asignación inteligente de prospectos según país o presupuesto, y secuencias de seguimiento automatizadas por WhatsApp.",
-    bullets: [
-      "Distribución automática de leads por asesor",
-      "Secuencias de nutrición y follow-up multicanal",
-      "Actualización de pipeline en tiempo real"
-    ]
+    title: isEn ? "Commercial Automation & CRM" : "Automatización Comercial & CRM",
+    description: isEn
+      ? "Instant lead routing to your CRM, intelligent scoring by country or budget, and multi-channel follow-up sequences via WhatsApp."
+      : "Conexión instantánea de leads a tu CRM, asignación inteligente de prospectos según país o presupuesto, y secuencias de seguimiento automatizadas por WhatsApp.",
+    bullets: isEn
+      ? [
+          "Automatic lead distribution by sales rep",
+          "Multi-channel nurturing & follow-up workflows",
+          "Real-time pipeline & deal synchronization"
+        ]
+      : [
+          "Distribución automática de leads por asesor",
+          "Secuencias de nutrición y follow-up multicanal",
+          "Actualización de pipeline en tiempo real"
+        ]
   },
   {
     icon: MessageCircle,
-    title: "Atención & Soporte Contextual",
-    description: "Asistentes virtuales entrenados con la información real de tu catálogo, servicios y políticas para responder dudas frecuentes y pre-calificar prospectos al instante.",
-    bullets: [
-      "Respuestas precisas en menos de 5 segundos",
-      "Transferencia transparente a ejecutivos humanos",
-      "Integración nativa con WhatsApp Business"
-    ]
+    title: isEn ? "Contextual Support & AI Chat" : "Atención & Soporte Contextual",
+    description: isEn
+      ? "Virtual assistants trained on your actual catalog, services, and policies to answer complex questions and qualify prospects instantly."
+      : "Asistentes virtuales entrenados con la información real de tu catálogo, servicios y políticas para responder dudas frecuentes y pre-calificar prospectos al instante.",
+    bullets: isEn
+      ? [
+          "Accurate answers in less than 5 seconds",
+          "Seamless handoff to human sales executives",
+          "Native WhatsApp Business & Web integration"
+        ]
+      : [
+          "Respuestas precisas en menos de 5 segundos",
+          "Transferencia transparente a ejecutivos humanos",
+          "Integración nativa con WhatsApp Business"
+        ]
   },
   {
     icon: FileSpreadsheet,
-    title: "Procesos & Operaciones Internas",
-    description: "Eliminamos el trabajo manual repetitivo: generación automática de propuestas en PDF, sincronización entre bases de datos y alertas operativas programadas.",
-    bullets: [
-      "Generación de cotizaciones y contratos en 1 clic",
-      "Sincronización Sheets ↔ CRM ↔ Notificaciones",
-      "Alertas automáticas de tareas y cobros"
-    ]
+    title: isEn ? "Internal Operations & Workflows" : "Procesos & Operaciones Internas",
+    description: isEn
+      ? "We eliminate repetitive manual work: automated PDF proposal generation, cross-database synchronization, and scheduled operational alerts."
+      : "Eliminamos el trabajo manual repetitivo: generación automática de propuestas en PDF, sincronización entre bases de datos y alertas operativas programadas.",
+    bullets: isEn
+      ? [
+          "1-click quotation and contract generation",
+          "Sheets ↔ CRM ↔ Slack/Discord sync",
+          "Automated billing, task, and reminder alerts"
+        ]
+      : [
+          "Generación de cotizaciones y contratos en 1 clic",
+          "Sincronización Sheets ↔ CRM ↔ Notificaciones",
+          "Alertas automáticas de tareas y cobros"
+        ]
   },
   {
     icon: BrainCircuit,
-    title: "Inteligencia Artificial Aplicada",
-    description: "Implementamos modelos de lenguaje (LLMs) y sistemas RAG para extraer datos de correos, calificar la intención de compra y consultar bases de conocimiento internas.",
-    bullets: [
-      "Extracción y estructuración de datos desordenados",
-      "Scoring predictivo de probabilidad de cierre",
-      "Búsqueda semántica en manuales y políticas"
-    ]
+    title: isEn ? "Applied Artificial Intelligence" : "Inteligencia Artificial Aplicada",
+    description: isEn
+      ? "We implement LLMs and RAG architectures to parse incoming emails, calculate purchase intent probability, and query internal knowledge bases."
+      : "Implementamos modelos de lenguaje (LLMs) y sistemas RAG para extraer datos de correos, calificar la intención de compra y consultar bases de conocimiento internas.",
+    bullets: isEn
+      ? [
+          "Extraction & structuring from messy unstructured data",
+          "Predictive deal closing probability scoring",
+          "Semantic search over manuals, PDFs, and internal SOPs"
+        ]
+      : [
+          "Extracción y estructuración de datos desordenados",
+          "Scoring predictivo de probabilidad de cierre",
+          "Búsqueda semántica en manuales y políticas"
+        ]
   }
 ];
 ---
@@ -57,10 +97,12 @@ const capabilities = [
     <!-- Section Header (Centered) -->
     <div class="text-center max-w-4xl mx-auto mb-16">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        4 áreas donde la automatización multiplica tus resultados.
+        {isEn ? "4 strategic areas where automation multiplies your output." : "4 áreas donde la automatización multiplica tus resultados."}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed max-w-3xl mx-auto">
-        No implementamos tecnología por moda. Cada flujo o agente resuelve una fricción operativa específica que ahorra horas de trabajo y previene la pérdida de clientes.
+        {isEn
+          ? "We don't build tech for trends. Every workflow or AI agent solves a concrete operational bottleneck that saves hundreds of team hours and prevents customer churn."
+          : "No implementamos tecnología por moda. Cada flujo o agente resuelve una fricción operativa específica que ahorra horas de trabajo y previene la pérdida de clientes."}
       </p>
     </div>
 

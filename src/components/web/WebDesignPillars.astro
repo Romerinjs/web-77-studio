@@ -1,8 +1,47 @@
 ---
 // src/components/web/WebDesignPillars.astro
 import { ChevronLeft, ChevronRight } from 'lucide-astro';
+import type { SupportedLocale } from '@/lib/i18n/ui';
 
-const pillars = [
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+
+const pillars = isEn ? [
+  {
+    number: "01",
+    title: "Immediate Clarity",
+    badge: "AIDA Framework",
+    description: "Clean visual hierarchy and concise conversion copy. Any decision-maker understands what you offer and why to hire you in under 5 seconds."
+  },
+  {
+    number: "02",
+    title: "Authority & Trust",
+    badge: "Credibility",
+    description: "International editorial design standards (Colombia ↔ USA). Real case studies, tangible numbers, and bespoke aesthetics with zero generic templates."
+  },
+  {
+    number: "03",
+    title: "Dual Conversion (CRO)",
+    badge: "WhatsApp + Form",
+    description: "Parallel dual calls to action. Your client chooses whether to initiate an instant WhatsApp chat or submit structured project details via form."
+  },
+  {
+    number: "04",
+    title: "Blazing Speed",
+    badge: "Astro 5 Islands",
+    description: "Sub-second load times powered by Astro static generation. Zero unnecessary JavaScript to ensure 100% of your paid traffic becomes active visits."
+  },
+  {
+    number: "05",
+    title: "True Mobile-First",
+    badge: "Thumb Friendly",
+    description: "Built from the mobile viewport up, featuring a permanent sticky floating bottom contact bar and frictionless touch interactions."
+  }
+] : [
   {
     number: "01",
     title: "Claridad Inmediata",
@@ -35,6 +74,18 @@ const pillars = [
   }
 ];
 
+const title = isEn
+  ? "The 5 core pillars behind every website we build."
+  : "Los 5 pilares con los que construimos cada sitio web.";
+
+const subtitle = isEn
+  ? "We don't build websites just to look pretty in a portfolio; we engineer high-performance business assets proven to generate pipeline and revenue."
+  : "No hacemos páginas para que se vean bonitas en un portafolio; diseñamos herramientas de negocio de alto rendimiento probadas para vender más.";
+
+const prevLabel = isEn ? "Previous pillar" : "Pilar anterior";
+const nextLabel = isEn ? "Next pillar" : "Siguiente pilar";
+const swipeHint = isEn ? "Drag or swipe" : "Arrastra o desliza";
+
 // Duplicate list to achieve a 100% seamless, infinite continuous loop
 const repeatedPillars = [...pillars, ...pillars];
 ---
@@ -45,10 +96,10 @@ const repeatedPillars = [...pillars, ...pillars];
     <!-- Section Header (Centered) -->
     <div class="text-center max-w-4xl mx-auto mb-12 sm:mb-16">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        Los 5 pilares con los que construimos cada sitio web.
+        {title}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/70 leading-relaxed max-w-3xl mx-auto">
-        No hacemos páginas para que se vean bonitas en un portafolio; diseñamos herramientas de negocio de alto rendimiento probadas para vender más.
+        {subtitle}
       </p>
     </div>
 
@@ -99,25 +150,23 @@ const repeatedPillars = [...pillars, ...pillars];
       <div class="flex items-center justify-center gap-4 mt-8 max-w-xs mx-auto relative z-30">
         <button
           id="pillars-prev-btn"
-          aria-label="Pilar anterior"
+          aria-label={prevLabel}
           class="flex size-11 items-center justify-center rounded-full bg-white border border-black/10 text-background-13 shadow-xs hover:bg-slate-100 hover:scale-105 active:scale-95 transition-all cursor-pointer"
         >
           <ChevronLeft class="size-5" />
         </button>
 
         <span class="font-ibm-plex-mono text-xs text-background-13/50 uppercase tracking-wider px-2">
-          Arrastra o desliza
+          {swipeHint}
         </span>
 
         <button
           id="pillars-next-btn"
-          aria-label="Siguiente pilar"
+          aria-label={nextLabel}
           class="flex size-11 items-center justify-center rounded-full bg-white border border-black/10 text-background-13 shadow-xs hover:bg-slate-100 hover:scale-105 active:scale-95 transition-all cursor-pointer"
         >
           <ChevronRight class="size-5" />
         </button>
-      </div>
-
     </div>
 
   </div>

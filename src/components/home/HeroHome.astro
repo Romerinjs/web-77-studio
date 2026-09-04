@@ -1,9 +1,18 @@
 ---
 // src/components/home/HeroHome.astro
 import DualCTA from '@/components/DualCTA.astro';
+import { getHomeTranslations } from '@/lib/i18n/pages/home';
+import type { SupportedLocale } from '@/lib/i18n/ui';
 import desarrolloImg from '../../../img/hero/desarrollo.png';
 import filmmakingImg from '../../../img/hero/filmmaking.png';
 import marketing1Img from '../../../img/hero/marketing1.png';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const t = getHomeTranslations(currentLang);
 ---
 
 <section class="relative pt-32 pb-16 sm:pt-40 sm:pb-24 overflow-hidden">
@@ -18,22 +27,23 @@ import marketing1Img from '../../../img/hero/marketing1.png';
       
       <!-- Main Headline -->
       <h1 data-text-reveal data-delay="0.2" class="font-sora text-4xl sm:text-6xl lg:text-[64px] font-bold tracking-tight text-background-13 leading-[1.12] mb-6">
-        Un solo equipo para que tu empresa se vea, <span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">venda y funcione mejor.</span>
+        {t.hero.headlinePrefix}<span class="bg-gradient-to-r from-background-13 via-opai-purple to-background-13 bg-clip-text text-transparent">{t.hero.headlineGradient}</span>
       </h1>
 
       <!-- Subheadline -->
       <p data-opai-animate data-delay="0.3" class="font-inter-tight text-lg sm:text-xl text-background-13/75 max-w-3xl mx-auto mb-9 leading-relaxed">
-        Marketing, tecnología e IA integrados para acelerar tu crecimiento en Colombia, USA y mercados globales.
+        {t.hero.subheadline}
       </p>
 
       <!-- Dual Commercial CTA -->
       <div data-opai-animate data-delay="0.4" class="mb-14">
         <DualCTA
           whatsappContext="home"
-          whatsappText="Hablemos de tu proyecto"
-          emailText="Quiero que me contacten"
+          whatsappText={t.hero.whatsappCta}
+          emailText={t.hero.emailCta}
           emailHref="#contacto"
           centered={true}
+          lang={currentLang}
         />
       </div>
 

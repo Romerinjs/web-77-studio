@@ -1,0 +1,40 @@
+---
+// src/pages/en/productos-digitales.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import HeroProductos from '@/components/productos/HeroProductos.astro';
+import ProductSolutionsGrid from '@/components/productos/ProductSolutionsGrid.astro';
+import ProductProcessSection from '@/components/productos/ProductProcessSection.astro';
+import ProductCasesSection from '@/components/productos/ProductCasesSection.astro';
+import ProductWhyUsSection from '@/components/productos/ProductWhyUsSection.astro';
+import ProductContactSection from '@/components/productos/ProductContactSection.astro';
+import { getProductosTranslations } from '@/lib/i18n/pages/productos-digitales';
+
+const lang = 'en';
+const t = getProductosTranslations(lang);
+---
+
+<BaseLayout
+  title={t.meta.title}
+  description={t.meta.description}
+  canonical="https://77.studio/en/productos-digitales"
+  whatsappContext="productos"
+  lang={lang}
+>
+  <!-- 01. Hero Section with Product Studio Value Proposition -->
+  <HeroProductos lang={lang} />
+
+  <!-- 02. Custom Digital Solutions Catalog -->
+  <ProductSolutionsGrid lang={lang} />
+
+  <!-- 03. 5-Step Product Development Methodology -->
+  <ProductProcessSection lang={lang} />
+
+  <!-- 04. Digital Product Case Studies -->
+  <ProductCasesSection lang={lang} />
+
+  <!-- 05. Why 77 Studio: End-to-End Strategic Partner -->
+  <ProductWhyUsSection lang={lang} />
+
+  <!-- 06. Commercial Closing Block with WhatsApp & Lead Form -->
+  <ProductContactSection lang={lang} />
+</BaseLayout>

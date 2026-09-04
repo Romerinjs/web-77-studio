@@ -1,37 +1,57 @@
 ---
 // src/components/nosotros/TeamCapabilitiesGrid.astro
 import { Target, TrendingUp, Video, Code2, Workflow, Bot, LayoutGrid, Play, Pause, ChevronLeft, ChevronRight } from 'lucide-astro';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
 
 const disciplines = [
   {
     icon: Target,
-    title: "Estrategia & Dirección Comercial",
-    description: "Definición de posicionamiento de mercado, arquitectura de embudos y diagnóstico de cuellos de botella para empresas."
+    title: isEn ? "Strategy & Commercial Direction" : "Estrategia & Dirección Comercial",
+    description: isEn
+      ? "Market positioning architecture, customer acquisition funnels, and enterprise bottleneck diagnosis."
+      : "Definición de posicionamiento de mercado, arquitectura de embudos y diagnóstico de cuellos de botella para empresas."
   },
   {
     icon: TrendingUp,
-    title: "Paid Media & Adquisición",
-    description: "Gestión de campañas de alta conversión en Meta Ads y Google Ads con pixelado CAPI serverless y analítica avanzada."
+    title: isEn ? "Paid Media & Growth Acquisition" : "Paid Media & Adquisición",
+    description: isEn
+      ? "High-converting campaign management on Meta and Google Ads with serverless CAPI pixel tracking and deep analytics."
+      : "Gestión de campañas de alta conversión en Meta Ads y Google Ads con pixelado CAPI serverless y analítica avanzada."
   },
   {
     icon: Video,
-    title: "Contenido, Video & Creativos",
-    description: "Producción audiovisual dinámica, hooks de alta retención, carruseles educativos y creativos visuales con IA."
+    title: isEn ? "Content, Video & Creative Direction" : "Contenido, Video & Creativos",
+    description: isEn
+      ? "Dynamic cinematic production, high-retention hooks, educational carousels, and AI-augmented visual assets."
+      : "Producción audiovisual dinámica, hooks de alta retención, carruseles educativos y creativos visuales con IA."
   },
   {
     icon: Code2,
-    title: "Ingeniería Web & Frontend",
-    description: "Desarrollo de sitios web y landing pages ultra-rápidas en Astro 5, Tailwind CSS y componentes interactivos."
+    title: isEn ? "Web Engineering & Frontend" : "Ingeniería Web & Frontend",
+    description: isEn
+      ? "Ultra-fast website and landing page development using Astro 5, Tailwind CSS, and reactive interactive components."
+      : "Desarrollo de sitios web y landing pages ultra-rápidas en Astro 5, Tailwind CSS y componentes interactivos."
   },
   {
     icon: Workflow,
-    title: "Automatización & Flujos CRM",
-    description: "Conexión de sistemas en n8n, Make, WhatsApp Business API y bases de datos para eliminar tareas manuales repetitivas."
+    title: isEn ? "Automation & CRM Pipelines" : "Automatización & Flujos CRM",
+    description: isEn
+      ? "System integration across n8n, Make, WhatsApp Business API, and databases to eliminate repetitive manual work."
+      : "Conexión de sistemas en n8n, Make, WhatsApp Business API y bases de datos para eliminar tareas manuales repetitivas."
   },
   {
     icon: Bot,
-    title: "Inteligencia Artificial Aplicada",
-    description: "Desarrollo de agentes inteligentes con RAG (Retrieval-Augmented Generation), clasificación de leads y asistentes 24/7."
+    title: isEn ? "Applied Artificial Intelligence" : "Inteligencia Artificial Aplicada",
+    description: isEn
+      ? "Autonomous agent development with RAG (Retrieval-Augmented Generation), lead intent scoring, and 24/7 assistants."
+      : "Desarrollo de agentes inteligentes con RAG (Retrieval-Augmented Generation), clasificación de leads y asistentes 24/7."
   }
 ];
 ---
@@ -42,10 +62,12 @@ const disciplines = [
     <!-- Section Header (Centered) -->
     <div class="text-center max-w-3xl mx-auto mb-10">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        Un solo equipo, todas las capacidades necesarias.
+        {isEn ? "One integrated team. All necessary execution capabilities." : "Un solo equipo, todas las capacidades necesarias."}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-        Reunimos especialistas de cada área trabajando en sintonía para que tu proyecto no sufra fricciones entre proveedores.
+        {isEn
+          ? "We bring specialized domain leads together working in lockstep so your business never suffers friction between disconnected vendors."
+          : "Reunimos especialistas de cada área trabajando en sintonía para que tu proyecto no sufra fricciones entre proveedores."}
       </p>
     </div>
 
@@ -74,7 +96,7 @@ const disciplines = [
           id="prev-slide-btn"
           type="button"
           class="h-9 w-9 rounded-full border border-black/10 bg-slate-50 hover:bg-white hover:border-black/20 flex items-center justify-center text-background-13 transition-all shadow-xs cursor-pointer"
-          aria-label="Desplazar a la izquierda"
+          aria-label={isEn ? "Scroll left" : "Desplazar a la izquierda"}
         >
           <ChevronLeft class="size-4" />
         </button>
@@ -82,7 +104,7 @@ const disciplines = [
           id="next-slide-btn"
           type="button"
           class="h-9 w-9 rounded-full border border-black/10 bg-slate-50 hover:bg-white hover:border-black/20 flex items-center justify-center text-background-13 transition-all shadow-xs cursor-pointer"
-          aria-label="Desplazar a la derecha"
+          aria-label={isEn ? "Scroll right" : "Desplazar a la derecha"}
         >
           <ChevronRight class="size-4" />
         </button>

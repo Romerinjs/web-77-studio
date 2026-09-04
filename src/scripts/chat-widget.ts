@@ -1,4 +1,41 @@
-// src/scripts/chat-widget.ts
+export interface QuickQuestion {
+  icon: string;
+  text: string;
+  query: string;
+}
+
+export const QUICK_QUESTIONS: QuickQuestion[] = [
+  {
+    icon: "🚀",
+    text: "¿Qué servicios ofrece 77 Studio?",
+    query: "¿Cuáles son los 4 servicios principales que ofrece 77 Studio?",
+  },
+  {
+    icon: "💼",
+    text: "¿Cómo me ayudan a conseguir más clientes?",
+    query: "¿Cómo me ayudan a captar clientes con Meta Ads y Google Ads?",
+  },
+  {
+    icon: "⚡",
+    text: "¿Cómo automatizan WhatsApp y CRM con IA?",
+    query: "¿Cómo funciona la automatización comercial y agentes IA para WhatsApp y CRM?",
+  },
+  {
+    icon: "💬",
+    text: "¿Cómo agendar una llamada de diagnóstico?",
+    query: "¿Cómo puedo agendar una llamada de diagnóstico con el equipo de 77 Studio?",
+  },
+];
+
+type SuggestionItem = string | QuickQuestion;
+
+interface ChatHistoryMessage {
+  role: 'user' | 'bot';
+  text: string;
+  suggestions?: SuggestionItem[];
+  isError?: boolean;
+}
+
 export function init77ChatWidget() {
   const widgetEl = document.getElementById('aiChatWidget');
   if (!widgetEl) return;
@@ -8,7 +45,7 @@ export function init77ChatWidget() {
   widgetEl.dataset.initialized = 'true';
 
   const apiEndpoint = widgetEl.dataset.apiEndpoint || '/api/chat';
-  const whatsappUrl = widgetEl.dataset.whatsappUrl || 'https://wa.me/573000000000';
+  const whatsappUrl = widgetEl.dataset.whatsappUrl || 'https://wa.me/573148490955';
 
   const chatTriggerBtn = document.getElementById('chatTriggerBtn');
   const chatWindow = document.getElementById('chatWindow');
@@ -25,11 +62,11 @@ export function init77ChatWidget() {
   const chatAvatarStatusDot = document.getElementById('chatAvatarStatusDot');
   const chatTriggerOnlineDot = document.getElementById('chatTriggerOnlineDot');
 
-  const STORAGE_KEY_HISTORY = '77_chat_history_v1';
+  const STORAGE_KEY_HISTORY = '77_chat_history_v2_sofia';
   const STORAGE_KEY_OPEN = '77_chat_is_open_v1';
   const STORAGE_KEY_BADGE = '77_chat_badge_hidden_v1';
 
-  let messageHistory: Array<{ role: 'user' | 'bot'; text: string; suggestions?: string[]; isError?: boolean }> = [];
+  let messageHistory: ChatHistoryMessage[] = [];
   let isStreaming = false;
 
   // 1. Verificación de Conexión en Vivo (Health Check)
@@ -39,12 +76,12 @@ export function init77ChatWidget() {
       const data = await res.json().catch(() => ({ connected: false }));
 
       if (data && data.connected) {
-        setConnectionState(true, 'Eve AI Conectado');
+        setConnectionState(true, 'Sofía Conectada');
       } else {
-        setConnectionState(false, 'Eve Desconectado (Offline)');
+        setConnectionState(false, 'Sofía Desconectada (Offline)');
       }
     } catch {
-      setConnectionState(false, 'Eve Desconectado (Offline)');
+      setConnectionState(false, 'Sofía Desconectada (Offline)');
     }
   }
 
@@ -54,11 +91,16 @@ export function init77ChatWidget() {
     if (chatStatusDot) {
       chatStatusDot.className = isOnline ? 'status-indicator' : 'status-indicator offline';
     }
+    const tooltipText = isOnline ? 'Conectado' : 'Offline';
     if (chatAvatarStatusDot) {
       chatAvatarStatusDot.className = isOnline ? 'avatar-status-dot' : 'avatar-status-dot offline';
+      chatAvatarStatusDot.title = tooltipText;
+      chatAvatarStatusDot.setAttribute('data-tooltip', tooltipText);
     }
     if (chatTriggerOnlineDot) {
       chatTriggerOnlineDot.className = isOnline ? 'trigger-online-dot' : 'trigger-online-dot offline';
+      chatTriggerOnlineDot.title = tooltipText;
+      chatTriggerOnlineDot.setAttribute('data-tooltip', tooltipText);
     }
   }
 
@@ -100,14 +142,22 @@ export function init77ChatWidget() {
     }
   }
 
+  const lang = (widgetEl.dataset.lang || document.documentElement.lang || 'es') === 'en' ? 'en' : 'es';
+
   function appendInitialWelcome() {
-    const welcomeText = '¡Hola! 👋 Soy **Eve**, el agente de inteligencia artificial de **77 Studio**.\n\nPuedo responder tus dudas en tiempo real sobre **Marketing, Desarrollo Web, Automatización con IA y Productos Digitales** consultando directamente nuestra base de conocimiento oficial.\n\n¿En qué podemos ayudarte hoy?';
-    const initialSuggestions = [
-      '🚀 ¿Qué servicios de Desarrollo Web ofrecen?',
-      '⚡ ¿Cómo automatizan WhatsApp con IA y CRM?',
-      '⏱️ ¿En qué consiste el Sprint de 14 días?',
-      '📍 ¿Dónde queda ubicado 77 Studio?'
-    ];
+    const isEn = lang === 'en';
+    const welcomeText = isEn
+      ? "Hello! 👋 I'm **Sofia**, commercial advisor at **77 Studio**.\n\nI can assist you in real time on how to grow your business with **Marketing, Web Development, AI Automation, and Digital Products**, or schedule a diagnostic call with our team.\n\nHow can I help you today?"
+      : "¡Hola! 👋 Soy **Sofía**, asesora comercial de **77 Studio**.\n\nPuedo orientarte en tiempo real sobre cómo impulsar tu empresa con **Marketing, Desarrollo Web, Automatización con IA y Productos Digitales**, o coordinar una llamada de diagnóstico con nuestro equipo.\n\n¿En qué te puedo ayudar hoy?";
+    
+    const initialSuggestions: QuickQuestion[] = isEn
+      ? [
+          { icon: "🚀", text: "What services does 77 Studio provide?", query: "What are the 4 core services provided by 77 Studio?" },
+          { icon: "💼", text: "How do you help acquire more clients?", query: "How do you help acquire clients with Meta Ads and Google Ads?" },
+          { icon: "⚡", text: "How do you automate WhatsApp and CRM with AI?", query: "How does commercial automation and AI agents for WhatsApp and CRM work?" },
+          { icon: "💬", text: "How can I book a diagnostic call?", query: "How can I schedule a diagnostic call with the 77 Studio team?" },
+        ]
+      : [...QUICK_QUESTIONS];
 
     messageHistory.push({ role: 'bot', text: welcomeText, suggestions: initialSuggestions });
     renderBotMessage(welcomeText, initialSuggestions);
@@ -144,7 +194,7 @@ export function init77ChatWidget() {
     smartScrollToBottom(true);
   }
 
-  function renderBotMessage(rawText: string, suggestions?: string[], save = true) {
+  function renderBotMessage(rawText: string, suggestions?: SuggestionItem[], save = true) {
     if (!chatBody) return;
     const cleanText = sanitizeResponseText(rawText);
     const msgDiv = document.createElement('div');
@@ -160,13 +210,24 @@ export function init77ChatWidget() {
       const grid = document.createElement('div');
       grid.className = 'inline-suggestions-grid';
 
-      suggestions.slice(0, 4).forEach((sugg) => {
+      suggestions.slice(0, 4).forEach((item) => {
+        const isObj = typeof item === 'object' && item !== null;
+        const icon = isObj && item.icon ? item.icon : '';
+        const displayText = isObj ? item.text : item;
+        const queryText = isObj && item.query ? item.query : (typeof item === 'string' ? item : displayText);
+
         const btn = document.createElement('button');
         btn.type = 'button';
         btn.className = 'inline-suggestion-chip';
-        btn.innerHTML = `<span>${sugg}</span><span class="chip-arrow">➔</span>`;
+        btn.innerHTML = `
+          <div class="chip-content">
+            ${icon ? `<span class="chip-icon">${icon}</span>` : ''}
+            <span class="chip-text">${displayText}</span>
+          </div>
+          <span class="chip-arrow">➔</span>
+        `;
         btn.addEventListener('click', () => {
-          handleSendMessage(sugg);
+          handleSendMessage(queryText);
         });
         grid.appendChild(btn);
       });
@@ -190,7 +251,7 @@ export function init77ChatWidget() {
     errorCard.className = 'chat-error-card';
     errorCard.innerHTML = `
       <div class="chat-error-header">
-        <span>⚠️</span> Error de Conexión con Eve AI
+        <span>⚠️</span> Error de Conexión con Sofía
       </div>
       <div class="chat-error-text">
         No se pudo establecer conexión con el servidor de inteligencia artificial.
@@ -378,7 +439,7 @@ export function init77ChatWidget() {
         throw new Error(errorData.error || errorData.details || `Error del servidor (${response.status})`);
       }
 
-      setConnectionState(true, 'Eve AI Conectado');
+      setConnectionState(true, 'Sofía Conectada');
 
       if (response.body) {
         const reader = response.body.getReader();
@@ -460,10 +521,10 @@ export function init77ChatWidget() {
       removeTypingIndicator();
       if (botMsgDiv) botMsgDiv.remove();
 
-      setConnectionState(false, 'Eve Desconectado (Offline)');
-      console.error('Error comunicando con Eve Agent:', err?.message || err);
+      setConnectionState(false, 'Sofía Desconectada (Offline)');
+      console.error('Error comunicando con Sofía:', err?.message || err);
 
-      renderErrorCard(err?.message || 'No se pudo conectar con el servidor backend de Eve');
+      renderErrorCard(err?.message || 'No se pudo conectar con el servidor backend de Sofía');
     } finally {
       isStreaming = false;
       if (chatSendBtn) chatSendBtn.disabled = false;

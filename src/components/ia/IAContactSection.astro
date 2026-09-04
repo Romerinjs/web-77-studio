@@ -2,8 +2,15 @@
 // src/components/ia/IAContactSection.astro
 import ContactForm from '@/components/ContactForm.astro';
 import { getWhatsAppUrl } from '@/utils/whatsapp';
+import type { SupportedLocale } from '@/lib/i18n/ui';
 
-const whatsappUrl = getWhatsAppUrl('ia');
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const whatsappUrl = getWhatsAppUrl('ia', undefined, currentLang);
+const isEn = currentLang === 'en';
 ---
 
 <section 
@@ -23,10 +30,12 @@ const whatsappUrl = getWhatsAppUrl('ia');
         
         <div>
           <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-white leading-tight mb-4">
-            Explora qué procesos puedes automatizar hoy.
+            {isEn ? "Explore which business processes you can automate today." : "Explora qué procesos puedes automatizar hoy."}
           </h2>
           <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-white/80 leading-relaxed">
-            Conversemos sobre las tareas repetitivas de tu equipo, evaluemos la viabilidad técnica y diseñemos una solución de IA o automatización adaptada a tu infraestructura actual.
+            {isEn
+              ? "Let's review the repetitive tasks weighing your team down, assess technical feasibility, and engineer an AI automation workflow adapted to your tech stack."
+              : "Conversemos sobre las tareas repetitivas de tu equipo, evaluemos la viabilidad técnica y diseñemos una solución de IA o automatización adaptada a tu infraestructura actual."}
           </p>
         </div>
 
@@ -40,13 +49,15 @@ const whatsappUrl = getWhatsAppUrl('ia');
             </div>
             <div>
               <span class="font-sora font-bold text-lg text-background-13 block leading-tight">
-                Respuesta Inmediata
+                {isEn ? "Direct Response" : "Respuesta Inmediata"}
               </span>
             </div>
           </div>
 
           <p class="font-inter-tight text-xs sm:text-sm text-background-13/70 mb-5 leading-relaxed">
-            Mensaje prellenado para consultar sobre automatizaciones de CRM, asistentes inteligentes o flujos de trabajo personalizados.
+            {isEn
+              ? "Pre-filled message ready to consult regarding CRM automations, custom AI agents, or workflow integrations."
+              : "Mensaje prellenado para consultar sobre automatización de CRM, agentes con IA o integración de plataformas."}
           </p>
 
           <a
@@ -55,15 +66,15 @@ const whatsappUrl = getWhatsAppUrl('ia');
             rel="noopener noreferrer"
             class="w-full flex items-center justify-center gap-2 bg-opai-purple hover:bg-opai-purple-hover text-white py-3.5 px-5 rounded-xl font-ibm-plex-mono text-sm font-semibold transition-all shadow-md active:scale-98"
           >
-            <span>Chatea con nosotros</span>
+            <span>{isEn ? "Chat with our team" : "Chatea con nosotros"}</span>
           </a>
         </div>
 
       </div>
 
-      <!-- Right Column: Lead Form prefilled for IA -->
+      <!-- Right Column: Lead Form prefilled for AI -->
       <div data-opai-animate data-delay="0.4" class="lg:col-span-7">
-        <ContactForm originPage="ia" />
+        <ContactForm originPage="ia-automatizacion" lang={currentLang} />
       </div>
 
     </div>

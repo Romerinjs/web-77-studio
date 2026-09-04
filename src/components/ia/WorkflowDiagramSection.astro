@@ -1,23 +1,39 @@
 ---
 // src/components/ia/WorkflowDiagramSection.astro
 import { ChevronRight } from 'lucide-astro';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
 
 const pipelineStages = [
   {
-    title: "Contacto Multi-Canal",
-    description: "Un prospecto calificado envía un mensaje por WhatsApp o llena el formulario web a las 10:45 PM."
+    title: isEn ? "Multi-Channel Inbound" : "Contacto Multi-Canal",
+    description: isEn
+      ? "A qualified prospect submits a message on WhatsApp or fills the web form at 10:45 PM."
+      : "Un prospecto calificado envía un mensaje por WhatsApp o llena el formulario web a las 10:45 PM."
   },
   {
-    title: "Clasificación & Scoring",
-    description: "El agente IA analiza los requerimientos, consulta el CRM y determina el nivel de prioridad y servicio adecuado."
+    title: isEn ? "Classification & Scoring" : "Clasificación & Scoring",
+    description: isEn
+      ? "The AI agent analyzes requirements, queries your CRM, and establishes priority level and fit."
+      : "El agente IA analiza los requerimientos, consulta el CRM y determina el nivel de prioridad y servicio adecuado."
   },
   {
-    title: "Respuesta & Agenda",
-    description: "El cliente recibe la información precisa solicitada y un enlace interactivo para agendar llamada según disponibilidad."
+    title: isEn ? "Response & Booking" : "Respuesta & Agenda",
+    description: isEn
+      ? "The lead receives accurate answers immediately plus an interactive calendar link matching availability."
+      : "El cliente recibe la información precisa solicitada y un enlace interactivo para agendar llamada según disponibilidad."
   },
   {
-    title: "Llamada de Cierre",
-    description: "Tu asesor comercial llega a la reunión con el historial completo, resumen del caso y objeciones ya resueltas."
+    title: isEn ? "Closing Call" : "Llamada de Cierre",
+    description: isEn
+      ? "Your sales executive joins the meeting with full context, pre-briefing, and objections already resolved."
+      : "Tu asesor comercial llega a la reunión con el historial completo, resumen del caso y objeciones ya resueltas."
   }
 ];
 ---
@@ -28,10 +44,12 @@ const pipelineStages = [
     <!-- Section Header (Centered) -->
     <div class="text-center max-w-4xl mx-auto mb-16">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        De visitante a reunión calificada sin intervención manual.
+        {isEn ? "From website visitor to qualified meeting with zero manual friction." : "De visitante a reunión calificada sin intervención manual."}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-3xl mx-auto">
-        Así funciona un ecosistema de automatización real: tu empresa atiende 24/7 sin que tu equipo tenga que estar conectado a medianoche.
+        {isEn
+          ? "How a real automation ecosystem functions: your enterprise responds 24/7 without requiring your staff to be awake at midnight."
+          : "Así funciona un ecosistema de automatización real: tu empresa atiende 24/7 sin que tu equipo tenga que estar conectado a medianoche."}
       </p>
     </div>
 
@@ -96,7 +114,9 @@ const pipelineStages = [
         
         <div class="max-w-3xl space-y-4">
           <h3 class="font-sora text-2xl sm:text-3xl font-bold leading-snug">
-            La automatización no reemplaza a tu equipo: multiplica su capacidad comercial.
+            {isEn
+              ? "Automation doesn't replace your team: it multiplies their sales capacity."
+              : "La automatización no reemplaza a tu equipo: multiplica su capacidad comercial."}
           </h3>
 
           <!-- 77 Studio Logo Badge under title -->
@@ -115,7 +135,7 @@ const pipelineStages = [
             href="#contacto"
             class="w-full sm:w-auto text-center font-ibm-plex-mono text-xs uppercase tracking-wider bg-opai-purple hover:bg-opai-purple-hover text-white px-7 py-4 rounded-xl transition-all font-semibold shadow-lg hover:shadow-opai-purple/25 hover:scale-[1.02] active:scale-98"
           >
-            Evaluar Procesos de mi Empresa
+            {isEn ? "Evaluate My Business Processes" : "Evaluar Procesos de mi Empresa"}
           </a>
         </div>
 

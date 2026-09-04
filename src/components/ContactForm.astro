@@ -1,54 +1,60 @@
 ---
 // src/components/ContactForm.astro
+import { uiTranslations, type SupportedLocale } from '@/lib/i18n/ui';
+
 interface Props {
   originPage?: string;
   className?: string;
+  lang?: SupportedLocale;
 }
 
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
 const { originPage = 'home', className = '' } = Astro.props;
+const t = uiTranslations[currentLang].contactForm;
 ---
 
 <div class={`rounded-[24px] border border-black/10 bg-white p-7 sm:p-9 shadow-sm ${className}`}>
   
   <div class="mb-6">
     <h3 class="font-sora text-2xl font-bold text-background-13">
-      Cuéntanos sobre tu empresa
+      {t.title}
     </h3>
     <p class="font-inter-tight text-xs sm:text-sm text-background-13/70 mt-1">
-      Te responderemos en menos de 24 horas hábiles con una orientación inicial.
+      {t.subtitle}
     </p>
   </div>
 
   <form id="lead-contact-form" class="space-y-4" action="/api/contact" method="POST">
-    <!-- Hidden Origin Field for Analytics -->
+    <!-- Hidden Origin & Language Field for Analytics -->
     <input type="hidden" name="origin_page" value={originPage} id="form-origin-page" />
+    <input type="hidden" name="lang" value={currentLang} id="form-lang" />
     <input type="hidden" name="submitted_at" value="" id="form-submitted-at" />
 
     <!-- Grid: Name + Company -->
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
         <label for="contact-name" class="block font-ibm-plex-mono text-xs font-medium text-background-13 mb-1.5">
-          Nombre completo <span class="text-opai-purple">*</span>
+          {t.nameLabel} <span class="text-opai-purple">*</span>
         </label>
         <input
           type="text"
           id="contact-name"
           name="name"
           required
-          placeholder="Ej. Carlos Mendoza"
+          placeholder={t.namePlaceholder}
           class="w-full rounded-xl border border-black/10 bg-slate-50 px-4 py-3 text-sm text-background-13 font-inter-tight placeholder:text-background-13/40 focus:bg-white focus:border-opai-purple focus:outline-none focus:ring-2 focus:ring-opai-purple/20 transition-all"
         />
       </div>
 
       <div>
         <label for="contact-company" class="block font-ibm-plex-mono text-xs font-medium text-background-13 mb-1.5">
-          Empresa / Proyecto
+          {t.companyLabel}
         </label>
         <input
           type="text"
           id="contact-company"
           name="company"
-          placeholder="Ej. Acme Corp"
+          placeholder={t.companyPlaceholder}
           class="w-full rounded-xl border border-black/10 bg-slate-50 px-4 py-3 text-sm text-background-13 font-inter-tight placeholder:text-background-13/40 focus:bg-white focus:border-opai-purple focus:outline-none focus:ring-2 focus:ring-opai-purple/20 transition-all"
         />
       </div>
@@ -58,28 +64,28 @@ const { originPage = 'home', className = '' } = Astro.props;
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div>
         <label for="contact-email" class="block font-ibm-plex-mono text-xs font-medium text-background-13 mb-1.5">
-          Correo corporativo <span class="text-opai-purple">*</span>
+          {t.emailLabel} <span class="text-opai-purple">*</span>
         </label>
         <input
           type="email"
           id="contact-email"
           name="email"
           required
-          placeholder="carlos@empresa.com"
+          placeholder={t.emailPlaceholder}
           class="w-full rounded-xl border border-black/10 bg-slate-50 px-4 py-3 text-sm text-background-13 font-inter-tight placeholder:text-background-13/40 focus:bg-white focus:border-opai-purple focus:outline-none focus:ring-2 focus:ring-opai-purple/20 transition-all"
         />
       </div>
 
       <div>
         <label for="contact-phone" class="block font-ibm-plex-mono text-xs font-medium text-background-13 mb-1.5">
-          Teléfono / WhatsApp <span class="text-opai-purple">*</span>
+          {t.phoneLabel} <span class="text-opai-purple">*</span>
         </label>
         <input
           type="tel"
           id="contact-phone"
           name="phone"
           required
-          placeholder="+57 300 000 0000"
+          placeholder={t.phonePlaceholder}
           class="w-full rounded-xl border border-black/10 bg-slate-50 px-4 py-3 text-sm text-background-13 font-inter-tight placeholder:text-background-13/40 focus:bg-white focus:border-opai-purple focus:outline-none focus:ring-2 focus:ring-opai-purple/20 transition-all"
         />
       </div>
@@ -88,7 +94,7 @@ const { originPage = 'home', className = '' } = Astro.props;
     <!-- Service Selector -->
     <div>
       <label for="contact-service" class="block font-ibm-plex-mono text-xs font-medium text-background-13 mb-1.5">
-        ¿Qué servicio te interesa principalmente? <span class="text-opai-purple">*</span>
+        {t.serviceLabel} <span class="text-opai-purple">*</span>
       </label>
       <select
         id="contact-service"
@@ -96,25 +102,23 @@ const { originPage = 'home', className = '' } = Astro.props;
         required
         class="w-full rounded-xl border border-black/10 bg-slate-50 px-4 py-3 text-sm text-background-13 font-inter-tight focus:bg-white focus:border-opai-purple focus:outline-none focus:ring-2 focus:ring-opai-purple/20 transition-all"
       >
-        <option value="" disabled selected>Selecciona una opción...</option>
-        <option value="marketing">Marketing Digital & Ads (Meta / Google / Contenido)</option>
-        <option value="web">Desarrollo Web & Landings de Alta Conversión</option>
-        <option value="ia-automatizacion">IA + Automatización de Procesos y CRM</option>
-        <option value="productos-digitales">Productos Digitales (SaaS, Portales, MVPs)</option>
-        <option value="ecosistema-completo">Ecosistema Completo (Todo el Estudio)</option>
+        <option value="" disabled selected>{t.serviceSelectPlaceholder}</option>
+        {t.servicesOptions.map((opt) => (
+          <option value={opt.value}>{opt.label}</option>
+        ))}
       </select>
     </div>
 
     <!-- Message -->
     <div>
       <label for="contact-message" class="block font-ibm-plex-mono text-xs font-medium text-background-13 mb-1.5">
-        Cuéntanos brevemente sobre tu proyecto o necesidad
+        {t.messageLabel}
       </label>
       <textarea
         id="contact-message"
         name="message"
         rows="3"
-        placeholder="¿Cuáles son tus objetivos comerciales o cuellos de botella actuales?"
+        placeholder={t.messagePlaceholder}
         class="w-full rounded-xl border border-black/10 bg-slate-50 px-4 py-3 text-sm text-background-13 font-inter-tight placeholder:text-background-13/40 focus:bg-white focus:border-opai-purple focus:outline-none focus:ring-2 focus:ring-opai-purple/20 transition-all"
       ></textarea>
     </div>
@@ -124,8 +128,9 @@ const { originPage = 'home', className = '' } = Astro.props;
       type="submit"
       id="submit-btn"
       class="w-full flex items-center justify-center gap-2 bg-background-13 hover:bg-black text-white py-3.5 px-6 rounded-xl font-ibm-plex-mono text-sm font-semibold transition-all shadow-sm hover:shadow-md active:scale-[0.99]"
+      data-submitting-text={t.submittingButton}
     >
-      <span>Enviar Solicitud de Proyecto</span>
+      <span>{t.submitButton}</span>
       <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-white/80" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3" />
       </svg>
@@ -133,12 +138,12 @@ const { originPage = 'home', className = '' } = Astro.props;
 
     <!-- Success Message Container (Client state) -->
     <div id="form-success-msg" class="hidden rounded-xl border border-emerald-500/20 bg-emerald-50 p-4 text-center">
-      <span class="font-sora text-sm font-bold text-emerald-800 block">¡Mensaje recibido con éxito!</span>
-      <span class="font-inter-tight text-xs text-emerald-700 mt-1 block">Nos pondremos en contacto contigo a la brevedad.</span>
+      <span class="font-sora text-sm font-bold text-emerald-800 block">{t.successTitle}</span>
+      <span class="font-inter-tight text-xs text-emerald-700 mt-1 block">{t.successMessage}</span>
     </div>
 
     <p class="font-inter-tight text-[11px] text-background-13/50 text-center">
-      Tus datos son 100% confidenciales. No enviamos spam.
+      {t.privacyNote}
     </p>
 
   </form>
@@ -158,7 +163,8 @@ const { originPage = 'home', className = '' } = Astro.props;
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       if (submitBtn) {
-        submitBtn.innerHTML = '<span>Enviando información...</span>';
+        const loadingText = submitBtn.getAttribute('data-submitting-text') || 'Enviando...';
+        submitBtn.innerHTML = `<span>${loadingText}</span>`;
         submitBtn.setAttribute('disabled', 'true');
       }
 

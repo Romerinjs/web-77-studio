@@ -1,27 +1,43 @@
 ---
 // src/components/productos/ProductWhyUsSection.astro
 import { Palette, TrendingUp, Cpu, ShieldCheck } from 'lucide-astro';
+import type { SupportedLocale } from '@/lib/i18n/ui';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
 
 const advantages = [
   {
     icon: Palette,
-    title: "UX/UI de Nivel Mundial",
-    description: "Interfaces intuitivas y estéticas que no parecen software empresarial anticuado. La usabilidad es clave para que tus colaboradores y clientes lo amen."
+    title: isEn ? "World-Class UX/UI Engineering" : "UX/UI de Nivel Mundial",
+    description: isEn
+      ? "Intuitive, sleek interfaces that feel modern and fluid, avoiding outdated legacy enterprise aesthetics. High usability drives immediate team and customer adoption."
+      : "Interfaces intuitivas y estéticas que no parecen software empresarial anticuado. La usabilidad es clave para que tus colaboradores y clientes lo amen."
   },
   {
     icon: TrendingUp,
-    title: "Enfoque de Negocio & Crecimiento",
-    description: "Si estás creando un SaaS o MVP, diseñamos no solo la app sino también la landing page de conversión y el embudo de captación comercial."
+    title: isEn ? "Business & Go-to-Market Focus" : "Enfoque de Negocio & Crecimiento",
+    description: isEn
+      ? "If you are launching a SaaS or MVP, we don't just engineer the app—we also architect high-converting landing pages and commercial acquisition funnels."
+      : "Si estás creando un SaaS o MVP, diseñamos no solo la app sino también la landing page de conversión y el embudo de captación comercial."
   },
   {
     icon: Cpu,
-    title: "Integración con Automatización e IA",
-    description: "Conectamos tu producto con flujos de CRM, alertas automáticas por WhatsApp y módulos de inteligencia artificial según lo demande tu operación."
+    title: isEn ? "Native AI & Automation Integration" : "Integración con Automatización e IA",
+    description: isEn
+      ? "We seamlessly bridge your product with CRM pipelines, real-time WhatsApp triggers, and contextual AI modules to suit your operational volume."
+      : "Conectamos tu producto con flujos de CRM, alertas automáticas por WhatsApp y módulos de inteligencia artificial según lo demande tu operación."
   },
   {
     icon: ShieldCheck,
-    title: "Propiedad Total & Cero Dependencias",
-    description: "El código fuente, bases de datos y arquitectura en la nube pertenecen 100% a tu empresa sin contratos de permanencia forzados."
+    title: isEn ? "100% IP Ownership & Zero Lock-in" : "Propiedad Total & Cero Dependencias",
+    description: isEn
+      ? "Source code, databases, credentials, and cloud architecture belong 100% to your company with zero forced retainers or proprietary traps."
+      : "El código fuente, bases de datos y arquitectura en la nube pertenecen 100% a tu empresa sin contratos de permanencia forzados."
   }
 ];
 ---
@@ -32,10 +48,12 @@ const advantages = [
     <!-- Section Header (Centered) -->
     <div class="text-center max-w-3xl mx-auto mb-16">
       <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        No pensamos solo en código. Pensamos en el negocio completo.
+        {isEn ? "We don't just think about code. We architect the entire business system." : "No pensamos solo en código. Pensamos en el negocio completo."}
       </h2>
       <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-        Construir software no sirve de nada si nadie lo usa o no genera retorno. Unificamos producto, diseño, marketing y automatización en un solo partner digital.
+        {isEn
+          ? "Building software is useless if nobody uses it or if it doesn't generate ROI. We unify product engineering, UX design, marketing, and automation into one strategic partner."
+          : "Construir software no sirve de nada si nadie lo usa o no genera retorno. Unificamos producto, diseño, marketing y automatización en un solo partner digital."}
       </p>
     </div>
 
