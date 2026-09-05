@@ -3,7 +3,7 @@
 export type SupportedLocale = 'es' | 'en';
 
 export const WHATSAPP_CONFIG = {
-  defaultPhone: '573000000000',
+  defaultPhone: '573148490955',
   messages: {
     es: {
       home: "Hola 77 Studio 👋 Vi su página web y quisiera conversar sobre un proyecto para mi empresa.",
