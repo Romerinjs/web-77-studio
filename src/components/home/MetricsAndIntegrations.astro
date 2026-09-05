@@ -64,6 +64,25 @@ const metrics = isEn ? [
 const integrationsTitle = isEn 
   ? "Native Integrations & Technology Ecosystem"
   : "Ecosistema de Integraciones & Tecnología Nativa";
+
+const platforms = [
+  { name: "Meta", src: "/img/logos-platforms/logotipo-empresa-meta_265339-667.avif", tooltip: "Meta Business Partner" },
+  { name: "Google", src: "/img/logos-platforms/Google_Favicon_2025.svg.webp", tooltip: "Google Ads Premier Partner" },
+  { name: "WhatsApp", src: "/img/logos-platforms/whatsapp.webp", tooltip: "WhatsApp" },
+  { name: "OpenAI", src: "/img/logos-platforms/openai.svg", tooltip: "OpenAI" },
+  { name: "Claude", src: "/img/logos-platforms/claude.png", tooltip: "Claude" },
+  { name: "Gemini AI", src: "/img/logos-platforms/gemini%20AI.png", tooltip: "Gemini AI" },
+  { name: "React", src: "/img/logos-platforms/react%20(2).png", tooltip: "Desarrollo" },
+  { name: "Astro", src: "/img/logos-platforms/astro.png", tooltip: "Astro" },
+  { name: "Vercel", src: "/img/logos-platforms/vercel.svg", tooltip: "Vercel" },
+  { name: "Supabase", src: "/img/logos-platforms/supabase.webp", tooltip: "Supabase" },
+  { name: "Make", src: "/img/logos-platforms/gmdiaTTz.png", tooltip: "Make Automation Expert" },
+  { name: "Zapier", src: "/img/logos-platforms/zapier.png", tooltip: "Zapier Certified Systems" },
+  { name: "HubSpot", src: "/img/logos-platforms/hubspot_logo_orange.webp", tooltip: "HubSpot CRM Integration" },
+  { name: "Odoo", src: "/img/logos-platforms/odoo.png", tooltip: "Odoo" },
+  { name: "Kapso", src: "/img/logos-platforms/kapso.jpg", tooltip: "Kapso", customClass: "rounded-md" },
+  { name: "OpenClaw", src: "/img/logos-platforms/openclaw.png", tooltip: "OpenClaw" }
+];
 ---
 
 <section class="py-16 sm:py-24 bg-slate-50 border-t border-black/5">
@@ -101,48 +120,20 @@ const integrationsTitle = isEn
         <div class="partners-strip-track">
           
           <!-- Original Logos -->
-          <div class="partner-logo-item relative">
-            <img src="/img/logos-platforms/logotipo-empresa-meta_265339-667.avif" alt="Meta" />
-            <span class="partner-tooltip">Meta Business Partner</span>
-          </div>
-          <div class="partner-logo-item relative">
-            <img src="/img/logos-platforms/Google_Favicon_2025.svg.webp" alt="Google" />
-            <span class="partner-tooltip">Google Ads Premier Partner</span>
-          </div>
-          <div class="partner-logo-item relative">
-            <img src="/img/logos-platforms/gmdiaTTz.png" alt="Make" />
-            <span class="partner-tooltip">Make Automation Expert</span>
-          </div>
-          <div class="partner-logo-item relative">
-            <img src="/img/logos-platforms/zapier.png" alt="Zapier" />
-            <span class="partner-tooltip">Zapier Certified Systems</span>
-          </div>
-          <div class="partner-logo-item relative">
-            <img src="/img/logos-platforms/hubspot_logo_orange.webp" alt="Hubspot" />
-            <span class="partner-tooltip">HubSpot CRM Integration</span>
-          </div>
+          {platforms.map((p) => (
+            <div class="partner-logo-item relative">
+              <img src={p.src} alt={p.name} class={p.customClass || ""} />
+              <span class="partner-tooltip">{p.tooltip}</span>
+            </div>
+          ))}
 
-          <!-- Duplicated Logos for Infinite Loop -->
-          <div class="partner-logo-item relative" aria-hidden="true">
-            <img src="/img/logos-platforms/logotipo-empresa-meta_265339-667.avif" alt="Meta" />
-            <span class="partner-tooltip">Meta Business Partner</span>
-          </div>
-          <div class="partner-logo-item relative" aria-hidden="true">
-            <img src="/img/logos-platforms/Google_Favicon_2025.svg.webp" alt="Google" />
-            <span class="partner-tooltip">Google Ads Premier Partner</span>
-          </div>
-          <div class="partner-logo-item relative" aria-hidden="true">
-            <img src="/img/logos-platforms/gmdiaTTz.png" alt="Make" />
-            <span class="partner-tooltip">Make Automation Expert</span>
-          </div>
-          <div class="partner-logo-item relative" aria-hidden="true">
-            <img src="/img/logos-platforms/zapier.png" alt="Zapier" />
-            <span class="partner-tooltip">Zapier Certified Systems</span>
-          </div>
-          <div class="partner-logo-item relative" aria-hidden="true">
-            <img src="/img/logos-platforms/hubspot_logo_orange.webp" alt="Hubspot" />
-            <span class="partner-tooltip">HubSpot CRM Integration</span>
-          </div>
+          <!-- Duplicated Logos for Seamless Infinite Loop -->
+          {platforms.map((p) => (
+            <div class="partner-logo-item relative" aria-hidden="true">
+              <img src={p.src} alt={p.name} class={p.customClass || ""} />
+              <span class="partner-tooltip">{p.tooltip}</span>
+            </div>
+          ))}
 
         </div>
       </div>

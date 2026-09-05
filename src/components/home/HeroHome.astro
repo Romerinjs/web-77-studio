@@ -4,8 +4,8 @@ import DualCTA from '@/components/DualCTA.astro';
 import { getHomeTranslations } from '@/lib/i18n/pages/home';
 import type { SupportedLocale } from '@/lib/i18n/ui';
 import desarrolloImg from '../../../img/hero/desarrollo.png';
-import filmmakingImg from '../../../img/hero/filmmaking.png';
-import marketing1Img from '../../../img/hero/marketing1.png';
+import filmmakingImg from '../../../img/hero/filmmaking-og.jpg';
+import marketingImg from '../../../img/hero/marketing-og.jpeg';
 
 interface Props {
   lang?: SupportedLocale;
@@ -50,10 +50,10 @@ const t = getHomeTranslations(currentLang);
     </div>
 
     <!-- Visual Hero Interactive Composition -->
-    <div class="mt-14 relative mx-auto max-w-5xl">
+    <div class="mt-14 relative mx-auto max-w-5xl xl:max-w-6xl">
       
       <!-- Central Brain Image (with Floating Bounce Animation) -->
-      <figure data-opai-animate data-delay="0.4" data-instant class="mx-auto size-[320px] sm:size-[450px] md:size-[709px] animate-float-brain">
+      <figure data-opai-animate data-delay="0.4" data-instant class="mx-auto size-[320px] sm:size-[450px] md:size-[640px] lg:size-[709px] animate-float-brain">
         <img
           src="/images/opai-img-300.png"
           alt="Inteligencia Artificial para potenciar negocios"
@@ -61,17 +61,17 @@ const t = getHomeTranslations(currentLang);
         />
       </figure>
 
-      <!-- Card One: Wade Warren (Floating Left Top - Static Image) -->
+      <!-- Card One: Filmmaking (Floating Left Top - Static Image) -->
       <figure
         data-opai-animate
         data-delay="0.5"
         data-instant
-        class="absolute top-[25%] left-[2%] hidden xl:block lp:left-[-2%] 2xl:left-[-7%] w-full max-w-[289px] rounded-3xl overflow-hidden shadow-[0_10px_35px_-10px_rgba(0,0,0,0.06)] border border-stroke-2"
+        class="absolute top-[6%] lg:top-[8%] xl:top-[10%] left-[-4%] lg:left-[-8%] xl:left-[-12%] 2xl:left-[-16%] hidden md:inline-block w-[230px] sm:w-[250px] lg:w-[265px] xl:w-[280px] aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_12px_40px_-10px_rgba(0,0,0,0.08)] border border-stroke-2 transition-transform duration-500 hover:scale-105 z-10"
       >
         <img
-          src={marketing1Img.src}
-          alt="Marketing coordinator"
-          class="size-full object-cover scale-[1.65] origin-center"
+          src={filmmakingImg.src}
+          alt="Producción audiovisual y filmmaking"
+          class="size-full object-cover origin-center"
         />
       </figure>
 
@@ -80,26 +80,26 @@ const t = getHomeTranslations(currentLang);
         data-opai-animate
         data-delay="0.6"
         data-instant
-        class="absolute top-[75%] right-[1%] hidden md:inline-block lg:top-[35%] xl:right-[5%] lp:right-[2%] 2xl:right-[-6%] w-full max-w-[323px] rounded-3xl overflow-hidden shadow-[0_10px_35px_-10px_rgba(0,0,0,0.06)] border border-stroke-2"
+        class="absolute top-[28%] lg:top-[26%] xl:top-[28%] right-[-3%] lg:right-[-6%] xl:right-[-10%] 2xl:right-[-14%] hidden md:inline-block w-[260px] sm:w-[290px] lg:w-[310px] xl:w-[330px] aspect-[16/11] rounded-3xl overflow-hidden shadow-[0_12px_40px_-10px_rgba(0,0,0,0.08)] border border-stroke-2 transition-transform duration-500 hover:scale-105 z-10"
       >
         <img
           src={desarrolloImg.src}
-          alt="Dev Team"
+          alt="Desarrollo e ingeniería de software"
           class="size-full object-cover scale-[1.65] origin-center"
         />
       </figure>
 
-      <!-- Card Three: Analytics Graph (Floating Left Bottom - Static Image) -->
+      <!-- Card Three: Marketing (Floating Left Bottom - Static Image) -->
       <figure
         data-opai-animate
         data-delay="0.7"
         data-instant
-        class="absolute top-[75%] left-[1%] hidden w-full max-w-[300px] overflow-hidden rounded-3xl md:inline-block lg:top-[55%] xl:max-w-[374px] lp:top-[55%] lp:left-[-2%] 2xl:top-[56%] 2xl:left-[-3%] shadow-[0_10px_35px_-10px_rgba(0,0,0,0.06)] border border-stroke-2"
+        class="absolute top-[58%] lg:top-[56%] xl:top-[58%] left-[4%] lg:left-[2%] xl:left-[0%] 2xl:left-[-2%] hidden md:inline-block w-[230px] sm:w-[250px] lg:w-[265px] xl:w-[280px] aspect-[4/5] rounded-3xl overflow-hidden shadow-[0_16px_45px_-12px_rgba(0,0,0,0.12)] border border-stroke-2 transition-transform duration-500 hover:scale-105 z-20"
       >
         <img
-          src={filmmakingImg.src}
-          alt="Dashboard metrics chart"
-          class="size-full object-cover scale-[1.65] origin-center"
+          src={marketingImg.src}
+          alt="Estrategia y marketing digital"
+          class="size-full object-cover origin-center"
         />
       </figure>
 

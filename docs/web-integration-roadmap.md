@@ -34,14 +34,20 @@ El frontend está completamente desacoplado del backend mediante la variable `PU
 
 ### Entorno Local (`.env` en `web-77-studio`):
 ```env
-PUBLIC_EVE_API_URL=http://localhost:3007/eve/v1/web
-PUBLIC_WHATSAPP_NUMBER=573000000000
+PUBLIC_SITE_URL=https://77.studio
+PUBLIC_WHATSAPP_NUMBER=573148490955
+PUBLIC_API_URL=https://api.77.studio/v1/leads
+```
+
+- Inyección directa en utilidades mediante `import.meta.env`:
+```typescript
+const phone = import.meta.env.PUBLIC_WHATSAPP_NUMBER || '573148490955';
 ```
 
 ### Entorno de Producción (Vercel / Cloud):
 ```env
 PUBLIC_EVE_API_URL=https://eve-77-agent.vercel.app/eve/v1/web
-PUBLIC_WHATSAPP_NUMBER=573000000000
+PUBLIC_WHATSAPP_NUMBER=573148490955
 ```
 
 ---
