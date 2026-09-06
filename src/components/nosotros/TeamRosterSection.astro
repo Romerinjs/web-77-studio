@@ -1,0 +1,513 @@
+---
+// src/components/nosotros/TeamRosterSection.astro
+import type { SupportedLocale } from '@/lib/i18n/ui';
+import { getNosotrosTranslations } from '@/lib/i18n/pages/nosotros';
+
+interface Props {
+  lang?: SupportedLocale;
+}
+
+const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale) || 'es') as SupportedLocale;
+const isEn = currentLang === 'en';
+const t = getNosotrosTranslations(currentLang);
+
+interface TeamMember {
+  id: string;
+  firstName: string;
+  fullName: string;
+  role: string;
+  image: string;
+  spotlightScale?: number;
+  mosaicScale?: number;
+  mosaicOffsetY?: string;
+}
+
+const teamMembers: TeamMember[] = [
+  {
+    id: 'jordan-cruz',
+    firstName: 'JORDAN',
+    fullName: 'JORDAN CRUZ',
+    role: isEn ? 'CEO & FOUNDER' : 'CEO & FUNDADOR',
+    image: '/img/equipo/jordan-cruz.png',
+    spotlightScale: 1.0,
+    mosaicScale: 1.20,
+    mosaicOffsetY: '0px'
+  },
+  {
+    id: 'tania-perez',
+    firstName: 'TANIA',
+    fullName: 'TANIA PÉREZ',
+    role: isEn ? 'OPERATIONS DIRECTOR' : 'DIRECTORA OPERATIVA',
+    image: '/img/equipo/tania-perez.png',
+    spotlightScale: 1.0,
+    mosaicScale: 1.20,
+    mosaicOffsetY: '0px'
+  },
+  {
+    id: 'juliana-marin',
+    firstName: 'JULIANA',
+    fullName: 'JULIANA MARÍN',
+    role: isEn ? 'AUDIOVISUAL PRODUCTION LEAD' : 'LÍDER EN PRODUCCIÓN AUDIOVISUAL',
+    image: '/img/equipo/juliana-marin.png',
+    spotlightScale: 1.0,
+    mosaicScale: 1.20,
+    mosaicOffsetY: '0px'
+  },
+  {
+    id: 'juan-nieto',
+    firstName: 'JUAN',
+    fullName: 'JUAN NIETO',
+    role: isEn ? 'FILMMAKER' : 'FILMMAKER',
+    image: '/img/equipo/juan-nieto.png',
+    spotlightScale: 1.0,
+    mosaicScale: 1.14,
+    mosaicOffsetY: '2px'
+  },
+  {
+    id: 'david-gonzalez',
+    firstName: 'DAVID',
+    fullName: 'DAVID GONZÁLEZ',
+    role: isEn ? 'FILMMAKER' : 'FILMMAKER',
+    image: '/img/equipo/david-gonzalez.png',
+    spotlightScale: 1.0,
+    mosaicScale: 1.18,
+    mosaicOffsetY: '0px'
+  },
+  {
+    id: 'elias-perez',
+    firstName: 'ELÍAS',
+    fullName: 'ELÍAS PÉREZ',
+    role: isEn ? 'GRAPHIC DESIGNER' : 'DISEÑADOR GRÁFICO',
+    image: '/img/equipo/elias-perez.png',
+    spotlightScale: 1.0,
+    mosaicScale: 1.10,
+    mosaicOffsetY: '3px'
+  },
+  {
+    id: 'brandon-marin',
+    firstName: 'BRANDON',
+    fullName: 'BRANDON MARÍN',
+    role: isEn ? 'GRAPHIC DESIGNER' : 'DISEÑADOR GRÁFICO',
+    image: '/img/equipo/brandon-marin.png',
+    spotlightScale: 1.0,
+    mosaicScale: 1.14,
+    mosaicOffsetY: '2px'
+  },
+  {
+    id: 'alexa-zamora',
+    firstName: 'ALEXA',
+    fullName: 'ALEXA ZAMORA',
+    role: isEn ? 'SOCIAL MEDIA MANAGER' : 'SOCIAL MEDIA MANAGER',
+    image: '/img/equipo/alexa-zamora.png',
+    spotlightScale: 1.25,
+    mosaicScale: 1.30,
+    mosaicOffsetY: '0px'
+  },
+  {
+    id: 'licxa-tamayo',
+    firstName: 'LICXA',
+    fullName: 'LICXA TAMAYO',
+    role: isEn ? 'SOCIAL MEDIA MANAGER' : 'SOCIAL MEDIA MANAGER',
+    image: '/img/equipo/licxa-tamayo.png',
+    spotlightScale: 1.25,
+    mosaicScale: 1.30,
+    mosaicOffsetY: '0px'
+  },
+  {
+    id: 'laura-montoya',
+    firstName: 'LAURA',
+    fullName: 'LAURA MONTOYA',
+    role: isEn ? 'SOCIAL MEDIA MANAGER' : 'SOCIAL MEDIA MANAGER',
+    image: '/img/equipo/laura-montoya.png',
+    spotlightScale: 1.0,
+    mosaicScale: 1.08,
+    mosaicOffsetY: '0px'
+  }
+];
+
+const cardDegrades = [
+  '/img/degrades/negativo 1 p-100.jpg',
+  '/img/degrades/negativo 2 p-100.jpg',
+  '/img/degrades/negativo 3 p-100.jpg',
+  '/img/degrades/negativo 4 p-100.jpg',
+  '/img/degrades/positivo 2 p-100.jpg',
+  '/img/degrades/positivo 4 p-100.jpg',
+  '/img/degrades/postivo 3 p-100.jpg',
+  '/img/degrades/postivo 1 p-100.jpg'
+];
+---
+
+<section 
+  class="relative py-10 sm:py-16 bg-[#f4f6fa] text-background-13 overflow-hidden select-none border-t border-b border-black/5"
+  id="team-roster-section"
+  data-roster-members={JSON.stringify(teamMembers)}
+  data-default-title={t.roster.title}
+  data-default-subtitle={t.roster.subtitle}
+>
+  <!-- Background Degrade Texture (negativo 1 p-100.jpg with Light Overlay) -->
+  <div class="absolute inset-0 z-0 pointer-events-none overflow-hidden">
+    <img 
+      src="/img/degrades/negativo 1 p-100.jpg" 
+      alt="" 
+      class="w-full h-full object-cover object-center opacity-25 mix-blend-multiply filter blur-sm scale-105"
+      loading="lazy"
+    />
+    <!-- Light Soft Gradient Overlays -->
+    <div class="absolute inset-0 bg-gradient-to-b from-[#f4f6fa] via-white/30 to-[#f4f6fa]"></div>
+  </div>
+
+  <!-- Decorative 77 Studio Logo Variations Distributed in Background -->
+  <div class="absolute -top-10 -left-10 w-48 h-48 pointer-events-none opacity-10 z-0 rotate-12">
+    <img src="/img/logo-variaciones/azul5.png" alt="" class="w-full h-full object-contain" />
+  </div>
+  <div class="absolute top-1/3 -right-12 w-56 h-56 pointer-events-none opacity-10 z-0 -rotate-12">
+    <img src="/img/logo-variaciones/naranja5.png" alt="" class="w-full h-full object-contain" />
+  </div>
+  <div class="absolute -bottom-10 left-1/4 w-44 h-44 pointer-events-none opacity-10 z-0 rotate-45">
+    <img src="/img/logo-variaciones/morado5.png" alt="" class="w-full h-full object-contain" />
+  </div>
+
+  <!-- Ambient Light Orbs -->
+  <div class="pointer-events-none absolute inset-0 z-0 flex items-center justify-center opacity-60">
+    <div class="h-[400px] w-[550px] rounded-full bg-opai-purple/10 blur-[130px] -translate-y-12"></div>
+    <div class="h-[300px] w-[350px] rounded-full bg-blue-400/10 blur-[110px] translate-x-32"></div>
+  </div>
+
+  <div class="relative z-10 mx-auto max-w-[1360px] px-3 sm:px-6">
+
+    <!-- ========================================================================= -->
+    <!-- 1. OPEN CENTER STAGE (SEAMLESS - NO CARD BOX - NO CLIPPED WATERMARK) -->
+    <!-- ========================================================================= -->
+    <div 
+      id="roster-stage" 
+      class="relative w-full mx-auto h-[420px] sm:h-[500px] lg:h-[560px] flex flex-col items-center justify-center mb-1 sm:mb-2"
+    >
+      
+      <!-- Stage Background 77 Main Watermark -->
+      <div class="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
+        <img 
+          src="/img/logo-variaciones/morado1.png" 
+          alt="" 
+          class="w-[320px] sm:w-[540px] opacity-[0.07] select-none"
+        />
+      </div>
+
+      <!-- Dynamic Full-Width Solid Watermark Text (Solid Fill, No Outline, Responsive, No Box Clipping) -->
+      <div class="absolute inset-x-0 top-1/3 -translate-y-1/2 flex items-center justify-center pointer-events-none z-0 select-none px-4">
+        <span 
+          id="roster-name-watermark" 
+          class="font-sora font-black text-4xl sm:text-6xl md:text-7xl lg:text-8xl tracking-widest text-slate-900/[0.04] uppercase text-center max-w-full truncate leading-none transition-all duration-300 select-none"
+        >
+          77 STUDIO
+        </span>
+      </div>
+
+      <!-- STATE A: INITIAL SECTION TITLE & SUBTITLE (Visible when no hover) -->
+      <div 
+        id="stage-default-view" 
+        class="relative z-20 flex flex-col items-center justify-center text-center px-4 max-w-2xl transition-all duration-300 opacity-100 transform scale-100"
+      >
+        <h2 
+          class="font-sora text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-background-13 leading-tight mb-4"
+        >
+          {t.roster.title}
+        </h2>
+        <p class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-xl mx-auto">
+          {t.roster.subtitle}
+        </p>
+      </div>
+
+      <!-- STATE B: CHARACTER SPOTLIGHT (Visible on hover) -->
+      <div 
+        id="stage-character-view" 
+        class="absolute inset-0 z-20 flex flex-col items-center justify-end pointer-events-none transition-all duration-300 opacity-0 transform scale-95"
+      >
+        <!-- Standing Character Photo in Center with bottom fade (Pre-rendered for ultra-smooth crossfade) -->
+        <div class="absolute inset-0 flex items-end justify-center z-10 pointer-events-none">
+          <div class="relative h-full w-auto flex items-end justify-center">
+            
+            <!-- Subtle Radial Glow Behind Person -->
+            <div class="absolute bottom-10 w-72 h-72 sm:w-96 sm:h-96 rounded-full bg-gradient-to-t from-opai-purple/15 to-transparent blur-[70px] pointer-events-none"></div>
+
+            <!-- All 10 Cutout Images pre-rendered for zero latency and buttery smooth crossfades -->
+            {teamMembers.map((member, idx) => {
+              const scale = member.spotlightScale || 1.0;
+              return (
+                <img 
+                  src={member.image} 
+                  alt={member.fullName} 
+                  data-spotlight-index={idx}
+                  data-scale={scale}
+                  class="spotlight-character-img absolute bottom-0 h-[370px] sm:h-[460px] lg:h-[520px] w-auto max-w-[90vw] object-contain object-bottom drop-shadow-[0_15px_30px_rgba(0,0,0,0.18)] transition-all duration-350 ease-out opacity-0 pointer-events-none will-change-[opacity,transform]"
+                  style={`mask-image: linear-gradient(to bottom, black 75%, transparent 100%); -webkit-mask-image: linear-gradient(to bottom, black 75%, transparent 100%); transform: scale(${scale * 0.95}) translateY(10px);`}
+                  loading="eager"
+                />
+              );
+            })}
+          </div>
+        </div>
+
+        <!-- Foreground Character Name & Occupation Pill -->
+        <div class="relative z-20 flex flex-col items-center justify-center text-center pb-3 sm:pb-5 pointer-events-none">
+          
+          <!-- Character Name: Clean Solid Poppins Bold Font in Pure White -->
+          <h3 
+            id="spotlight-name" 
+            class="font-['Poppins',sans-serif] text-3xl sm:text-5xl lg:text-6xl font-black uppercase tracking-wider text-white leading-tight mb-2.5 transition-all duration-200 drop-shadow-[0_4px_16px_rgba(0,0,0,0.5)]"
+            style="text-shadow: 0 2px 10px rgba(0,0,0,0.45);"
+          >
+          </h3>
+
+          <!-- Occupation Pill Badge -->
+          <div class="inline-flex items-center">
+            <span 
+              id="spotlight-role-badge"
+              class="px-5 py-1.5 rounded-full bg-opai-purple text-white font-ibm-plex-mono text-xs sm:text-sm font-bold tracking-widest uppercase shadow-md shadow-opai-purple/30 backdrop-blur-xs transition-all duration-200"
+            >
+            </span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <!-- ========================================================================= -->
+    <!-- 2. MOSAIC / ROSTER GRID (SEAMLESS CONTINUOUS BAR WITH NEGATIVO 3 BACKGROUND) -->
+    <!-- ========================================================================= -->
+    <div class="w-full max-w-5xl mx-auto py-1 px-1 overflow-x-auto scrollbar-thin">
+      <!-- Connected Strip Container (No Gap, Attached Cards, Continuous Border) -->
+      <div 
+        class="grid grid-cols-10 gap-0 w-full min-w-[700px] sm:min-w-0 rounded-2xl overflow-hidden border border-black/15 bg-slate-900 shadow-md divide-x divide-white/10"
+        id="roster-grid-container"
+      >
+        {teamMembers.map((member, index) => {
+          const mScale = member.mosaicScale || 1.12;
+          const mOffsetY = member.mosaicOffsetY || '0px';
+          const cardBg = cardDegrades[index % cardDegrades.length];
+          return (
+            <button
+              type="button"
+              class="roster-card group relative aspect-[3.2/4.4] sm:aspect-[3.4/4.4] overflow-hidden transition-all duration-200 text-center p-0 focus:outline-hidden cursor-pointer bg-slate-900 opacity-90 hover:opacity-100 hover:z-20 hover:ring-2 hover:ring-opai-purple hover:shadow-[0_0_18px_rgba(141,89,255,0.7)]"
+              data-member-id={member.id}
+              data-member-index={index}
+              aria-label={`Ver perfil de ${member.fullName}`}
+            >
+              <!-- Card Background: Alternating Degrade Texture -->
+              <img 
+                src={cardBg} 
+                alt="" 
+                class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none transition-transform duration-300 group-hover:scale-105"
+                loading="lazy"
+              />
+
+              <!-- Character Cutout Scaled Prominently on top of degrade -->
+              <div class="absolute inset-0 flex items-end justify-center pointer-events-none z-1 transition-transform duration-300 group-hover:scale-105 origin-bottom">
+                <img 
+                  src={member.image} 
+                  alt={member.fullName} 
+                  class="h-[90%] w-full object-contain object-bottom drop-shadow-[0_4px_12px_rgba(0,0,0,0.4)] origin-bottom"
+                  style={`transform: scale(${mScale}) translateY(${mOffsetY});`}
+                  loading="lazy"
+                />
+              </div>
+
+              <!-- Dark Bottom Overlay for Name Readability -->
+              <div class="absolute inset-x-0 bottom-0 h-2/5 bg-gradient-to-t from-black/85 via-black/40 to-transparent pointer-events-none z-10"></div>
+
+              <!-- Top Indicator Line on Hover / Active -->
+              <div class="card-active-top-bar absolute top-0 inset-x-0 h-1 bg-opai-purple opacity-0 transition-opacity duration-200 pointer-events-none z-20"></div>
+
+              <!-- First Name Only at Bottom Center -->
+              <div class="absolute inset-x-0 bottom-0 p-1 z-20 pointer-events-none">
+                <span class="card-name font-sora text-[9px] sm:text-[11px] md:text-[12px] font-bold text-white uppercase tracking-wider block text-center truncate drop-shadow-md">
+                  {member.firstName}
+                </span>
+              </div>
+            </button>
+          );
+        })}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  function initTeamRosterShowcase() {
+    const section = document.getElementById('team-roster-section');
+    if (!section) return;
+
+    const membersJson = section.dataset.rosterMembers;
+    if (!membersJson) return;
+
+    interface TeamMemberData {
+      id: string;
+      firstName: string;
+      fullName: string;
+      role: string;
+      image: string;
+      spotlightScale?: number;
+      mosaicScale?: number;
+      mosaicOffsetY?: string;
+    }
+
+    let members: TeamMemberData[] = [];
+    try {
+      members = JSON.parse(membersJson);
+    } catch (e) {
+      console.error('Error parsing roster members:', e);
+      return;
+    }
+
+    const defaultView = document.getElementById('stage-default-view');
+    const characterView = document.getElementById('stage-character-view');
+    const nameElem = document.getElementById('spotlight-name');
+    const roleBadge = document.getElementById('spotlight-role-badge');
+    const watermarkName = document.getElementById('roster-name-watermark');
+    const gridContainer = document.getElementById('roster-grid-container');
+    
+    const cards = document.querySelectorAll<HTMLButtonElement>('.roster-card');
+    const spotlightImages = document.querySelectorAll<HTMLImageElement>('.spotlight-character-img');
+
+    function showCharacter(index: number) {
+      if (index < 0 || index >= members.length) return;
+      const member = members[index];
+
+      // Hide default title view
+      if (defaultView) {
+        defaultView.classList.add('opacity-0', 'scale-95', 'pointer-events-none');
+        defaultView.classList.remove('opacity-100', 'scale-100');
+      }
+
+      // Show character view
+      if (characterView) {
+        characterView.classList.remove('opacity-0', 'scale-95');
+        characterView.classList.add('opacity-100', 'scale-100');
+      }
+
+      // Smooth crossfade between all spotlight images
+      spotlightImages.forEach((img, idx) => {
+        const isTarget = idx === index;
+        const scale = parseFloat(img.dataset.scale || '1.0');
+        if (isTarget) {
+          img.classList.remove('opacity-0', 'pointer-events-none');
+          img.classList.add('opacity-100', 'pointer-events-auto');
+          img.style.transform = `scale(${scale}) translateY(0px)`;
+        } else {
+          img.classList.remove('opacity-100', 'pointer-events-auto');
+          img.classList.add('opacity-0', 'pointer-events-none');
+          img.style.transform = `scale(${scale * 0.95}) translateY(10px)`;
+        }
+      });
+
+      // Smooth text transition
+      if (nameElem && nameElem.textContent !== member.fullName) {
+        nameElem.style.opacity = '0';
+        nameElem.style.transform = 'translateY(4px)';
+        setTimeout(() => {
+          nameElem.textContent = member.fullName;
+          nameElem.style.opacity = '1';
+          nameElem.style.transform = 'translateY(0)';
+        }, 60);
+      } else if (nameElem) {
+        nameElem.textContent = member.fullName;
+        nameElem.style.opacity = '1';
+      }
+
+      if (roleBadge && roleBadge.textContent !== member.role) {
+        roleBadge.style.opacity = '0';
+        setTimeout(() => {
+          roleBadge.textContent = member.role;
+          roleBadge.style.opacity = '1';
+        }, 60);
+      } else if (roleBadge) {
+        roleBadge.textContent = member.role;
+        roleBadge.style.opacity = '1';
+      }
+
+      if (watermarkName) {
+        watermarkName.textContent = member.fullName;
+      }
+
+      // Highlight active card
+      cards.forEach((card, idx) => {
+        const isActive = idx === index;
+        const bar = card.querySelector<HTMLElement>('.card-active-top-bar');
+
+        if (isActive) {
+          card.classList.add('active-card', 'z-20', 'ring-2', 'ring-opai-purple', 'shadow-[0_0_18px_rgba(141,89,255,0.7)]', 'opacity-100');
+          card.classList.remove('opacity-90');
+          if (bar) bar.classList.remove('opacity-0');
+        } else {
+          card.classList.remove('active-card', 'z-20', 'ring-2', 'ring-opai-purple', 'shadow-[0_0_18px_rgba(141,89,255,0.7)]');
+          card.classList.add('opacity-90');
+          if (bar) bar.classList.add('opacity-0');
+        }
+      });
+    }
+
+    function resetToDefault() {
+      // Show default title view
+      if (defaultView) {
+        defaultView.classList.remove('opacity-0', 'scale-95', 'pointer-events-none');
+        defaultView.classList.add('opacity-100', 'scale-100');
+      }
+
+      // Hide character view
+      if (characterView) {
+        characterView.classList.add('opacity-0', 'scale-95');
+        characterView.classList.remove('opacity-100', 'scale-100');
+      }
+
+      // Hide all spotlight images
+      spotlightImages.forEach((img) => {
+        const scale = parseFloat(img.dataset.scale || '1.0');
+        img.classList.remove('opacity-100', 'pointer-events-auto');
+        img.classList.add('opacity-0', 'pointer-events-none');
+        img.style.transform = `scale(${scale * 0.95}) translateY(10px)`;
+      });
+
+      if (watermarkName) {
+        watermarkName.textContent = '77 STUDIO';
+      }
+
+      // Reset all cards
+      cards.forEach((card) => {
+        const bar = card.querySelector<HTMLElement>('.card-active-top-bar');
+        card.classList.remove('active-card', 'z-20', 'ring-2', 'ring-opai-purple', 'shadow-[0_0_18px_rgba(141,89,255,0.7)]');
+        card.classList.add('opacity-90');
+        if (bar) bar.classList.add('opacity-0');
+      });
+    }
+
+    // Attach hover & click listeners to each card
+    cards.forEach((card, index) => {
+      card.addEventListener('mouseenter', () => {
+        showCharacter(index);
+      });
+
+      card.addEventListener('click', () => {
+        showCharacter(index);
+      });
+
+      card.addEventListener('focus', () => {
+        showCharacter(index);
+      });
+    });
+
+    // Reset when mouse leaves the roster grid area
+    if (gridContainer) {
+      gridContainer.addEventListener('mouseleave', () => {
+        resetToDefault();
+      });
+    }
+  }
+
+  document.addEventListener('astro:page-load', initTeamRosterShowcase);
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initTeamRosterShowcase);
+  } else {
+    initTeamRosterShowcase();
+  }
+</script>

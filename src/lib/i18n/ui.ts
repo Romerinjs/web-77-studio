@@ -26,7 +26,7 @@ export const uiTranslations = {
       servicesHeading: 'Servicios',
       companyHeading: 'Empresa',
       rights: 'Todos los derechos reservados.',
-      presence: 'Medellín, Colombia · Miami, USA · Remoto Global',
+      presence: 'Armenia, Colombia · Miami, USA · Remoto Global',
       serviceLinks: [
         { label: 'Marketing Digital & Ads', href: '/marketing' },
         { label: 'Desarrollo Web Astro', href: '/web' },
@@ -130,7 +130,7 @@ export const uiTranslations = {
       servicesHeading: 'Services',
       companyHeading: 'Company',
       rights: 'All rights reserved.',
-      presence: 'Medellin, Colombia · Miami, USA · Global Remote',
+      presence: 'Armenia, Colombia · Miami, USA · Global Remote',
       serviceLinks: [
         { label: 'Digital Marketing & Ads', href: '/en/marketing' },
         { label: 'Astro Web Development', href: '/en/web' },

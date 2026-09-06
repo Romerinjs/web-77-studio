@@ -1,7 +1,6 @@
 ---
 // src/components/nosotros/GlobalPresenceSection.astro
-import DualCTA from '@/components/DualCTA.astro';
-import { MapPin, Globe } from 'lucide-astro';
+import { MapPin, ExternalLink } from 'lucide-astro';
 import type { SupportedLocale } from '@/lib/i18n/ui';
 
 interface Props {
@@ -12,118 +11,197 @@ const currentLang = (Astro.props.lang || (Astro.currentLocale as SupportedLocale
 const isEn = currentLang === 'en';
 ---
 
-<section class="py-20 sm:py-28 bg-slate-50 border-t border-black/5 relative">
+<section class="py-20 sm:py-28 bg-slate-50 border-t border-black/5 relative overflow-hidden">
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
-    
-    <!-- Section Header (Centered) -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        {isEn ? "Architected to operate beyond geographical borders." : "Pensados para trabajar más allá de una ubicación."}
-      </h2>
-      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-        {isEn
-          ? "Our cross-border remote structure bridges tier-one technical talent in Colombia with enterprises in the United States, Latin America, and global markets."
-          : "Nuestra estructura remota e internacional conecta el mejor talento de Colombia con empresas en Estados Unidos, Latinoamérica y mercados globales."}
-      </p>
-    </div>
 
-    <!-- 2 Regional Hubs Cards -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-14 max-w-4xl mx-auto">
+    <!-- 2-Column Section: Left Contact & Location Card + Right Google Maps View -->
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 sm:gap-8 items-stretch mb-14 max-w-6xl mx-auto">
       
-      <!-- Colombia Hub -->
-      <div data-opai-animate data-delay="0.1" class="group rounded-[28px] border border-stroke-2/60 border-b-2 border-b-transparent bg-white p-8 sm:p-10 shadow-xs hover:shadow-lg hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 flex flex-col justify-between">
+      <!-- LEFT: 77 Studio Contact, Branding & Location Information (Light Theme) -->
+      <div 
+        data-opai-animate 
+        data-delay="0.1" 
+        class="lg:col-span-7 rounded-[28px] border border-stroke-2/60 bg-white p-7 sm:p-9 lg:p-10 shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col justify-between"
+      >
         <div>
-          <div class="flex items-center justify-between mb-6">
-            <div class="flex items-center gap-3.5">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white shadow-xs group-hover:scale-105 transition-transform">
-                <Globe class="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <h3 class="font-sora text-2xl font-bold text-background-13 group-hover:text-opai-purple transition-colors">
-                  Colombia
-                </h3>
-              </div>
-            </div>
-            <span class="font-ibm-plex-mono text-xs text-background-13/50 font-medium bg-black/5 px-2.5 py-1 rounded-lg">GMT-5</span>
+          <!-- Logo 77 Studio (negro3.png) -->
+          <div class="mb-5">
+            <img 
+              src="/img/logo-variaciones/negro3.png" 
+              alt="77 Studio Marketing" 
+              class="h-14 sm:h-16 w-auto object-contain"
+              loading="lazy"
+              decoding="async"
+            />
           </div>
 
-          <p class="font-inter-tight text-sm sm:text-base text-background-13/75 leading-relaxed mb-6">
+          <!-- Section Title & Narrative -->
+          <h2 data-text-reveal class="font-sora text-2xl sm:text-3xl lg:text-4xl font-bold tracking-tight text-background-13 leading-tight mb-3">
+            {isEn ? "Architected to operate beyond geographical borders." : "Pensados para trabajar más allá de una ubicación."}
+          </h2>
+
+          <p class="font-inter-tight text-sm sm:text-base text-background-13/75 leading-relaxed mb-8">
             {isEn
-              ? "Base of our creative studio, software engineers, video production units, and automation & AI architects."
-              : "Sede de nuestro equipo creativo, ingenieros de software, productores audiovisuales y especialistas en automatización e inteligencia artificial."}
+              ? "Our cross-border remote structure bridges tier-one technical talent in Colombia with enterprises in the United States, Latin America, and global markets."
+              : "Nuestra estructura remota e internacional conecta el mejor talento de Colombia con empresas en Estados Unidos, Latinoamérica y mercados globales."}
           </p>
 
-          <div class="space-y-2.5 font-ibm-plex-mono text-xs text-background-13/80">
-            <div class="flex items-center gap-2">
-              <span class="size-1.5 rounded-full bg-emerald-500"></span>
-              <span>{isEn ? "Medellín & Bogotá · Operations & Engineering Hub" : "Medellín & Bogotá · Operaciones & Desarrollo"}</span>
+          <!-- 2 Regional Phone Cards (Colombia & United States) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-4">
+            
+            <!-- Colombia Hub -->
+            <div class="group/item flex flex-col justify-between p-4.5 rounded-2xl bg-slate-50 border border-black/8 hover:border-black/20 hover:bg-white hover:shadow-xs transition-all duration-200">
+              <div class="flex items-center gap-2 mb-2">
+                <img 
+                  src="/img/svg/flag-for-flag-colombia-svgrepo-com.svg" 
+                  alt="Bandera Colombia" 
+                  class="w-5 h-5 object-contain"
+                />
+                <span class="font-ibm-plex-mono text-xs font-semibold text-background-13/75 uppercase tracking-wider">
+                  Colombia
+                </span>
+              </div>
+
+              <a 
+                href="https://wa.me/573148490955?text=Hola%2077%20Studio%20%F0%9F%91%8B%20Quisiera%20conversar%20sobre%20un%20proyecto." 
+                target="_blank" 
+                rel="noopener noreferrer"
+                class="font-sora text-base sm:text-lg font-bold text-background-13 group-hover/item:text-opai-purple transition-colors tracking-tight mt-1"
+              >
+                +57 3148490955
+              </a>
             </div>
-            <div class="flex items-center gap-2">
-              <span class="size-1.5 rounded-full bg-emerald-500"></span>
-              <span>{isEn ? "Top-tier talent with an agile delivery mindset" : "Talento de alto nivel con cultura de entrega ágil"}</span>
+
+            <!-- United States Hub -->
+            <div class="group/item flex flex-col justify-between p-4.5 rounded-2xl bg-slate-50 border border-black/8 hover:border-black/20 hover:bg-white hover:shadow-xs transition-all duration-200">
+              <div class="flex items-center gap-2 mb-2">
+                <img 
+                  src="/img/svg/flag-for-flag-united-states-svgrepo-com.svg" 
+                  alt="Bandera Estados Unidos" 
+                  class="w-5 h-5 object-contain"
+                />
+                <span class="font-ibm-plex-mono text-xs font-semibold text-background-13/75 uppercase tracking-wider">
+                  United States
+                </span>
+              </div>
+
+              <a 
+                href="tel:+12029337792" 
+                class="font-sora text-base sm:text-lg font-bold text-background-13 group-hover/item:text-opai-purple transition-colors tracking-tight mt-1"
+              >
+                +1 (202) 933 7792
+              </a>
             </div>
+
           </div>
+
+          <!-- Email Card -->
+          <div class="group/email flex flex-col p-4.5 rounded-2xl bg-slate-50 border border-black/8 hover:border-black/20 hover:bg-white hover:shadow-xs transition-all duration-200">
+            <span class="font-ibm-plex-mono text-xs text-background-13/60 font-semibold block mb-0.5">
+              {isEn ? "Email" : "Email de contacto"}
+            </span>
+            <a 
+              href="mailto:gerencia@77studio.co" 
+              class="font-sora text-base sm:text-lg font-bold text-background-13 group-hover/email:text-opai-purple transition-colors tracking-tight"
+            >
+              gerencia@77studio.co
+            </a>
+          </div>
+
         </div>
       </div>
 
-      <!-- United States Hub -->
-      <div data-opai-animate data-delay="0.2" class="group rounded-[28px] border border-stroke-2/60 border-b-2 border-b-transparent bg-white p-8 sm:p-10 shadow-xs hover:shadow-lg hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 flex flex-col justify-between">
-        <div>
-          <div class="flex items-center justify-between mb-6">
-            <div class="flex items-center gap-3.5">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white shadow-xs group-hover:scale-105 transition-transform">
-                <MapPin class="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <h3 class="font-sora text-2xl font-bold text-background-13 group-hover:text-opai-purple transition-colors">
-                  United States
-                </h3>
-              </div>
-            </div>
-            <span class="font-ibm-plex-mono text-xs text-background-13/50 font-medium bg-black/5 px-2.5 py-1 rounded-lg">EST</span>
-          </div>
+      <!-- RIGHT: Interactive Google Maps Component -->
+      <div 
+        data-opai-animate 
+        data-delay="0.2" 
+        class="lg:col-span-5 relative rounded-[28px] overflow-hidden border border-stroke-2/60 bg-white shadow-xs hover:shadow-lg transition-all duration-300 flex flex-col min-h-[380px] sm:min-h-[440px]"
+      >
+        <!-- Floating "Abrir en Maps" Button -->
+        <a 
+          href="https://maps.app.goo.gl/Bc1xPC6tbrNHMNzk7" 
+          target="_blank" 
+          rel="noopener noreferrer"
+          class="absolute top-4 left-4 z-10 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/95 backdrop-blur-md border border-black/10 text-xs font-semibold text-background-13 hover:bg-opai-purple hover:text-white shadow-md transition-all duration-300 group/btn"
+        >
+          <span>{isEn ? "Open in Maps" : "Abrir en Maps"}</span>
+          <ExternalLink class="size-3.5 group-hover/btn:translate-x-0.5 transition-transform" />
+        </a>
 
-          <p class="font-inter-tight text-sm sm:text-base text-background-13/75 leading-relaxed mb-6">
-            {isEn
-              ? "Strategic touchpoint for US-based clients and international expansion projects with native bilingual execution and global standards."
-              : "Punto de conexión estratégica para clientes en Estados Unidos y proyectos de expansión internacional con comunicación bilingüe y estándares globales."}
-          </p>
+        <!-- Interactive Google Map Embed -->
+        <div class="relative w-full flex-1 min-h-[320px] bg-slate-100">
+          <iframe 
+            src="https://maps.google.com/maps?q=77+Studio+SAS,+Armenia,+Quindio&t=&z=15&ie=UTF8&iwloc=&output=embed" 
+            width="100%" 
+            height="100%" 
+            class="absolute inset-0 w-full h-full border-0" 
+            allowfullscreen="" 
+            loading="lazy" 
+            referrerpolicy="no-referrer-when-downgrade" 
+            title="77 Studio Google Maps"
+          ></iframe>
+        </div>
 
-          <div class="space-y-2.5 font-ibm-plex-mono text-xs text-background-13/80">
-            <div class="flex items-center gap-2">
-              <span class="size-1.5 rounded-full bg-blue-600"></span>
-              <span>{isEn ? "Miami & Remote · Strategy & Global Accounts" : "Miami & Remote · Estrategia & Clientes Globales"}</span>
-            </div>
-            <div class="flex items-center gap-2">
-              <span class="size-1.5 rounded-full bg-blue-600"></span>
-              <span>{isEn ? "International invoicing & direct contracts" : "Facturación internacional y contratos directos"}</span>
-            </div>
+        <!-- Bottom Location Footer Bar -->
+        <div class="p-4 bg-white border-t border-black/8 flex items-center justify-between gap-3 text-xs font-ibm-plex-mono text-background-13/75">
+          <div class="flex items-center gap-2 truncate">
+            <MapPin class="size-3.5 text-opai-purple shrink-0" />
+            <span class="truncate">Armenia, Quindío · Colombia ↔ USA</span>
           </div>
+          <span class="text-emerald-600 font-semibold shrink-0">Presencial & Remoto</span>
         </div>
       </div>
 
     </div>
 
-    <!-- Conversion Box -->
-    <div class="rounded-2xl border border-black/10 bg-white p-8 text-center max-w-3xl mx-auto shadow-xs">
-      <h3 class="font-sora text-xl sm:text-2xl font-bold text-background-13 mb-3">
-        {isEn
-          ? "Want to see how we can partner with your enterprise?"
-          : "¿Quieres conocer cómo podemos colaborar con tu empresa?"}
-      </h3>
-      <p class="font-inter-tight text-sm sm:text-base text-background-13/70 mb-6 max-w-xl mx-auto">
-        {isEn
-          ? "We operate seamlessly across industries and time zones. Let's discuss your roadmap."
-          : "Trabajamos sin fronteras con equipos en diferentes industrias y husos horarios. Hablemos de tus planes."}
-      </p>
-      <DualCTA
-        whatsappContext="nosotros"
-        whatsappText={isEn ? "Discover how we can collaborate" : "Conocer cómo podemos trabajar juntos"}
-        emailText={isEn ? "Write to us via email" : "Escribirnos por email"}
-        emailHref="#contacto"
-        centered={true}
-        lang={currentLang}
-      />
+    <!-- Sleek Live Callout Banner (Matching Sofía / Live Assistance Banner Style) -->
+    <div 
+      data-opai-animate 
+      data-delay="0.3"
+      class="rounded-3xl bg-white/90 border border-stroke-2/60 p-6 sm:p-8 backdrop-blur-md flex flex-col sm:flex-row items-center justify-between gap-6 shadow-[0_4px_20px_-4px_rgba(0,0,0,0.03)] hover:shadow-md transition-all duration-300 max-w-6xl mx-auto"
+    >
+      <div class="flex items-center gap-4 text-left">
+        <!-- Avatar with Live Indicator -->
+        <div class="relative size-12 sm:size-13 shrink-0 rounded-2xl overflow-hidden border border-opai-purple/20 shadow-xs bg-slate-50">
+          <img 
+            src="/img/sofIA/profile-sofia-pic.jpg" 
+            alt="77 Studio Partner" 
+            class="size-full object-cover" 
+            onerror="this.src='/img/77studio.png'" 
+          />
+          <span class="absolute bottom-0.5 right-0.5 size-3 rounded-full bg-emerald-500 border-2 border-white"></span>
+        </div>
+
+        <!-- Text Hierarchy -->
+        <div>
+          <span class="inline-block font-ibm-plex-mono text-[11px] font-semibold text-opai-purple uppercase tracking-wider mb-0.5">
+            {isEn ? "Direct Advisory & Growth" : "Asistencia & Colaboración Directa"}
+          </span>
+          <h4 class="font-sora text-base sm:text-lg font-bold text-background-13">
+            {isEn
+              ? "Want to see how we can partner with your enterprise?"
+              : "¿Quieres conocer cómo podemos colaborar con tu empresa?"}
+          </h4>
+          <p class="font-inter-tight text-xs sm:text-sm text-background-13/65">
+            {isEn
+              ? "We operate seamlessly across industries and time zones. Let's discuss your roadmap."
+              : "Trabajamos sin fronteras con equipos en diferentes industrias y husos horarios. Hablemos de tus planes."}
+          </p>
+        </div>
+      </div>
+
+      <!-- Action Button -->
+      <div class="shrink-0 flex items-center gap-3 w-full sm:w-auto">
+        <a
+          href="https://wa.me/573148490955?text=Hola%2077%20Studio%20%F0%9F%91%8B%20Quisiera%20conversar%20sobre%20un%20proyecto%20para%20mi%20empresa."
+          target="_blank"
+          rel="noopener noreferrer"
+          class="w-full sm:w-auto font-ibm-plex-mono text-xs sm:text-sm font-semibold text-white bg-background-13 hover:bg-opai-purple px-6 py-3.5 rounded-xl transition-all duration-300 shadow-sm hover:shadow-md cursor-pointer flex items-center justify-center gap-2.5 group"
+        >
+          <span>💬</span>
+          <span>{isEn ? "Talk with our team" : "Hablar con el equipo"}</span>
+        </a>
+      </div>
     </div>
 
   </div>

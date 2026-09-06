@@ -15,6 +15,13 @@ export const nosotrosTranslations = {
       whatsappBtn: "Hablemos de tu equipo",
       emailBtn: "Conoce nuestras capacidades"
     },
+    roster: {
+      badge: "77 Studio Roster",
+      title: "El equipo detrás del resultado",
+      subtitle: "Especialistas de alto rendimiento en estrategia, diseño, desarrollo web, producción audiovisual e inteligencia artificial.",
+      hubBadge: "COLOMBIA ↔ USA",
+      hint: "Pasa el cursor sobre un integrante para conocer su perfil"
+    },
     philosophy: {
       badge: "Nuestros Principios",
       title: "Cómo pensamos y ejecutamos en 77 Studio",
@@ -38,6 +45,13 @@ export const nosotrosTranslations = {
       subheadline: "We are a full-service digital studio combining growth marketing, modern web engineering, and applied artificial intelligence to empower forward-thinking companies worldwide.",
       whatsappBtn: "Let's Connect",
       emailBtn: "Explore Our Capabilities"
+    },
+    roster: {
+      badge: "77 Studio Roster",
+      title: "The team behind the execution",
+      subtitle: "High-performance specialists across strategy, brand design, web engineering, cinema production, and applied AI.",
+      hubBadge: "COLOMBIA ↔ USA",
+      hint: "Hover over any team member to view their profile"
     },
     philosophy: {
       badge: "Our Core Principles",

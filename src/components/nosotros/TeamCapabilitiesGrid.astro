@@ -16,42 +16,48 @@ const disciplines = [
     title: isEn ? "Strategy & Commercial Direction" : "Estrategia & Dirección Comercial",
     description: isEn
       ? "Market positioning architecture, customer acquisition funnels, and enterprise bottleneck diagnosis."
-      : "Definición de posicionamiento de mercado, arquitectura de embudos y diagnóstico de cuellos de botella para empresas."
+      : "Definición de posicionamiento de mercado, arquitectura de embudos y diagnóstico de cuellos de botella para empresas.",
+    image: "/img/cards-nosotros/estrategia-direccion.jpg"
   },
   {
     icon: TrendingUp,
     title: isEn ? "Paid Media & Growth Acquisition" : "Paid Media & Adquisición",
     description: isEn
       ? "High-converting campaign management on Meta and Google Ads with serverless CAPI pixel tracking and deep analytics."
-      : "Gestión de campañas de alta conversión en Meta Ads y Google Ads con pixelado CAPI serverless y analítica avanzada."
+      : "Gestión de campañas de alta conversión en Meta Ads y Google Ads con pixelado CAPI serverless y analítica avanzada.",
+    image: "/img/cards-nosotros/paid-media.jpeg"
   },
   {
     icon: Video,
     title: isEn ? "Content, Video & Creative Direction" : "Contenido, Video & Creativos",
     description: isEn
       ? "Dynamic cinematic production, high-retention hooks, educational carousels, and AI-augmented visual assets."
-      : "Producción audiovisual dinámica, hooks de alta retención, carruseles educativos y creativos visuales con IA."
+      : "Producción audiovisual dinámica, hooks de alta retención, carruseles educativos y creativos visuales con IA.",
+    image: "/img/cards-nosotros/contenido-digital.jpg"
   },
   {
     icon: Code2,
     title: isEn ? "Web Engineering & Frontend" : "Ingeniería Web & Frontend",
     description: isEn
       ? "Ultra-fast website and landing page development using Astro 5, Tailwind CSS, and reactive interactive components."
-      : "Desarrollo de sitios web y landing pages ultra-rápidas en Astro 5, Tailwind CSS y componentes interactivos."
+      : "Desarrollo de sitios web y landing pages ultra-rápidas en Astro 5, Tailwind CSS y componentes interactivos.",
+    image: "/img/cards-nosotros/ingenieria-web.jpg"
   },
   {
     icon: Workflow,
     title: isEn ? "Automation & CRM Pipelines" : "Automatización & Flujos CRM",
     description: isEn
       ? "System integration across n8n, Make, WhatsApp Business API, and databases to eliminate repetitive manual work."
-      : "Conexión de sistemas en n8n, Make, WhatsApp Business API y bases de datos para eliminar tareas manuales repetitivas."
+      : "Conexión de sistemas en n8n, Make, WhatsApp Business API y bases de datos para eliminar tareas manuales repetitivas.",
+    image: "/img/cards-nosotros/automatizacion.jpg"
   },
   {
     icon: Bot,
     title: isEn ? "Applied Artificial Intelligence" : "Inteligencia Artificial Aplicada",
     description: isEn
       ? "Autonomous agent development with RAG (Retrieval-Augmented Generation), lead intent scoring, and 24/7 assistants."
-      : "Desarrollo de agentes inteligentes con RAG (Retrieval-Augmented Generation), clasificación de leads y asistentes 24/7."
+      : "Desarrollo de agentes inteligentes con RAG (Retrieval-Augmented Generation), clasificación de leads y asistentes 24/7.",
+    image: "/img/cards-nosotros/inteligencia-artificial.jpg"
   }
 ];
 ---
@@ -124,19 +130,34 @@ const disciplines = [
         {[...disciplines, ...disciplines].map((item) => {
           const IconComponent = item.icon;
           return (
-            <div class="group carousel-card w-[310px] sm:w-[360px] shrink-0 rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-slate-50/80 p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:bg-white hover:shadow-xl hover:border-black/20 hover:border-b-opai-purple">
-              <div>
-                <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white mb-6 group-hover:scale-105 transition-transform shadow-xs">
-                  <IconComponent class="h-6 w-6 text-white" />
+            <div class="group carousel-card relative overflow-hidden w-[310px] sm:w-[360px] shrink-0 rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-xl hover:border-black/20 hover:border-b-opai-purple bg-white">
+              <!-- Background Photographic Image -->
+              <img 
+                src={item.image} 
+                alt={item.title} 
+                loading="lazy" 
+                decoding="async" 
+                class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out pointer-events-none" 
+              />
+              
+              <!-- 65% White Overlay on top of the image -->
+              <div class="absolute inset-0 bg-white/65 backdrop-blur-[1.5px] transition-colors duration-300 group-hover:bg-white/55 pointer-events-none" />
+
+              <!-- Card Content Container -->
+              <div class="relative z-10 flex flex-col justify-between h-full pointer-events-none">
+                <div>
+                  <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white mb-6 group-hover:scale-105 group-hover:bg-opai-purple transition-all duration-300 shadow-sm">
+                    <IconComponent class="h-6 w-6 text-white" />
+                  </div>
+
+                  <h3 class="font-sora text-xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors leading-snug">
+                    {item.title}
+                  </h3>
+
+                  <p class="font-inter-tight text-sm text-background-13/90 font-medium leading-relaxed">
+                    {item.description}
+                  </p>
                 </div>
-
-                <h3 class="font-sora text-xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors leading-snug">
-                  {item.title}
-                </h3>
-
-                <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
-                  {item.description}
-                </p>
               </div>
             </div>
           );
@@ -149,19 +170,34 @@ const disciplines = [
       {disciplines.map((item) => {
         const IconComponent = item.icon;
         return (
-          <div class="group rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-slate-50/70 p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:bg-white hover:shadow-md hover:border-black/20 hover:border-b-opai-purple">
-            <div>
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white mb-6 group-hover:scale-105 transition-transform shadow-xs">
-                <IconComponent class="h-6 w-6 text-white" />
+          <div class="group relative overflow-hidden rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent p-7 sm:p-8 flex flex-col justify-between transition-all duration-300 hover:shadow-md hover:border-black/20 hover:border-b-opai-purple bg-white">
+            <!-- Background Photographic Image -->
+            <img 
+              src={item.image} 
+              alt={item.title} 
+              loading="lazy" 
+              decoding="async" 
+              class="absolute inset-0 w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500 ease-out pointer-events-none" 
+            />
+            
+            <!-- 65% White Overlay on top of the image -->
+            <div class="absolute inset-0 bg-white/65 backdrop-blur-[1.5px] transition-colors duration-300 group-hover:bg-white/55 pointer-events-none" />
+
+            <!-- Card Content Container -->
+            <div class="relative z-10 flex flex-col justify-between h-full pointer-events-none">
+              <div>
+                <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white mb-6 group-hover:scale-105 group-hover:bg-opai-purple transition-all duration-300 shadow-xs">
+                  <IconComponent class="h-6 w-6 text-white" />
+                </div>
+
+                <h3 class="font-sora text-xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors">
+                  {item.title}
+                </h3>
+
+                <p class="font-inter-tight text-sm text-background-13/90 font-medium leading-relaxed">
+                  {item.description}
+                </p>
               </div>
-
-              <h3 class="font-sora text-xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors">
-                {item.title}
-              </h3>
-
-              <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
-                {item.description}
-              </p>
             </div>
           </div>
         );

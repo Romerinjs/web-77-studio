@@ -18,7 +18,7 @@ export const contactoTranslations = {
     directChannels: {
       title: "Canales de Atención Directa",
       colombiaLabel: "Sede Colombia / LATAM",
-      colombiaLocation: "Medellín, Antioquia",
+      colombiaLocation: "Armenia, Quindío",
       usaLabel: "Sede USA / Global",
       usaLocation: "Miami, Florida",
       scheduleLabel: "Horario de Atención",
@@ -63,7 +63,7 @@ export const contactoTranslations = {
     directChannels: {
       title: "Direct Communication Channels",
       colombiaLabel: "Colombia & LATAM Operations",
-      colombiaLocation: "Medellin, Colombia",
+      colombiaLocation: "Armenia, Colombia",
       usaLabel: "USA & Global Operations",
       usaLocation: "Miami, Florida",
       scheduleLabel: "Business Hours",
