@@ -2,6 +2,7 @@
 // src/pages/nosotros.astro
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import HeroNosotros from '@/components/nosotros/HeroNosotros.astro';
+import TeamRosterSection from '@/components/nosotros/TeamRosterSection.astro';
 import EvolutionTimeline from '@/components/nosotros/EvolutionTimeline.astro';
 import PhilosophySection from '@/components/nosotros/PhilosophySection.astro';
 import TeamCapabilitiesGrid from '@/components/nosotros/TeamCapabilitiesGrid.astro';
@@ -21,10 +22,13 @@ const pageDescription = "Conoce al equipo detrás de 77 Studio. Operación en Co
   <!-- 01. Hero Section con propuesta de valor institucional y modelo operativo -->
   <HeroNosotros />
 
-  <!-- 02. Línea de Evolución y Madurez Técnica -->
+  <!-- 02. Roster Interactivo del Equipo (Fighter Selection Stage) -->
+  <TeamRosterSection />
+
+  <!-- 03. Línea de Evolución y Madurez Técnica -->
   <EvolutionTimeline />
 
-  <!-- 03. Filosofía de Trabajo y Principios Fundamentales -->
+  <!-- 04. Filosofía de Trabajo y Principios Fundamentales -->
   <PhilosophySection />
 
   <!-- 04. Disciplinas y Capacidades Integradas del Equipo -->

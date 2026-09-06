@@ -247,22 +247,15 @@ export function init77ChatWidget() {
   // Tarjeta de Error Real de Conexión (Sin respuestas simuladas)
   function renderErrorCard(errorDetails: string, save = true) {
     if (!chatBody) return;
+    const isEn = lang === 'en';
     const errorCard = document.createElement('div');
     errorCard.className = 'chat-error-card';
     errorCard.innerHTML = `
-      <div class="chat-error-header">
-        <span>⚠️</span> Error de Conexión con Sofía
-      </div>
       <div class="chat-error-text">
-        No se pudo establecer conexión con el servidor de inteligencia artificial.
-      </div>
-      <div class="chat-error-code">${errorDetails}</div>
-      <div class="chat-error-tip">
-        <strong>Para desarrolladores / local:</strong> Ejecuta en la terminal de <code>eve-77-agent</code>:<br>
-        <code>npx eve dev --port 3007 --no-ui</code>
+        ${isEn ? 'Could not establish connection with the artificial intelligence server.' : 'No se pudo establecer conexión con el servidor de inteligencia artificial.'}
       </div>
       <a href="${whatsappUrl}" target="_blank" rel="noopener noreferrer" class="chat-fallback-btn">
-        💬 Contactar por WhatsApp Directo
+        ${isEn ? '💬 Contact via Direct WhatsApp' : '💬 Contactar por WhatsApp Directo'}
       </a>
     `;
     chatBody.appendChild(errorCard);

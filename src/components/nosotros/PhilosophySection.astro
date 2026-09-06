@@ -1,6 +1,5 @@
 ---
 // src/components/nosotros/PhilosophySection.astro
-import { ShieldCheck, Sparkles, Zap, Lock } from 'lucide-astro';
 import type { SupportedLocale } from '@/lib/i18n/ui';
 
 interface Props {
@@ -12,78 +11,180 @@ const isEn = currentLang === 'en';
 
 const principles = [
   {
-    icon: ShieldCheck,
     title: isEn ? "Zero Tech Hype & Fluff" : "Cero Humo Tecnológico",
     description: isEn
       ? "We never recommend artificial intelligence, custom software, or bloated ad campaigns just because they are trendy. We engineer strictly what delivers verifiable ROI."
-      : "No recomendamos inteligencia artificial, software a medida o campañas complejas solo porque estén de moda. Proponemos únicamente lo que genera retorno comprobado."
+      : "No recomendamos inteligencia artificial, software a medida o campañas complejas solo porque estén de moda. Proponemos únicamente lo que genera retorno comprobado.",
+    image: "/img/cero-humo-tecnológico.jpg",
+    alt: isEn ? "Zero Tech Hype & Real ROI" : "Cero Humo Tecnológico y Retorno Real"
   },
   {
-    icon: Sparkles,
     title: isEn ? "Creativity + Code at the Same Table" : "Creatividad + Código en la Misma Mesa",
     description: isEn
       ? "We eliminate the common friction between creative designers and software engineers. Aesthetics and functional performance are architected together from day one."
-      : "Eliminamos la desconexión típica entre el equipo de diseño y el equipo de desarrollo. La estética y la funcionalidad se construyen juntas desde el día uno."
+      : "Eliminamos la desconexión típica entre el equipo de diseño y el equipo de desarrollo. La estética y la funcionalidad se construyen juntas desde el día uno.",
+    image: "/img/codigo-creatividad.jpg",
+    alt: isEn ? "Creativity and Engineering Together" : "Creatividad y Código en la Misma Mesa"
   },
   {
-    icon: Zap,
     title: isEn ? "Obsession with Agile Execution" : "Obsesión por la Ejecución Ágil",
     description: isEn
       ? "We replace endless bureaucratic meetings with tangible deliverables, short high-velocity sprints, and continuous feedback loops driven by real analytics."
-      : "Reemplazamos reuniones eternas y documentos burocráticos por entregables funcionales, sprints cortos y mejoras continuas sobre datos reales de uso."
+      : "Reemplazamos reuniones eternas y documentos burocráticos por entregables funcionales, sprints cortos y mejoras continuas sobre datos reales de uso.",
+    image: "/img/obsesion-agil.jpg",
+    alt: isEn ? "Agile Execution and Sprints" : "Obsesión por la Ejecución Ágil"
   },
   {
-    icon: Lock,
     title: isEn ? "100% Client Ownership" : "Propiedad Total para el Cliente",
     description: isEn
       ? "Your Meta/Google ad accounts, cloud hosting credentials, source code, and databases are 100% owned by your company. We believe in partnerships built on value, not hostage retainers."
-      : "Tus cuentas de Meta, Google, accesos de hosting, código fuente y bases de datos son 100% de tu empresa. Creemos en relaciones por valor, no por retención forzada."
+      : "Tus cuentas de Meta, Google, accesos de hosting, código fuente y bases de datos son 100% de tu empresa. Creemos en relaciones por valor, no por retención forzada.",
+    image: "/img/propiedad.jpg",
+    alt: isEn ? "100% Client Ownership" : "Propiedad Total para el Cliente"
   }
 ];
 ---
 
-<section class="py-20 sm:py-28 bg-slate-50 border-t border-black/5 relative">
+<section class="py-20 sm:py-28 bg-slate-50 border-t border-black/5 relative overflow-hidden">
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     
-    <!-- Section Header (Centered) -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        {isEn ? "Technology changes. Our obsession remains solving real business problems." : "La tecnología cambia. Nuestro enfoque sigue siendo resolver problemas."}
+    <!-- Section Header (Centered & Expanded Width) -->
+    <div class="text-center max-w-4xl lg:max-w-5xl mx-auto mb-14 sm:mb-16">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-[44px] xl:text-5xl font-bold tracking-tight text-background-13 leading-[1.2] mb-4 text-balance">
+        {isEn ? (
+          <>
+            Technology changes. Our obsession <br class="hidden sm:inline" />
+            remains solving real business problems.
+          </>
+        ) : (
+          <>
+            La tecnología cambia. Nuestro enfoque <br class="hidden sm:inline" />
+            sigue siendo resolver problemas.
+          </>
+        )}
       </h2>
-      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
+      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-3xl mx-auto text-balance">
         {isEn
           ? "The goal is never accumulating shiny tools or vanity metrics. It is making your enterprise look better, sell better, and operate smoother."
           : "El objetivo no es acumular herramientas ni inflar métricas vanidosas. Es hacer que tu empresa se vea mejor, venda mejor y funcione mejor."}
       </p>
     </div>
 
-    <!-- 4 Principles Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
-      {principles.map((pr, index) => {
-        const IconComponent = pr.icon;
-        return (
-          <div 
-            data-opai-animate
-            data-delay={(0.1 * (index + 1)).toFixed(1)}
-            class="group rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-white p-7 sm:p-9 shadow-xs hover:shadow-lg hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 flex flex-col justify-between"
-          >
-            <div>
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white mb-6 group-hover:scale-105 transition-transform shadow-xs">
-                <IconComponent class="h-6 w-6 text-white" />
-              </div>
+    <!-- Seamless 1-Row x 4-Columns Horizontal Expanding Accordion (Glued together) -->
+    <div 
+      data-opai-animate
+      data-delay="0.3"
+      class="accordion-container flex flex-col lg:flex-row gap-0 h-[760px] sm:h-[700px] lg:h-[600px] w-full rounded-[24px] sm:rounded-[30px] lg:rounded-[32px] overflow-hidden border border-black/10 shadow-lg bg-background-13"
+    >
+      {principles.map((pr) => (
+        <article 
+          tabindex="0"
+          role="region"
+          aria-label={pr.title}
+          class="accordion-card group relative cursor-pointer overflow-hidden border-b lg:border-b-0 lg:border-r border-white/10 last:border-none focus:outline-none focus-visible:ring-2 focus-visible:ring-opai-purple"
+        >
+          <!-- Background Photographic Image -->
+          <img 
+            src={pr.image} 
+            alt={pr.alt}
+            loading="lazy"
+            decoding="async"
+            class="absolute inset-0 w-full h-full object-cover object-center transform scale-100 group-hover:scale-105 transition-transform duration-700 ease-out pointer-events-none"
+          />
 
-              <h3 class="font-sora text-xl sm:text-2xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors">
+          <!-- Ambient Base Overlay -->
+          <div class="absolute inset-0 bg-black/25 pointer-events-none" />
+
+          <!-- Smooth Dark Contrast Overlay (Appears on Hover) -->
+          <div class="absolute inset-0 bg-gradient-to-t from-black/95 via-black/60 to-black/20 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 accordion-active-overlay transition-opacity duration-500 ease-out pointer-events-none" />
+
+          <!-- Subtle Purple Ambient Glow on Hover -->
+          <div class="absolute inset-0 bg-opai-purple/10 opacity-0 group-hover:opacity-100 group-focus-within:opacity-100 accordion-active-overlay transition-opacity duration-500 mix-blend-overlay pointer-events-none" />
+
+          <!-- Text Content Container (Visible ONLY on Hover) -->
+          <div class="relative z-10 h-full p-6 sm:p-8 lg:p-10 flex flex-col justify-end pointer-events-none">
+            <div class="opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 group-focus-within:opacity-100 group-focus-within:translate-y-0 accordion-active-text transition-all duration-500 ease-out">
+              <h3 class="font-sora text-xl sm:text-2xl lg:text-3xl font-bold text-white leading-tight mb-3 drop-shadow-md">
                 {pr.title}
               </h3>
 
-              <p class="font-inter-tight text-sm sm:text-base text-background-13/75 leading-relaxed">
+              <p class="font-inter-tight text-sm sm:text-base text-white/90 leading-relaxed max-w-xl drop-shadow-xs">
                 {pr.description}
               </p>
             </div>
           </div>
-        );
-      })}
+        </article>
+      ))}
     </div>
 
   </div>
 </section>
+
+<style>
+  /* Accordion Layout Physics */
+  .accordion-container {
+    display: flex;
+  }
+
+  .accordion-card {
+    flex: 1 1 0%;
+    min-width: 0;
+    min-height: 0;
+    transition: flex 0.55s cubic-bezier(0.25, 1, 0.5, 1);
+    will-change: flex;
+  }
+
+  /* Desktop Expand / Contract Physics (1 row x 4 cols) */
+  @media (min-width: 1024px) {
+    /* When user hovers the container, unhovered cards shrink slightly */
+    .accordion-container:hover .accordion-card {
+      flex: 0.6 1 0%;
+    }
+
+    /* The actively hovered card expands gracefully */
+    .accordion-container .accordion-card:hover,
+    .accordion-container .accordion-card:focus-within,
+    .accordion-container .accordion-card.is-active {
+      flex: 2.6 1 0%;
+    }
+  }
+
+  /* Tablet / Mobile Vertical Physics */
+  @media (max-width: 1023px) {
+    .accordion-container:hover .accordion-card {
+      flex: 0.7 1 0%;
+    }
+
+    .accordion-container .accordion-card:hover,
+    .accordion-container .accordion-card:focus-within,
+    .accordion-container .accordion-card.is-active {
+      flex: 2.2 1 0%;
+    }
+  }
+
+  /* Support active state on mobile touch */
+  .accordion-card.is-active .accordion-active-overlay {
+    opacity: 1 !important;
+  }
+
+  .accordion-card.is-active .accordion-active-text {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+  }
+</style>
+
+<script>
+  // Mobile / Touch friendly interactive support
+  document.addEventListener('DOMContentLoaded', () => {
+    const cards = document.querySelectorAll<HTMLElement>('.accordion-card');
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const wasActive = card.classList.contains('is-active');
+        cards.forEach((c) => c.classList.remove('is-active'));
+        if (!wasActive) {
+          card.classList.add('is-active');
+        }
+      });
+    });
+  });
+</script>

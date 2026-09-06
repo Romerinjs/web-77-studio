@@ -1,0 +1,18 @@
+---
+// src/pages/404.astro
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import NotFoundHero from '@/components/not-found/NotFoundHero.astro';
+import { getNotFoundTranslations } from '@/lib/i18n/pages/not-found';
+
+const lang = 'es';
+const t = getNotFoundTranslations(lang);
+---
+
+<BaseLayout
+  title={t.meta.title}
+  description={t.meta.description}
+  whatsappContext="notFound"
+  lang={lang}
+>
+  <NotFoundHero lang={lang} />
+</BaseLayout>

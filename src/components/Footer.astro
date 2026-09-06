@@ -18,13 +18,13 @@ const homeUrl = currentLang === 'en' ? '/en' : '/';
       
       <!-- Brand column (2 cols wide on LG) -->
       <div class="lg:col-span-2 space-y-4">
-        <a href={homeUrl} class="flex items-center gap-2.5">
-          <div class="h-8 w-8 rounded-lg bg-background-13 flex items-center justify-center text-white font-sora font-bold text-sm tracking-tighter">
-            77
-          </div>
-          <span class="font-sora font-semibold text-lg tracking-tight text-background-13">
-            77 STUDIO
-          </span>
+        <a href={homeUrl} class="inline-block group" aria-label="77 Studio - Inicio">
+          <img
+            src="/img/footer/negro4.png"
+            alt="77 Studio"
+            class="h-12 sm:h-14 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+            loading="lazy"
+          />
         </a>
         
         <p class="font-inter-tight text-background-13/70 text-sm max-w-sm leading-relaxed">
@@ -70,12 +70,28 @@ const homeUrl = currentLang === 'en' ? '/en' : '/';
           {currentLang === 'en' ? 'Offices & Reach' : 'Sedes & Cobertura'}
         </h4>
         <div class="space-y-3 text-sm text-background-13/70">
-          <div class="rounded-xl border border-black/5 bg-slate-50 p-3">
-            <span class="font-semibold block text-background-13 text-xs font-ibm-plex-mono">COLOMBIA</span>
-            <span class="text-xs text-background-13/60">Medellín / Bogotá · LatAm Hub</span>
+          <div class="rounded-xl border border-black/5 bg-slate-50 p-3 hover:border-black/10 transition-colors">
+            <div class="flex items-center gap-2 mb-1">
+              <img
+                src="/img/svg/flag-for-flag-colombia-svgrepo-com.svg"
+                alt="Colombia"
+                class="w-4 h-4 object-contain shrink-0"
+                loading="lazy"
+              />
+              <span class="font-semibold block text-background-13 text-xs font-ibm-plex-mono">COLOMBIA</span>
+            </div>
+            <span class="text-xs text-background-13/60">Armenia, Quindío · LatAm Hub</span>
           </div>
-          <div class="rounded-xl border border-black/5 bg-slate-50 p-3">
-            <span class="font-semibold block text-background-13 text-xs font-ibm-plex-mono">UNITED STATES</span>
+          <div class="rounded-xl border border-black/5 bg-slate-50 p-3 hover:border-black/10 transition-colors">
+            <div class="flex items-center gap-2 mb-1">
+              <img
+                src="/img/svg/flag-for-flag-united-states-svgrepo-com.svg"
+                alt="United States"
+                class="w-4 h-4 object-contain shrink-0"
+                loading="lazy"
+              />
+              <span class="font-semibold block text-background-13 text-xs font-ibm-plex-mono">UNITED STATES</span>
+            </div>
             <span class="text-xs text-background-13/60">Miami, FL · North America & Global</span>
           </div>
         </div>

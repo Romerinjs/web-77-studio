@@ -2,6 +2,7 @@
 // src/pages/en/nosotros.astro
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import HeroNosotros from '@/components/nosotros/HeroNosotros.astro';
+import TeamRosterSection from '@/components/nosotros/TeamRosterSection.astro';
 import EvolutionTimeline from '@/components/nosotros/EvolutionTimeline.astro';
 import PhilosophySection from '@/components/nosotros/PhilosophySection.astro';
 import TeamCapabilitiesGrid from '@/components/nosotros/TeamCapabilitiesGrid.astro';
@@ -23,10 +24,13 @@ const t = getNosotrosTranslations(lang);
   <!-- 01. Hero Section with Institutional Value Proposition -->
   <HeroNosotros lang={lang} />
 
-  <!-- 02. Evolution Timeline & Technical Maturity -->
+  <!-- 02. Interactive Fighter Selection Team Roster -->
+  <TeamRosterSection lang={lang} />
+
+  <!-- 03. Evolution Timeline & Technical Maturity -->
   <EvolutionTimeline lang={lang} />
 
-  <!-- 03. Work Philosophy & Core Principles -->
+  <!-- 04. Work Philosophy & Core Principles -->
   <PhilosophySection lang={lang} />
 
   <!-- 04. Multidisciplinary Disciplines & Team Capabilities -->

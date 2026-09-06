@@ -13,6 +13,7 @@ export const WHATSAPP_CONFIG = {
       productos: "Hola 77 Studio 👋 Tengo una idea para una herramienta o producto digital y quisiera conversar con ustedes.",
       nosotros: "Hola 77 Studio 👋 Vi su historia y equipo y quisiera conversar sobre un proyecto.",
       contacto: "Hola 77 Studio 👋 Quiero conversar con ustedes sobre un proyecto para mi empresa.",
+      notFound: "Hola 77 Studio 👋 Llegué a una página no encontrada (Error 404) y quisiera consultar sobre sus servicios para mi empresa.",
     },
     en: {
       home: "Hello 77 Studio 👋 I saw your website and would like to discuss a project for my business.",
@@ -22,6 +23,7 @@ export const WHATSAPP_CONFIG = {
       productos: "Hello 77 Studio 👋 I have an idea for a digital product or tool and would love to talk.",
       nosotros: "Hello 77 Studio 👋 I saw your story and team and would love to chat about a project.",
       contacto: "Hello 77 Studio 👋 I'd like to get in touch regarding a project for my business.",
+      notFound: "Hello 77 Studio 👋 I landed on a page not found (404 Error) and would like to inquire about your services for my business.",
     }
   } as const
 };
