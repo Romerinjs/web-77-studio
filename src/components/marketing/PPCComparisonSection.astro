@@ -1,6 +1,6 @@
 ---
 // src/components/marketing/PPCComparisonSection.astro
-import { XCircle, CheckCircle2, AlertTriangle, Zap } from 'lucide-astro';
+import { XCircle, CheckCircle2 } from 'lucide-astro';
 import type { SupportedLocale } from '@/lib/i18n/ui';
 
 interface Props {
@@ -23,13 +23,10 @@ const subtitle = isEn
   <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
     
     <!-- Section Header (Centered) -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
+    <div class="text-center max-w-3xl mx-auto mb-12 sm:mb-16">
+      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight">
         {title}
       </h2>
-      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-        {subtitle}
-      </p>
     </div>
 
     <!-- Comparative Columns Grid -->
@@ -39,164 +36,178 @@ const subtitle = isEn
       <div 
         data-opai-animate 
         data-delay="0.1" 
-        class="rounded-[28px] border border-red-200/80 bg-red-50/30 p-7 sm:p-9 flex flex-col justify-between"
+        class="rounded-[24px] border border-red-200/70 bg-red-50/20 p-6 sm:p-8 flex flex-col justify-between"
       >
         <div>
-          <div class="flex items-center justify-between pb-6 mb-6 border-b border-red-200/60">
-            <div class="flex items-center gap-3">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-red-100 text-red-600 shadow-xs">
-                <AlertTriangle class="h-6 w-6" />
-              </div>
-              <div>
-                <span class="font-ibm-plex-mono text-xs font-semibold text-red-600 uppercase tracking-wider">
-                  {isEn ? "The Traditional Model" : "El Modelo Tradicional"}
-                </span>
-                <h3 class="font-sora text-xl font-bold text-background-13">
-                  {isEn ? "Disconnected Campaigns" : "Campañas Desconectadas"}
-                </h3>
-              </div>
+          <div class="pb-5 mb-5 border-b border-red-200/50">
+            <div>
+              <span class="font-ibm-plex-mono text-[11px] font-semibold text-red-600 uppercase tracking-wider block mb-1">
+                {isEn ? "Traditional Model" : "Modelo Tradicional"}
+              </span>
+              <h3 class="font-sora text-lg sm:text-xl font-bold text-background-13">
+                {isEn ? "Disconnected Campaigns" : "Campañas Desconectadas"}
+              </h3>
             </div>
           </div>
 
-          <p class="font-inter-tight text-sm text-background-13/80 mb-6 leading-relaxed">
-            {isEn
-              ? "What happens when you hire one person for 'ads', another for 'web design', and nobody takes responsibility for the bottom-line sales funnel:"
-              : "Sucede cuando contratas a alguien para \"hacer anuncios\", a otro para \"diseñar la web\" y a nadie para integrar el flujo comercial:"}
-          </p>
-
-          <ul class="space-y-4 font-inter-tight text-sm text-background-13/80">
+          <!-- 2x2 Mini Cards Grid (Red Background & White Text) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-inter-tight">
             {isEn ? (
               <>
-                <li class="flex items-start gap-3">
-                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
-                  <span><strong>Traffic routed to slow pages:</strong> Visitors click, wait 4 seconds, bounce, and click a competitor.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
-                  <span><strong>Blind algorithms (No CAPI):</strong> Without server-side event tracking, Meta and Google optimize in the dark.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
-                  <span><strong>Generic stock creative:</strong> Repetitive static imagery that nobody remembers or stops scrolling for.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
-                  <span><strong>Cold leads going uncontacted:</strong> Sales responses taking hours or days, completely killing the deal.</span>
-                </li>
+                <div class="rounded-xl border border-red-400/40 bg-red-500 text-white p-3.5 flex items-center gap-2.5 shadow-2xs">
+                  <XCircle class="h-4 w-4 text-white shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Slow Web Pages</span>
+                </div>
+
+                <div class="rounded-xl border border-red-400/40 bg-red-500 text-white p-3.5 flex items-center gap-2.5 shadow-2xs">
+                  <XCircle class="h-4 w-4 text-white shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Blind Tracking</span>
+                </div>
+
+                <div class="rounded-xl border border-red-400/40 bg-red-500 text-white p-3.5 flex items-center gap-2.5 shadow-2xs">
+                  <XCircle class="h-4 w-4 text-white shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Generic Stock Ads</span>
+                </div>
+
+                <div class="rounded-xl border border-red-400/40 bg-red-500 text-white p-3.5 flex items-center gap-2.5 shadow-2xs">
+                  <XCircle class="h-4 w-4 text-white shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Delayed Sales</span>
+                </div>
               </>
             ) : (
               <>
-                <li class="flex items-start gap-3">
-                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
-                  <span><strong>Tráfico enviado a páginas lentas:</strong> El usuario hace clic, espera 4 segundos, se aburre y abandona.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
-                  <span><strong>Pérdida de medición (Sin CAPI):</strong> Sin tracking de eventos del servidor, los algoritmos trabajan a ciegas.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
-                  <span><strong>Creativos repetitivos sin hook:</strong> Imágenes genéricas de stock que nadie recuerda ni detienen el scroll.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <XCircle class="h-5 w-5 text-red-500 shrink-0 mt-0.5" />
-                  <span><strong>Leads fríos que se enfrían:</strong> Respuestas comerciales que tardan horas o días, perdiendo la venta.</span>
-                </li>
+                <div class="rounded-xl border border-red-400/40 bg-red-500 text-white p-3.5 flex items-center gap-2.5 shadow-2xs">
+                  <XCircle class="h-4 w-4 text-white shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Webs Lentas</span>
+                </div>
+
+                <div class="rounded-xl border border-red-400/40 bg-red-500 text-white p-3.5 flex items-center gap-2.5 shadow-2xs">
+                  <XCircle class="h-4 w-4 text-white shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Medición a Ciegas</span>
+                </div>
+
+                <div class="rounded-xl border border-red-400/40 bg-red-500 text-white p-3.5 flex items-center gap-2.5 shadow-2xs">
+                  <XCircle class="h-4 w-4 text-white shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Anuncios Genéricos</span>
+                </div>
+
+                <div class="rounded-xl border border-red-400/40 bg-red-500 text-white p-3.5 flex items-center gap-2.5 shadow-2xs">
+                  <XCircle class="h-4 w-4 text-white shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Respuesta Tardía</span>
+                </div>
               </>
             )}
-          </ul>
+          </div>
         </div>
 
-        <div class="mt-8 pt-5 border-t border-red-200/60 font-ibm-plex-mono text-xs text-red-700 font-medium flex items-center justify-between">
+        <div class="mt-6 pt-4 border-t border-red-200/50 font-ibm-plex-mono text-xs text-red-700 font-medium flex items-center justify-between">
           <span>{isEn ? "Typical Result:" : "Resultado Típico:"}</span>
-          <span>{isEn ? "Burned budget & sky-high CAC" : "Presupuesto quemado & CPL elevado"}</span>
+          <span class="font-bold">{isEn ? "Wasted budget & high CAC" : "Presupuesto quemado & CPL elevado"}</span>
         </div>
       </div>
 
-      <!-- Column 2: 77 Studio Connected System (Positive) -->
+      <!-- Column 2: 77 Studio Connected System (Positive - Dark Purple Gradient Background) -->
       <div 
         data-opai-animate 
         data-delay="0.2" 
-        class="rounded-[28px] border border-opai-purple/30 bg-gradient-to-b from-opai-purple/5 to-white p-7 sm:p-9 shadow-md flex flex-col justify-between relative"
+        class="rounded-[24px] border border-white/20 p-6 sm:p-8 shadow-xl flex flex-col justify-between relative text-white"
       >
-        <div class="absolute -top-3.5 right-6">
-          <span class="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-opai-purple text-white font-ibm-plex-mono text-xs font-medium shadow-xs">
-            <Zap class="h-3.5 w-3.5" /> {isEn ? "77 Studio Methodology" : "Metodología 77 Studio"}
-          </span>
+        <!-- Background Image (Clipped to Card Corners) -->
+        <div class="absolute inset-0 rounded-[24px] overflow-hidden -z-10">
+          <img 
+            src="/img/degrades/negativo 4 p-100.jpg" 
+            alt="" 
+            aria-hidden="true" 
+            class="w-full h-full object-cover" 
+          />
+        </div>
+
+        <!-- Overlaid Superimposed White Circle Badge with 77 Studio Logo -->
+        <div class="absolute -top-6 right-1 sm:right-2 z-20">
+          <div class="h-14 w-14 sm:h-16 sm:w-16 rounded-full bg-white shadow-xl shadow-black/35 flex items-center justify-center p-2 border-2 border-white/90 overflow-hidden transition-transform hover:scale-105">
+            <img 
+              src="/img/logo-variaciones/negro5.png" 
+              alt="77 Studio Logo" 
+              class="h-full w-full object-contain scale-130" 
+            />
+          </div>
         </div>
 
         <div>
-          <div class="flex items-center justify-between pb-6 mb-6 border-b border-black/5">
-            <div class="flex items-center gap-3">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white shadow-xs">
-                <CheckCircle2 class="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <span class="font-ibm-plex-mono text-xs font-semibold text-opai-purple uppercase tracking-wider">
-                  {isEn ? "Unified Ecosystem" : "Ecosistema Unificado"}
-                </span>
-                <h3 class="font-sora text-xl font-bold text-background-13">
-                  {isEn ? "Connected Growth System" : "Sistema de Marketing Conectado"}
-                </h3>
-              </div>
+          <div class="pb-5 mb-5 border-b border-white/20">
+            <div>
+              <span class="font-ibm-plex-mono text-[11px] font-semibold text-purple-200 uppercase tracking-wider block mb-1">
+                {isEn ? "Our Unified Ecosystem" : "Nuestro Ecosistema Unificado"}
+              </span>
+              <h3 class="font-sora text-lg sm:text-xl font-bold text-white">
+                {isEn ? "Connected Growth System" : "Sistema de Marketing Conectado"}
+              </h3>
             </div>
           </div>
 
-          <p class="font-inter-tight text-sm text-background-13/80 mb-6 leading-relaxed">
-            {isEn
-              ? "We engineer every paid ad as the first link in a continuous, high-converting customer journey:"
-              : "Diseñamos cada anuncio como el primer eslabón de una cadena continua de conversión:"}
-          </p>
-
-          <ul class="space-y-4 font-inter-tight text-sm text-background-13/80">
+          <!-- 2x2 Mini Cards Grid (Purple / White Glassmorphism) -->
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 font-inter-tight">
             {isEn ? (
               <>
-                <li class="flex items-start gap-3">
-                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Validated creative hooks:</strong> Videos and assets engineered with tested frameworks to stop the scroll.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Sub-second landing pages with dual CTAs:</strong> Blazing speed with direct prefilled WhatsApp & booking forms.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Full CAPI + GA4 + GTM tracking:</strong> 100% accurate conversion signals feeding ad platform algorithms.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Instant automated routing:</strong> Zero delays in lead response times, maximizing sales conversion.</span>
-                </li>
+                <div class="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md p-3.5 flex items-center gap-2.5 shadow-xs">
+                  <CheckCircle2 class="h-4 w-4 text-purple-200 shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Validated Hooks</span>
+                </div>
+
+                <div class="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md p-3.5 flex items-center gap-2.5 shadow-xs">
+                  <CheckCircle2 class="h-4 w-4 text-purple-200 shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Sub-Second Landings</span>
+                </div>
+
+                <div class="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md p-3.5 flex items-center gap-2.5 shadow-xs">
+                  <CheckCircle2 class="h-4 w-4 text-purple-200 shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">CAPI + GA4 Tracking</span>
+                </div>
+
+                <div class="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md p-3.5 flex items-center gap-2.5 shadow-xs">
+                  <CheckCircle2 class="h-4 w-4 text-purple-200 shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Instant Response</span>
+                </div>
               </>
             ) : (
               <>
-                <li class="flex items-start gap-3">
-                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Creativos con hooks validados:</strong> Videos y piezas con estructura probada para capturar atención real.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Landings ultra rápidas con conversión dual:</strong> Carga en &lt;1s con WhatsApp prellenado y formularios directos.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Tracking CAPI + GA4 + GTM:</strong> Atribución precisa del 100% de conversiones para algoritmos de pauta.</span>
-                </li>
-                <li class="flex items-start gap-3">
-                  <CheckCircle2 class="h-5 w-5 text-emerald-600 shrink-0 mt-0.5" />
-                  <span><strong>Atención inmediata y automatización:</strong> Respuestas ágiles que capturan al prospecto al instante.</span>
-                </li>
+                <div class="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md p-3.5 flex items-center gap-2.5 shadow-xs">
+                  <CheckCircle2 class="h-4 w-4 text-purple-200 shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Hooks Validados</span>
+                </div>
+
+                <div class="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md p-3.5 flex items-center gap-2.5 shadow-xs">
+                  <CheckCircle2 class="h-4 w-4 text-purple-200 shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Landings Ultra Rápidas</span>
+                </div>
+
+                <div class="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md p-3.5 flex items-center gap-2.5 shadow-xs">
+                  <CheckCircle2 class="h-4 w-4 text-purple-200 shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Tracking CAPI + GA4</span>
+                </div>
+
+                <div class="rounded-xl border border-white/20 bg-white/10 backdrop-blur-md p-3.5 flex items-center gap-2.5 shadow-xs">
+                  <CheckCircle2 class="h-4 w-4 text-purple-200 shrink-0" />
+                  <span class="font-semibold text-white text-xs sm:text-sm">Respuesta Inmediata</span>
+                </div>
               </>
             )}
-          </ul>
+          </div>
         </div>
 
-        <div class="mt-8 pt-5 border-t border-black/5 font-ibm-plex-mono text-xs text-opai-purple font-semibold flex items-center justify-between">
-          <span>{isEn ? "Verified Outcome:" : "Resultado Validado:"}</span>
-          <span>{isEn ? "Higher ROAS, qualified pipeline & predictable scale" : "Mayor ROAS, leads calificados y escala real"}</span>
+        <div class="mt-6 pt-4 border-t border-white/20 font-ibm-plex-mono text-xs text-purple-200 font-semibold flex items-center justify-between">
+          <span>{isEn ? "Verified Result:" : "Resultado Validado:"}</span>
+          <span class="font-bold text-white">{isEn ? "Higher ROAS & qualified pipeline" : "Mayor ROAS & leads calificados"}</span>
         </div>
       </div>
 
+    </div>
+
+    <!-- Bottom Description Highlight -->
+    <div data-opai-animate data-delay="0.3" class="mt-12 sm:mt-16 text-center max-w-3xl mx-auto">
+      <p class="font-inter-tight text-base sm:text-lg lg:text-xl font-medium text-background-13/80 leading-relaxed">
+        {subtitle}
+      </p>
     </div>
 
   </div>
