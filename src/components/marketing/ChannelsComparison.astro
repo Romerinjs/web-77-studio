@@ -1,6 +1,6 @@
 ---
 // src/components/marketing/ChannelsComparison.astro
-import { Share2, Search, ArrowRight, Repeat } from 'lucide-astro';
+import { ArrowRight, Repeat } from 'lucide-astro';
 import type { SupportedLocale } from '@/lib/i18n/ui';
 
 interface Props {
@@ -39,27 +39,27 @@ const subtitle = isEn
       <div 
         data-opai-animate 
         data-delay="0.1" 
-        class="group rounded-[28px] border border-stroke-2/60 border-b-2 border-b-transparent bg-slate-50/70 p-7 sm:p-9 shadow-xs hover:bg-white hover:shadow-xl hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 flex flex-col justify-between"
+        class="group rounded-[28px] border border-stroke-2/60 border-b-2 border-b-transparent bg-slate-50/70 p-7 sm:p-9 shadow-xs hover:bg-white hover:shadow-xl hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
       >
-        <div>
-          <div class="flex items-center justify-between pb-5 mb-6 border-b border-black/5">
-            <div class="flex items-center gap-3.5">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white group-hover:scale-105 transition-transform shadow-xs">
-                <Share2 class="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <h3 class="font-sora text-2xl font-bold text-background-13 group-hover:text-opai-purple transition-colors">
-                  Meta Ads
-                </h3>
-              </div>
-            </div>
-            <span class="font-ibm-plex-mono text-xs px-3 py-1 rounded-full bg-black/5 text-background-13/80 font-medium">
-              Instagram + Facebook
-            </span>
+        <!-- Meta Background Logo (Centered & Large) -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[420px] h-[320px] sm:h-[420px] pointer-events-none opacity-[0.06] group-hover:opacity-[0.11] transition-opacity z-0">
+          <img 
+            src="/img/logos-platforms/meta-logo.avif" 
+            alt="" 
+            aria-hidden="true" 
+            class="w-full h-full object-contain" 
+          />
+        </div>
+
+        <div class="relative z-10">
+          <div class="pb-4 mb-5 border-b border-black/5">
+            <h3 class="font-sora text-2xl sm:text-3xl font-bold text-background-13 group-hover:text-opai-purple transition-colors">
+              Meta Ads
+            </h3>
           </div>
 
           <div class="font-sora text-lg font-semibold text-background-13 mb-3">
-            {isEn ? "Mission: Generate Demand & Spark Desire" : "Misión: Generar Demanda & Despertar Interés"}
+            {isEn ? "Generate Demand & Spark Desire" : "Generar Demanda & Despertar Interés"}
           </div>
 
           <p class="font-inter-tight text-sm sm:text-base text-background-13/75 mb-6 leading-relaxed">
@@ -68,38 +68,104 @@ const subtitle = isEn
               : "Tu cliente no sabe que existes o no está buscando activamente tu servicio en este momento. Meta Ads interrumpe su feed con contenido visual relevante, crea la necesidad y posiciona tu marca en su mente."}
           </p>
 
-          <div class="space-y-3 font-inter-tight text-sm text-background-13/80">
+          <!-- 3 Columns Row (Hover Degrade Image + Overlay + White Text) -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 font-inter-tight">
             {isEn ? (
               <>
-                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-                  <span><strong>Targeting:</strong> Lookalikes, Advantage+ & high-purchasing power segments</span>
+                <div class="group/pill relative overflow-hidden p-3 rounded-2xl bg-white border border-black/5 text-center shadow-2xs font-semibold text-xs sm:text-sm text-background-13 transition-all duration-300 cursor-pointer">
+                  <div class="absolute inset-0 opacity-0 group-hover/pill:opacity-100 transition-opacity duration-300 -z-0 overflow-hidden">
+                    <img 
+                      src="/img/degrades/negativo 1 p-100.jpg" 
+                      alt="" 
+                      aria-hidden="true" 
+                      class="w-full h-full object-cover" 
+                    />
+                    <div class="absolute inset-0 bg-black/35"></div>
+                  </div>
+                  <span class="relative z-10 group-hover/pill:text-white transition-colors duration-300">
+                    Targeting
+                  </span>
                 </div>
-                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-                  <span><strong>Formats:</strong> Hook-first Reels, product carousels & UGC videos</span>
+
+                <div class="group/pill relative overflow-hidden p-3 rounded-2xl bg-white border border-black/5 text-center shadow-2xs font-semibold text-xs sm:text-sm text-background-13 transition-all duration-300 cursor-pointer">
+                  <div class="absolute inset-0 opacity-0 group-hover/pill:opacity-100 transition-opacity duration-300 -z-0 overflow-hidden">
+                    <img 
+                      src="/img/degrades/negativo 1 p-100.jpg" 
+                      alt="" 
+                      aria-hidden="true" 
+                      class="w-full h-full object-cover" 
+                    />
+                    <div class="absolute inset-0 bg-black/35"></div>
+                  </div>
+                  <span class="relative z-10 group-hover/pill:text-white transition-colors duration-300">
+                    Formats
+                  </span>
                 </div>
-                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-                  <span><strong>Remarketing:</strong> Re-engaging website visitors & abandoned carts</span>
+
+                <div class="group/pill relative overflow-hidden p-3 rounded-2xl bg-white border border-black/5 text-center shadow-2xs font-semibold text-xs sm:text-sm text-background-13 transition-all duration-300 cursor-pointer">
+                  <div class="absolute inset-0 opacity-0 group-hover/pill:opacity-100 transition-opacity duration-300 -z-0 overflow-hidden">
+                    <img 
+                      src="/img/degrades/negativo 1 p-100.jpg" 
+                      alt="" 
+                      aria-hidden="true" 
+                      class="w-full h-full object-cover" 
+                    />
+                    <div class="absolute inset-0 bg-black/35"></div>
+                  </div>
+                  <span class="relative z-10 group-hover/pill:text-white transition-colors duration-300">
+                    Remarketing
+                  </span>
                 </div>
               </>
             ) : (
               <>
-                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-                  <span><strong>Audiencias:</strong> Lookalikes, Advantage+ e intereses de alto poder adquisitivo</span>
+                <div class="group/pill relative overflow-hidden p-3 rounded-2xl bg-white border border-black/5 text-center shadow-2xs font-semibold text-xs sm:text-sm text-background-13 transition-all duration-300 cursor-pointer">
+                  <div class="absolute inset-0 opacity-0 group-hover/pill:opacity-100 transition-opacity duration-300 -z-0 overflow-hidden">
+                    <img 
+                      src="/img/degrades/negativo 1 p-100.jpg" 
+                      alt="" 
+                      aria-hidden="true" 
+                      class="w-full h-full object-cover" 
+                    />
+                    <div class="absolute inset-0 bg-black/35"></div>
+                  </div>
+                  <span class="relative z-10 group-hover/pill:text-white transition-colors duration-300">
+                    Audiencias
+                  </span>
                 </div>
-                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-                  <span><strong>Formatos:</strong> Reels con hook, carruseles de producto y video UGC</span>
+
+                <div class="group/pill relative overflow-hidden p-3 rounded-2xl bg-white border border-black/5 text-center shadow-2xs font-semibold text-xs sm:text-sm text-background-13 transition-all duration-300 cursor-pointer">
+                  <div class="absolute inset-0 opacity-0 group-hover/pill:opacity-100 transition-opacity duration-300 -z-0 overflow-hidden">
+                    <img 
+                      src="/img/degrades/negativo 1 p-100.jpg" 
+                      alt="" 
+                      aria-hidden="true" 
+                      class="w-full h-full object-cover" 
+                    />
+                    <div class="absolute inset-0 bg-black/35"></div>
+                  </div>
+                  <span class="relative z-10 group-hover/pill:text-white transition-colors duration-300">
+                    Formatos
+                  </span>
                 </div>
-                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-                  <span><strong>Remarketing:</strong> Recuperación de carritos y visitantes de la web</span>
+
+                <div class="group/pill relative overflow-hidden p-3 rounded-2xl bg-white border border-black/5 text-center shadow-2xs font-semibold text-xs sm:text-sm text-background-13 transition-all duration-300 cursor-pointer">
+                  <div class="absolute inset-0 opacity-0 group-hover/pill:opacity-100 transition-opacity duration-300 -z-0 overflow-hidden">
+                    <img 
+                      src="/img/degrades/negativo 1 p-100.jpg" 
+                      alt="" 
+                      aria-hidden="true" 
+                      class="w-full h-full object-cover" 
+                    />
+                    <div class="absolute inset-0 bg-black/35"></div>
+                  </div>
+                  <span class="relative z-10 group-hover/pill:text-white transition-colors duration-300">
+                    Remarketing
+                  </span>
                 </div>
               </>
             )}
           </div>
-        </div>
-
-        <div class="mt-8 pt-5 border-t border-black/5 font-ibm-plex-mono text-xs text-background-13/70 font-medium flex items-center justify-between">
-          <span>{isEn ? "Primary Objective:" : "Objetivo Principal:"}</span>
-          <span class="text-opai-purple font-semibold">{isEn ? "New Demand & Brand Recall" : "Demanda nueva & Recuerdo de marca"}</span>
         </div>
       </div>
 
@@ -107,27 +173,27 @@ const subtitle = isEn
       <div 
         data-opai-animate 
         data-delay="0.2" 
-        class="group rounded-[28px] border border-stroke-2/60 border-b-2 border-b-transparent bg-slate-50/70 p-7 sm:p-9 shadow-xs hover:bg-white hover:shadow-xl hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 flex flex-col justify-between"
+        class="group rounded-[28px] border border-stroke-2/60 border-b-2 border-b-transparent bg-slate-50/70 p-7 sm:p-9 shadow-xs hover:bg-white hover:shadow-xl hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 flex flex-col justify-between relative overflow-hidden"
       >
-        <div>
-          <div class="flex items-center justify-between pb-5 mb-6 border-b border-black/5">
-            <div class="flex items-center gap-3.5">
-              <div class="flex h-12 w-12 items-center justify-center rounded-2xl bg-background-13 text-white group-hover:scale-105 transition-transform shadow-xs">
-                <Search class="h-6 w-6 text-white" />
-              </div>
-              <div>
-                <h3 class="font-sora text-2xl font-bold text-background-13 group-hover:text-opai-purple transition-colors">
-                  Google Ads
-                </h3>
-              </div>
-            </div>
-            <span class="font-ibm-plex-mono text-xs px-3 py-1 rounded-full bg-black/5 text-background-13/80 font-medium">
-              Search + Performance Max
-            </span>
+        <!-- Google Background Logo (Centered & Large) -->
+        <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[320px] sm:w-[420px] h-[320px] sm:h-[420px] pointer-events-none opacity-[0.06] group-hover:opacity-[0.11] transition-opacity z-0">
+          <img 
+            src="/img/logos-platforms/Google_Favicon_2025.svg.webp" 
+            alt="" 
+            aria-hidden="true" 
+            class="w-full h-full object-contain" 
+          />
+        </div>
+
+        <div class="relative z-10">
+          <div class="pb-4 mb-5 border-b border-black/5">
+            <h3 class="font-sora text-2xl sm:text-3xl font-bold text-background-13 group-hover:text-opai-purple transition-colors">
+              Google Ads
+            </h3>
           </div>
 
           <div class="font-sora text-lg font-semibold text-background-13 mb-3">
-            {isEn ? "Mission: Capture Active Purchase Intent" : "Misión: Capturar Intención Activa de Compra"}
+            {isEn ? "Capture Active Purchase Intent" : "Capturar Intención Activa de Compra"}
           </div>
 
           <p class="font-inter-tight text-sm sm:text-base text-background-13/75 mb-6 leading-relaxed">
@@ -136,38 +202,104 @@ const subtitle = isEn
               : "El cliente ya sabe qué necesita, tiene urgencia y está buscando en Google la mejor opción para contratar o comprar hoy mismo. Google Ads coloca tu empresa en la primera posición exacta en ese instante crítico."}
           </p>
 
-          <div class="space-y-3 font-inter-tight text-sm text-background-13/80">
+          <!-- 3 Columns Row (Hover Degrade Image + Overlay + White Text) -->
+          <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 font-inter-tight">
             {isEn ? (
               <>
-                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-                  <span><strong>High-Intent Search:</strong> Transactional queries and high-intent commercial terms</span>
+                <div class="group/pill relative overflow-hidden p-3 rounded-2xl bg-white border border-black/5 text-center shadow-2xs font-semibold text-xs sm:text-sm text-background-13 transition-all duration-300 cursor-pointer">
+                  <div class="absolute inset-0 opacity-0 group-hover/pill:opacity-100 transition-opacity duration-300 -z-0 overflow-hidden">
+                    <img 
+                      src="/img/degrades/negativo 1 p-100.jpg" 
+                      alt="" 
+                      aria-hidden="true" 
+                      class="w-full h-full object-cover" 
+                    />
+                    <div class="absolute inset-0 bg-black/35"></div>
+                  </div>
+                  <span class="relative z-10 group-hover/pill:text-white transition-colors duration-300">
+                    High-Intent Search
+                  </span>
                 </div>
-                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-                  <span><strong>Performance Max:</strong> Multi-channel reach across Search, YouTube, Gmail & Maps</span>
+
+                <div class="group/pill relative overflow-hidden p-3 rounded-2xl bg-white border border-black/5 text-center shadow-2xs font-semibold text-xs sm:text-sm text-background-13 transition-all duration-300 cursor-pointer">
+                  <div class="absolute inset-0 opacity-0 group-hover/pill:opacity-100 transition-opacity duration-300 -z-0 overflow-hidden">
+                    <img 
+                      src="/img/degrades/negativo 1 p-100.jpg" 
+                      alt="" 
+                      aria-hidden="true" 
+                      class="w-full h-full object-cover" 
+                    />
+                    <div class="absolute inset-0 bg-black/35"></div>
+                  </div>
+                  <span class="relative z-10 group-hover/pill:text-white transition-colors duration-300">
+                    Performance Max
+                  </span>
                 </div>
-                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-                  <span><strong>Direct Action:</strong> One-click inbound calls, WhatsApp chats, and fast form fills</span>
+
+                <div class="group/pill relative overflow-hidden p-3 rounded-2xl bg-white border border-black/5 text-center shadow-2xs font-semibold text-xs sm:text-sm text-background-13 transition-all duration-300 cursor-pointer">
+                  <div class="absolute inset-0 opacity-0 group-hover/pill:opacity-100 transition-opacity duration-300 -z-0 overflow-hidden">
+                    <img 
+                      src="/img/degrades/negativo 1 p-100.jpg" 
+                      alt="" 
+                      aria-hidden="true" 
+                      class="w-full h-full object-cover" 
+                    />
+                    <div class="absolute inset-0 bg-black/35"></div>
+                  </div>
+                  <span class="relative z-10 group-hover/pill:text-white transition-colors duration-300">
+                    Direct Action
+                  </span>
                 </div>
               </>
             ) : (
               <>
-                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-                  <span><strong>Búsqueda de Alta Intención:</strong> Términos transaccionales y de solución inmediata</span>
+                <div class="group/pill relative overflow-hidden p-3 rounded-2xl bg-white border border-black/5 text-center shadow-2xs font-semibold text-xs sm:text-sm text-background-13 transition-all duration-300 cursor-pointer">
+                  <div class="absolute inset-0 opacity-0 group-hover/pill:opacity-100 transition-opacity duration-300 -z-0 overflow-hidden">
+                    <img 
+                      src="/img/degrades/negativo 1 p-100.jpg" 
+                      alt="" 
+                      aria-hidden="true" 
+                      class="w-full h-full object-cover" 
+                    />
+                    <div class="absolute inset-0 bg-black/35"></div>
+                  </div>
+                  <span class="relative z-10 group-hover/pill:text-white transition-colors duration-300">
+                    Búsqueda de Alta Intención
+                  </span>
                 </div>
-                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-                  <span><strong>Performance Max:</strong> Cobertura en Search, YouTube, Gmail y Maps</span>
+
+                <div class="group/pill relative overflow-hidden p-3 rounded-2xl bg-white border border-black/5 text-center shadow-2xs font-semibold text-xs sm:text-sm text-background-13 transition-all duration-300 cursor-pointer">
+                  <div class="absolute inset-0 opacity-0 group-hover/pill:opacity-100 transition-opacity duration-300 -z-0 overflow-hidden">
+                    <img 
+                      src="/img/degrades/negativo 1 p-100.jpg" 
+                      alt="" 
+                      aria-hidden="true" 
+                      class="w-full h-full object-cover" 
+                    />
+                    <div class="absolute inset-0 bg-black/35"></div>
+                  </div>
+                  <span class="relative z-10 group-hover/pill:text-white transition-colors duration-300">
+                    Performance Max
+                  </span>
                 </div>
-                <div class="p-3.5 rounded-2xl bg-white border border-black/5 flex items-center justify-between">
-                  <span><strong>Conversión Inmediata:</strong> Clics directos a llamada, WhatsApp y formulario</span>
+
+                <div class="group/pill relative overflow-hidden p-3 rounded-2xl bg-white border border-black/5 text-center shadow-2xs font-semibold text-xs sm:text-sm text-background-13 transition-all duration-300 cursor-pointer">
+                  <div class="absolute inset-0 opacity-0 group-hover/pill:opacity-100 transition-opacity duration-300 -z-0 overflow-hidden">
+                    <img 
+                      src="/img/degrades/negativo 1 p-100.jpg" 
+                      alt="" 
+                      aria-hidden="true" 
+                      class="w-full h-full object-cover" 
+                    />
+                    <div class="absolute inset-0 bg-black/35"></div>
+                  </div>
+                  <span class="relative z-10 group-hover/pill:text-white transition-colors duration-300">
+                    Conversión Inmediata
+                  </span>
                 </div>
               </>
             )}
           </div>
-        </div>
-
-        <div class="mt-8 pt-5 border-t border-black/5 font-ibm-plex-mono text-xs text-background-13/70 font-medium flex items-center justify-between">
-          <span>{isEn ? "Primary Objective:" : "Objetivo Principal:"}</span>
-          <span class="text-emerald-700 font-semibold">{isEn ? "Instant Inquiries & Deal Closing" : "Conversión inmediata & Cierre de venta"}</span>
         </div>
       </div>
 

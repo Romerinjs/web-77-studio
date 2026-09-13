@@ -70,8 +70,18 @@ const subtitle = isEn
   : "Sin fricción ni burocracia innecesaria. Comunicación directa, entregas iterativas y enfoque permanente en mover la aguja comercial.";
 ---
 
-<section id="proceso" class="py-20 sm:py-28 bg-slate-50/70 relative overflow-hidden">
-  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+<section id="proceso" class="py-20 sm:py-28 bg-slate-50/30 relative overflow-hidden">
+  <!-- Background Photographic Image with Higher Visibility -->
+  <img 
+    src="/img/bgs/Sala-de-juntas.png" 
+    alt="77 Studio Sala de Juntas" 
+    loading="lazy" 
+    decoding="async" 
+    class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-40 mix-blend-multiply"
+  />
+  <div class="absolute inset-0 bg-slate-50/20 pointer-events-none" />
+
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6 relative z-10">
     
     <!-- 1. DESKTOP VIEW: High-End Orbital Curve Timeline (md and up) -->
     <div 
@@ -88,7 +98,7 @@ const subtitle = isEn
           </linearGradient>
         </defs>
         <path 
-          d="M 60 50 C 180 390, 820 390, 940 50" 
+          d="M 60 135 C 180 410, 820 410, 940 135" 
           stroke="url(#orbitalArcGrad)" 
           stroke-width="3" 
           stroke-dasharray="6 6"
@@ -110,7 +120,7 @@ const subtitle = isEn
       <!-- Node 01 (Far Upper Left) -->
       <button
         class="process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
-        style="left: 6%; top: 16%; transform: translate(-50%, -50%);"
+        style="left: 6%; top: 30%; transform: translate(-50%, -50%);"
         data-step="0"
         aria-label={`Step 01: ${steps[0].name}`}
       >
@@ -140,7 +150,7 @@ const subtitle = isEn
       <!-- Node 04 (Far Upper Right) -->
       <button
         class="process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
-        style="left: 94%; top: 16%; transform: translate(-50%, -50%);"
+        style="left: 94%; top: 30%; transform: translate(-50%, -50%);"
         data-step="3"
         aria-label={`Step 04: ${steps[3].name}`}
       >

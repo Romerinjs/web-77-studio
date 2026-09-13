@@ -6,10 +6,31 @@ El formato está basado en [Keep a Changelog](https://keepachangelog.com/es-ES/1
 
 ---
 
-## [Unreleased] - 2026-09-05
+## [Unreleased] - 2026-09-12
+
+### Changed
+- **Hero de la Página Principal (`HeroHome.astro`)**:
+  - Incorporación del logotipo gigante en marca de agua `/img/logo-variaciones/negro2.png` al fondo con opacidad sutil (`opacity-[0.08]`).
+  - Ajuste de apilamiento visual (`z-0`) para evitar que el fondo blanco del layout los oculte.
+  - Incremento de escala y opacidad (`40%` a `50%`) en la distribución artística e irregular de isotipos de color (`principal 2.png`, `naranja2.png`, `morado2.png`, `azul2.png`) en posiciones estratégicas y rotaciones (`-35°` a `+42°`) con micro-animaciones flotantes continuas (`animate-float-slow`, `animate-float-delay`).
+- **Sección de Filosofía Acordeón en Home (`PhilosophySection.astro`, `index.astro`, `en/index.astro`)**:
+  - Reemplazo de la sección *"Proyectos reales diseñados para mover métricas comerciales"* (`CasesSection.astro`) por la sección de **Filosofía de Trabajo & Acordeón Horizontal Interactivo** (`PhilosophySection.astro`) en la vista del Home bilingüe (`/` y `/en/`).
+  - Actualización de la fotografía de fondo de las tarjetas del acordeón: tarjeta 1 (*"Cero Humo Tecnológico"*) con `/img/bgs/Sala-de-juntas.png` y tarjeta 3 (*"Obsesión por la Ejecución Ágil"*) con `/img/bgs/table-work.jpg`.
+- **Sección Proceso en 4 Pasos en Home (`ProcessSection.astro`)**:
+  - Integración de la fotografía `/img/bgs/Sala-de-juntas.png` con opacidad incrementada (`opacity-40`) y reducción del velo blanco superpuesto (`bg-slate-50/30`), destacando la presencia visual de la sala de juntas detrás de los nodos orbitales.
+  - Reubicación vertical de los nodos interactivos 01 y 04 descendiendo su posición (`top: 30%`) y alineando el trazado de la curva orbital SVG.
+- **Módulo Marketing (`HeroMarketing.astro`, `CapabilitiesGrid.astro`)**:
+  - Incorporación de la fotografía de estudio `/img/bgs/tania-licxa-work.JPG` como imagen de fondo del Hero con encuadre ajustado en `object-[center_35%]`, capa translúcida `bg-white/75` y desenfoque sutil para mayor presencia del equipo sin interferir en los contenidos.
+  - Eliminación de la tarjeta dashboard interactiva (*"Paid Media Dashboard Showcase"* / `performance-engine-v2.live`), dejando el Hero enfocado directamente en el mensaje y los CTAs duales comerciales.
+  - Síntesis y optimización visual de la sección comparativa (`PPCComparisonSection.astro`), aplicando fondo rojo con letras e íconos blancos a las 4 mini-tarjetas del Modelo Tradicional, agregando la imagen de degradado `/img/degrades/negativo 4 p-100.jpg` a la tarjeta de Metodología 77 Studio con la etiqueta *"Nuestro Ecosistema Unificado"*, insignia circular blanca flotante de 64px y sombra 3D profunda (`shadow-black/35`).
+  - Rediseño de tarjetas en sección de canales (`ChannelsComparison.astro`), eliminando íconos de cabecera y etiquetas secundarias en Meta Ads y Google Ads, removiendo el prefijo *"Misión:"*, el pie de página *"Objetivo"* y las descripciones largas para condensar las características en una sola fila horizontal de 3 columnas (`grid-cols-3`) con estado hover dinámico (aparición del degradado `/img/degrades/negativo 1 p-100.jpg`, capa de sombra negra y texto blanco), e incorporando logotipos gigantes centrados de baja opacidad (`meta-logo.avif`, `Google_Favicon_2025.svg.webp`) en el fondo.
+  - Rediseño del showcase de anuncios (`CreativeShowcase.astro`), removiendo la etiqueta superior de métricas, la frase inferior *"Formato Optimizado para Conversión"* y el párrafo descriptivo de la cabecera, ampliando el ancho del título (`max-w-5xl`) para reducir los márgenes laterales, asignando los fondos degradados (`negativo 1 p-100.jpg`, `negativo 3 p-100.jpg`, `positivo 2 p-100.jpg`, `postivo 3 p-100.jpg`) con opacidad oscura superpuesta (`bg-black/65`), e incorporando las fotografías laterales en el lado derecho de las tarjetas (`juli-edit.JPG`, `set-bio.jpg`, `camera2.jpg`, `ads-lettering.jpg`).
+  - Rediseño de la sección del proceso en 4 pasos de Marketing (`MarketingProcess.astro`), homologando la estructura visual interactiva de curva orbital SVG y nodos 01-04 del Home (`ProcessSection.astro`) e integrando la fotografía de fondo `/img/bgs/camera-filming.jpg` con opacidad sutil (`opacity-40 mix-blend-multiply`).
+  - Actualización del título de la tarjeta 10 a *"Marketing por Whatsapp"* / *"WhatsApp Marketing"*.
 
 ### Added
-- **Roster de Equipo Interactivo Estilo Fighter Selection Screen (`TeamRosterSection.astro`, `nosotros.astro`, `en/nosotros.astro`)**:
+- **Roster de Equipo Interactivo Estilo Fighter Selection Screen (`TeamRosterSection.astro`, `index.astro`, `en/index.astro`, `nosotros.astro`, `en/nosotros.astro`)**:
+  - Ubicación de la sección/stage interactivo del Roster del Equipo (`TeamRosterSection.astro`) en las páginas del Home bilingüe (`/` y `/en/`), ubicada directamente debajo de la sección de Presencia Internacional (*"Desde Colombia y Estados Unidos, colaborando con empresas sin fronteras"* / `InternationalPresence.astro`).
   - Implementación de la vista interactiva de selección de personajes para los 10 integrantes de 77 Studio, inspirada en la pantalla de luchadores de *La Velada del Año* y adaptada al Manual de Diseño de 77 Studio.
   - Spotlight Central Superior con imagen completa (`/img/equipo/*.jpg|png`), marcas de agua dinámicas con nombre del integrante y logotipo 77 flotante (`/img/logo-variaciones/morado5.png`), badges de cargo y HUB (`COLOMBIA ↔ USA`).
   - Mosaico inferior de 10 integrantes interactivo utilizando las miniaturas `*2.jpg` con estados de hover, anillo luminoso violeta (`border-opai-purple`), micro-animaciones y soporte para interacción táctil en móvil.

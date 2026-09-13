@@ -1,6 +1,5 @@
 ---
 // src/components/marketing/MarketingProcess.astro
-import { Search, PenTool, Rocket, LineChart } from 'lucide-astro';
 import type { SupportedLocale } from '@/lib/i18n/ui';
 
 interface Props {
@@ -12,52 +11,52 @@ const isEn = currentLang === 'en';
 
 const steps = isEn ? [
   {
-    number: "01",
-    icon: Search,
-    title: "Discover & Analyze",
+    step: "01",
+    name: "Discover",
+    title: "Discovery & Analysis",
     description: "We analyze your business model, commercial offer, ideal customer profile (ICP), and unexploited competitive angles."
   },
   {
-    number: "02",
-    icon: PenTool,
-    title: "Design & Produce",
+    step: "02",
+    name: "Design",
+    title: "Strategy & Production",
     description: "We craft high-converting video hooks, graphic ads, copy, and dedicated landing pages to capture incoming demand."
   },
   {
-    number: "03",
-    icon: Rocket,
-    title: "Launch & Track",
+    step: "03",
+    name: "Launch",
+    title: "Tracking & Activation",
     description: "We configure Meta Conversions API (CAPI), Google Tag Manager, GA4, and launch campaigns with controlled testing budgets."
   },
   {
-    number: "04",
-    icon: LineChart,
-    title: "Optimize & Scale",
+    step: "04",
+    name: "Optimize",
+    title: "Measurement & Scale",
     description: "We monitor real-time KPIs, eliminate non-performers, double down on winning creative hooks, and scale profitable ad spend."
   }
 ] : [
   {
-    number: "01",
-    icon: Search,
-    title: "Entendemos",
+    step: "01",
+    name: "Entendemos",
+    title: "Descubrimiento & Análisis",
     description: "Analizamos tu modelo de negocio, tu oferta comercial, tu cliente ideal (ICP) y los ángulos que tu competencia no está explotando."
   },
   {
-    number: "02",
-    icon: PenTool,
-    title: "Diseñamos",
+    step: "02",
+    name: "Diseñamos",
+    title: "Estrategia & Producción",
     description: "Creamos los videos, anuncios gráficos, copys y la página de aterrizaje donde aterrizará el tráfico para garantizar máxima conversión."
   },
   {
-    number: "03",
-    icon: Rocket,
-    title: "Lanzamos",
+    step: "03",
+    name: "Lanzamos",
+    title: "Implementación & Tracking",
     description: "Configuramos Meta Conversions API (CAPI), Google Tag Manager, GA4 y activamos las campañas con presupuestos controlados."
   },
   {
-    number: "04",
-    icon: LineChart,
-    title: "Optimizamos",
+    step: "04",
+    name: "Optimizamos",
+    title: "Medición & Escala",
     description: "Monitoreamos métricas en tiempo real, apagamos lo que no funciona, duplicamos los creativos ganadores y escalamos el presupuesto."
   }
 ];
@@ -71,55 +70,272 @@ const subtitle = isEn
   : "Un proceso estructurado, transparente y orientado a métricas de negocio reales, sin sorpresas ni experimentos a ciegas.";
 ---
 
-<section class="py-20 sm:py-28 bg-slate-50 relative border-t border-black/5">
-  <div class="mx-auto max-w-[1290px] px-4 sm:px-6">
+<section id="proceso" class="py-20 sm:py-28 bg-slate-50/30 relative overflow-hidden border-t border-black/5">
+  <!-- Background Photographic Image (camera-filming.jpg) -->
+  <img 
+    src="/img/bgs/camera-filming.jpg" 
+    alt="77 Studio Camera Filming" 
+    loading="lazy" 
+    decoding="async" 
+    class="absolute inset-0 w-full h-full object-cover object-center pointer-events-none opacity-40 mix-blend-multiply"
+  />
+  <div class="absolute inset-0 bg-slate-50/20 pointer-events-none"></div>
+
+  <div class="mx-auto max-w-[1290px] px-4 sm:px-6 relative z-10">
     
-    <!-- Section Header (Centered) -->
-    <div class="text-center max-w-3xl mx-auto mb-16">
-      <h2 data-text-reveal class="font-sora text-3xl sm:text-4xl lg:text-5xl font-bold tracking-tight text-background-13 leading-tight mb-4">
-        {title}
-      </h2>
-      <p data-opai-animate data-delay="0.2" class="font-inter-tight text-base sm:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
-        {subtitle}
-      </p>
+    <!-- 1. DESKTOP VIEW: High-End Orbital Curve Timeline (md and up) -->
+    <div 
+      class="marketing-process-orbital-container relative w-full max-w-5xl mx-auto min-h-[520px] select-none hidden md:flex flex-col items-center justify-between py-2"
+      data-steps={JSON.stringify(steps)}
+    >
+      <!-- Background Thin Gradient Arc -->
+      <svg viewBox="0 0 1000 450" class="w-full h-full absolute inset-0 pointer-events-none z-0" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="mktOrbitalArcGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+            <stop offset="0%" stop-color="#7c3aed" stop-opacity="0.2" />
+            <stop offset="50%" stop-color="#7c3aed" stop-opacity="0.5" />
+            <stop offset="100%" stop-color="#3b82f6" stop-opacity="0.2" />
+          </linearGradient>
+        </defs>
+        <path 
+          d="M 60 135 C 180 410, 820 410, 940 135" 
+          stroke="url(#mktOrbitalArcGrad)" 
+          stroke-width="3" 
+          stroke-dasharray="6 6"
+          class="opacity-90"
+        />
+      </svg>
+
+      <!-- Center Header Content -->
+      <div class="text-center max-w-3xl mx-auto pt-2 pb-4 relative z-10 space-y-3">
+        <h2 class="font-sora text-3xl lg:text-4xl xl:text-5xl font-extrabold tracking-tight text-background-13 leading-tight">
+          {title}
+        </h2>
+        <p class="font-inter-tight text-base lg:text-lg text-background-13/75 leading-relaxed max-w-2xl mx-auto">
+          {subtitle}
+        </p>
+      </div>
+
+      <!-- Interactive Step Node Buttons -->
+      <!-- Node 01 (Far Upper Left) -->
+      <button
+        class="mkt-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 6%; top: 30%; transform: translate(-50%, -50%);"
+        data-step="0"
+        aria-label={`Step 01: ${steps[0].name}`}
+      >
+        01
+      </button>
+
+      <!-- Node 02 (Lower Left) -->
+      <button
+        class="mkt-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 18%; top: 68%; transform: translate(-50%, -50%);"
+        data-step="1"
+        aria-label={`Step 02: ${steps[1].name}`}
+      >
+        02
+      </button>
+
+      <!-- Node 03 (Lower Right) -->
+      <button
+        class="mkt-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 82%; top: 68%; transform: translate(-50%, -50%);"
+        data-step="2"
+        aria-label={`Step 03: ${steps[2].name}`}
+      >
+        03
+      </button>
+
+      <!-- Node 04 (Far Upper Right) -->
+      <button
+        class="mkt-process-node absolute flex items-center justify-center rounded-full size-12 lg:size-14 bg-white text-background-13 font-ibm-plex-mono font-bold text-sm lg:text-base border border-black/10 shadow-sm transition-all duration-300 cursor-pointer z-20 hover:scale-110"
+        style="left: 94%; top: 30%; transform: translate(-50%, -50%);"
+        data-step="3"
+        aria-label={`Step 04: ${steps[3].name}`}
+      >
+        04
+      </button>
+
+      <!-- Bottom Center Elevated Active Step Card -->
+      <div class="relative z-10 w-full max-w-md mx-auto bg-white/95 backdrop-blur-md rounded-2xl p-6 lg:p-7 border border-black/10 shadow-xl text-center space-y-2.5 mb-2 transform transition-all duration-300">
+        <h3 class="mkt-process-step-title font-sora text-2xl lg:text-3xl font-bold text-background-13 tracking-tight">
+          {steps[0].name}
+        </h3>
+
+        <p class="mkt-process-step-subtitle font-sora text-xs sm:text-sm font-semibold text-background-13/50 tracking-wide uppercase">
+          {steps[0].title}
+        </p>
+
+        <p class="mkt-process-step-description font-inter-tight text-sm lg:text-base text-background-13/80 leading-relaxed max-w-sm mx-auto pt-1">
+          {steps[0].description}
+        </p>
+
+        <!-- Progress Dots Indicator -->
+        <div class="flex items-center justify-center gap-2 pt-2">
+          {steps.map((_, idx) => (
+            <span class={`mkt-process-dot h-1.5 rounded-full transition-all duration-300 ${idx === 0 ? 'w-6 bg-opai-purple' : 'w-1.5 bg-black/15'}`} />
+          ))}
+        </div>
+      </div>
     </div>
 
-    <!-- 4 Steps Process Grid -->
-    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-      {steps.map((step, index) => {
-        const IconComponent = step.icon;
-        const delay = (0.1 * (index + 1)).toFixed(1);
-        return (
-          <div 
-            data-opai-animate 
-            data-delay={delay}
-            class="group rounded-[24px] border border-stroke-2/60 border-b-2 border-b-transparent bg-white p-7 sm:p-8 flex flex-col justify-between shadow-xs hover:shadow-xl hover:border-black/20 hover:border-b-opai-purple transition-all duration-300 relative"
-          >
-            <div>
-              <!-- Step Number & Icon -->
-              <div class="flex items-center justify-between mb-6">
-                <span class="font-ibm-plex-mono text-2xl sm:text-3xl font-bold text-opai-purple group-hover:scale-105 transition-transform">
-                  {step.number}
-                </span>
-                <div class="flex h-11 w-11 items-center justify-center rounded-2xl bg-background-13 text-white shadow-xs group-hover:scale-105 transition-transform">
-                  <IconComponent class="h-5 w-5 text-white" />
-                </div>
-              </div>
+    <!-- 2. MOBILE VIEW: 4 Clean Cards Grid (under md) -->
+    <div class="space-y-6 md:hidden">
+      <!-- Mobile Header -->
+      <div class="text-center max-w-xl mx-auto space-y-3 mb-8">
+        <h2 class="font-sora text-2xl sm:text-3xl font-extrabold text-background-13 tracking-tight leading-tight">
+          {title}
+        </h2>
+        <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
+          {subtitle}
+        </p>
+      </div>
 
-              <!-- Title -->
-              <h3 class="font-sora text-xl font-bold text-background-13 mb-3 group-hover:text-opai-purple transition-colors">
-                {step.title}
+      <!-- Mobile 4 Cards -->
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+        {steps.map((st) => (
+          <div class="rounded-2xl border border-black/10 bg-white p-6 shadow-xs flex flex-col justify-between space-y-2">
+            <div>
+              <h3 class="font-sora text-xl font-bold text-background-13 mb-1">
+                {st.name}
               </h3>
 
-              <!-- Description -->
+              <p class="font-sora text-xs font-semibold text-background-13/50 tracking-wide uppercase mb-3">
+                {st.title}
+              </p>
+
               <p class="font-inter-tight text-sm text-background-13/75 leading-relaxed">
-                {step.description}
+                {st.description}
               </p>
             </div>
           </div>
-        );
-      })}
+        ))}
+      </div>
     </div>
 
   </div>
 </section>
+
+<style>
+  /* Smooth transitions for active step content */
+  .mkt-process-step-title,
+  .mkt-process-step-subtitle,
+  .mkt-process-step-description {
+    transition: opacity 0.25s ease, transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  /* Style for Active Node Button on desktop */
+  .mkt-process-node.active-node {
+    background-color: var(--color-opai-purple, #7c3aed) !important;
+    color: #ffffff !important;
+    border-color: #ffffff !important;
+    transform: translate(-50%, -50%) scale(1.25) !important;
+    box-shadow: 0 0 0 6px rgba(124, 58, 237, 0.2), 0 10px 25px rgba(124, 58, 237, 0.25) !important;
+  }
+</style>
+
+<script>
+  function initMktProcessOrbital() {
+    const container = document.querySelector('.marketing-process-orbital-container');
+    if (!container) return;
+
+    const dataAttr = container.getAttribute('data-steps');
+    if (!dataAttr) return;
+
+    const steps = JSON.parse(dataAttr);
+    const nodes = container.querySelectorAll('.mkt-process-node');
+    const titleEl = container.querySelector('.mkt-process-step-title') as HTMLElement;
+    const subtitleEl = container.querySelector('.mkt-process-step-subtitle') as HTMLElement;
+    const descEl = container.querySelector('.mkt-process-step-description') as HTMLElement;
+    const dots = container.querySelectorAll('.mkt-process-dot');
+
+    if (!titleEl || !descEl) return;
+
+    let currentIndex = 0;
+    let timerId: any = null;
+
+    const updateStep = (index: number) => {
+      // 1. Update node buttons active state
+      nodes.forEach((node, idx) => {
+        if (idx === index) {
+          node.classList.add('active-node');
+        } else {
+          node.classList.remove('active-node');
+        }
+      });
+
+      // 2. Update progress dots
+      dots.forEach((dot, idx) => {
+        if (idx === index) {
+          dot.className = 'mkt-process-dot h-1.5 rounded-full transition-all duration-300 w-6 bg-opai-purple';
+        } else {
+          dot.className = 'mkt-process-dot h-1.5 rounded-full transition-all duration-300 w-1.5 bg-black/15';
+        }
+      });
+
+      // 3. Fade out active card text
+      const textEls = [titleEl, subtitleEl, descEl];
+      textEls.forEach(el => {
+        if (el) {
+          el.style.opacity = '0';
+          el.style.transform = 'translateY(6px)';
+        }
+      });
+
+      // 4. Update content and fade back in
+      setTimeout(() => {
+        const stepData = steps[index];
+        if (titleEl) titleEl.textContent = stepData.name;
+        if (subtitleEl) subtitleEl.textContent = stepData.title;
+        if (descEl) descEl.textContent = stepData.description;
+
+        textEls.forEach(el => {
+          if (el) {
+            el.style.opacity = '1';
+            el.style.transform = 'translateY(0)';
+          }
+        });
+      }, 200);
+
+      currentIndex = index;
+    };
+
+    const startTimer = () => {
+      timerId = setInterval(() => {
+        const nextIndex = (currentIndex + 1) % steps.length;
+        updateStep(nextIndex);
+      }, 5000);
+    };
+
+    const resetTimer = () => {
+      if (timerId) {
+        clearInterval(timerId);
+      }
+      startTimer();
+    };
+
+    // Bind click handlers to nodes
+    nodes.forEach((node) => {
+      node.addEventListener('click', () => {
+        const stepIdx = parseInt(node.getAttribute('data-step') || '0', 10);
+        if (stepIdx === currentIndex) return;
+        updateStep(stepIdx);
+        resetTimer();
+      });
+    });
+
+    // Initialize initial state
+    updateStep(0);
+    startTimer();
+  }
+
+  // Bind to lifecycle
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initMktProcessOrbital);
+  } else {
+    initMktProcessOrbital();
+  }
+  document.addEventListener('astro:page-load', initMktProcessOrbital);
+</script>
+
